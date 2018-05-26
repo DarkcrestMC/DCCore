@@ -24,7 +24,7 @@ public class DCCore extends JavaPlugin {
 	
 	
 /*
- * REGISTER PERMS AND LISTENERS
+ * REGISTER LISTENERS
  */
 	public void registerListeners() {
 		pm.registerEvents(new SpawnerListener(), this);
