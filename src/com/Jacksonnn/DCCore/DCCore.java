@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
 
 public class DCCore extends JavaPlugin {
@@ -28,5 +29,6 @@ public class DCCore extends JavaPlugin {
  */
 	public void registerListeners() {
 		pm.registerEvents(new SpawnerListener(), this);
+		pm.registerEvents(new QuickDepositListener(), this);
 	}
 }
