@@ -1,0 +1,9 @@
+name: DCCore
+author: Jacksonnn
+version: BETA v1.0
+main: com.Jacksonnn.DCCore.DCCore
+permissions:
+  DCCore.spawner.place:
+    default: op
+  DCCore.spawner.break:
+    default: op
