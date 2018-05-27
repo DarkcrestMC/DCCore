@@ -45,9 +45,7 @@ public class QuickDepositListener implements Listener {
 	}
 	
 	@EventHandler
-	public void onRightClick(PlayerInteractEvent event, InventoryInteractEvent event2) {
-		
-		event2.setCancelled(true);
+	public void onRightClick(PlayerInteractEvent event) {
 		
 		Player player = event.getPlayer();
 		if (!player.hasPermission("DCCore.quickdeposit.use"))
@@ -63,9 +61,13 @@ public class QuickDepositListener implements Listener {
 						
 						if (blockAbove.isOccluding())
 							return;
+
+						
+						event.setCancelled(true);
 						
 						
 						for(ItemStack item : player.getInventory().getStorageContents()) {
+							
 							int empty = chest.getBlockInventory().firstEmpty();
 							
 							if (empty != -1)

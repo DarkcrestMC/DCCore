@@ -7,3 +7,5 @@ permissions:
     default: op
   DCCore.spawner.break:
     default: op
+  DCCore.quickdeposit.use:
+    default: op
