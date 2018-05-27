@@ -1,5 +1,8 @@
 package com.Jacksonnn.DCCore.QuickDeposit;
 
+import java.util.HashMap;
+
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
@@ -8,7 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.inventory.InventoryInteractEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -53,7 +55,7 @@ public class QuickDepositListener implements Listener {
 		else {
 			if (player.isSneaking()) {
 				if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-					BlockState state = (BlockState) event.getClickedBlock().getState();
+					BlockState state = event.getClickedBlock().getState();
 					
 					if (state instanceof Chest) {
 						Chest chest = (Chest) state;
@@ -69,13 +71,14 @@ public class QuickDepositListener implements Listener {
 						for(ItemStack item : player.getInventory().getStorageContents()) {
 							
 							int empty = chest.getBlockInventory().firstEmpty();
-							
-							if (empty != -1)
-								break;
-						    if(item == null)
-						        continue;
-						    if(!chest.getBlockInventory().addItem(item).isEmpty())
-						        break;
+							 
+                            if (empty == -1)
+                                break;
+                            if(item == null)
+                                continue;
+                            chest.getBlockInventory().addItem(item);
+                            event.getPlayer().getInventory().removeItem(item);
+							event.getPlayer().updateInventory();
 						}
 					}
 				}
