@@ -35,7 +35,7 @@ public class BroadcastCommand implements CommandExecutor {
 				Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + "- Console");
 			}
 		}
-		return false;
+		return true;
 	}
 	
 }
