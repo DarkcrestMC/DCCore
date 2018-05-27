@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
 
@@ -17,6 +18,7 @@ public class DCCore extends JavaPlugin {
 	public void onEnable() {
 		plugin = this;
 		registerListeners();
+		registerCommands();
 		
 		Bukkit.getServer().getLogger().info("DCCore has successfully been enabled!");
 		createConfig();
@@ -44,10 +46,16 @@ public class DCCore extends JavaPlugin {
 	  }
 	
 /*
- * REGISTER LISTENERS
+ * REGISTER LISTENERS AND COMMANDS
  */
 	public void registerListeners() {
 		pm.registerEvents(new SpawnerListener(), this);
 		pm.registerEvents(new QuickDepositListener(), this);
+	}
+	
+	public void registerCommands() {
+		this.getCommand("bc").setExecutor(new BroadcastCommand());
+		this.getCommand("broadcast").setExecutor(new BroadcastCommand());
+		this.getCommand("bcast").setExecutor(new BroadcastCommand());
 	}
 }
