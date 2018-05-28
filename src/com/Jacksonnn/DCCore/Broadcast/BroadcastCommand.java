@@ -19,7 +19,7 @@ public class BroadcastCommand implements CommandExecutor {
 			
 			String player = sender.getName();
 			
-			if (sender.hasPermission("DCCore.broadcast.use")) {
+			if (sender.hasPermission("DCCore.broadcast")) {
 				if (args.length == 0) {
 					sender.sendMessage(GeneralMethods.prefix + GeneralMethods.errorColor + "Please type message: /broadcast <message>");
 				} else if (args.length >= 1) {

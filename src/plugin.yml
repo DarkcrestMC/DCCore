@@ -3,10 +3,23 @@ author: Jacksonnn
 version: BETA v1.0
 main: com.Jacksonnn.DCCore.DCCore
 loadbefore: [Essentials]
+commands:
+  commands:
+    dccore:
+      aliases: [dc,dcc,dcore]
+      usage: /<command>
 permissions:
-  DCCore.spawner.place:
+  DCCore.player:
     default: op
-  DCCore.spawner.break:
+    children:
+      DCCore.spawner.place: true
+      DCCore.spawner.break: true
+  DCCore.staff:
     default: op
-  DCCore.quickdeposit.use:
+    children:
+      DCCore.broadcast: true
+      DCCore.chat: true
+  DCCore.chat:
     default: op
+    children:
+      DCCore.chat.toggle
