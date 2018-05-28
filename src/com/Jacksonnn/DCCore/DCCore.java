@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
+import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 
 public class DCCore extends JavaPlugin {
 	
@@ -51,11 +52,13 @@ public class DCCore extends JavaPlugin {
 	public void registerListeners() {
 		pm.registerEvents(new SpawnerListener(), this);
 		pm.registerEvents(new QuickDepositListener(), this);
+		pm.registerEvents(new ChatListener(), this);
 	}
 	
 	public void registerCommands() {
 		this.getCommand("bc").setExecutor(new BroadcastCommand());
 		this.getCommand("broadcast").setExecutor(new BroadcastCommand());
 		this.getCommand("bcast").setExecutor(new BroadcastCommand());
+		this.getCommand("dccore").setExecutor(new Commands());
 	}
 }
