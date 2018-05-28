@@ -20,18 +20,19 @@ public class Commands implements CommandExecutor {
             sender.sendMessage(ChatColor.GOLD + "/dccore chat");
             return true;
 
-        } else if (args.length == 3 && args[1].equalsIgnoreCase("chat")) {
-            if (args[2].equalsIgnoreCase("toggle")) {
+        } else if (args.length == 2 && args[0].equalsIgnoreCase("chat")) {
+            if (args[1].equalsIgnoreCase("toggle")) {
 
                 if (sender.hasPermission("DCCore.chat.toggle")) {
                     ChatListener.chatEnabled = !ChatListener.chatEnabled;
+
                     Bukkit.broadcastMessage(ChatListener.chatEnabled ? GeneralMethods.serverPrefix + "Chat has been unmuted by " + player + "." : GeneralMethods.serverPrefix + "Chat has been muted by " + player + ".");
                     sender.sendMessage(ChatListener.chatEnabled ? GeneralMethods.prefix + GeneralMethods.successColor + "Unmuted the chat." : GeneralMethods.prefix + GeneralMethods.successColor + "Muted the chat.");
                     return true;
                 }
             } else {
                     sender.sendMessage(GeneralMethods.prefix + GeneralMethods.errorColor + "To use this command, /dccore chat toggle.");
-                    return false;
+                    return true;
             }
         }
         return true;

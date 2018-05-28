@@ -20,9 +20,10 @@ public class ChatListener implements Listener {
 
             words.add("");
         */
-
-        if (!chatEnabled) {
-            event.setCancelled(false);
+        if (!event.getPlayer().hasPermission("DCCore.staff")) {
+            if (!chatEnabled) {
+                event.setCancelled(true);
+            }
         }
     }
 }
