@@ -22,8 +22,8 @@ public class BroadcastCommand implements CommandExecutor {
 			if (sender.hasPermission("DCCore.broadcast")) {
 				if (args.length == 0) {
 					sender.sendMessage(GeneralMethods.prefix + GeneralMethods.errorColor + "Please type message: /broadcast <message>");
-				} else if (args.length >= 1) {
-					Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + "- " + player);
+				} else if (args.length == 1) {
+					Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + " -" + player);
 				}
 			} else {
 				sender.sendMessage(GeneralMethods.prefix + GeneralMethods.errorColor + "Insufficient permission!");
@@ -31,8 +31,8 @@ public class BroadcastCommand implements CommandExecutor {
 		} else {
 			if (args.length == 0) {
 				sender.sendMessage(GeneralMethods.prefix + GeneralMethods.errorColor + "Please type message: /broadcast <message>");
-			} else if (args.length >= 1) {
-				Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + "- Console");
+			} else if (args.length == 1) {
+				Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + " -Console");
 			}
 		}
 		return true;

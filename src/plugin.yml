@@ -4,10 +4,12 @@ version: BETA v1.0
 main: com.Jacksonnn.DCCore.DCCore
 loadbefore: [Essentials]
 commands:
-  commands:
-    dccore:
-      aliases: [dc,dcc,dcore]
-      usage: /<command>
+  dccore:
+    aliases: [dc,dcc,dcore]
+    usage: /<command>
+  broadcast:
+    aliases: [bc, bcast]
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op
@@ -22,4 +24,4 @@ permissions:
   DCCore.chat:
     default: op
     children:
-      DCCore.chat.toggle
+      DCCore.chat.toggle: true

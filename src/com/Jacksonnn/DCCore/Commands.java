@@ -16,7 +16,7 @@ public class Commands implements CommandExecutor {
             sender.sendMessage(GeneralMethods.prefix + "DCCore Help:");
             sender.sendMessage(ChatColor.GOLD + "/dccore chat");
 
-        } else if (args.length >= 1 && args[1].equalsIgnoreCase("chat")) {
+        } else if (args.length == 1 && args[1].equalsIgnoreCase("chat")) {
             if (args[2].equalsIgnoreCase("toggle")) {
 
                 if (sender.hasPermission("DCCore.chat.toggle")) {

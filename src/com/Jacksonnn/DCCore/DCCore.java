@@ -20,9 +20,9 @@ public class DCCore extends JavaPlugin {
 		plugin = this;
 		registerListeners();
 		registerCommands();
+		createConfig();
 		
 		Bukkit.getServer().getLogger().info("DCCore has successfully been enabled!");
-		createConfig();
 	}
 	
 	public void onDisable() {
@@ -56,9 +56,7 @@ public class DCCore extends JavaPlugin {
 	}
 	
 	public void registerCommands() {
-		this.getCommand("bc").setExecutor(new BroadcastCommand());
 		this.getCommand("broadcast").setExecutor(new BroadcastCommand());
-		this.getCommand("bcast").setExecutor(new BroadcastCommand());
 		this.getCommand("dccore").setExecutor(new Commands());
 	}
 }
