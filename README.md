@@ -27,7 +27,7 @@
 
 * More permissions:
   - DCCore.staff.*
-  - DCCore.broadcast
+    - DCCore.broadcast
     - DCCore.chat
   - DCCore.chat.*
     - DCCore.chat.toggle
