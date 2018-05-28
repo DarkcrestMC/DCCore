@@ -1,6 +1,6 @@
 name: DCCore
 author: Jacksonnn
-version: BETA v1.0
+version: BETA 1.0
 main: com.Jacksonnn.DCCore.DCCore
 loadbefore: [Essentials]
 commands:
@@ -25,3 +25,4 @@ permissions:
     default: op
     children:
       DCCore.chat.toggle: true
+      DCCore.chat.staff: true

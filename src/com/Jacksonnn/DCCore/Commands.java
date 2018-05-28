@@ -12,8 +12,6 @@ public class Commands implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
         String player = sender.getName();
-        //dccore chat toggle
-        //command arg1 arg2
 
         if (args.length == 0) {
             sender.sendMessage(GeneralMethods.prefix + "DCCore Help:");

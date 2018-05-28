@@ -20,7 +20,7 @@ public class ChatListener implements Listener {
 
             words.add("");
         */
-        if (!event.getPlayer().hasPermission("DCCore.staff")) {
+        if (!event.getPlayer().hasPermission("DCCore.chat.staff")) {
             if (event.getMessage().startsWith("/")) {
                 return;
             }
