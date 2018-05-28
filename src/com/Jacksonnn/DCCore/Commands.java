@@ -12,12 +12,14 @@ public class Commands implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
         String player = sender.getName();
+        //dccore chat toggle
+        //command arg1 arg2
 
         if (args.length == 0) {
             sender.sendMessage(GeneralMethods.prefix + "DCCore Help:");
             sender.sendMessage(ChatColor.GOLD + "/dccore chat");
 
-        } else if (args.length >= 1 && args[1].equalsIgnoreCase("chat")) {
+        } else if (args.length == 3 && args[1].equalsIgnoreCase("chat")) {
             if (args[2].equalsIgnoreCase("toggle")) {
 
                 if (sender.hasPermission("DCCore.chat.toggle")) {
