@@ -22,7 +22,7 @@ public class Commands implements CommandExecutor {
 
                 if (sender.hasPermission("DCCore.chat.toggle")) {
                     ChatListener.chatEnabled = !ChatListener.chatEnabled;
-                    Bukkit.broadcastMessage(ChatListener.chatEnabled ? GeneralMethods.serverPrefix + "Chat has been unmuted." : GeneralMethods.serverPrefix + "Chat has been muted.");
+                    Bukkit.broadcastMessage(ChatListener.chatEnabled ? GeneralMethods.serverPrefix + "Chat has been unmuted by " + player + "." : GeneralMethods.serverPrefix + "Chat has been muted by " + player + ".");
                     sender.sendMessage(ChatListener.chatEnabled ? GeneralMethods.prefix + GeneralMethods.successColor + "Unmuted the chat." : GeneralMethods.prefix + GeneralMethods.successColor + "Muted the chat.");
                 }
             } else {

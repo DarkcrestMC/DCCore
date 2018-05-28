@@ -6,16 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all (possibly fixed in this commit).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DCCore2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DCCore2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/ChatListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/ChatListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCCore.jar" beforeDir="false" afterPath="$PROJECT_DIR$/DCCore.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,68 +21,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BroadcastCommand.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GeneralMethods.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="140" selection-start-line="5" selection-start-column="140" selection-end-line="5" selection-end-column="140" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Commands.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Commands.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+            <state relative-caret-position="360">
+              <caret line="24" column="216" selection-start-line="24" selection-start-column="216" selection-end-line="24" selection-end-column="216" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plugin.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/plugin.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChatListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/ChatListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DCCore.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#onEnable#0;class#DCCore#0" />
-                <element signature="method#createConfig#0;class#DCCore#0" />
-                <element signature="method#registerListeners#0;class#DCCore#0" />
-                <element signature="method#registerCommands#0;class#DCCore#0" />
               </folding>
             </state>
           </provider>
@@ -114,8 +53,8 @@
         <option value="$PROJECT_DIR$/src/plugin.yml" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java" />
       </list>
     </option>
   </component>
@@ -252,7 +191,21 @@
       <option name="project" value="LOCAL" />
       <updated>1527474662797</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all (possibly fixed in this commit).">
+      <created>1527478279024</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1527478279025</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all (possibly fixed in this commit).">
+      <created>1527519142946</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1527519142947</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -296,7 +249,8 @@
     <MESSAGE value="Added chat command, toggles chat only at the moment." />
     <MESSAGE value="Bug Fixes and Improvements" />
     <MESSAGE value="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all." />
+    <MESSAGE value="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all (possibly fixed in this commit)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all (possibly fixed in this commit)." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java">
@@ -326,10 +280,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugin.yml">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        <state relative-caret-position="75">
+          <caret line="5" column="140" selection-start-line="5" selection-start-column="140" selection-end-line="5" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
@@ -357,27 +318,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java">
+    <entry file="file://$PROJECT_DIR$/src/plugin.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="140" selection-start-line="5" selection-start-column="140" selection-end-line="5" selection-end-column="140" />
+        <state relative-caret-position="165">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        <state relative-caret-position="360">
+          <caret line="24" column="216" selection-start-line="24" selection-start-column="216" selection-end-line="24" selection-end-column="216" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
         </state>
       </provider>
     </entry>
