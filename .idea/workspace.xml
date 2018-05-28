@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all (possibly fixed in this commit).">
+    <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DCCore.jar" beforeDir="false" afterPath="$PROJECT_DIR$/DCCore.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java" afterDir="false" />
@@ -24,8 +24,8 @@
       <file leaf-file-name="Commands.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="216" selection-start-line="24" selection-start-column="216" selection-end-line="24" selection-end-column="216" />
+            <state relative-caret-position="269">
+              <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -205,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1527519142947</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all (possibly fixed in this commit).">
+      <created>1527519547333</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1527519547333</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all (possibly fixed in this commit).">
+      <created>1527519735631</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1527519735631</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -327,8 +341,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="216" selection-start-line="24" selection-start-column="216" selection-end-line="24" selection-end-column="216" />
+        <state relative-caret-position="269">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
