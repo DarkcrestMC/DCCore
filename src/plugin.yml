@@ -16,6 +16,7 @@ permissions:
     children:
       DCCore.spawner.place: true
       DCCore.spawner.break: true
+      DCCore.quickdeposit.use: true
   DCCore.staff:
     default: op
     children:
