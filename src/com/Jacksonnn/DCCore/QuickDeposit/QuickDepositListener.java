@@ -1,8 +1,5 @@
 package com.Jacksonnn.DCCore.QuickDeposit;
 
-import java.util.HashMap;
-
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
@@ -15,9 +12,14 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class QuickDepositListener implements Listener {
+
+	public static volatile boolean qdEnabled = true;
+
 	@EventHandler
 	public void onLeftClick(PlayerInteractEvent event) {
-		if (!event.getPlayer().hasPermission("DCCore.quickdeposit.use")) {
+		if (!qdEnabled) {
+			return;
+		} else if (!event.getPlayer().hasPermission("DCCore.quickdeposit.use")) {
 			return;
 		} else {
 			if (event.getPlayer().isSneaking()) {
@@ -48,11 +50,14 @@ public class QuickDepositListener implements Listener {
 	
 	@EventHandler
 	public void onRightClick(PlayerInteractEvent event) {
-		
+
 		Player player = event.getPlayer();
-		if (!player.hasPermission("DCCore.quickdeposit.use"))
+
+		if (!qdEnabled) {
 			return;
-		else {
+		} else if (!player.hasPermission("DCCore.quickdeposit.use")) {
+			return;
+		} else {
 			if (player.isSneaking()) {
 				if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 					BlockState state = event.getClickedBlock().getState();

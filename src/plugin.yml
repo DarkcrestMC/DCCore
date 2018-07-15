@@ -20,6 +20,7 @@ permissions:
   DCCore.staff:
     default: op
     children:
+      DCCore.GMSpectator: true
       DCCore.broadcast: true
       DCCore.chat: true
   DCCore.chat:

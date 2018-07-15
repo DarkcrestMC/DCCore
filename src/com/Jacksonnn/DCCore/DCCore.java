@@ -2,6 +2,7 @@ package com.Jacksonnn.DCCore;
 
 import java.io.File;
 
+import com.Jacksonnn.DCCore.SpectatorDisabler.OnGMChange;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,7 +15,7 @@ import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 public class DCCore extends JavaPlugin {
 	
 	public static DCCore plugin;
-	PluginManager pm = Bukkit.getServer().getPluginManager();
+	private PluginManager pm = Bukkit.getServer().getPluginManager();
 	
 	public void onEnable() {
 		plugin = this;
@@ -49,14 +50,15 @@ public class DCCore extends JavaPlugin {
 /*
  * REGISTER LISTENERS AND COMMANDS
  */
-	public void registerListeners() {
+	private void registerListeners() {
 		pm.registerEvents(new SpawnerListener(), this);
 		pm.registerEvents(new QuickDepositListener(), this);
 		pm.registerEvents(new ChatListener(), this);
+		pm.registerEvents(new OnGMChange(), this);
 	}
 	
-	public void registerCommands() {
+	private void registerCommands() {
 		this.getCommand("broadcast").setExecutor(new BroadcastCommand());
-		this.getCommand("dccore").setExecutor(new Commands());
+		this.getCommand("dccore").setExecutor(new CoreCommands());
 	}
 }
