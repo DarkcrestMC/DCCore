@@ -11,7 +11,6 @@ public class ChatListener implements Listener {
 
     public static volatile boolean chatEnabled = true;
 
-    //List<String> cuss = new ArrayList<>(Arrays.asList("Bitch", "Fuck", "Cunt", "Nigga", "Nigger", ""));
 
     @EventHandler
     public void onAsyncPlayerChat(AsyncPlayerChatEvent event) {
