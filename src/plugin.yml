@@ -23,8 +23,10 @@ permissions:
       DCCore.GMSpectator: true
       DCCore.broadcast: true
       DCCore.chat: true
+      DCCore.AntiCurse.bypass: true
   DCCore.chat:
     default: op
     children:
       DCCore.chat.toggle: true
       DCCore.chat.staff: true
+      DCCore.AntiCurse.bypass: true

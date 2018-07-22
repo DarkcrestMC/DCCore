@@ -1,6 +1,6 @@
 name: DCCore
 author: Jacksonnn
-version: BETA v1.0
+version: BETA 1.0
 main: com.Jacksonnn.DCCore.DCCore
 loadbefore: [Essentials]
 commands:
@@ -16,12 +16,15 @@ permissions:
     children:
       DCCore.spawner.place: true
       DCCore.spawner.break: true
+      DCCore.quickdeposit.use: true
   DCCore.staff:
     default: op
     children:
+      DCCore.GMSpectator: true
       DCCore.broadcast: true
       DCCore.chat: true
   DCCore.chat:
     default: op
     children:
       DCCore.chat.toggle: true
+      DCCore.chat.staff: true

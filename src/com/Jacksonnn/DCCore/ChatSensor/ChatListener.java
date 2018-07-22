@@ -1,10 +1,11 @@
 package com.Jacksonnn.DCCore.ChatSensor;
 
-import org.bukkit.event.Listener;
+import com.Jacksonnn.DCCore.GeneralMethods;
+import com.projectkorra.projectkorra.configuration.ConfigManager;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-
-import java.util.*;
 
 
 public class ChatListener implements Listener {
@@ -13,18 +14,28 @@ public class ChatListener implements Listener {
 
 
     @EventHandler
-    public void onAsyncPlayerChat(AsyncPlayerChatEvent event) {
-        /*
-            ArrayList<String> words = new ArrayList<String>();
-
-            words.add("");
-        */
+    public void onMutedChat(AsyncPlayerChatEvent event) {
         if (!event.getPlayer().hasPermission("DCCore.chat.staff")) {
-            if (event.getMessage().startsWith("/")) {
-                return;
-            }
             if (!chatEnabled) {
-                event.setCancelled(true);
+                if (!event.getMessage().startsWith("/")) {
+                    event.setCancelled(true);
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void onRegularChat(AsyncPlayerChatEvent event) {
+        Player player = event.getPlayer();
+
+        for (String s : event.getMessage().split(" ")) {
+            if(ConfigManager.defaultConfig.get().getStringList("AntiCurse.bannedWords").contains(s)) {
+                if (player.hasPermission("DCCore.AntiCurse.bypass")) {
+                    return;
+                } else {
+                    event.setCancelled(true);
+                    event.getPlayer().sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (don\'t cuss!)");
+                }
             }
         }
     }

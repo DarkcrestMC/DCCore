@@ -2,6 +2,7 @@ package com.Jacksonnn.DCCore;
 
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
+import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
 import com.Jacksonnn.DCCore.SpectatorDisabler.OnGMChange;
@@ -16,6 +17,7 @@ public class DCCore extends JavaPlugin {
 	
 	public void onEnable() {
 		plugin = this;
+		new ConfigManager();
 		registerListeners();
 		registerCommands();
 		
