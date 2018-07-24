@@ -1,12 +1,14 @@
 package com.Jacksonnn.DCCore;
 
-import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
+import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
+
+import static com.Jacksonnn.DCCore.Configuration.ConfigManager.defaultConfig;
+import static com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener.qdEnabled;
 
 public class CoreCommands implements CommandExecutor {
     @Override
@@ -28,21 +30,29 @@ public class CoreCommands implements CommandExecutor {
                     ChatListener.chatEnabled = !ChatListener.chatEnabled;
 
                     Bukkit.broadcastMessage(ChatListener.chatEnabled ? GeneralMethods.serverPrefix + "Chat has been unmuted by " + player + "." : GeneralMethods.serverPrefix + "Chat has been muted by " + player + ".");
-                    sender.sendMessage(ChatListener.chatEnabled ? GeneralMethods.prefix + GeneralMethods.successColor + "Unmuted the chat." : GeneralMethods.prefix + GeneralMethods.successColor + "Muted the chat.");
+                    sender.sendMessage(ChatListener.chatEnabled ? GeneralMethods.successColor + "Unmuted the chat." : GeneralMethods.successColor + "Muted the chat.");
                     return true;
                 }
             } else {
-                    sender.sendMessage(GeneralMethods.prefix + GeneralMethods.errorColor + "To use this command, /dccore chat toggle.");
+                    sender.sendMessage(GeneralMethods.errorColor + "To use this command, /dccore chat toggle.");
                     return true;
             }
         } /*else if (args.length == 2 && args[0].equalsIgnoreCase("lookup")) {
             if (sender.hasPermission("DCCore.lookup")) {
 
             }
-        }*/ else if (args.length == 2 && (args[0].equalsIgnoreCase("quickdeposit") || args[0].equalsIgnoreCase("qd"))) {
-            QuickDepositListener.qdEnabled = !QuickDepositListener.qdEnabled;
+        }*/ else if (args.length == 1 && (args[0].equalsIgnoreCase("quickdeposit") || args[0].equalsIgnoreCase("qd"))) {
+            qdEnabled = !qdEnabled;
 
-            sender.sendMessage(QuickDepositListener.qdEnabled ? GeneralMethods.prefix + GeneralMethods.successColor + "QuickDeposit Feature has been enabled." : GeneralMethods.prefix + GeneralMethods.successColor + "QuickDeposit Feature has been disabled.");
+            if (qdEnabled) {
+                defaultConfig.get().addDefault("QuickDeposit.players." + sender.getName(), "true");
+                defaultConfig.save();
+            } else {
+                defaultConfig.get().addDefault("QuickDeposit.players." + sender.getName(), "false");
+                defaultConfig.save();
+            }
+
+            sender.sendMessage(qdEnabled ? GeneralMethods.successColor + "QuickDeposit Feature has been enabled." : GeneralMethods.disableColor + "QuickDeposit Feature has been disabled.");
         }
         return true;
     }

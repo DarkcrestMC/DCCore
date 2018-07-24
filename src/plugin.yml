@@ -10,13 +10,16 @@ commands:
   broadcast:
     aliases: [bc, bcast]
     usage: /<command>
+  bannedwords:
+    aliases: [bw, bwords, bannedw]
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op
     children:
       DCCore.spawner.place: true
       DCCore.spawner.break: true
-      DCCore.quickdeposit.use: true
+      DCCore.QuickDeposit.use: true
   DCCore.staff:
     default: op
     children:

@@ -1,7 +1,7 @@
 package com.Jacksonnn.DCCore.ChatSensor;
 
+import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;
-import com.projectkorra.projectkorra.configuration.ConfigManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
