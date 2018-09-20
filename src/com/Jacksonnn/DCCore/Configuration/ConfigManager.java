@@ -29,6 +29,17 @@ public class ConfigManager {
             config = defaultConfig.get();
 
            config.addDefault("QuickDeposit.players", "");
+
+            config.addDefault("Storage.engine", "sqlite");
+
+            config.addDefault("Storage.settings.host", "localhost");
+            config.addDefault("Storage.settings.port", 3306);
+            config.addDefault("Storage.settings.password", "");
+            config.addDefault("Storage.settings.database", "minecraft");
+            config.addDefault("Storage.settings.username", "root");
+            config.addDefault("Storage.settings.ssl", false);
+
+            config.addDefault("Storage.settings.path", "db.sql");
             defaultConfig.save();
         } else if (type == ConfigType.LANGUAGE) {
             config = langConfig.get();

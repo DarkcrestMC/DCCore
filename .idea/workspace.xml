@@ -6,18 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="Added AntiCurse Feature - CONFIGURABLE IN BANNEDWORDS.YML">
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/DatabaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/Mysql.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/SqlLite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/SqlQueries.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="NEW MYSQL STORAGE&#10;We have a working storage feature now- started working on the tournament command.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DCCore2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DCCore2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,22 +27,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="17" />
+          <entry key="java" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="17" />
+          <entry key="JAVA" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1550" />
+          <entry key="java" value="1604" />
+          <entry key="txt" value="140" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1550" />
+          <entry key="JAVA" value="1604" />
+          <entry key="PLAIN_TEXT" value="140" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -75,9 +68,33 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/DatabaseManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
+            <state relative-caret-position="561">
               <caret line="81" column="82" lean-forward="true" selection-start-line="81" selection-start-column="82" selection-end-line="81" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -154,7 +171,6 @@
         <option value="$PROJECT_DIR$/src/plugin.yml" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/CoreCommands.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/QuickDeposit/QuickDepositListener.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/BannedWordsCommand.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentCommand.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/Database.java" />
@@ -165,6 +181,7 @@
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCManager.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentListener.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" />
       </list>
     </option>
   </component>
@@ -250,7 +267,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537413417911" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537413626525" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Guilds" />
     <property name="project.structure.last.edited" value="Global Libraries" />
@@ -313,7 +330,7 @@
       <workItem from="1531689203702" duration="4540000" />
       <workItem from="1531696168629" duration="16000" />
       <workItem from="1532300049634" duration="8962000" />
-      <workItem from="1537410642660" duration="2764000" />
+      <workItem from="1537410642660" duration="2982000" />
     </task>
     <task id="LOCAL-00001" summary="Moved programming workspace to IntelliJ instead of Eclipse.">
       <created>1527464732071</created>
@@ -441,11 +458,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532301130187</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="NEW MYSQL STORAGE&#10;We have a working storage feature now- started working on the tournament command.">
+      <created>1537413521469</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1537413521469</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26741000" />
+    <option name="totallyTimeSpent" value="26959000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -507,7 +531,8 @@
     <MESSAGE value="Added toggle for QuickDeposit&#10;Started Working on KillListener&#10;Changed/Updated ConfigManager.java, Config.java, and ConfigType.java" />
     <MESSAGE value="Added KillMoney config&#10;Expanded Language and KillMoney Config&#10;Fixed having two types of config management, removing the one in DCCore.java. We now have 1 (ConfigManger).&#10;Started working on GMChange aspect so that no one can access spectator mode unless in a bending ability or unless they're staff." />
     <MESSAGE value="Added AntiCurse Feature - CONFIGURABLE IN BANNEDWORDS.YML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added AntiCurse Feature - CONFIGURABLE IN BANNEDWORDS.YML" />
+    <MESSAGE value="NEW MYSQL STORAGE&#10;We have a working storage feature now- started working on the tournament command." />
+    <option name="LAST_COMMIT_MESSAGE" value="NEW MYSQL STORAGE&#10;We have a working storage feature now- started working on the tournament command." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -626,33 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="63" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/ChatListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -691,9 +689,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="63" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
+        <state relative-caret-position="561">
           <caret line="81" column="82" lean-forward="true" selection-start-line="81" selection-start-column="82" selection-end-line="81" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -701,6 +709,26 @@
             <element signature="e#2873#2874#0" expanded="true" />
             <element signature="e#2986#2987#0" expanded="true" />
             <element signature="e#3012#3013#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
