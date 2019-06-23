@@ -15,7 +15,7 @@ public class SpawnerListener implements Listener {
 		Player player = event.getPlayer();
 		
 		Material blockPlaced = theBlock.getType();
-		if (blockPlaced == Material.MOB_SPAWNER) {
+		if (blockPlaced == Material.SPAWNER) {
 			if (!player.hasPermission("DCCore.spawner.place")) {
 				event.setCancelled(true);
 			}
@@ -28,7 +28,7 @@ public class SpawnerListener implements Listener {
 		Player player = event.getPlayer();
 		
 		Material blockBroken = theBlock.getType();
-		if (blockBroken == Material.MOB_SPAWNER) {
+		if (blockBroken == Material.SPAWNER) {
 			if (!player.hasPermission("DCCore.spawner.break")) {
 				event.setCancelled(true);
 			}

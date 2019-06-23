@@ -3,6 +3,7 @@ author: Jacksonnn
 version: BETA 1.0
 main: com.Jacksonnn.DCCore.DCCore
 loadbefore: [Essentials]
+api-version: 1.13
 commands:
   dccore:
     aliases: [dc,dcc,dcore]
@@ -13,6 +14,19 @@ commands:
   bannedwords:
     aliases: [bw, bwords, bannedw]
     usage: /<command>
+  bendingtournament:
+    aliases: [bt, tournament, tourney, bendingt, btournament, btourny]
+    usage: /<command>
+  rankup:
+    aliases: [ru, rank, rup]
+    usage: /<command>
+  playtime:
+    usage: /<command>
+  ranks:
+    usage: /<command>
+  diamondluck:
+    aliases: [diamondl, dluck, dl]
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op
@@ -20,6 +34,7 @@ permissions:
       DCCore.spawner.place: true
       DCCore.spawner.break: true
       DCCore.QuickDeposit.use: true
+      bending.tournament.player: true
   DCCore.staff:
     default: op
     children:
@@ -27,6 +42,7 @@ permissions:
       DCCore.broadcast: true
       DCCore.chat: true
       DCCore.AntiCurse.bypass: true
+      bending.tournament.admin: true
   DCCore.chat:
     default: op
     children:

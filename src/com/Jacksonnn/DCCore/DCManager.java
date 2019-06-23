@@ -152,4 +152,24 @@ public class DCManager {
             e.printStackTrace();
         }
     }
+
+    public void joinTournament(UUID user, String tournament, String element) {
+        String query;
+        if (dcMain.getDatabaseManager().getDatabase() instanceof SqlLite) {
+            query = SqlQueries.JOIN_TOURNAMENT.getSqliteQuery();
+        } else {
+            query = SqlQueries.JOIN_TOURNAMENT.getMysqlQuery();
+        }
+        try {
+            PreparedStatement preparedStatement = dcMain.getDatabaseManager().getDatabase()
+                    .getConnection().prepareStatement(query);
+            preparedStatement.setString(1, tournament);
+            preparedStatement.setString(2, element);
+            preparedStatement.setString(3, user.toString());
+            preparedStatement.execute();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

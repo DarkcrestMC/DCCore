@@ -4,13 +4,16 @@ import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
 import com.Jacksonnn.DCCore.ChatSensor.BannedWordsCommand;
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
+import com.Jacksonnn.DCCore.DiamondLuck.DiamondLuck;
+import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
+import com.Jacksonnn.DCCore.Rankup.PlayTime;
+import com.Jacksonnn.DCCore.Rankup.Ranks;
+import com.Jacksonnn.DCCore.Rankup.Rankup;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
 import com.Jacksonnn.DCCore.Storage.DatabaseManager;
 import com.Jacksonnn.DCCore.Storage.Mysql;
 import com.Jacksonnn.DCCore.Storage.SqlQueries;
-import com.Jacksonnn.DCCore.Tournaments.TournamentCommand;
-import com.Jacksonnn.DCCore.Tournaments.TournamentListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -72,14 +75,17 @@ public class DCCore extends JavaPlugin {
 		pm.registerEvents(new SpawnerListener(), this);
 		pm.registerEvents(new QuickDepositListener(), this);
 		pm.registerEvents(new ChatListener(), this);
-		pm.registerEvents(new TournamentListener(this), this);
+		pm.registerEvents(new ResponseListener(), this);
 	}
 	
 	private void registerCommands() {
 		this.getCommand("broadcast").setExecutor(new BroadcastCommand());
 		this.getCommand("bannedwords").setExecutor(new BannedWordsCommand());
 		this.getCommand("dccore").setExecutor(new CoreCommands());
-		this.getCommand("bendingtournament").setExecutor(new TournamentCommand());
+		this.getCommand("rankup").setExecutor(new Rankup());
+		this.getCommand("playtime").setExecutor(new PlayTime());
+		this.getCommand("ranks").setExecutor(new Ranks());
+		this.getCommand("diamondluck").setExecutor(new DiamondLuck());
 	}
 
 	public DatabaseManager getDatabaseManager() {

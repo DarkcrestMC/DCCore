@@ -16,18 +16,14 @@ public enum SqlQueries {
     CREATE_USERS("CREATE TABLE IF NOT EXISTS `users` ("
             + "`id` INT NOT NULL AUTO_INCREMENT,"
             + "`uuid` TEXT NOT NULL,"
-            + "`tournament1` TEXT,"
-            + "`tournament1_element` TEXT,"
-            + "`tournament2` TEXT,"
-            + "`tournament2_element` TEXT"
+            + "`tournament` TEXT,"
+            + "`tournament_element` TEXT,"
             + "PRIMARY KEY (`id`)"
             + ");", "CREATE TABLE IF NOT EXISTS guilds ("
             + "id integer PRIMARY KEY AUTOINCREMENT,"
             + "uuid text,"
             + "tournament1 text,"
             + "tournament1_element text,"
-            + "tournament2 text,"
-            + "tournament2_element text"
             + ");"),
     CREATE_TOURNAMENT(
             "INSERT INTO `tournaments` (startedBy, name) VALUES (?, ?)",
@@ -48,8 +44,8 @@ public enum SqlQueries {
             "UPDATE `tournaments` SET winner=? WHERE name=?",
             "UPDATE tournaments SET winner=? WHERE name=?"),
     JOIN_TOURNAMENT(
-            "UPDATE `users` SET (?) ",
-            "");
+            "UPDATE `users` SET tournament=?, tournament_element=? WHERE uuid=?",
+            "UPDATE users SET tournament=?, tournament_element=? WHERE uuid=?");
 
     private String mysqlQuery;
     private String sqliteQuery;
