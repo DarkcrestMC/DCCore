@@ -27,6 +27,12 @@ commands:
   diamondluck:
     aliases: [diamondl, dluck, dl]
     usage: /<command>
+  randomtp:
+    aliases: [randtp, randomteleport, rtp, randteleport]
+    usage: /<command>
+  eventbroadcast:
+    aliases: [ebc, ebroadcast, ebroadc, ebcast, eventbc]
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op
@@ -49,3 +55,10 @@ permissions:
       DCCore.chat.toggle: true
       DCCore.chat.staff: true
       DCCore.AntiCurse.bypass: true
+  DCCore.events:
+    default: op
+    children:
+      DCCore.broadcast: true
+      DCCore.broadcast.events: true
+      DCCore.diamondluck: true
+      DCCore.bendingtournament: true

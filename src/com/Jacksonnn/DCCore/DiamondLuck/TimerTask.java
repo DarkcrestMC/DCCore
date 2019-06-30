@@ -7,16 +7,16 @@ import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class TimerTask extends java.util.TimerTask {
     CommandSender sender;
-    List<String> players;
+    ArrayList<String> players;
     Location spawnpoint;
     Location center;
     int radius;
 
-    TimerTask(CommandSender sender, List<String> players, Location center, int radius, Location spawnpoint) {
+    TimerTask(CommandSender sender, ArrayList<String> players, Location center, int radius, Location spawnpoint) {
         this.spawnpoint = spawnpoint;
         this.center = center;
         this.radius = radius;

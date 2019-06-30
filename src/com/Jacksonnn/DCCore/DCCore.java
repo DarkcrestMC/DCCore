@@ -1,12 +1,14 @@
 package com.Jacksonnn.DCCore;
 
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
+import com.Jacksonnn.DCCore.Broadcast.EventBroadcast;
 import com.Jacksonnn.DCCore.ChatSensor.BannedWordsCommand;
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DiamondLuck.DiamondLuck;
 import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
+import com.Jacksonnn.DCCore.RandomTP.RandomTP;
 import com.Jacksonnn.DCCore.Rankup.PlayTime;
 import com.Jacksonnn.DCCore.Rankup.Ranks;
 import com.Jacksonnn.DCCore.Rankup.Rankup;
@@ -86,6 +88,8 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("playtime").setExecutor(new PlayTime());
 		this.getCommand("ranks").setExecutor(new Ranks());
 		this.getCommand("diamondluck").setExecutor(new DiamondLuck());
+		this.getCommand("randomtp").setExecutor(new RandomTP());
+		this.getCommand("eventbroadcast").setExecutor(new EventBroadcast());
 	}
 
 	public DatabaseManager getDatabaseManager() {

@@ -8,7 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Timer;
 
 public class DiamondLuck implements CommandExecutor {
@@ -20,7 +20,7 @@ public class DiamondLuck implements CommandExecutor {
     int Ox;
     int Oy;
     int Oz;
-    List<String> players;
+    ArrayList<String> players;
 
     /*
             /dl -195 70 -210 6 -195 71 -218
@@ -59,18 +59,25 @@ public class DiamondLuck implements CommandExecutor {
             while(ResponseListener.userReponseForPlayers) {
                 //do nothing
             }
+            sender.sendMessage("1");
             players = ResponseListener.players;
+            sender.sendMessage("2");
             start(sender, players, new Location(world, Cx, Cy, Cz), radius, new Location(world, Ox, Oy, Oz));
+            sender.sendMessage("3");
         }
         return true;
     }
-    public void start(CommandSender sender, List<String> players, Location center, int radius, Location spawnpoint) {
+    public void start(CommandSender sender, ArrayList<String> players, Location center, int radius, Location spawnpoint) {
         TimerTask outTask = new TimerTask(sender, players, center, radius, spawnpoint);
         Timer timer = new Timer();
+        sender.sendMessage("4");
 
-        for (int i = players.size(); i == 0; i--) {
-            timer.schedule(outTask, 1000);
+        int x = players.size();
+        timer.schedule(outTask, 3000, 3000);
+        while (!(players.size() == 0)) {
+           //do nothing
         }
+        timer.cancel();
         players.removeAll(ResponseListener.players);
     }
 }

@@ -5,11 +5,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import java.util.List;
-
+import java.util.ArrayList;
 public class ResponseListener implements Listener {
     public static volatile boolean userReponseForPlayers = false;
-    public static List<String> players;
+    public static ArrayList<String> players = new ArrayList<>();
 
     @EventHandler
     public void onChatEvent(AsyncPlayerChatEvent e) {
@@ -22,6 +21,8 @@ public class ResponseListener implements Listener {
                 e.getPlayer().sendMessage(GeneralMethods.prefix + "Added " + message + " to the player list.");
                 e.setCancelled(true);
             } else {
+                e.getPlayer().sendMessage(GeneralMethods.prefix + "All players in DiamondLuck Game:");
+                e.getPlayer().sendMessage(GeneralMethods.prefix + String.join(", ", players));
                 userReponseForPlayers = false;
                 e.setCancelled(true);
             }
