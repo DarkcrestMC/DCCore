@@ -9,7 +9,6 @@ public class GeneralMethods {
 	public static String successColor = prefix + ChatColor.GREEN + "";
 	public static String disableColor = prefix + ChatColor.RED + "";
 	public static String serverPrefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + "Darkcrest" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
-	public static String eventPrefix = ChatColor.GREEN + "[" + ChatColor.BLUE + "DC Events" + ChatColor.GREEN + "]" + ChatColor.GRAY + " ";
 
 	public enum Elements {
 		AIR,

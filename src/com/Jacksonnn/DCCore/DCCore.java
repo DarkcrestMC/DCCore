@@ -1,12 +1,12 @@
 package com.Jacksonnn.DCCore;
 
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
-import com.Jacksonnn.DCCore.Broadcast.EventBroadcast;
 import com.Jacksonnn.DCCore.ChatSensor.BannedWordsCommand;
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DiamondLuck.DiamondLuck;
 import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
+import com.Jacksonnn.DCCore.Events.EventCommand;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.RandomTP.RandomTP;
 import com.Jacksonnn.DCCore.Rankup.PlayTime;
@@ -27,7 +27,6 @@ public class DCCore extends JavaPlugin {
 	public static DCCore plugin;
 	private PluginManager pm = Bukkit.getServer().getPluginManager();
 	private DatabaseManager databaseManager;
-	private DCManager dcManager;
 
 	public void onEnable() {
 		plugin = this;
@@ -53,16 +52,13 @@ public class DCCore extends JavaPlugin {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		dcManager = new DCManager(this);
 	}
 
 	private void installDatabase() throws SQLException {
 		if (databaseManager.getDatabase() instanceof Mysql) {
 			databaseManager.getDatabase().getConnection().createStatement().execute(SqlQueries.CREATE_TOURNAMENTS.getMysqlQuery());
-			databaseManager.getDatabase().getConnection().createStatement().execute(SqlQueries.CREATE_USERS.getMysqlQuery());
 		} else {
 			databaseManager.getDatabase().getConnection().createStatement().execute(SqlQueries.CREATE_TOURNAMENTS.getSqliteQuery());
-			databaseManager.getDatabase().getConnection().createStatement().execute(SqlQueries.CREATE_USERS.getMysqlQuery());
 		}
 	}
 	
@@ -89,15 +85,15 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("ranks").setExecutor(new Ranks());
 		this.getCommand("diamondluck").setExecutor(new DiamondLuck());
 		this.getCommand("randomtp").setExecutor(new RandomTP());
-		this.getCommand("eventbroadcast").setExecutor(new EventBroadcast());
+
+		//EVENTS COMMAND
+		EventCommand eventCommand = new EventCommand(this);
+		this.getCommand("dcevents").setExecutor(eventCommand);
+		this.getCommand("dcevents").setTabCompleter(eventCommand);
 	}
 
 	public DatabaseManager getDatabaseManager() {
 		return databaseManager;
-	}
-
-	public DCManager getDcManager() {
-		return dcManager;
 	}
 }
 
