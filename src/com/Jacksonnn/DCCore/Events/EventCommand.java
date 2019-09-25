@@ -38,6 +38,7 @@ public class EventCommand implements CommandExecutor, TabCompleter {
         subCommands.add(new RemoveCommand(plugin));
         subCommands.add(new StartEventCommand(plugin));
         subCommands.add(new HelpCommand(plugin));
+        subCommands.add(new TeleportCommand(plugin));
     }
 
 

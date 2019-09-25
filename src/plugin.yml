@@ -68,3 +68,4 @@ permissions:
       DCCore.EventHost.playerList: true
       DCCore.EventHost.remove: true
       DCCore.EventHost.create: true
+      DCCore.EventHost.teleport: true

@@ -53,6 +53,7 @@ public class ConfigManager {
             //  /dcevents eventList
             //  /dcevents playerList <event>
             //  /dcevents broadcast <message>
+            //  /dcevents teleport
 
             config.addDefault("Events.CommandDescriptions.AddCommand", "Adds player(s) to a certain eventlist.");
             config.addDefault("Events.CommandDescriptions.RemoveCommand", "Removes player(s) from a certain eventlist.");
@@ -62,6 +63,7 @@ public class ConfigManager {
             config.addDefault("Events.CommandDescriptions.PlayerList", "Lists all players participating in a certain event.");
             config.addDefault("Events.CommandDescriptions.Broadcast", "Uses the [EventBroadcast] chat function.");
             config.addDefault("Events.CommandDescriptions.Help", "Shows all possible commands and their arguments.");
+            config.addDefault("Events.CommandDescriptions.Teleport", "Teleports all active players in an event to the executor.");
 
             langConfig.save();
         } else if (type == ConfigType.KILLMONEY) {

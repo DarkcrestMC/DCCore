@@ -72,4 +72,13 @@ public class Event {
             sender.sendMessage(EventGeneral.eventPrefix + "Player" + player.getName() + " is not apart of this event!");
         }
     }
+
+    public void removePlayer(EventPlayer player) {
+        if (eventPlayers.contains(player)) {
+            eventPlayers.remove(player);
+            Bukkit.getServer().getLogger().info(EventGeneral.eventPrefix + "Successfully removed player, " + player.getName() + ", from event, " + eventName);
+        } else {
+            Bukkit.getServer().getLogger().info(EventGeneral.eventPrefix + "Player" + player.getName() + " is not apart of any events.");
+        }
+    }
 }
