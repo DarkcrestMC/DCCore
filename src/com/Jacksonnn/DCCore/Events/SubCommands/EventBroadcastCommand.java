@@ -53,7 +53,7 @@ public class EventBroadcastCommand implements EventSubCommand {
                 wordsOfMess[i] = args.get(i);
             }
             if (sender instanceof Player) {
-                Bukkit.getServer().broadcastMessage(ChatColor.GRAY + String.join(" ", wordsOfMess) + " -" + sender.getName());
+                Bukkit.getServer().broadcastMessage(ChatColor.GREEN + "[" + ChatColor.BLUE + "DC Events" + ChatColor.GREEN + "] " + ChatColor.GRAY + String.join(" ", wordsOfMess) + " -" + sender.getName());
             } else {
                 Bukkit.getServer().broadcastMessage(ChatColor.GRAY + String.join(" ", wordsOfMess) + " -Console");
             }

@@ -4,11 +4,11 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
 
 public class GeneralMethods {
-	public static String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + "DCCore" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
+	public static String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + ChatColor.BOLD + "DarkcrestMC" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
 	public static String errorColor = prefix + ChatColor.DARK_RED + "Error! " + ChatColor.RED;
 	public static String successColor = prefix + ChatColor.GREEN + "";
 	public static String disableColor = prefix + ChatColor.RED + "";
-	public static String serverPrefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + "Darkcrest" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
+	public static String serverPrefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + ChatColor.BOLD + "DarkcrestMC" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
 
 	public enum Elements {
 		AIR,

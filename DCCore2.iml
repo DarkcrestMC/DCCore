@@ -51,11 +51,12 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Plan-4.4.3" level="project" />
     <orderEntry type="library" name="PermissionsEx-1.23.4" level="project" />
-    <orderEntry type="library" name="spigot-1.13.2" level="project" />
     <orderEntry type="library" name="spigot-1.14.2" level="application" />
     <orderEntry type="library" name="spigot-1.13.2" level="application" />
     <orderEntry type="library" name="Vault" level="project" />
+    <orderEntry type="library" name="SpigotMC 1.15.2" level="project" />
+    <orderEntry type="library" name="Plan-5.0-build-415" level="project" />
+    <orderEntry type="library" name="ProjectKorra-1.8.9" level="project" />
   </component>
 </module>

@@ -9,8 +9,10 @@ import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
 import com.Jacksonnn.DCCore.Events.EventCommand;
 import com.Jacksonnn.DCCore.Events.PlayerEvents.PlayerKillEvent;
 import com.Jacksonnn.DCCore.Events.PlayerEvents.PlayerLeaveEvent;
+import com.Jacksonnn.DCCore.OverrideCommands.PKAlias;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.RandomTP.RandomTP;
+import com.Jacksonnn.DCCore.Rankup.GuestQuizListener;
 import com.Jacksonnn.DCCore.Rankup.PlayTime;
 import com.Jacksonnn.DCCore.Rankup.Ranks;
 import com.Jacksonnn.DCCore.Rankup.Rankup;
@@ -78,6 +80,7 @@ public class DCCore extends JavaPlugin {
         pm.registerEvents(new ResponseListener(), this);
         pm.registerEvents(new PlayerLeaveEvent(), this);
         pm.registerEvents(new PlayerKillEvent(), this);
+        pm.registerEvents(new GuestQuizListener(), this);
 	}
 	
 	private void registerCommands() {
@@ -89,6 +92,7 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("ranks").setExecutor(new Ranks());
 		this.getCommand("diamondluck").setExecutor(new DiamondLuck());
 		this.getCommand("randomtp").setExecutor(new RandomTP());
+		this.getCommand("b").setExecutor(new PKAlias());
 
 		//EVENTS COMMAND
 		EventCommand eventCommand = new EventCommand(this);
