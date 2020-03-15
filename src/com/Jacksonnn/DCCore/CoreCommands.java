@@ -18,21 +18,7 @@ public class CoreCommands implements CommandExecutor {
 
         String player = sender.getName();
 
-        if (args.length == 0) {
-            sender.sendMessage(GeneralMethods.prefix + "DCCore Help:");
-            sender.sendMessage(ChatColor.GOLD + "/dccore chat");
-            sender.sendMessage(ChatColor.GOLD + "/dccore quickdeposit");
-            sender.sendMessage(ChatColor.GOLD + "/dccore lookup - UNDER CONSTRUCTION");
-
-            sender.sendMessage(ChatColor.GOLD + "/boardcast <message>");
-            sender.sendMessage(ChatColor.GOLD + "/bannedwords - UNDER CONSTRUCTION");
-            sender.sendMessage(ChatColor.GOLD + "/events - UNDER CONSTRUCTION");
-            sender.sendMessage(ChatColor.GOLD + "/randomtp - UNDER CONSTRUCTION");
-            sender.sendMessage(ChatColor.GOLD + "/rankup - UNDER CONSTRUCTION");
-            sender.sendMessage(ChatColor.GOLD + "/diamondluck - UNDER CONSTRUCTION");
-            return true;
-
-        } else if (args.length == 2 && args[0].equalsIgnoreCase("chat")) {
+        if (args.length == 2 && args[0].equalsIgnoreCase("chat")) {
             if (args[1].equalsIgnoreCase("toggle")) {
 
                 if (sender.hasPermission("DCCore.chat.toggle")) {
@@ -78,7 +64,25 @@ public class CoreCommands implements CommandExecutor {
             }
 
             sender.sendMessage(qdEnabled ? GeneralMethods.successColor + "QuickDeposit Feature has been enabled." : GeneralMethods.disableColor + "QuickDeposit Feature has been disabled.");
+        } else {
+
+            sender.sendMessage(GeneralMethods.prefix + "DCCore Help:");
+            sender.sendMessage(ChatColor.GOLD + "/dccore chat");
+            sender.sendMessage(ChatColor.GOLD + "/dccore quickdeposit");
+            sender.sendMessage(ChatColor.GOLD + "/dccore lookup - UNDER CONSTRUCTION");
+
+            sender.sendMessage(ChatColor.GOLD + "/broadcast <message>");
+            sender.sendMessage(ChatColor.GOLD + "/rankup");
+            sender.sendMessage(ChatColor.GOLD + "/ranks");
+            sender.sendMessage(ChatColor.GOLD + "/playtime");
+            sender.sendMessage(ChatColor.GOLD + "/randomtp");
+            sender.sendMessage(ChatColor.GOLD + "/bendinghelp");
+            sender.sendMessage(ChatColor.GOLD + "/bannedwords - UNDER CONSTRUCTION");
+            sender.sendMessage(ChatColor.GOLD + "/events - UNDER CONSTRUCTION");
+            sender.sendMessage(ChatColor.GOLD + "/diamondluck - UNDER CONSTRUCTION");
+            return true;
         }
+
         return true;
     }
 }

@@ -2,14 +2,14 @@ name: DCCore
 author: Jacksonnn
 version: BETA 1.0
 main: com.Jacksonnn.DCCore.DCCore
-loadbefore: [Essentials]
+loadbefore: [Essentials, Playtimes]
 api-version: 1.13
 commands:
   dccore:
     aliases: [dc,dcc,dcore]
     usage: /<command>
   broadcast:
-    aliases: [bc, bcast]
+    aliases: [bc, bcast, announce]
     usage: /<command>
   bannedwords:
     aliases: [bw, bwords, bannedw]
@@ -26,6 +26,28 @@ commands:
     usage: /<command>
   diamondluck:
     aliases: [diamondl, dluck, dl]
+    usage: /<command>
+  randomtp:
+    aliases: [randtp, randomteleport, rtp, randteleport]
+    usage: /<command>
+  dcevents:
+    aliases: [events, dce, darkcrestevents, darkcreste]
+    usage: /<command>
+  b:
+    aliases: [pk, projectkorra, bend, bending, atla, alok, tla, lok]
+    usage: /<command>
+  donate:
+    usage: /<command>
+  vote:
+    usage: /<command>
+  forums:
+    aliases: [forum, board]
+    usage: /<command>
+  website:
+    aliases: [site, web, www]
+    usage: /<command>
+  bendinghelp:
+    aliases: [bhelp, bendingh, bh]
     usage: /<command>
 permissions:
   DCCore.player:
@@ -49,3 +71,17 @@ permissions:
       DCCore.chat.toggle: true
       DCCore.chat.staff: true
       DCCore.AntiCurse.bypass: true
+  DCCore.EventHost:
+    default: op
+    children:
+      DCCore.broadcast: true
+      DCCore.diamondluck: true
+      DCCore.bendingtournament: true
+      DCCore.EventHost.add: true
+      DCCore.EventHost.terminate: true
+      DCCore.EventHost.broadcast: true
+      DCCore.EventHost.eventList: true
+      DCCore.EventHost.playerList: true
+      DCCore.EventHost.remove: true
+      DCCore.EventHost.create: true
+      DCCore.EventHost.teleport: true

@@ -27,6 +27,9 @@ public class Ranks implements CommandExecutor {
         sender.sendMessage(ChatColor.YELLOW + "N" + ChatColor.GOLD + "o" + ChatColor.YELLOW + "b" + ChatColor.GOLD + "l" + ChatColor.YELLOW + "e " + ChatColor.WHITE + "-> " + ChatColor.LIGHT_PURPLE + "R" + ChatColor.DARK_PURPLE + "o" + ChatColor.LIGHT_PURPLE + "y" + ChatColor.DARK_PURPLE + "a" + ChatColor.LIGHT_PURPLE + "l " + ChatColor.WHITE + "- 75 hours & 500,000,000 coins");
         sender.sendMessage("");
         sender.sendMessage(ChatColor.DARK_PURPLE + "Avatar " + ChatColor.WHITE + "- 60 hours & 225,000,000 coins");
+        sender.sendMessage(ChatColor.AQUA + "LightSpirit* " + ChatColor.WHITE + "- 30 hours & 500,000 coins");
+        sender.sendMessage(ChatColor.BLUE + "DarkSpirit* " + ChatColor.WHITE + "- 30 hours & 500,000 coins");
+        sender.sendMessage("*Once you get one, you cannot switch, you must have 30 additional hours (60 total hrs) with 1,000,000 coins.");
         sender.sendMessage("");
         sender.sendMessage(ChatColor.GRAY + "Player " + ChatColor.WHITE + "-> " + ChatColor.BLUE + "Artist " + ChatColor.WHITE + "- Apply on the forums! http://darkcrestmc.net");
         sender.sendMessage(ChatColor.GRAY + "Player " + ChatColor.WHITE + "-> " + ChatColor.DARK_RED + "Staff " + ChatColor.WHITE + "- Apply on the forums! http://darkcrestmc.net");

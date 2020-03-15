@@ -9,7 +9,7 @@ import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
 import com.Jacksonnn.DCCore.Events.EventCommand;
 import com.Jacksonnn.DCCore.Events.PlayerEvents.PlayerKillEvent;
 import com.Jacksonnn.DCCore.Events.PlayerEvents.PlayerLeaveEvent;
-import com.Jacksonnn.DCCore.OverrideCommands.PKAlias;
+import com.Jacksonnn.DCCore.OverrideCommands.*;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.RandomTP.RandomTP;
 import com.Jacksonnn.DCCore.Rankup.GuestQuizListener;
@@ -93,6 +93,11 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("diamondluck").setExecutor(new DiamondLuck());
 		this.getCommand("randomtp").setExecutor(new RandomTP());
 		this.getCommand("b").setExecutor(new PKAlias());
+		this.getCommand("vote").setExecutor(new Vote());
+		this.getCommand("forums").setExecutor(new Forums());
+		this.getCommand("donate").setExecutor(new Donate());
+		this.getCommand("website").setExecutor(new Website());
+		this.getCommand("bendinghelp").setExecutor(new BendingHelp());
 
 		//EVENTS COMMAND
 		EventCommand eventCommand = new EventCommand(this);

@@ -4,7 +4,6 @@ import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
 import com.Jacksonnn.DCCore.Events.Event;
 import com.Jacksonnn.DCCore.Events.EventGeneral;
-import com.Jacksonnn.DCCore.Events.EventPlayer;
 import com.Jacksonnn.DCCore.Events.EventSubCommand;
 import org.bukkit.command.CommandSender;
 
@@ -55,8 +54,6 @@ public class AddCommand implements EventSubCommand {
                 sender.sendMessage(EventGeneral.eventPrefix + "Event not found!");
                 return;
             }
-
-            ArrayList<EventPlayer> eventPlayers = event.getEventPlayers();
 
             if (args.size() > 2) {
                 for (String arg : args) {

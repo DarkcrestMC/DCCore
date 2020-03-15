@@ -7,28 +7,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="uh general update, so">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/PermissionsEx_1_23_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Plan_4_4_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Vault.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/spigot_1_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/DiamondLuck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/ResponseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/TimerTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/PlayTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Ranks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Rankup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Plan_5_0_build_415.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/PlayTimes_1_2_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/ProjectKorra_1_8_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/SpigotMC_1_15_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingHelp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Donate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Forums.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Vote.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Website.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/DCCore.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/DCCore.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Plan_4_4_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/spigot_1_13_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DCCore2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DCCore2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Configuration/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Configuration/ConfigManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/CoreCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/CoreCommands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/DCCore.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/DCCore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/DCManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/DiamondLuck/DiamondLuck.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/DiamondLuck/DiamondLuck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/DiamondLuck/ResponseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/DiamondLuck/ResponseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/DiamondLuck/TimerTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/DiamondLuck/TimerTask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/GeneralMethods$Elements.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/GeneralMethods$Elements.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/GeneralMethods.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/GeneralMethods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Rankup/PlayTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Rankup/PlayTime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Rankup/Ranks.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Rankup/Ranks.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Rankup/Rankup.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Rankup/Rankup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Storage/SqlQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/Jacksonnn/DCCore/Storage/SqlQueries.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/CoreCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/CoreCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Spawners/SpawnerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Spawners/SpawnerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/SqlQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/SqlQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/PlayTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/PlayTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Ranks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Ranks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Rankup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Rankup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -84,36 +98,44 @@
     <session id="-581371814">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="25" />
-          <entry key="yml" value="2" />
+          <entry key="java" value="229" />
+          <entry key="yml" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="25" />
-          <entry key="YAML" value="2" />
+          <entry key="JAVA" value="229" />
+          <entry key="YAML" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="16" />
-          <entry key="java" value="8465" />
-          <entry key="txt" value="22" />
-          <entry key="yml" value="223" />
+          <entry key="dummy" value="91" />
+          <entry key="java" value="36253" />
+          <entry key="txt" value="211" />
+          <entry key="yml" value="1279" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8465" />
-          <entry key="PLAIN_TEXT" value="38" />
-          <entry key="YAML" value="223" />
+          <entry key="JAVA" value="36253" />
+          <entry key="PLAIN_TEXT" value="302" />
+          <entry key="YAML" value="1279" />
         </counts>
       </usages-collector>
     </session>
@@ -121,22 +143,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/DiamondLuck.java">
+        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Vote.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/ResponseListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+            <state relative-caret-position="170">
+              <caret line="10" column="127" selection-start-line="10" selection-start-column="127" selection-end-line="10" selection-end-column="127" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -145,13 +155,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/TimerTask.java">
+        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingHelp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+            <state relative-caret-position="187">
+              <caret line="11" column="82" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="625">
+              <caret line="99" column="66" selection-start-line="99" selection-start-column="66" selection-end-line="99" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/plugin.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/CoreCommands.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="622">
+              <caret line="78" column="61" selection-start-line="78" selection-start-column="61" selection-end-line="78" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -169,6 +206,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>-*</find>
+      <find>se</find>
     </findStrings>
     <replaceStrings>
       <replace>-</replace>
@@ -184,40 +222,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/KillMoney/KillListener.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/Config.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/SpectatorDisabler/OnGMChange.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigType.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/ChatListener.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/CoreCommands.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/QuickDeposit/QuickDepositListener.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/BannedWordsCommand.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/Database.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/Mysql.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/SqlLite.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/DatabaseManager.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentListener.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/EventBroadcast.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/SqlQueries.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCManager.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/EcoCore.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/CreatePlayerAccountCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/EcoManager.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/EcoStruct.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/CreateAccount.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/Manager/EconomyCommands.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/Manager/SubCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/AddCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/Manager/EconCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/Manager/Commands.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/PlayerDeathEvent.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventAdd.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventPlayer.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventBroadcast.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventBroadcastCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventSubCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventGeneral.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/HelpCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/PlayerListCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/StartEventCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/EndEventCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/EventListCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/RemoveCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/TeleportCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/Event.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/PlayerEvents/PlayerLeaveEvent.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/PlayerEvents/PlayerDeathEvent.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/PlayerEvents/PlayerDeath.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/PlayerEvents/PlayerKillEvent.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Spawners/SpawnerListener.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Ranks.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/PlayTime.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Rankup.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/PKAlias.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/EventBroadcastCommand.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/ChatListener.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/DiamondLuck.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/TimerTask.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/AddCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventCommand.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Website.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Forums.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Donate.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/PlayTime.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/GuestQuizListener.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Rankup.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Ranks.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Vote.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingHelp.java" />
         <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" />
         <option value="$PROJECT_DIR$/src/plugin.yml" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/TimerTask.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/DiamondLuck.java" />
-        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/ResponseListener.java" />
+        <option value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/CoreCommands.java" />
       </list>
     </option>
   </component>
@@ -228,7 +283,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2248" />
+    <option name="x" value="1912" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -241,6 +296,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -264,40 +321,34 @@
               <item name="DCCore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="DCCore" type="462c0819:PsiDirectoryNode" />
-              <item name="ChatSensor" type="462c0819:PsiDirectoryNode" />
+              <item name="OverrideCommands" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DCCore" type="b2602c69:ProjectViewProjectNode" />
               <item name="DCCore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="DCCore" type="462c0819:PsiDirectoryNode" />
-              <item name="DiamondLuck" type="462c0819:PsiDirectoryNode" />
+              <item name="RandomTP" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DCCore" type="b2602c69:ProjectViewProjectNode" />
               <item name="DCCore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="DCCore" type="462c0819:PsiDirectoryNode" />
-              <item name="QuickDeposit" type="462c0819:PsiDirectoryNode" />
+              <item name="Rankup" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DCCore" type="b2602c69:ProjectViewProjectNode" />
               <item name="DCCore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="DCCore" type="462c0819:PsiDirectoryNode" />
-              <item name="Spawners" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DCCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Storage" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -306,12 +357,13 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561318725710" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584246475133" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/MC/Plugins/Vault.jar!/" />
+    <property name="last_opened_file_path" value="D:/Darkcrest 1.15.2/PlayTimes-1.2.13.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
@@ -376,7 +428,18 @@
       <workItem from="1543175110243" duration="667000" />
       <workItem from="1544995807621" duration="597000" />
       <workItem from="1559503511615" duration="21572000" />
-      <workItem from="1561302465110" duration="10858000" />
+      <workItem from="1561302465110" duration="23351000" />
+      <workItem from="1562650165629" duration="4027000" />
+      <workItem from="1562661863660" duration="9000" />
+      <workItem from="1567463700277" duration="613000" />
+      <workItem from="1567996903847" duration="14439000" />
+      <workItem from="1568836996821" duration="623000" />
+      <workItem from="1569439268455" duration="2703000" />
+      <workItem from="1582684181376" duration="6860000" />
+      <workItem from="1583014014397" duration="5968000" />
+      <workItem from="1583291695107" duration="26046000" />
+      <workItem from="1583892341626" duration="3823000" />
+      <workItem from="1583898268959" duration="6870000" />
     </task>
     <task id="LOCAL-00001" summary="Moved programming workspace to IntelliJ instead of Eclipse.">
       <created>1527464732071</created>
@@ -525,17 +588,52 @@
       <option name="project" value="LOCAL" />
       <updated>1537416057559</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="uh general update, so">
+      <created>1561318752889</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1561318752890</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added RandomTP and EventBroadcast commands&#10;Fixed DiamondLuck command, still has logical errors to figure out.">
+      <created>1561938998745</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1561938998745</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added Events part of DCCore! UNTESTED to test at a later point in time.">
+      <created>1568010717738</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1568010717738</updated>
+    </task>
+    <task id="LOCAL-00025" summary="uh general update, so">
+      <created>1569441964774</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1569441964774</updated>
+    </task>
+    <task id="LOCAL-00026" summary="uh general update, so">
+      <created>1583702100529</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1583702100529</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72494000" />
+    <option name="totallyTimeSpent" value="156968000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49881518" visible="true" weight="0.21321961" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49881518" visible="true" weight="0.23880596" />
       <window_info id="Structure" order="1" sideWeight="0.5011848" side_tool="true" weight="0.21108742" />
       <window_info id="Learn" order="2" />
       <window_info id="Designer" order="3" />
@@ -544,7 +642,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49919224" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49919224" weight="0.0" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -555,6 +653,7 @@
       <window_info anchor="bottom" id="Messages" order="9" sideWeight="0.49520257" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50479746" side_tool="true" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -594,121 +693,240 @@
     <MESSAGE value="NEW MYSQL STORAGE&#10;We have a working storage feature now- started working on the tournament command." />
     <MESSAGE value="NEW MYSQL STORAGE pt 2.&#10;We have a working storage feature now- started working on the tournament command.&#10;Added the MySQL/SQLite configuration (Required by plugin) oops." />
     <MESSAGE value="Worked on TournamentCommand pt. 2&#10; - Creates a tournament&#10; - Sets a tournament winner&#10;TODO:&#10; - Join/leave a tournament&#10; - Tournament info&#10; - More checks (if tournament exists, if player exists, etc.)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on TournamentCommand pt. 2&#10; - Creates a tournament&#10; - Sets a tournament winner&#10;TODO:&#10; - Join/leave a tournament&#10; - Tournament info&#10; - More checks (if tournament exists, if player exists, etc.)" />
+    <MESSAGE value="Added RandomTP and EventBroadcast commands&#10;Fixed DiamondLuck command, still has logical errors to figure out." />
+    <MESSAGE value="Added Events part of DCCore! UNTESTED to test at a later point in time." />
+    <MESSAGE value="uh general update, so" />
+    <option name="LAST_COMMIT_MESSAGE" value="uh general update, so" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Commands.java" />
-    <entry file="jar://D:/spigot-1.12.1.jar!/org/bukkit/command/CommandExecutor.class" />
-    <entry file="file://$PROJECT_DIR$/../ProjectKorra/ProjectKorra.iml" />
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/KillMoney/KillListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/SpectatorDisabler/OnGMChange.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/HelpCommand.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/EcoStruct.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/BalanceCommand.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/Manager/EconomyCommands.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/Manager/SubCommand.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/AddCommand.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/Manager/Commands.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCEco/Commands/Manager/EconCommand.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/EcoManager.java" />
     <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+        <state relative-caret-position="323">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="91" selection-start-line="12" selection-start-column="91" selection-end-line="12" selection-end-column="91" />
+        <state relative-caret-position="323">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="5" selection-end-line="19" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/Mysql.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventRemove.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventSubCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="119">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/Database.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/EventBroadcast.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/EndEventCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="36" selection-start-column="36" selection-end-column="36" />
+        <state relative-caret-position="506">
+          <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/SqlLite.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/RemoveCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        <state relative-caret-position="687">
+          <caret line="60" column="128" selection-start-line="60" selection-start-column="128" selection-end-line="60" selection-end-column="128" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentListener.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/PlayerListCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="38" column="56" lean-forward="true" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="381">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/DatabaseManager.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/TeleportCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="806">
+          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Tournaments/TournamentCommand.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/PlayerEvents/PlayerLeaveEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="7" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Spawners/SpawnerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/BannedWordsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="763">
+          <caret line="56" column="102" selection-start-line="56" selection-start-column="102" selection-end-line="56" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/EventBroadcastCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="55" column="67" selection-start-line="55" selection-start-column="67" selection-end-line="55" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/SqlQueries.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
+        <state relative-caret-position="102">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCManager.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/ChatListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="165" column="44" selection-start-line="165" selection-start-column="43" selection-end-line="165" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3604#3605#0" expanded="true" />
-            <element signature="e#3640#3641#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Ranks.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="41" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="32" column="42" lean-forward="true" selection-start-line="32" selection-start-column="42" selection-end-line="33" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="78" column="156" selection-start-line="78" selection-start-column="156" selection-end-line="78" selection-end-column="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventGeneral.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="20" column="89" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/PlayerEvents/PlayerKillEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/ResponseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/StartEventCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="710">
+          <caret line="49" column="35" lean-forward="true" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/AddCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/HelpCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="41" column="98" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/SubCommands/EventListCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/EventCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Rankup.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/PKAlias.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="96" column="46" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
+        <state relative-caret-position="204">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Website.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="98" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Forums.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="126" selection-start-line="10" selection-start-column="126" selection-end-line="10" selection-end-column="126" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Donate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -717,120 +935,86 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/PlayTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="41" lean-forward="true" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+        <state relative-caret-position="306">
+          <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/GeneralMethods.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Rankup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Broadcast/BroadcastCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/BannedWordsCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="56" column="102" selection-start-line="56" selection-start-column="102" selection-end-line="56" selection-end-column="102" />
+        <state relative-caret-position="347">
+          <caret line="131" column="99" lean-forward="true" selection-start-line="131" selection-start-column="99" selection-end-line="131" selection-end-column="99" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Events/DiamondLuckEvents.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/GuestQuizListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        <state relative-caret-position="442">
+          <caret line="40" column="80" selection-start-line="40" selection-start-column="80" selection-end-line="40" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/ChatSensor/ChatListener.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Ranks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="31" column="121" selection-start-line="31" selection-start-column="121" selection-end-line="31" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/RandomTP/RandomTP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/Vote.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="10" column="127" selection-start-line="10" selection-start-column="127" selection-end-line="10" selection-end-column="127" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/QuickDeposit/QuickDepositListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/CoreCommands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="52" column="13" lean-forward="true" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Spawners/SpawnerListener.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingHelp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <caret line="11" column="82" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="80" column="37" lean-forward="true" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="625">
+          <caret line="99" column="66" selection-start-line="99" selection-start-column="66" selection-end-line="99" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/TimerTask.java">
+    <entry file="file://$PROJECT_DIR$/src/plugin.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="629">
+          <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/DiamondLuck.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/CoreCommands.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DiamondLuck/ResponseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="622">
+          <caret line="78" column="61" selection-start-line="78" selection-start-column="61" selection-end-line="78" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -913,7 +1097,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Vault</last-edited>
+          <last-edited>PlayTimes-1.2.13</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

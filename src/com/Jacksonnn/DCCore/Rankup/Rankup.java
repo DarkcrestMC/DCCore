@@ -27,7 +27,7 @@ public class Rankup implements CommandExecutor, Listener {
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         String playerName = sender.getName();
         Player player = sender.getServer().getPlayer(playerName);
-        long playTime = 1;//PlayTime.getPlayTime(player);
+        long playTime = PlayTime.getPlayTime(player);
         rankupCheck(player, sender, playTime);
         return true;
     }
@@ -121,7 +121,7 @@ public class Rankup implements CommandExecutor, Listener {
         } else if (questionNum == 3) {
             newQuestion(player, "03. You may swear in chat.", true);
         } else if (questionNum == 4) {
-            newQuestion(player, "04. If you know about exploits, you should use them until they're discovered.", false);
+            newQuestion(player, "04. You may use exploits until discovered by staff.", false);
         } else if (questionNum == 5) {
             newQuestion(player, "05. You are allowed to use mods (hacks).", false);
         } else if (questionNum == 6) {
@@ -129,13 +129,13 @@ public class Rankup implements CommandExecutor, Listener {
         } else if (questionNum == 7) {
             newQuestion(player, "07. Using all caps excessively is allowed.", false);
         } else if (questionNum == 8) {
-            newQuestion(player, "08. You can talk back to staff without disciplinary action.", false);
+            newQuestion(player, "08. Talking back to staff results in disciplinary action.", true);
         } else if (questionNum == 9) {
             newQuestion(player, "09. Advertising is not allowed.", true);
         } else if (questionNum == 10) {
             newQuestion(player, "10. You can talk like you are attempting self-harm.", false);
         } else if (questionNum == 11) {
-            newQuestion(player, "11. You may use your donor ranks/perms to give you friends anything.", false);
+            newQuestion(player, "11. You may use your donor perks to give people items.", false);
         } else if (questionNum == 12) {
             newQuestion(player, "12. Asking for staff is prohibited.", true);
         } else if (questionNum == 13) {
