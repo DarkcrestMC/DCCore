@@ -2,7 +2,7 @@ name: DCCore
 author: Jacksonnn
 version: BETA 1.0
 main: com.Jacksonnn.DCCore.DCCore
-loadbefore: [Essentials, Playtimes]
+loadbefore: [Essentials, Playtimes, DiscordSRVMy ]
 api-version: 1.13
 commands:
   dccore:
@@ -48,6 +48,30 @@ commands:
     usage: /<command>
   bendinghelp:
     aliases: [bhelp, bendingh, bh]
+    usage: /<command>
+  avatar:
+    usage: /<command>
+  lightspirit:
+    usage: /<command>
+  darkspirit:
+    usage: /<command>
+  bendingfix:
+    aliases: [fixbending, bfix, bendingf]
+    usage: /<command>
+  headofstaff:
+    aliases: [hos, headostaff, bigstaff, daddystaff]
+    usage: /<command>
+  managers:
+    aliases: [ms, admins, managerchat, mchat]
+    usage: /<command>
+  moderators:
+    aliases: [mods, jmods, serverstaff, jrmoderators, jrmods, babystaff]
+    usage: /<command>
+  staffchat:
+    aliases: [staff, combinedstaff, cstaff]
+    usage: /<command>
+  artists:
+    aliases: [builders, artistsonly, artistic, artistchat]
     usage: /<command>
 permissions:
   DCCore.player:

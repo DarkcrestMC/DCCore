@@ -16,6 +16,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import ru.tehkode.permissions.PermissionUser;
 import ru.tehkode.permissions.bukkit.PermissionsEx;
 
+import java.math.BigDecimal;
+
 import static org.bukkit.Bukkit.getServer;
 
 public class Rankup implements CommandExecutor, Listener {
@@ -53,55 +55,84 @@ public class Rankup implements CommandExecutor, Listener {
         } else if (pexUser.inGroup("Baron")) { //BARON GROUP RANKUP
             if (fourtyHours - playTime <= 0) {
                 if (econ.has(player, 5000000)) {
-                    pexUser.addGroup("Official");
                     pexUser.removeGroup("Baron");
-                    econ.bankWithdraw(player.getName(), 5000000);
+                    pexUser.addGroup("Official");
+                    try {
+                        net.ess3.api.Economy.substract(player.getName(), BigDecimal.valueOf(5000000));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming an Official! -Console");
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Official rank!");
                 } else {
-                    sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (5000000 - econ.bankBalance(player.getName()).amount) + " more coins to rankup.");
-                }
+                    try {
+                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (5000000 - net.ess3.api.Economy.getMoneyExact(player.getName()).intValue()) + " more coins to rankup.");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }                }
             } else {
                 sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(fourtyHours - playTime) + " before you can rankup.");
             }
         } else if (pexUser.inGroup("Merchant")) { //MERCHANT GROUP RANKUP
             if (thirtyHours - playTime <= 0) {
                 if (econ.has(player, 500000)) {
-                    pexUser.addGroup("Baron");
                     pexUser.removeGroup("Merchant");
-                    econ.bankWithdraw(player.getName(), 500000);
+                    pexUser.addGroup("Baron");
+                    try {
+                        net.ess3.api.Economy.substract(player.getName(), BigDecimal.valueOf(500000));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Baron! -Console");
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Baron rank!");
                 } else {
-                    sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (500000 - econ.bankBalance(player.getName()).amount) + " more coins to rankup.");
-                }
+                    try {
+                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (500000 - net.ess3.api.Economy.getMoneyExact(player.getName()).intValue()) + " more coins to rankup.");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }                }
             } else {
                 sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(thirtyHours - playTime) + " before you can rankup.");
             }
         } else if (pexUser.inGroup("Citizen")) { //CITIZEN GROUP RANKUP
             if (twentyHours - playTime <= 0) {
                 if (econ.has(player, 50000)) {
-                    pexUser.addGroup("Merchant");
                     pexUser.removeGroup("Citizen");
-                    econ.bankWithdraw(player.getName(), 50000);
+                    pexUser.addGroup("Merchant");
+                    try {
+                        net.ess3.api.Economy.substract(player.getName(), BigDecimal.valueOf(50000));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Merchant! -Console");
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Merchant rank!");
                 } else {
-                    sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (50000 - econ.bankBalance(player.getName()).amount) + " more coins to rankup.");
-                }
+                    try {
+                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (50000 - net.ess3.api.Economy.getMoneyExact(player.getName()).intValue()) + " more coins to rankup.");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }                }
             } else {
                 sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(twentyHours - playTime) + " before you can rankup.");
             }
         } else if (pexUser.inGroup("Member")) { //MEMBER GROUP RANKUP
             if (tenHours - playTime <= 0) {
                 if (econ.has(player, 5000)) {
-                    pexUser.addGroup("Citizen");
                     pexUser.removeGroup("Member");
-                    econ.bankWithdraw(player.getName(), 5000);
+                    pexUser.addGroup("Citizen");
+                    try {
+                        net.ess3.api.Economy.substract(player.getName(), BigDecimal.valueOf(5000));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Citizen! -Console");
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Citizen rank!");
                 } else {
-                    sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (5000 - econ.bankBalance(player.getName()).amount) + " more coins to rankup.");
+                    try {
+                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (5000 - net.ess3.api.Economy.getMoneyExact(player.getName()).intValue()) + " more coins to rankup.");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             } else {
                 sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(tenHours - playTime) + " before you can rankup.");

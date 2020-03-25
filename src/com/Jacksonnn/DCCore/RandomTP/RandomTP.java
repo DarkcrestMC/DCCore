@@ -17,7 +17,7 @@ public class RandomTP implements CommandExecutor {
                 Player player = Bukkit.getPlayer(args[0]);
                 World world = player.getWorld();
                 double worldSize = world.getWorldBorder().getSize();
-                int radius = (int) worldSize / 2;
+                int radius = (int) worldSize / 8;
 
                 int randX = (int) (Math.random() * radius);
                 int randY = (int) (Math.random() * radius);
@@ -26,6 +26,7 @@ public class RandomTP implements CommandExecutor {
                 Location endLoc = new Location(world, randX, randY, randZ);
 
                 player.teleport(GeneralMethods.toHighestBlock(endLoc));
+                player.performCommand("unstuck");
                 sender.sendMessage(GeneralMethods.successColor + "Successfully teleported player to " + GeneralMethods.toHighestBlock(endLoc).toString());
                 player.sendMessage(GeneralMethods.successColor + "Successfully teleported to " + GeneralMethods.toHighestBlock(endLoc).toString());
             }
@@ -45,6 +46,7 @@ public class RandomTP implements CommandExecutor {
                     Location endLoc = new Location(world, randX, randY, randZ);
 
                     ((Player) sender).teleport(GeneralMethods.toHighestBlock(endLoc));
+                    ((Player) sender).performCommand("unstuck");
                     sender.sendMessage(GeneralMethods.successColor + "Successfully teleported to " + GeneralMethods.toHighestBlock(endLoc).toString());
                 }
             }

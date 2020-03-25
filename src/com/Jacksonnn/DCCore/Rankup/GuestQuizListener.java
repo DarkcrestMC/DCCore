@@ -43,6 +43,7 @@ public class GuestQuizListener implements Listener {
                     guestCheck(player, questionNumber + 1);
                 } else {
                     pexUser.removeGroup("Guest");
+                    pexUser.addGroup("Bender");
                     pexUser.addGroup("Member");
                     Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Member! -Console");
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Member rank!");

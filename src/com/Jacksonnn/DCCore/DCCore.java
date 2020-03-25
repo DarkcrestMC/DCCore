@@ -17,6 +17,7 @@ import com.Jacksonnn.DCCore.Rankup.PlayTime;
 import com.Jacksonnn.DCCore.Rankup.Ranks;
 import com.Jacksonnn.DCCore.Rankup.Rankup;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
+import com.Jacksonnn.DCCore.StaffChannels.*;
 import com.Jacksonnn.DCCore.Storage.DatabaseManager;
 import com.Jacksonnn.DCCore.Storage.Mysql;
 import com.Jacksonnn.DCCore.Storage.SqlQueries;
@@ -37,7 +38,6 @@ public class DCCore extends JavaPlugin {
 		registerListeners();
 		registerCommands();
 		new ConfigManager();
-		
 		Bukkit.getServer().getLogger().info("DCCore has successfully been enabled!");
 
 		databaseManager = new DatabaseManager(this);
@@ -81,6 +81,8 @@ public class DCCore extends JavaPlugin {
         pm.registerEvents(new PlayerLeaveEvent(), this);
         pm.registerEvents(new PlayerKillEvent(), this);
         pm.registerEvents(new GuestQuizListener(), this);
+        pm.registerEvents(new onChatEvent(), this);
+        pm.registerEvents(new onLeaveEvent(), this);
 	}
 	
 	private void registerCommands() {
@@ -98,6 +100,15 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("donate").setExecutor(new Donate());
 		this.getCommand("website").setExecutor(new Website());
 		this.getCommand("bendinghelp").setExecutor(new BendingHelp());
+		this.getCommand("avatar").setExecutor(new Avatar());
+		this.getCommand("lightspirit").setExecutor(new LightSpirit());
+		this.getCommand("darkspirit").setExecutor(new DarkSpirit());
+		this.getCommand("bendingfix").setExecutor(new BendingFix());
+		this.getCommand("headofstaff").setExecutor(new HoSCommand());
+		this.getCommand("managers").setExecutor(new ManagersCommand());
+		this.getCommand("moderators").setExecutor(new ModeratorsCommand());
+		this.getCommand("staffchat").setExecutor(new StaffChatCommand());
+		this.getCommand("artists").setExecutor(new ArtistCommand());
 
 		//EVENTS COMMAND
 		EventCommand eventCommand = new EventCommand(this);

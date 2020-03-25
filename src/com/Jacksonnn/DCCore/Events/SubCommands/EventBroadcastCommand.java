@@ -4,6 +4,7 @@ import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
 import com.Jacksonnn.DCCore.Events.EventGeneral;
 import com.Jacksonnn.DCCore.Events.EventSubCommand;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -53,9 +54,9 @@ public class EventBroadcastCommand implements EventSubCommand {
                 wordsOfMess[i] = args.get(i);
             }
             if (sender instanceof Player) {
-                Bukkit.getServer().broadcastMessage(ChatColor.GREEN + "[" + ChatColor.BLUE + "DC Events" + ChatColor.GREEN + "] " + ChatColor.GRAY + String.join(" ", wordsOfMess) + " -" + sender.getName());
+                Bukkit.getServer().broadcastMessage(ChatColor.GREEN + "[" + ChatColor.BLUE + "DC Events" + ChatColor.GREEN + "] " + ChatColor.GRAY + ChatColor.translateAlternateColorCodes('&', StringUtils.join(wordsOfMess, ' ')) + " -" + sender.getName());
             } else {
-                Bukkit.getServer().broadcastMessage(ChatColor.GRAY + String.join(" ", wordsOfMess) + " -Console");
+                Bukkit.getServer().broadcastMessage(ChatColor.GREEN + "[" + ChatColor.BLUE + "DC Events" + ChatColor.GREEN + "] " + ChatColor.GRAY + ChatColor.translateAlternateColorCodes('&', StringUtils.join(wordsOfMess, ' ')) + " -Console");
             }
         } else {
             sender.sendMessage(EventGeneral.eventPrefix + "Insufficient permission.");

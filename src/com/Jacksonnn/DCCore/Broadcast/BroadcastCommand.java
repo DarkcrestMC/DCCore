@@ -3,6 +3,7 @@ package com.Jacksonnn.DCCore.Broadcast;
 import com.Jacksonnn.DCCore.GeneralMethods;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,7 +13,7 @@ public class BroadcastCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 		
-		String message = StringUtils.join(args, " ");
+		String message = ChatColor.translateAlternateColorCodes('&', StringUtils.join(args, ' '));
 		
 		if (sender instanceof Player) {
 			
@@ -21,7 +22,7 @@ public class BroadcastCommand implements CommandExecutor {
 			if (sender.hasPermission("DCCore.broadcast")) {
 				if (args.length == 0) {
 					sender.sendMessage(GeneralMethods.errorColor + "Please type message: /broadcast <message>");
-				} else if (args.length == 1) {
+				} else {
 					Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + " -" + player);
 				}
 			} else {
@@ -30,7 +31,7 @@ public class BroadcastCommand implements CommandExecutor {
 		} else {
 			if (args.length == 0) {
 				sender.sendMessage(GeneralMethods.errorColor + "Please type message: /broadcast <message>");
-			} else if (args.length == 1) {
+			} else {
 				Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + " -Console");
 			}
 		}

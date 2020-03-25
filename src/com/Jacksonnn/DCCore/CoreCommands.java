@@ -1,6 +1,7 @@
 package com.Jacksonnn.DCCore;
 
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
+import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -64,6 +65,15 @@ public class CoreCommands implements CommandExecutor {
             }
 
             sender.sendMessage(qdEnabled ? GeneralMethods.successColor + "QuickDeposit Feature has been enabled." : GeneralMethods.disableColor + "QuickDeposit Feature has been disabled.");
+        } else if (args[0].equalsIgnoreCase("reload")) {
+            ConfigManager.defaultConfig.reload();
+            sender.sendMessage(GeneralMethods.successColor + "Reloaded config.yml");
+            ConfigManager.langConfig.reload();
+            sender.sendMessage(GeneralMethods.successColor + "Reloaded language.yml");
+            ConfigManager.bannedWords.reload();
+            sender.sendMessage(GeneralMethods.successColor + "Reloaded bannedWords.yml");
+            ConfigManager.killConfig.reload();
+            sender.sendMessage(GeneralMethods.successColor + "Reloaded killMoney.yml");
         } else {
 
             sender.sendMessage(GeneralMethods.prefix + "DCCore Help:");
@@ -71,12 +81,16 @@ public class CoreCommands implements CommandExecutor {
             sender.sendMessage(ChatColor.GOLD + "/dccore quickdeposit");
             sender.sendMessage(ChatColor.GOLD + "/dccore lookup - UNDER CONSTRUCTION");
 
-            sender.sendMessage(ChatColor.GOLD + "/broadcast <message>");
+            sender.sendMessage(ChatColor.GOLD + "/broadcast");
             sender.sendMessage(ChatColor.GOLD + "/rankup");
             sender.sendMessage(ChatColor.GOLD + "/ranks");
             sender.sendMessage(ChatColor.GOLD + "/playtime");
             sender.sendMessage(ChatColor.GOLD + "/randomtp");
             sender.sendMessage(ChatColor.GOLD + "/bendinghelp");
+            sender.sendMessage(ChatColor.GOLD + "/bendingfix");
+            sender.sendMessage(ChatColor.GOLD + "/avatar");
+            sender.sendMessage(ChatColor.GOLD + "/lightspirit");
+            sender.sendMessage(ChatColor.GOLD + "/darkspirit");
             sender.sendMessage(ChatColor.GOLD + "/bannedwords - UNDER CONSTRUCTION");
             sender.sendMessage(ChatColor.GOLD + "/events - UNDER CONSTRUCTION");
             sender.sendMessage(ChatColor.GOLD + "/diamondluck - UNDER CONSTRUCTION");
