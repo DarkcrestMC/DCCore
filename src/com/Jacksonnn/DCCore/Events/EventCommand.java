@@ -47,17 +47,7 @@ public class EventCommand implements CommandExecutor, TabCompleter {
         if (sender.hasPermission("DCCore.EventStaff")) {
             if (args.length >= 1) {
                 for (EventSubCommand subCommand : subCommands) {
-                    if (subCommand
-                            .getAliases()
-                            .contains(
-                                    args[0]
-                            )
-                            ||
-                            subCommand
-                            .getName()
-                                    .equalsIgnoreCase(
-                                            args[0]
-                                    )) {
+                    if (subCommand.getAliases().contains(args[0]) || subCommand.getName().equalsIgnoreCase(args[0])) {
                         subCommand.execute(sender, buildArguments(args));
                         return true;
                     }

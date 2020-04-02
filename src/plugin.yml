@@ -73,6 +73,8 @@ commands:
   artists:
     aliases: [builders, artistsonly, artistic, artistchat]
     usage: /<command>
+  staffcount:
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op

@@ -31,27 +31,29 @@ public class Event {
 
     public EventPlayer getEventPlayer(String name) {
         for (EventPlayer player : eventPlayers) {
-            if (player.getName() == name) {
+            if (player.getName().equalsIgnoreCase(name)) {
                 return player;
             }
         }
         return null;
     }
 
-    public void addPlayer(CommandSender sender, String name) {
+    public void addPlayer(CommandSender sender, String name, Event event) {
         EventPlayer player = new EventPlayer(eventPlayers.size() + 1, Bukkit.getPlayer(name));
         if (eventPlayers.contains(player)) {
             sender.sendMessage(EventGeneral.eventPrefix + "Player" + name + " has already joined the event!");
         } else {
             eventPlayers.add(player);
+            player.getPlayer().sendMessage(EventGeneral.eventPrefix + "You have been signed up for the " + getEventName() + " event hosted by " + getEventStaff() + ".");
         }
     }
 
-    public void addPlayer(CommandSender sender, EventPlayer player) {
+    public void addPlayer(CommandSender sender, EventPlayer player, Event event) {
         if (eventPlayers.contains(player)) {
             sender.sendMessage(EventGeneral.eventPrefix + "Player" + player.getName() + " has already joined the event!");
         } else {
             eventPlayers.add(player);
+            player.getPlayer().sendMessage(EventGeneral.eventPrefix + "You have been signed up for the " + getEventName() + " event hosted by " + getEventStaff() + ".");
         }
     }
 
@@ -59,6 +61,7 @@ public class Event {
         EventPlayer player = getEventPlayer(name);
         if (player != null) {
             eventPlayers.remove(player);
+            player.getPlayer().sendMessage(EventGeneral.eventPrefix + "You have been removed from the " + getEventName() + " event.");
         } else {
             sender.sendMessage(EventGeneral.eventPrefix + "Player" + name + " is not apart of this event!");
         }
@@ -68,6 +71,7 @@ public class Event {
 
         if (eventPlayers.contains(player)) {
             eventPlayers.remove(player);
+            player.getPlayer().sendMessage(EventGeneral.eventPrefix + "You have been removed from the " + getEventName() + " event.");
         } else {
             sender.sendMessage(EventGeneral.eventPrefix + "Player" + player.getName() + " is not apart of this event!");
         }
@@ -76,6 +80,7 @@ public class Event {
     public void removePlayer(EventPlayer player) {
         if (eventPlayers.contains(player)) {
             eventPlayers.remove(player);
+            player.getPlayer().sendMessage(EventGeneral.eventPrefix + "You have been removed from the " + getEventName() + " event.");
             Bukkit.getServer().getLogger().info(EventGeneral.eventPrefix + "Successfully removed player, " + player.getName() + ", from event, " + eventName);
         } else {
             Bukkit.getServer().getLogger().info(EventGeneral.eventPrefix + "Player" + player.getName() + " is not apart of any events.");

@@ -58,12 +58,12 @@ public class AddCommand implements EventSubCommand {
             if (args.size() > 2) {
                 for (String arg : args) {
                     if (!(arg.equalsIgnoreCase(args.get(0)))) {
-                        event.addPlayer(sender, arg);
+                        event.addPlayer(sender, arg, event);
                         sender.sendMessage(EventGeneral.eventPrefix + "Added player, " + arg + ", to event, " + event.getEventName() + ".");
                     }
                 }
             } else if (args.size() == 2) {
-                event.addPlayer(sender, args.get(1));
+                event.addPlayer(sender, args.get(1), event);
                 sender.sendMessage(EventGeneral.eventPrefix + "Added player, " + args.get(1) + ", to event, " + event.getEventName() + ".");
             } else {
                 sender.sendMessage(EventGeneral.eventPrefix + "/dcevents add <event> <player(s)>");

@@ -1,7 +1,8 @@
 package com.Jacksonnn.DCCore;
 
+import com.Jacksonnn.DCCore.BannedWords.BannedWordsCommand;
+import com.Jacksonnn.DCCore.BannedWords.BannedWordsListener;
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
-import com.Jacksonnn.DCCore.ChatSensor.BannedWordsCommand;
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DiamondLuck.DiamondLuck;
@@ -18,6 +19,8 @@ import com.Jacksonnn.DCCore.Rankup.Ranks;
 import com.Jacksonnn.DCCore.Rankup.Rankup;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
 import com.Jacksonnn.DCCore.StaffChannels.*;
+import com.Jacksonnn.DCCore.StaffCounts.StaffCountCommand;
+import com.Jacksonnn.DCCore.StaffCounts.StaffNotification;
 import com.Jacksonnn.DCCore.Storage.DatabaseManager;
 import com.Jacksonnn.DCCore.Storage.Mysql;
 import com.Jacksonnn.DCCore.Storage.SqlQueries;
@@ -83,6 +86,9 @@ public class DCCore extends JavaPlugin {
         pm.registerEvents(new GuestQuizListener(), this);
         pm.registerEvents(new onChatEvent(), this);
         pm.registerEvents(new onLeaveEvent(), this);
+        pm.registerEvents(new StaffNotification(), this);
+        pm.registerEvents(new Vanish(), this);
+        pm.registerEvents(new BannedWordsListener(), this);
 	}
 	
 	private void registerCommands() {
@@ -109,6 +115,7 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("moderators").setExecutor(new ModeratorsCommand());
 		this.getCommand("staffchat").setExecutor(new StaffChatCommand());
 		this.getCommand("artists").setExecutor(new ArtistCommand());
+		this.getCommand("staffcount").setExecutor(new StaffCountCommand());
 
 		//EVENTS COMMAND
 		EventCommand eventCommand = new EventCommand(this);

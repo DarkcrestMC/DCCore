@@ -28,7 +28,7 @@ public class StartEventCommand implements EventSubCommand {
         ArrayList<String> aliases = new ArrayList<>();
         aliases.add("start");
         aliases.add("create");
-        return null;
+        return aliases;
     }
 
     @Override
@@ -48,6 +48,7 @@ public class StartEventCommand implements EventSubCommand {
             if (args.size() == 1) {
                 Event event = new Event(args.get(0), sender.getName());
                 sender.sendMessage(EventGeneral.eventPrefix + "Successfully created event, " + event.getEventName() + ", by, " + event.getEventStaff());
+                sender.sendMessage(" ");
                 Bukkit.broadcastMessage(EventGeneral.eventPrefix + "Now starting event, " + event.getEventName() + ", hosted by, " + event.getEventStaff() + ". -Console");
             } else {
                 sender.sendMessage(EventGeneral.eventPrefix + "/dcevents startEvent <event>");

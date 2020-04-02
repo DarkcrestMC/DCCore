@@ -29,6 +29,7 @@ public class EndEventCommand implements EventSubCommand {
         aliases.add("terminate");
         aliases.add("finish");
         aliases.add("kill");
+        aliases.add("stop");
         return aliases;
     }
 
@@ -50,7 +51,7 @@ public class EndEventCommand implements EventSubCommand {
                 Event event = EventGeneral.getEvent(args.get(0));
 
                 if (event == null) {
-                    sender.sendMessage("There is no event with that name!");
+                    sender.sendMessage(EventGeneral.eventPrefix + "There is no event with that name!");
                     return;
                 }
 

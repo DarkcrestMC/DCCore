@@ -54,7 +54,7 @@ public class TeleportCommand implements EventSubCommand {
                 Event event = EventGeneral.getEvent(args.get(0));
 
                 if (event == null) {
-                    sender.sendMessage("There is no event by this name: " + args.get(0));
+                    sender.sendMessage(EventGeneral.eventPrefix + "There is no event by this name: " + args.get(0));
                     return;
                 }
 

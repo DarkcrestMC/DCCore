@@ -54,9 +54,9 @@ public class EventBroadcastCommand implements EventSubCommand {
                 wordsOfMess[i] = args.get(i);
             }
             if (sender instanceof Player) {
-                Bukkit.getServer().broadcastMessage(ChatColor.GREEN + "[" + ChatColor.BLUE + "DC Events" + ChatColor.GREEN + "] " + ChatColor.GRAY + ChatColor.translateAlternateColorCodes('&', StringUtils.join(wordsOfMess, ' ')) + " -" + sender.getName());
+                Bukkit.getServer().broadcastMessage(EventGeneral.eventPrefix + ChatColor.translateAlternateColorCodes('&', StringUtils.join(wordsOfMess, ' ')) + " -" + sender.getName());
             } else {
-                Bukkit.getServer().broadcastMessage(ChatColor.GREEN + "[" + ChatColor.BLUE + "DC Events" + ChatColor.GREEN + "] " + ChatColor.GRAY + ChatColor.translateAlternateColorCodes('&', StringUtils.join(wordsOfMess, ' ')) + " -Console");
+                Bukkit.getServer().broadcastMessage(EventGeneral.eventPrefix + ChatColor.translateAlternateColorCodes('&', StringUtils.join(wordsOfMess, ' ')) + " -Console");
             }
         } else {
             sender.sendMessage(EventGeneral.eventPrefix + "Insufficient permission.");

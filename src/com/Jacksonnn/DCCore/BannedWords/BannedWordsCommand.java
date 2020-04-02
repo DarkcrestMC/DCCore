@@ -1,4 +1,4 @@
-package com.Jacksonnn.DCCore.ChatSensor;
+package com.Jacksonnn.DCCore.BannedWords;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;

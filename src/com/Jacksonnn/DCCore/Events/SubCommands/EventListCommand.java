@@ -29,7 +29,8 @@ public class EventListCommand implements EventSubCommand {
         aliases.add("loe");
         aliases.add("events");
         aliases.add("le");
-        return null;
+        aliases.add("list");
+        return aliases;
     }
 
     @Override

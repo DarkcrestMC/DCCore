@@ -29,7 +29,7 @@ public class HelpCommand implements EventSubCommand {
         aliases.add("whatthefuck");
         aliases.add("??");
         aliases.add("???");
-        return null;
+        return aliases;
     }
 
     @Override
