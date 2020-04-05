@@ -1,4 +1,4 @@
-package com.Jacksonnn.DCCore.StaffChannels;
+package com.Jacksonnn.DCCore.StaffUtils.StaffChannels;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;

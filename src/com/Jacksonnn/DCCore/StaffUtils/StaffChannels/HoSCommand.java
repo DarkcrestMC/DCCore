@@ -1,4 +1,4 @@
-package com.Jacksonnn.DCCore.StaffChannels;
+package com.Jacksonnn.DCCore.StaffUtils.StaffChannels;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;
@@ -15,43 +15,44 @@ import ru.tehkode.permissions.bukkit.PermissionsEx;
 import java.util.Collection;
 import java.util.Objects;
 
-public class StaffChatCommand implements CommandExecutor {
+public class HoSCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("DCCore.staffchats.Staff")) {
+        if (sender.hasPermission("DCCore.staffchats.HoS")) {
             if (args.length == 0) {
                 //toggle chat
                 String currentChat = ConfigManager.defaultConfig.get().getString("DCStaffChat." + sender.getName());
                 if (currentChat == null) {
-                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Staff");
-                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to STAFF CHAT.");
+                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "HeadOfStaff");
+                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to HOS.");
+
                     PermissionUser pexUser = PermissionsEx.getUser((Player)sender);
                     pexUser.addPermission("-discordsrv.chat");
-                } else if (currentChat.equalsIgnoreCase("Staff")) {
+
+                } else if (currentChat.equalsIgnoreCase("HeadOfStaff")) {
                     ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), null);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to NORMAL.");
                     PermissionUser pexUser = PermissionsEx.getUser((Player)sender);
                     pexUser.removePermission("-discordsrv.chat");
                 } else {
-                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Staff");
-                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to STAFF CHAT.");
+                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "HeadOfStaff");
+                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to HOS.");
                     PermissionUser pexUser = PermissionsEx.getUser((Player)sender);
                     pexUser.addPermission("-discordsrv.chat");
                 }
                 ConfigManager.defaultConfig.save();
             } else {
                 //send message through command
-                String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
-                String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
+                String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.HoS.Prefix")));
+                String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.HoS.msgColor")));
                 Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
                 for (Player player : onlinePlayers) {
-                    if (player.hasPermission("DCCore.staffchats.Staff")) {
+                    if (player.hasPermission("DCCore.staffchats.HoS")) {
                         player.sendMessage(chatprefix + sender.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', StringUtils.join(args, ' ')));
                     }
                 }
-
                 Bukkit.getLogger().info(chatprefix + sender.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', StringUtils.join(args, ' ')));
             }
         } else {

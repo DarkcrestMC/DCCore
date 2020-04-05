@@ -1,4 +1,4 @@
-package com.Jacksonnn.DCCore.StaffCounts;
+package com.Jacksonnn.DCCore.StaffUtils.StaffCounts;
 
 import com.Jacksonnn.DCCore.GeneralMethods;
 import org.bukkit.event.EventHandler;

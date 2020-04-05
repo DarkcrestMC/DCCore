@@ -1,4 +1,4 @@
-package com.Jacksonnn.DCCore.StaffChannels;
+package com.Jacksonnn.DCCore.StaffUtils.StaffChannels;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;
@@ -15,39 +15,39 @@ import ru.tehkode.permissions.bukkit.PermissionsEx;
 import java.util.Collection;
 import java.util.Objects;
 
-public class ModeratorsCommand implements CommandExecutor {
+public class StaffChatCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("DCCore.staffchats.Moderators")) {
+        if (sender.hasPermission("DCCore.staffchats.Staff")) {
             if (args.length == 0) {
                 //toggle chat
                 String currentChat = ConfigManager.defaultConfig.get().getString("DCStaffChat." + sender.getName());
                 if (currentChat == null) {
-                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Moderators");
-                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to MODERATORS.");
+                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Staff");
+                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to STAFF CHAT.");
                     PermissionUser pexUser = PermissionsEx.getUser((Player)sender);
                     pexUser.addPermission("-discordsrv.chat");
-                } else if (currentChat.equalsIgnoreCase("Moderators")) {
+                } else if (currentChat.equalsIgnoreCase("Staff")) {
                     ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), null);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to NORMAL.");
                     PermissionUser pexUser = PermissionsEx.getUser((Player)sender);
                     pexUser.removePermission("-discordsrv.chat");
                 } else {
-                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Moderators");
-                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to MODERATORS.");
+                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Staff");
+                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to STAFF CHAT.");
                     PermissionUser pexUser = PermissionsEx.getUser((Player)sender);
                     pexUser.addPermission("-discordsrv.chat");
                 }
                 ConfigManager.defaultConfig.save();
             } else {
                 //send message through command
-                String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Moderators.Prefix")));
-                String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Moderators.msgColor")));
+                String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
+                String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
                 Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
                 for (Player player : onlinePlayers) {
-                    if (player.hasPermission("DCCore.staffchats.Moderators")) {
+                    if (player.hasPermission("DCCore.staffchats.Staff")) {
                         player.sendMessage(chatprefix + sender.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', StringUtils.join(args, ' ')));
                     }
                 }

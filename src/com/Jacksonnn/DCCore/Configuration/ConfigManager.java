@@ -8,19 +8,15 @@ import java.util.ArrayList;
 public class ConfigManager {
     public static Config langConfig;
     public static Config defaultConfig;
-    public static Config killConfig;
     public static Config bannedWords;
-
 
     public ConfigManager() {
         defaultConfig = new Config(new File("config.yml"));
         langConfig = new Config(new File("language.yml"));
-        killConfig = new Config(new File("killMoney.yml"));
         bannedWords = new Config(new File("bannedWords.yml"));
         configCheck(ConfigType.DEFAULT);
         configCheck(ConfigType.ANTICURSE);
         configCheck(ConfigType.LANGUAGE);
-        configCheck(ConfigType.KILLMONEY);
     }
 
     public static void configCheck(ConfigType type) {
@@ -44,6 +40,24 @@ public class ConfigManager {
             config.addDefault("StaffNotification.StaffChat.ChannelName", "staff-chat");
             config.addDefault("StaffNotification.StaffChat.ChannelID", "354051234338045952");
             config.addDefault("StaffNotification.StaffChat.StaffRoleID", "376739311896363008");
+
+            config.addDefault("StaffNotification.Notes.ChannelID", "688899801697615873");
+            config.addDefault("StaffNotification.Notes.StaffRoleID", "376739311896363008");
+
+            config.addDefault("StaffNotification.Warnings.ChannelID", "688899801697615873");
+            config.addDefault("StaffNotification.Warnings.StaffRoleID", "376739311896363008");
+
+            config.addDefault("StaffNotification.Reports.PlayerReport.ChannelID", "688899801697615873");
+            config.addDefault("StaffNotification.Reports.PlayerReport.StaffRoleID", "376739311896363008");
+
+            config.addDefault("StaffNotification.Reports.BugReport.ChannelID", "688899801697615873");
+            config.addDefault("StaffNotification.Reports.BugReport.StaffRoleID", "376739311896363008");
+
+            config.addDefault("StaffNotification.Reports.StaffReport.ChannelID", "684852294541377536");
+            config.addDefault("StaffNotification.Reports.StaffReport.StaffRoleID", "440567726839431178");
+
+            config.addDefault("StaffNotification.Reports.ToDoReport.ChannelID", "684852294541377536");
+            config.addDefault("StaffNotification.Reports.ToDoReport.StaffRoleID", "440567726839431178");
             defaultConfig.save();
         } else if (type == ConfigType.LANGUAGE) {
             config = langConfig.get();
@@ -90,12 +104,25 @@ public class ConfigManager {
             config.addDefault("Events.CommandDescriptions.Help", "Shows all possible commands and their arguments.");
             config.addDefault("Events.CommandDescriptions.Teleport", "Teleports all active players in an event to the executor.");
 
-            langConfig.save();
-        } else if (type == ConfigType.KILLMONEY) {
-            config = killConfig.get();
+            config.addDefault("Reports.CommandDescriptions.Help", "Shows all possible commands and their arguments.");
+            config.addDefault("Reports.CommandDescriptions.Add", "Creates a new report for the specified type.");
+            config.addDefault("Reports.CommandDescriptions.Remove", "Removes/Deletes a Report");
+            config.addDefault("Reports.CommandDescriptions.List", "Lists all reports for a certain type.");
+            config.addDefault("Reports.CommandDescriptions.Clear", "Clears all reports for a certain type.");
 
-            config.addDefault("KillMoney", "");
-            killConfig.save();
+            config.addDefault("Notes.CommandDescriptions.Help", "Shows all possible commands and their arguments.");
+            config.addDefault("Notes.CommandDescriptions.Add", "Creates a new note for a player with the designated message.");
+            config.addDefault("Notes.CommandDescriptions.Clear", "Clears all notes for a player.");
+            config.addDefault("Notes.CommandDescriptions.List", "Lists all notes for a player.");
+            config.addDefault("Notes.CommandDescriptions.Remove", "Removes a note from a player.");
+
+            config.addDefault("Warnings.CommandDescriptions.Help", "Shows all possible commands and their arguments.");
+            config.addDefault("Warnings.CommandDescriptions.Add", "Creates a new warning against a player with a reason.");
+            config.addDefault("Warnings.CommandDescriptions.Clear", "Clears all warnings for a player.");
+            config.addDefault("Warnings.CommandDescriptions.List", "Lists all warnings for a player.");
+            config.addDefault("Warnings.CommandDescriptions.Remove", "Removes a warning from a player.");
+
+            langConfig.save();
         } else if (type == ConfigType.ANTICURSE) {
             config = bannedWords.get();
 

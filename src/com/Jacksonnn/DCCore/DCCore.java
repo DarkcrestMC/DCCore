@@ -18,12 +18,17 @@ import com.Jacksonnn.DCCore.Rankup.PlayTime;
 import com.Jacksonnn.DCCore.Rankup.Ranks;
 import com.Jacksonnn.DCCore.Rankup.Rankup;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
-import com.Jacksonnn.DCCore.StaffChannels.*;
-import com.Jacksonnn.DCCore.StaffCounts.StaffCountCommand;
-import com.Jacksonnn.DCCore.StaffCounts.StaffNotification;
+import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesCommand;
+import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesGeneral;
+import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
+import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportCommand;
+import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
+import com.Jacksonnn.DCCore.StaffUtils.StaffChannels.*;
+import com.Jacksonnn.DCCore.StaffUtils.StaffCounts.StaffCountCommand;
+import com.Jacksonnn.DCCore.StaffUtils.StaffCounts.StaffNotification;
+import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningCommand;
+import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningGeneral;
 import com.Jacksonnn.DCCore.Storage.DatabaseManager;
-import com.Jacksonnn.DCCore.Storage.Mysql;
-import com.Jacksonnn.DCCore.Storage.SqlQueries;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -35,13 +40,22 @@ public class DCCore extends JavaPlugin {
 	public static DCCore plugin;
 	private PluginManager pm = Bukkit.getServer().getPluginManager();
 	private DatabaseManager databaseManager;
+	private PlayerDisciplineManager pdm;
+	private NotesGeneral nG;
+	private WarningGeneral wG;
+	private ReportGeneral rG;
 
 	public void onEnable() {
 		plugin = this;
+
+		this.nG = new NotesGeneral();
+		this.wG = new WarningGeneral();
+		this.rG = new ReportGeneral();
+
+		pdm = new PlayerDisciplineManager(plugin);
+		new ConfigManager();
 		registerListeners();
 		registerCommands();
-		new ConfigManager();
-		Bukkit.getServer().getLogger().info("DCCore has successfully been enabled!");
 
 		databaseManager = new DatabaseManager(this);
 		try {
@@ -55,18 +69,16 @@ public class DCCore extends JavaPlugin {
 		}
 
 		try {
-			installDatabase();
+			pdm.createPunishmentTables();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
 
-	private void installDatabase() throws SQLException {
-		if (databaseManager.getDatabase() instanceof Mysql) {
-			databaseManager.getDatabase().getConnection().createStatement().execute(SqlQueries.CREATE_TOURNAMENTS.getMysqlQuery());
-		} else {
-			databaseManager.getDatabase().getConnection().createStatement().execute(SqlQueries.CREATE_TOURNAMENTS.getSqliteQuery());
-		}
+		pdm.loadNotes();
+		pdm.loadWarnings();
+		pdm.loadReports();
+
+		Bukkit.getServer().getLogger().info("DCCore has successfully been enabled!");
 	}
 	
 	public void onDisable() {
@@ -120,11 +132,38 @@ public class DCCore extends JavaPlugin {
 		//EVENTS COMMAND
 		EventCommand eventCommand = new EventCommand(this);
 		this.getCommand("dcevents").setExecutor(eventCommand);
-		this.getCommand("dcevents").setTabCompleter(eventCommand);
+
+		//NOTES COMMAND
+		NotesCommand notesCommand = new NotesCommand(this);
+		this.getCommand("notes").setExecutor(notesCommand);
+
+		//WARN COMMAND
+		WarningCommand warningCommand = new WarningCommand(this);
+		this.getCommand("warnings").setExecutor(warningCommand);
+
+		//REPORT COMMAND
+		ReportCommand reportCommand = new ReportCommand(this);
+		this.getCommand("reports").setExecutor(reportCommand);
 	}
 
 	public DatabaseManager getDatabaseManager() {
 		return databaseManager;
+	}
+
+	public NotesGeneral getNotesGeneral() {
+		return nG;
+	}
+
+	public WarningGeneral getWarningGeneral() {
+		return wG;
+	}
+
+	public ReportGeneral getReportGeneral() {
+		return rG;
+	}
+
+	public PlayerDisciplineManager getPDM() {
+		return pdm;
 	}
 }
 

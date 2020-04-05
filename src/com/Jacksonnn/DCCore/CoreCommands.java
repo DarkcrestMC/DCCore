@@ -72,8 +72,6 @@ public class CoreCommands implements CommandExecutor {
             sender.sendMessage(GeneralMethods.successColor + "Reloaded language.yml");
             ConfigManager.bannedWords.reload();
             sender.sendMessage(GeneralMethods.successColor + "Reloaded bannedWords.yml");
-            ConfigManager.killConfig.reload();
-            sender.sendMessage(GeneralMethods.successColor + "Reloaded killMoney.yml");
         } else {
 
             sender.sendMessage(GeneralMethods.prefix + "DCCore Help:");

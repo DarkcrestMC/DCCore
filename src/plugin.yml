@@ -75,6 +75,15 @@ commands:
     usage: /<command>
   staffcount:
     usage: /<command>
+  notes:
+    aliases: [note, playernotes]
+    usage: /<command>
+  warnings:
+    aliases: [warning, warn, warns]
+    usage: /<command>
+  reports:
+    aliases: [report]
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op

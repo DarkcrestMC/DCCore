@@ -8,9 +8,8 @@ public class ConfigType {
 
     static final ConfigType DEFAULT = new ConfigType("Default");
     static final ConfigType LANGUAGE = new ConfigType("Language");
-    static final ConfigType KILLMONEY = new ConfigType("KillMoney");
     static final ConfigType ANTICURSE = new ConfigType("AntiCurse");
-    public static final ConfigType[] CORE_TYPES = { DEFAULT, LANGUAGE, KILLMONEY, ANTICURSE };
+    public static final ConfigType[] CORE_TYPES = { DEFAULT, LANGUAGE, ANTICURSE };
 
     private String string;
 
