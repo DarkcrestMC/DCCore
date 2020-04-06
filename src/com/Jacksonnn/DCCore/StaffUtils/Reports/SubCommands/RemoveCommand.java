@@ -48,36 +48,44 @@ public class RemoveCommand implements ReportSubCommand {
 
     @Override
     public void execute(CommandSender sender, List<String> args) {
-        String requestedType = args.get(0);
-        int id = Integer.valueOf(args.get(1));
+        if (args.size() >= 1) {
+            String requestedType = args.get(0);
+            int id = Integer.valueOf(args.get(1));
 
-        if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.TODO.getShorthand())) {
-            ToDoReport report = pdm.getReportManager().getToDoReport(id);
-            try {
-                pdm.deleteReport(report);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
-            PlayerReport report = pdm.getReportManager().getPlayerReport(id);
-            try {
-                pdm.deleteReport(report);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
-            StaffReport report = pdm.getReportManager().getStaffReport(id);
-            try {
-                pdm.deleteReport(report);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.BUG.getShorthand())) {
-            BugReport report = pdm.getReportManager().getBugReport(id);
-            try {
-                pdm.deleteReport(report);
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.TODO.getShorthand())) {
+                ToDoReport report = pdm.getReportManager().getToDoReport(id);
+                try {
+                    pdm.deleteReport(report);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted report.");
+            } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
+                PlayerReport report = pdm.getReportManager().getPlayerReport(id);
+                try {
+                    pdm.deleteReport(report);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted report.");
+            } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
+                StaffReport report = pdm.getReportManager().getStaffReport(id);
+                try {
+                    pdm.deleteReport(report);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted report.");
+            } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.BUG.getShorthand())) {
+                BugReport report = pdm.getReportManager().getBugReport(id);
+                try {
+                    pdm.deleteReport(report);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted report.");
+            } else {
+                pdm.getReportManager().getHelp(sender);
             }
         } else {
             pdm.getReportManager().getHelp(sender);

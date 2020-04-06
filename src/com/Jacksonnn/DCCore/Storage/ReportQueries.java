@@ -37,8 +37,8 @@ public enum ReportQueries {
             "SELECT * FROM `reports`",
             "SELECT * FROM reports"),
     DELETE_REPORT(
-            "DELETE FROM `reports` WHERE (id, type) VALUES (?, ?)",
-            "DELETE FROM reports WHERE (id, type) VALUES (?, ?)"),
+            "DELETE FROM `reports` WHERE id=? AND type=? ",
+            "DELETE FROM reports WHERE id=? AND type=?"),
     CLEAR_REPORTS(
             "DELETE FROM `reports` WHERE type=?",
             "DELETE FROM reports WHERE type=?");

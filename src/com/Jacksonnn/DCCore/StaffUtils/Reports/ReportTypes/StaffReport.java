@@ -24,7 +24,7 @@ public class StaffReport {
     public StaffReport(String message, Player player, Player staffMember, boolean resolved, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating staff report...");
         int i = 0;
-        for (ToDoReport report : pdm.getReportManager().getTodoReports()) {
+        for (StaffReport report : pdm.getReportManager().getStaffReports()) {
             if (report.getID() >= i) {
                 i = report.getID();
                 i++;

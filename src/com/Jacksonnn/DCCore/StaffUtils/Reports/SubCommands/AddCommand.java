@@ -10,6 +10,7 @@ import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.PlayerReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.StaffReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.ToDoReport;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -58,69 +59,95 @@ public class AddCommand implements ReportSubCommand {
      */
     @Override
     public void execute(CommandSender sender, List<String> args) {
-        if (sender instanceof Player) {
-            String reportRequestType = args.get(0);
-            args.remove(reportRequestType);
+        if (args.size() >= 1) {
+            if (sender instanceof Player) {
+                String reportRequestType = args.get(0);
+                args.remove(reportRequestType);
 
-            if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.TODO.getShorthand())) {
-                if (args.size() >= 1) {
-                    String message = String.join(" ", args);
+                if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.TODO.getShorthand())) {
+                    if (args.size() >= 1) {
+                        String message = String.join(" ", args);
 
-                    ToDoReport report = new ToDoReport(message, ((Player) sender).getPlayer(), pdm);
-                    report.sendToDiscord();
+                        ToDoReport report = new ToDoReport(message, ((Player) sender).getPlayer(), pdm);
+                        report.sendToDiscord();
+                        sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
+                                report.getID() + ") " + ChatColor.YELLOW +
+                                report.getMessage() + ChatColor.DARK_RED + " -" +
+                                report.getStaffMember().getName());
+                    } else {
+                        sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add todo <message>.");
+                    }
+                } else if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
+                    if (args.size() >= 3) {
+                        Player player = Bukkit.getPlayer(args.get(0));
+                        args.remove(0);
+
+                        boolean isResolved = Boolean.parseBoolean(args.get(0).toLowerCase());
+                        args.remove(0);
+
+                        String message = String.join(" ", args);
+
+                        PlayerReport report = new PlayerReport(message, player, ((Player) sender).getPlayer(), isResolved, pdm);
+                        report.sendToDiscord();
+                        sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
+                                report.getPlayer() + "-" +
+                                (report.isResolved() ? "R" : "NR") +
+                                report.getID() + ") " + ChatColor.YELLOW +
+                                report.getMessage() + ChatColor.DARK_RED + " -" +
+                                report.getStaffMember().getName());
+                    } else {
+                        sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add player <player> <isResolved(true/false)> <message>");
+                    }
+                } else if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
+                    if (args.size() >= 3) {
+                        Player player = Bukkit.getPlayer(args.get(0));
+                        args.remove(0);
+
+                        boolean isResolved = Boolean.parseBoolean(args.get(0).toLowerCase());
+                        args.remove(0);
+
+                        String message = String.join(" ", args);
+
+                        StaffReport report = new StaffReport(message, player, ((Player) sender).getPlayer(), isResolved, pdm);
+                        report.sendToDiscord();
+                        sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
+                                report.getPlayer() + "-" +
+                                (report.isResolved() ? "R" : "NR") +
+                                report.getID() + ") " + ChatColor.YELLOW +
+                                report.getMessage() + ChatColor.DARK_RED + " -" +
+                                report.getStaffMember().getName());
+                    } else {
+                        sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add staff <staffMember> <isResolved(true/false)> <message>");
+                    }
+                } else if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.BUG.getShorthand())) {
+                    if (args.size() >= 3) {
+                        String bugType = args.get(0);
+                        args.remove(0);
+
+                        boolean isTested = Boolean.parseBoolean(args.get(0).toLowerCase());
+                        args.remove(0);
+
+                        String message = String.join(" ", args);
+
+                        BugReport report = new BugReport(message, bugType, ((Player) sender).getPlayer(), isTested, pdm);
+                        report.sendToDiscord();
+                        sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
+                                report.getBugType() + "-" +
+                                (report.isTested() ? "T" : "NT") +
+                                report.getID() + ") " + ChatColor.YELLOW +
+                                report.getMessage() + ChatColor.DARK_RED + " -" +
+                                report.getStaffMember().getName());
+                    } else {
+                        sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add bug <bugType> <tested(true/false)> <message>");
+                    }
                 } else {
-                    sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add todo <message>.");
-                }
-            } else if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
-                if (args.size() >= 3) {
-                    Player player = Bukkit.getPlayer(args.get(0));
-                    args.remove(0);
-
-                    boolean isResolved = Boolean.parseBoolean(args.get(0).toLowerCase());
-                    args.remove(0);
-
-                    String message = String.join(" ", args);
-
-                    PlayerReport report = new PlayerReport(message, player, ((Player) sender).getPlayer(), isResolved, pdm);
-                    report.sendToDiscord();
-                } else {
-                    sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add player <player> <isResolved(true/false)> <message>");
-                }
-            } else if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
-                if (args.size() >= 3) {
-                    Player player = Bukkit.getPlayer(args.get(0));
-                    args.remove(0);
-
-                    boolean isResolved = Boolean.parseBoolean(args.get(0).toLowerCase());
-                    args.remove(0);
-
-                    String message = String.join(" ", args);
-
-                    StaffReport report = new StaffReport(message, player, ((Player) sender).getPlayer(), isResolved, pdm);
-                    report.sendToDiscord();
-                } else {
-                    sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add staff <staffMember> <isResolved(true/false)> <message>");
-                }
-            } else if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.BUG.getShorthand())) {
-                if (args.size() >= 3) {
-                    String bugType = args.get(0);
-                    args.remove(0);
-
-                    boolean isTested = Boolean.parseBoolean(args.get(0).toLowerCase());
-                    args.remove(0);
-
-                    String message = String.join(" ", args);
-
-                    BugReport report = new BugReport(message, bugType, ((Player) sender).getPlayer(), isTested, pdm);
-                    report.sendToDiscord();
-                } else {
-                    sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add bug <bugType> <tested(true/false)> <message>");
+                    pdm.getReportManager().getHelp(sender);
                 }
             } else {
-                pdm.getReportManager().getHelp(sender);
+                sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! You must be a player to execute this command!");
             }
         } else {
-            sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! You must be a player to execute this command!");
+            pdm.getReportManager().getHelp(sender);
         }
     }
 }

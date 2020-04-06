@@ -24,7 +24,7 @@ public class BugReport {
     public BugReport(String message, String bugType, Player staffMember, boolean tested, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating bug report...");
         int i = 0;
-        for (ToDoReport report : pdm.getReportManager().getTodoReports()) {
+        for (BugReport report : pdm.getReportManager().getBugReports()) {
             if (report.getID() >= i) {
                 i = report.getID();
                 i++;
@@ -96,7 +96,7 @@ public class BugReport {
     }
 
     public boolean isTested() {
-        return isTested();
+        return tested;
     }
 
     public String getTagReportTo() {

@@ -48,47 +48,60 @@ public class ClearCommand implements ReportSubCommand {
 
     @Override
     public void execute(CommandSender sender, List<String> args) {
-        String requestedType = args.get(0);
+        if (args.size() >= 1) {
+            String requestedType = args.get(0);
 
-        if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.TODO.getShorthand())) {
-            ArrayList<ToDoReport> toDoReports = pdm.getReportManager().getTodoReports();
+            if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.TODO.getShorthand())) {
+                ArrayList<ToDoReport> toDoReports = new ArrayList<>();
+                toDoReports.addAll(pdm.getReportManager().getTodoReports());
 
-            for (ToDoReport todo : toDoReports) {
-                try {
-                    pdm.deleteReport(todo);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                for (ToDoReport todo : toDoReports) {
+                    try {
+                        pdm.deleteReport(todo);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
-            ArrayList<PlayerReport> playerReports = pdm.getReportManager().getPlayerReports();
+                sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted all todo reports.");
+            } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
+                ArrayList<PlayerReport> playerReports = new ArrayList<>();
+                playerReports.addAll(pdm.getReportManager().getPlayerReports());
 
-            for (PlayerReport pReport : playerReports) {
-                try {
-                    pdm.deleteReport(pReport);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                for (PlayerReport pReport : playerReports) {
+                    try {
+                        pdm.deleteReport(pReport);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
-            ArrayList<StaffReport> staffReports = pdm.getReportManager().getStaffReports();
+                sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted all player reports.");
+            } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
+                ArrayList<StaffReport> staffReports = new ArrayList<>();
+                staffReports.addAll(pdm.getReportManager().getStaffReports());
 
-            for (StaffReport sReport : staffReports) {
-                try {
-                    pdm.deleteReport(sReport);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                for (StaffReport sReport : staffReports) {
+                    try {
+                        pdm.deleteReport(sReport);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.BUG.getShorthand())) {
-            ArrayList<BugReport> bugReports = pdm.getReportManager().getBugReports();
+                sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted all staff reports.");
+            } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.BUG.getShorthand())) {
+                ArrayList<BugReport> bugReports = new ArrayList<>();
 
-            for (BugReport bReport : bugReports) {
-                try {
-                    pdm.deleteReport(bReport);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                bugReports.addAll(pdm.getReportManager().getBugReports());
+
+                for (BugReport bReport : bugReports) {
+                    try {
+                        pdm.deleteReport(bReport);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
+                sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted all bug reports.");
+            } else {
+                pdm.getReportManager().getHelp(sender);
             }
         } else {
             pdm.getReportManager().getHelp(sender);
