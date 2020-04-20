@@ -9,7 +9,7 @@ commands:
     aliases: [dc,dcc,dcore]
     usage: /<command>
   broadcast:
-    aliases: [bc, bcast, announce]
+    aliases: [bc, bcast]
     usage: /<command>
   bannedwords:
     aliases: [bw, bwords, bannedw]
@@ -83,6 +83,9 @@ commands:
     usage: /<command>
   reports:
     aliases: [report]
+    usage: /<command>
+  announcer:
+    aliases: [announcements, dca, dcannouncements, acannounce, announce, dcannouncer]
     usage: /<command>
 permissions:
   DCCore.player:

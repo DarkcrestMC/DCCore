@@ -1,5 +1,6 @@
 package com.Jacksonnn.DCCore.RandomTP;
 
+import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -18,6 +19,12 @@ public class RandomTP implements CommandExecutor {
                 World world = player.getWorld();
                 double worldSize = world.getWorldBorder().getSize();
                 int radius = (int) worldSize / 8;
+
+                if (ConfigManager.defaultConfig.get().getBoolean("RandomTP.SetRadius")) {
+                    radius = ConfigManager.defaultConfig.get().getInt("RandomTP.Radius");
+                } else {
+                    radius = ((int) world.getWorldBorder().getSize()) / ConfigManager.defaultConfig.get().getInt("RandomTP.WorldSizeDividedBy");
+                }
 
                 int randX = (int) (Math.random() * radius);
                 int randY = (int) (Math.random() * radius);

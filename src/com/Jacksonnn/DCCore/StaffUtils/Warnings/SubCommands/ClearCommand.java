@@ -67,7 +67,10 @@ public class ClearCommand implements WarningSubCommand {
                 return;
             }
 
-            for (Warning warning : pdm.getWarningManager().getAllWarnings()) {
+            ArrayList<Warning> allWarnings = new ArrayList<>();
+            allWarnings.addAll(pdm.getWarningManager().getAllWarnings());
+
+            for (Warning warning : allWarnings) {
                 if (warning.getPlayer() == player) {
                     pdm.deleteWarning(warning);
                 }

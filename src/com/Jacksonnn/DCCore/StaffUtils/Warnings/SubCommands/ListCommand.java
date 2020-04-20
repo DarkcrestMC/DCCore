@@ -47,38 +47,54 @@ public class ListCommand implements WarningSubCommand {
     @Override
     public void execute(CommandSender sender, List<String> args) {
         if (args.size() == 1) {
-            Player player = Bukkit.getPlayer(args.get(0));
+            if (!args.get(0).equalsIgnoreCase("all")) {
+                Player player = Bukkit.getPlayer(args.get(0));
 
-            if (player == null) {
-                OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                for (OfflinePlayer offlinePlayer : offlinePlayers) {
-                    if (offlinePlayer.getName() == args.get(0)) {
-                        player = offlinePlayer.getPlayer();
-                        break;
-                    } else {
-                        continue;
+                if (player == null) {
+                    OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
+                    for (OfflinePlayer offlinePlayer : offlinePlayers) {
+                        if (offlinePlayer.getName() == args.get(0)) {
+                            player = offlinePlayer.getPlayer();
+                            break;
+                        } else {
+                            continue;
+                        }
                     }
                 }
-            }
 
-            if (player == null) {
-                sender.sendMessage(pdm.getWarningManager().warningPrefix + "Does that player exist?");
-                return;
-            }
+                if (player == null) {
+                    sender.sendMessage(pdm.getWarningManager().warningPrefix + "Does that player exist?");
+                    return;
+                }
 
-            List<Warning> playerWarnings = new ArrayList<>();
-            for (Warning warning : pdm.getWarningManager().getAllWarnings()) {
-                if (warning.getPlayer() == player) {
+                List<Warning> playerWarnings = new ArrayList<>();
+                for (Warning warning : pdm.getWarningManager().getAllWarnings()) {
+                    if (warning.getPlayer() == player) {
+                        playerWarnings.add(warning);
+                    }
+                }
+
+                if (playerWarnings.size() == 0) {
+                    sender.sendMessage(pdm.getWarningManager().warningPrefix + "Player has no warnings.");
+                } else {
+                    sender.sendMessage(pdm.getWarningManager().warningPrefix + "Warnings for player " + player.getName() + ":");
+                    for (Warning warning : playerWarnings) {
+                        sender.sendMessage("(ID: " + warning.getID() + ") " + ChatColor.YELLOW + warning.getReason() + ChatColor.GOLD + " -" + warning.getStaffMember().getName());
+                    }
+                }
+            } else {
+                List<Warning> playerWarnings = new ArrayList<>();
+                for (Warning warning : pdm.getWarningManager().getAllWarnings()) {
                     playerWarnings.add(warning);
                 }
-            }
 
-            if (playerWarnings.size() == 0) {
-                sender.sendMessage(pdm.getWarningManager().warningPrefix + "Player has no warnings.");
-            } else {
-                sender.sendMessage(pdm.getWarningManager().warningPrefix + "Warnings for player " + player.getName() + ":");
-                for (Warning warning : playerWarnings) {
-                    sender.sendMessage("(ID: " + warning.getID() + ") " +ChatColor.YELLOW + warning.getReason() + ChatColor.GOLD + " -" + warning.getStaffMember().getName());
+                if (playerWarnings.size() == 0) {
+                    sender.sendMessage(pdm.getWarningManager().warningPrefix + "There are no Player Warnings.");
+                } else {
+                    sender.sendMessage(pdm.getWarningManager().warningPrefix + "All player warnings:");
+                    for (Warning warning : playerWarnings) {
+                        sender.sendMessage("(ID: " + warning.getID() + ") " + ChatColor.YELLOW + warning.getReason() + ChatColor.GOLD + " -" + warning.getStaffMember().getName());
+                    }
                 }
             }
         } else {

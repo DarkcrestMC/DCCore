@@ -47,38 +47,54 @@ public class ListCommand implements NotesSubCommand {
     @Override
     public void execute(CommandSender sender, List<String> args) {
         if (args.size() == 1) {
-            Player player = Bukkit.getPlayer(args.get(0));
+            if (!args.get(0).equalsIgnoreCase("all")) {
+                Player player = Bukkit.getPlayer(args.get(0));
 
-            if (player == null) {
-                OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                for (OfflinePlayer offlinePlayer : offlinePlayers) {
-                    if (offlinePlayer.getName() == args.get(0)) {
-                        player = offlinePlayer.getPlayer();
-                        break;
-                    } else {
-                        continue;
+                if (player == null) {
+                    OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
+                    for (OfflinePlayer offlinePlayer : offlinePlayers) {
+                        if (offlinePlayer.getName() == args.get(0)) {
+                            player = offlinePlayer.getPlayer();
+                            break;
+                        } else {
+                            continue;
+                        }
                     }
                 }
-            }
 
-            if (player == null) {
-                sender.sendMessage(pdm.getNoteManager().notesPrefix + "Does that player exist?");
-                return;
-            }
+                if (player == null) {
+                    sender.sendMessage(pdm.getNoteManager().notesPrefix + "Does that player exist?");
+                    return;
+                }
 
-            List<Note> playerNotes = new ArrayList<>();
-            for (Note note : pdm.getNoteManager().getAllNotes()) {
-                if (note.getPlayer() == player) {
+                List<Note> playerNotes = new ArrayList<>();
+                for (Note note : pdm.getNoteManager().getAllNotes()) {
+                    if (note.getPlayer() == player) {
+                        playerNotes.add(note);
+                    }
+                }
+
+                if (playerNotes.size() == 0) {
+                    sender.sendMessage(pdm.getNoteManager().notesPrefix + "Player has no notes.");
+                } else {
+                    sender.sendMessage(pdm.getNoteManager().notesPrefix + "Notes for player " + player.getName() + ":");
+                    for (Note note : playerNotes) {
+                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + note.getStaffMember().getName());
+                    }
+                }
+            } else {
+                List<Note> playerNotes = new ArrayList<>();
+                for (Note note : pdm.getNoteManager().getAllNotes()) {
                     playerNotes.add(note);
                 }
-            }
 
-            if (playerNotes.size() == 0) {
-                sender.sendMessage(pdm.getNoteManager().notesPrefix + "Player has no notes.");
-            } else {
-                sender.sendMessage(pdm.getNoteManager().notesPrefix + "Notes for player " + player.getName() + ":");
-                for (Note note : playerNotes) {
-                    sender.sendMessage("(ID: " + note.getID() + ") " +ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + note.getStaffMember().getName());
+                if (playerNotes.size() == 0) {
+                    sender.sendMessage(pdm.getNoteManager().notesPrefix + "There are no Player Notes.");
+                } else {
+                    sender.sendMessage(pdm.getNoteManager().notesPrefix + "All Player Notes:");
+                    for (Note note : playerNotes) {
+                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + note.getStaffMember().getName());
+                    }
                 }
             }
         } else {

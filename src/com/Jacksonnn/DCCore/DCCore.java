@@ -1,5 +1,8 @@
 package com.Jacksonnn.DCCore;
 
+import com.Jacksonnn.DCCore.AutoAnnouncer.AnnouncementCommands;
+import com.Jacksonnn.DCCore.AutoAnnouncer.AnnouncementManager;
+import com.Jacksonnn.DCCore.AutoAnnouncer.AnnouncerThread;
 import com.Jacksonnn.DCCore.BannedWords.BannedWordsCommand;
 import com.Jacksonnn.DCCore.BannedWords.BannedWordsListener;
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
@@ -32,6 +35,7 @@ import com.Jacksonnn.DCCore.Storage.DatabaseManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitScheduler;
 
 import java.sql.SQLException;
 
@@ -78,6 +82,8 @@ public class DCCore extends JavaPlugin {
 		pdm.loadWarnings();
 		pdm.loadReports();
 
+		BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
+		scheduler.scheduleSyncRepeatingTask(this, new AnnouncerThread(this), AnnouncementManager.getInterval() * 20L, AnnouncementManager.getInterval() * 20L);
 		Bukkit.getServer().getLogger().info("DCCore has successfully been enabled!");
 	}
 	
@@ -111,7 +117,11 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("playtime").setExecutor(new PlayTime());
 		this.getCommand("ranks").setExecutor(new Ranks());
 		this.getCommand("diamondluck").setExecutor(new DiamondLuck());
-		this.getCommand("randomtp").setExecutor(new RandomTP());
+
+		if (ConfigManager.defaultConfig.get().getBoolean("RandomTP.enabled")) {
+			this.getCommand("randomtp").setExecutor(new RandomTP());
+		}
+
 		this.getCommand("b").setExecutor(new PKAlias());
 		this.getCommand("vote").setExecutor(new Vote());
 		this.getCommand("forums").setExecutor(new Forums());
@@ -128,6 +138,7 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("staffchat").setExecutor(new StaffChatCommand());
 		this.getCommand("artists").setExecutor(new ArtistCommand());
 		this.getCommand("staffcount").setExecutor(new StaffCountCommand());
+		this.getCommand("announcer").setExecutor(new AnnouncementCommands());
 
 		//EVENTS COMMAND
 		EventCommand eventCommand = new EventCommand(this);

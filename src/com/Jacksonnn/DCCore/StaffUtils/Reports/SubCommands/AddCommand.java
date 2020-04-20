@@ -11,6 +11,7 @@ import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.StaffReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.ToDoReport;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -80,6 +81,15 @@ public class AddCommand implements ReportSubCommand {
                 } else if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
                     if (args.size() >= 3) {
                         Player player = Bukkit.getPlayer(args.get(0));
+                        Player staffMember = ((Player) sender).getPlayer();
+                        OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
+
+                        for (OfflinePlayer oPlayer : offlinePlayers) {
+                            if (oPlayer.getName().equalsIgnoreCase(args.get(0))) {
+                                player = oPlayer.getPlayer();
+                            }
+                        }
+
                         args.remove(0);
 
                         boolean isResolved = Boolean.parseBoolean(args.get(0).toLowerCase());
@@ -87,10 +97,10 @@ public class AddCommand implements ReportSubCommand {
 
                         String message = String.join(" ", args);
 
-                        PlayerReport report = new PlayerReport(message, player, ((Player) sender).getPlayer(), isResolved, pdm);
+                        PlayerReport report = new PlayerReport(message, player, staffMember, isResolved, pdm);
                         report.sendToDiscord();
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
-                                report.getPlayer() + "-" +
+                                report.getPlayer().getName() + "-" +
                                 (report.isResolved() ? "R" : "NR") +
                                 report.getID() + ") " + ChatColor.YELLOW +
                                 report.getMessage() + ChatColor.DARK_RED + " -" +
@@ -101,6 +111,15 @@ public class AddCommand implements ReportSubCommand {
                 } else if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
                     if (args.size() >= 3) {
                         Player player = Bukkit.getPlayer(args.get(0));
+                        Player staffMember = ((Player) sender).getPlayer();
+                        OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
+
+                        for (OfflinePlayer oPlayer : offlinePlayers) {
+                            if (oPlayer.getName().equalsIgnoreCase(args.get(0))) {
+                                player = oPlayer.getPlayer();
+                            }
+                        }
+
                         args.remove(0);
 
                         boolean isResolved = Boolean.parseBoolean(args.get(0).toLowerCase());
@@ -108,10 +127,10 @@ public class AddCommand implements ReportSubCommand {
 
                         String message = String.join(" ", args);
 
-                        StaffReport report = new StaffReport(message, player, ((Player) sender).getPlayer(), isResolved, pdm);
+                        StaffReport report = new StaffReport(message, player, staffMember, isResolved, pdm);
                         report.sendToDiscord();
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
-                                report.getPlayer() + "-" +
+                                report.getPlayer().getName() + "-" +
                                 (report.isResolved() ? "R" : "NR") +
                                 report.getID() + ") " + ChatColor.YELLOW +
                                 report.getMessage() + ChatColor.DARK_RED + " -" +

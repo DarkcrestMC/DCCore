@@ -7,9 +7,11 @@ import github.scarsz.discordsrv.dependencies.jda.api.EmbedBuilder;
 import github.scarsz.discordsrv.dependencies.jda.api.entities.TextChannel;
 import github.scarsz.discordsrv.util.DiscordUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.awt.*;
+import java.util.Collection;
 import java.util.Objects;
 
 public class ToDoReport {
@@ -67,6 +69,16 @@ public class ToDoReport {
         embedBuilder.setColor(new Color(170, 0, 0));
 
         todoReportChannel.sendMessage(embedBuilder.build()).queue();
+
+        String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.HoS.Prefix")));
+        String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.HoS.msgColor")));
+        Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
+
+        for (Player player : onlinePlayers) {
+            if (player.hasPermission("DCCore.staffchats.HoS")) {
+                player.sendMessage(chatprefix + ChatColor.DARK_RED + "NEW TODO REPORT: " + msgColor + staffMember.getName() + " just submitted a new todo report.");
+            }
+        }
     }
 
     public int getID() {

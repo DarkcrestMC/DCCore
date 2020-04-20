@@ -67,7 +67,10 @@ public class ClearCommand implements NotesSubCommand {
                 return;
             }
 
-            for (Note note : pdm.getNoteManager().getAllNotes()) {
+            ArrayList<Note> allNotes = new ArrayList<>();
+            allNotes.addAll(pdm.getNoteManager().getAllNotes());
+
+            for (Note note : allNotes) {
                 if (note.getPlayer() == player) {
                     pdm.deleteNote(note);
                 }

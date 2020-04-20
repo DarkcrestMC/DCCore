@@ -68,9 +68,9 @@ public class PlayerDisciplineManager {
                 Player staffMember = Bukkit.getPlayer(UUID.fromString(getNotes.getString("staffMember")));
                 OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
                 for (OfflinePlayer oPlayer : offlinePlayers) {
-                    if (oPlayer.getUniqueId().toString() == getNotes.getString("player")) {
+                    if (oPlayer.getUniqueId().toString().equals(getNotes.getString("player"))) {
                         player = oPlayer.getPlayer();
-                    } else if (oPlayer.getUniqueId().toString() == getNotes.getString("staffMember")) {
+                    } else if (oPlayer.getUniqueId().toString().equals(getNotes.getString("staffMember"))) {
                         staffMember = oPlayer.getPlayer();
                     }
                 }
@@ -105,9 +105,9 @@ public class PlayerDisciplineManager {
                 Player staffMember = Bukkit.getPlayer(UUID.fromString(getWarnings.getString("staffMember")));
                 OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
                 for (OfflinePlayer oPlayer : offlinePlayers) {
-                    if (oPlayer.getUniqueId().toString() == getWarnings.getString("player")) {
+                    if (oPlayer.getUniqueId().toString().equals(getWarnings.getString("player"))) {
                         player = oPlayer.getPlayer();
-                    } else if (oPlayer.getUniqueId().toString() == getWarnings.getString("staffMember")) {
+                    } else if (oPlayer.getUniqueId().toString().equals(getWarnings.getString("staffMember"))) {
                         staffMember = oPlayer.getPlayer();
                     }
                 }
@@ -146,7 +146,7 @@ public class PlayerDisciplineManager {
                     Player staffMember = Bukkit.getPlayer(UUID.fromString(getReports.getString("staffMember")));
                     OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
                     for (OfflinePlayer oPlayer : offlinePlayers) {
-                        if (oPlayer.getUniqueId().toString() == getReports.getString("staffMember")) {
+                        if (oPlayer.getUniqueId().toString().equals(getReports.getString("staffMember"))) {
                             staffMember = oPlayer.getPlayer();
                         }
                     }
@@ -158,14 +158,14 @@ public class PlayerDisciplineManager {
                     Player staffMember = Bukkit.getPlayer(UUID.fromString(getReports.getString("staffMember")));
                     OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
                     for (OfflinePlayer oPlayer : offlinePlayers) {
-                        if (oPlayer.getUniqueId().toString() == getReports.getString("player")) {
+                        if (oPlayer.getUniqueId().toString().equals(getReports.getString("player"))) {
                             player = oPlayer.getPlayer();
-                        } else if (oPlayer.getUniqueId().toString() == getReports.getString("staffMember")) {
+                        } else if (oPlayer.getUniqueId().toString().equals(getReports.getString("staffMember"))) {
                             staffMember = oPlayer.getPlayer();
                         }
                     }
 
-                    boolean resolved = Boolean.valueOf(getReports.getString("resolved"));
+                    boolean resolved = Boolean.parseBoolean(getReports.getString("resolved"));
 
                     getReportManager().addReport(new PlayerReport(id, message, player, staffMember, resolved, this));
                 } else if (type.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
@@ -174,14 +174,14 @@ public class PlayerDisciplineManager {
                     Player staffMember = Bukkit.getPlayer(UUID.fromString(getReports.getString("staffMember")));
                     OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
                     for (OfflinePlayer oPlayer : offlinePlayers) {
-                        if (oPlayer.getUniqueId().toString() == getReports.getString("player")) {
+                        if (oPlayer.getUniqueId().toString().equals(getReports.getString("player"))) {
                             player = oPlayer.getPlayer();
-                        } else if (oPlayer.getUniqueId().toString() == getReports.getString("staffMember")) {
+                        } else if (oPlayer.getUniqueId().toString().equals(getReports.getString("staffMember"))) {
                             staffMember = oPlayer.getPlayer();
                         }
                     }
 
-                    boolean resolved = Boolean.valueOf(getReports.getString("resolved"));
+                    boolean resolved = Boolean.parseBoolean(getReports.getString("resolved"));
 
                     getReportManager().addReport(new StaffReport(id, message, player, staffMember, resolved, this));
                 } else if (type.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.BUG.getShorthand())) {
@@ -190,12 +190,12 @@ public class PlayerDisciplineManager {
                     Player staffMember = Bukkit.getPlayer(UUID.fromString(getReports.getString("staffMember")));
                     OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
                     for (OfflinePlayer oPlayer : offlinePlayers) {
-                        if (oPlayer.getUniqueId().toString() == getReports.getString("staffMember")) {
+                        if (oPlayer.getUniqueId().toString().equals(getReports.getString("staffMember"))) {
                             staffMember = oPlayer.getPlayer();
                         }
                     }
 
-                    boolean tested = Boolean.valueOf(getReports.getString("tested"));
+                    boolean tested = Boolean.parseBoolean(getReports.getString("tested"));
 
                     getReportManager().addReport(new BugReport(id, message, bugType, staffMember, tested ,this));
                 }

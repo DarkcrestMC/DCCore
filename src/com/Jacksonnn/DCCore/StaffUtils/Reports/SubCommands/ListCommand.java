@@ -65,7 +65,9 @@ public class ListCommand implements ReportSubCommand {
                     sender.sendMessage("(ID: " +
                             todo.getID() + ") " + ChatColor.YELLOW +
                             todo.getMessage() + ChatColor.DARK_RED + " -" +
-                            todo.getStaffMember().getName());
+                            todo.
+                                    getStaffMember().
+                                    getName());
                 }
 
             } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {

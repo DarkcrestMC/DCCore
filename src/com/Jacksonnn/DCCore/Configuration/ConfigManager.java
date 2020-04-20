@@ -9,14 +9,17 @@ public class ConfigManager {
     public static Config langConfig;
     public static Config defaultConfig;
     public static Config bannedWords;
+    public static Config announcer;
 
     public ConfigManager() {
         defaultConfig = new Config(new File("config.yml"));
         langConfig = new Config(new File("language.yml"));
         bannedWords = new Config(new File("bannedWords.yml"));
+        announcer = new Config(new File("announcements.yml"));
         configCheck(ConfigType.DEFAULT);
         configCheck(ConfigType.ANTICURSE);
         configCheck(ConfigType.LANGUAGE);
+        configCheck(ConfigType.ANNOUNCER);
     }
 
     public static void configCheck(ConfigType type) {
@@ -58,6 +61,11 @@ public class ConfigManager {
 
             config.addDefault("StaffNotification.Reports.ToDoReport.ChannelID", "684852294541377536");
             config.addDefault("StaffNotification.Reports.ToDoReport.StaffRoleID", "440567726839431178");
+
+            config.addDefault("RandomTP.enabled", false);
+            config.addDefault("RandomTP.SetRadius", true);
+            config.addDefault("RandomTP.Radius", 5000000);
+            config.addDefault("RandomTP.WorldSizeDividedBy", 8);
             defaultConfig.save();
         } else if (type == ConfigType.LANGUAGE) {
             config = langConfig.get();
@@ -134,6 +142,17 @@ public class ConfigManager {
 
             config.addDefault("AntiCurse.bannedWords", bannedWordsList);
             bannedWords.save();
+        } else if (type == ConfigType.ANNOUNCER) {
+            config = announcer.get();
+            ArrayList<String> messages = new ArrayList<>();
+            messages.add("&aTest1");
+            messages.add("&bTest2");
+            messages.add("&cTest3");
+            config.addDefault("announcements.enabled", Boolean.valueOf(true));
+            config.addDefault("announcements.prefix", "&8[&7&lDC Announcer&8]&b ");
+            config.addDefault("announcements.interval", Long.valueOf(300L));
+            config.addDefault("announcements.messages", messages);
+            announcer.save();
         }
     }
 }
