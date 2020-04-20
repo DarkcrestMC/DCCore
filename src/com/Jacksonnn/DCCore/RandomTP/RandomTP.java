@@ -44,7 +44,13 @@ public class RandomTP implements CommandExecutor {
                 } else {
                     World world = ((Player) sender).getWorld();
                     double worldSize = world.getWorldBorder().getSize();
-                    int radius = (int) worldSize / 2;
+                    int radius = (int) worldSize / 8;
+
+                    if (ConfigManager.defaultConfig.get().getBoolean("RandomTP.SetRadius")) {
+                        radius = ConfigManager.defaultConfig.get().getInt("RandomTP.Radius");
+                    } else {
+                        radius = ((int) world.getWorldBorder().getSize()) / ConfigManager.defaultConfig.get().getInt("RandomTP.WorldSizeDividedBy");
+                    }
 
                     int randX = (int) (Math.random() * radius);
                     int randY = (int) (Math.random() * radius);
