@@ -2,6 +2,7 @@ package com.Jacksonnn.DCCore;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import github.scarsz.discordsrv.DiscordSRV;
+import github.scarsz.discordsrv.dependencies.jda.api.EmbedBuilder;
 import github.scarsz.discordsrv.dependencies.jda.api.entities.TextChannel;
 import github.scarsz.discordsrv.util.DiscordUtil;
 import net.md_5.bungee.api.ChatColor;
@@ -10,6 +11,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import ru.tehkode.permissions.bukkit.PermissionsEx;
 
+import java.awt.*;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -119,9 +121,27 @@ public class GeneralMethods {
 			String staffTag = DiscordSRV.getPlugin().getMainGuild().getRoleById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.StaffChat.StaffRoleID"))).getAsMention();
 			staffNotification++;
 			if (staffNotification % 4 == 0) {
-				staffchat.sendMessage(staffTag + " server is staffless with ***" + (Bukkit.getServer().getOnlinePlayers().size() - 1) + "*** online players!!! (" + staffNotification + "/4)").queue();
+				EmbedBuilder embed = new EmbedBuilder();
+
+				embed.setTitle("Staffless");
+				embed.setColor(new Color(204, 102, 255));
+				embed.setDescription("Server is **staffless** with ***" + (Bukkit.getServer().getOnlinePlayers().size() - 1) + "*** online players!!! *(" + staffNotification + "/4*)");
+				embed.setAuthor("DC Staff Chat Notification", null, "http://darkcrestmc.net/wp-content/uploads/2019/10/Orange.png");
+
+				staffchat.sendMessage(staffTag).queue();
+				staffchat.sendMessage(embed.build()).queue();
+
+				staffNotification = 0;
+			} else {
+				EmbedBuilder embed = new EmbedBuilder();
+
+				embed.setTitle("Staffless");
+				embed.setColor(new Color(204, 102, 255));
+				embed.setDescription("Server is **staffless** with ***" + (Bukkit.getServer().getOnlinePlayers().size() - 1) + "*** online players!!! *(" + staffNotification + "/4*)");
+				embed.setAuthor("DC Staff Chat Notification", null, "http://darkcrestmc.net/wp-content/uploads/2019/10/Orange.png");
+
+				staffchat.sendMessage(embed.build()).queue();
 			}
-			staffchat.sendMessage( "DC Staff," + " server is staffless with ***" + (Bukkit.getServer().getOnlinePlayers().size() - 1) + "*** online players!!! (" + staffNotification + "/4)").queue();
 		} else {
 			for (Player player : onlinePlayers) {
 				if (player.hasPermission("DCCore.staffchats.Staff")) {
