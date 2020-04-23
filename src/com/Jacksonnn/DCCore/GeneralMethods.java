@@ -19,6 +19,7 @@ public class GeneralMethods {
 	public static String successColor = prefix + ChatColor.GREEN + "";
 	public static String disableColor = prefix + ChatColor.RED + "";
 	public static String serverPrefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + ChatColor.BOLD + "DarkcrestMC" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
+	private static int staffNotification = 0;
 
 	public enum Elements {
 		AIR,
@@ -115,7 +116,12 @@ public class GeneralMethods {
 
 		if (onlineStaff == 0) {
 			TextChannel staffchat = DiscordUtil.getTextChannelById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.StaffChat.ChannelID")));
-			staffchat.sendMessage("**" + DiscordSRV.getPlugin().getMainGuild().getRoleById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.StaffChat.StaffRoleID"))).getAsMention() + " server is staffless with " + (Bukkit.getServer().getOnlinePlayers().size() - 1) + " online players!!!**").queue();
+			String staffTag = DiscordSRV.getPlugin().getMainGuild().getRoleById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.StaffChat.StaffRoleID"))).getAsMention();
+			staffNotification++;
+			if (staffNotification % 4 == 0) {
+				staffchat.sendMessage(staffTag + " server is staffless with ***" + (Bukkit.getServer().getOnlinePlayers().size() - 1) + "*** online players!!! (" + staffNotification + "/4)").queue();
+			}
+			staffchat.sendMessage( "DC Staff," + " server is staffless with ***" + (Bukkit.getServer().getOnlinePlayers().size() - 1) + "*** online players!!! (" + staffNotification + "/4)").queue();
 		} else {
 			for (Player player : onlinePlayers) {
 				if (player.hasPermission("DCCore.staffchats.Staff")) {

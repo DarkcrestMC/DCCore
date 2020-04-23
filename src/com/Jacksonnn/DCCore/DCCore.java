@@ -29,6 +29,7 @@ import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.StaffChannels.*;
 import com.Jacksonnn.DCCore.StaffUtils.StaffCounts.StaffCountCommand;
 import com.Jacksonnn.DCCore.StaffUtils.StaffCounts.StaffNotification;
+import com.Jacksonnn.DCCore.StaffUtils.StaffSpawnCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningGeneral;
 import com.Jacksonnn.DCCore.Storage.DatabaseManager;
@@ -139,6 +140,7 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("artists").setExecutor(new ArtistCommand());
 		this.getCommand("staffcount").setExecutor(new StaffCountCommand());
 		this.getCommand("announcer").setExecutor(new AnnouncementCommands());
+		this.getCommand("staffspawn").setExecutor(new StaffSpawnCommand(plugin));
 
 		//EVENTS COMMAND
 		EventCommand eventCommand = new EventCommand(this);

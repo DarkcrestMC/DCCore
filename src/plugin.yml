@@ -87,6 +87,9 @@ commands:
   announcer:
     aliases: [announcements, dca, dcannouncements, acannounce, announce, dcannouncer]
     usage: /<command>
+  staffspawn:
+    aliases: [ss, specialspawn]
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op
