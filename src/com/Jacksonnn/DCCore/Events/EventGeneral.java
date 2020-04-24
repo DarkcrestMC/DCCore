@@ -28,5 +28,6 @@ public class EventGeneral {
         sender.sendMessage(org.bukkit.ChatColor.YELLOW + "/dcevents list");
         sender.sendMessage(org.bukkit.ChatColor.YELLOW + "/dcevents playerList <event>");
         sender.sendMessage(org.bukkit.ChatColor.YELLOW + "/dcevents broadcast <message>");
+        sender.sendMessage(org.bukkit.ChatColor.YELLOW + "/dcevents teleport <event>");
     }
 }
