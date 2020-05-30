@@ -29,7 +29,7 @@ public class GuestQuizListener implements Listener {
             return;
         }
 
-        if (inventoryView.getTitle().equals(ChatColor.DARK_PURPLE + "DarkcrestMC Rules Quiz")) {
+        if (inventoryView.getTitle().equals(ChatColor.DARK_PURPLE + "DarkcrestMC Vibe Check")) {
             e.setCancelled(true);
 
             if (clickedItem == null || !clickedItem.hasItemMeta()) {
@@ -39,8 +39,8 @@ public class GuestQuizListener implements Listener {
             if (clickedItem.getItemMeta().getLocalizedName().equals("correct")) {
                 player.closeInventory();
                 int questionNumber = Integer.parseInt(currentInventory.getItem(1).getItemMeta().getDisplayName().substring(2, 4));
-                if (questionNumber != 13) {
-                    guestCheck(player, questionNumber + 1);
+                if (questionNumber != 1) {
+                    guestCheck(player, 1);
                 } else {
                     pexUser.removeGroup("Guest");
                     pexUser.addGroup("Bender");

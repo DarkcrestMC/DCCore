@@ -82,7 +82,7 @@ public class PlayerReport {
 
         for (Player player : onlinePlayers) {
             if (player.hasPermission("DCCore.staffchats.Staff")) {
-                player.sendMessage(chatprefix + ChatColor.DARK_RED + "NEW PLAYER REPORT: " + msgColor + staffMember.getName() + " just submitted a new player report against " + player.getName() + ".");
+                player.sendMessage(chatprefix + ChatColor.DARK_RED + "NEW PLAYER REPORT: " + msgColor + this.staffMember.getName() + " just submitted a new player report against " + this.player.getName() + ".");
             }
         }
     }

@@ -90,6 +90,9 @@ commands:
   staffspawn:
     aliases: [ss, specialspawn]
     usage: /<command>
+  banish:
+    aliases: [bannish]
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op

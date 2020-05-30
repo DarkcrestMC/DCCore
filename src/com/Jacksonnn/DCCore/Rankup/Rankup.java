@@ -146,6 +146,9 @@ public class Rankup implements CommandExecutor, Listener {
 
     public static void guestCheck(Player player, int questionNum) {
         if (questionNum == 1) {
+            newQuestion(player, "01. I have read the rules and agree to them.", true);
+        /*
+        if (questionNum == 1) {
             newQuestion(player, "01. Spamming chat is allowed.", false);
         } else if (questionNum == 2) {
             newQuestion(player, "02. There is no griefing or raiding.", true);
@@ -171,11 +174,12 @@ public class Rankup implements CommandExecutor, Listener {
             newQuestion(player, "12. Asking for staff is prohibited.", true);
         } else if (questionNum == 13) {
             newQuestion(player, "13. There is not allowed to be any fun on this server.", false);
+            */
         }
     }
 
     private static void newQuestion(Player player, String question, boolean answer) {
-        Inventory i = Bukkit.createInventory(null, 9, ChatColor.DARK_PURPLE + "DarkcrestMC Rules Quiz");
+        Inventory i = Bukkit.createInventory(null, 9, ChatColor.DARK_PURPLE + "DarkcrestMC Vibe Check");
 
         ItemStack empty = new ItemStack(Material.BLACK_STAINED_GLASS_PANE, 1);
         ItemMeta emptyMeta = empty.getItemMeta();

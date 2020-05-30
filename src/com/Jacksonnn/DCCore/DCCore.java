@@ -21,6 +21,7 @@ import com.Jacksonnn.DCCore.Rankup.PlayTime;
 import com.Jacksonnn.DCCore.Rankup.Ranks;
 import com.Jacksonnn.DCCore.Rankup.Rankup;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
+import com.Jacksonnn.DCCore.StaffUtils.BanishHackFix;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
@@ -141,6 +142,7 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("staffcount").setExecutor(new StaffCountCommand());
 		this.getCommand("announcer").setExecutor(new AnnouncementCommands());
 		this.getCommand("staffspawn").setExecutor(new StaffSpawnCommand(plugin));
+		this.getCommand("banish").setExecutor(new BanishHackFix(plugin));
 
 		//EVENTS COMMAND
 		EventCommand eventCommand = new EventCommand(this);
