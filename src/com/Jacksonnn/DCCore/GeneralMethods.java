@@ -126,7 +126,7 @@ public class GeneralMethods {
 				embed.setTitle("Staffless");
 				embed.setColor(new Color(204, 102, 255));
 				embed.setDescription("Server is **staffless** with ***" + (Bukkit.getServer().getOnlinePlayers().size() - 1) + "*** online players!!! *(" + staffNotification + "/4*)");
-				embed.setAuthor("DC Staff Chat Notification", null, "http://darkcrestmc.net/wp-content/uploads/2019/10/Orange.png");
+				embed.setAuthor("DC Staff Chat Notification", "http://darkcrestmc.net", "http://darkcrestmc.net/wp-content/uploads/2019/10/Orange.png");
 
 				staffchat.sendMessage(staffTag).queue();
 				staffchat.sendMessage(embed.build()).queue();
@@ -138,7 +138,7 @@ public class GeneralMethods {
 				embed.setTitle("Staffless");
 				embed.setColor(new Color(204, 102, 255));
 				embed.setDescription("Server is **staffless** with ***" + (Bukkit.getServer().getOnlinePlayers().size() - 1) + "*** online players!!! *(" + staffNotification + "/4*)");
-				embed.setAuthor("DC Staff Chat Notification", null, "http://darkcrestmc.net/wp-content/uploads/2019/10/Orange.png");
+				embed.setAuthor("DC Staff Chat Notification", "http://darkcrestmc.net", "http://darkcrestmc.net/wp-content/uploads/2019/10/Orange.png");
 
 				staffchat.sendMessage(embed.build()).queue();
 			}

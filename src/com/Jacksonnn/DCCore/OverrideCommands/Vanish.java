@@ -14,9 +14,13 @@ public class Vanish implements Listener {
     @EventHandler
     public void vanishToggleEvent(VanishStatusChangeEvent e) {
         if (e.getValue() /*true*/) {
-            Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.Vanish.PlayerLeaveMessage"))) + " " + e.getAffected().getBase().getName());
+            if (Bukkit.getPlayer(e.getAffected().getName()).hasPermission("DCCore.staff.Vanish")) {
+                Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.Vanish.PlayerLeaveMessage"))) + " " + e.getAffected().getBase().getName());
+            }
         } else {
-            Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.Vanish.PlayerJoinMessage"))) + " " + e.getAffected().getBase().getName());
+            if (Bukkit.getPlayer(e.getAffected().getName()).hasPermission("DCCore.staff.Vanish")) {
+                Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.Vanish.PlayerJoinMessage"))) + " " + e.getAffected().getBase().getName());
+            }
         }
     }
 }
