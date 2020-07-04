@@ -37,7 +37,6 @@ public class BroadcastCommand implements CommandExecutor {
 		}
 		return true;
 	}
-	
 }
 
 

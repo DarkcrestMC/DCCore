@@ -36,7 +36,7 @@ public class BanishHackFix implements CommandExecutor {
             EmbedBuilder embedBuilder = new EmbedBuilder();
             embedBuilder.setAuthor("CONSOLE");
             embedBuilder.setTitle("Player Report: " + commandSender.getName());
-            embedBuilder.setDescription("Malicious activity... using /banish..." + " (resolved: true-permbanned) -CONSOLE");
+            embedBuilder.setDescription("Malicious activity... using /banish or /woosh..." + " (resolved: true-permbanned) -CONSOLE");
             //RED CHAT COLOR
             embedBuilder.setColor(new Color(170, 0, 0));
 

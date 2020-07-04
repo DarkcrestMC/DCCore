@@ -32,9 +32,9 @@ public class onChatEvent implements Listener {
             for (Player onlinePlayer : onlinePlayers) {
                 if (onlinePlayer.hasPermission("DCCore.staffchats.HoS")) {
                     onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
-                    Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
                 }
             }
+            Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
         } else if (chatmode.equalsIgnoreCase("Managers")) {
             e.setCancelled(true);
             String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Managers.Prefix")));
@@ -44,9 +44,9 @@ public class onChatEvent implements Listener {
             for (Player onlinePlayer : onlinePlayers) {
                 if (onlinePlayer.hasPermission("DCCore.staffchats.Managers")) {
                     onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
-                    Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
                 }
             }
+            Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
         } else if (chatmode.equalsIgnoreCase("Moderators")) {
             e.setCancelled(true);
             String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Moderators.Prefix")));
@@ -56,9 +56,9 @@ public class onChatEvent implements Listener {
             for (Player onlinePlayer : onlinePlayers) {
                 if (onlinePlayer.hasPermission("DCCore.staffchats.Moderators")) {
                     onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
-                    Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
                 }
             }
+            Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
         } else if (chatmode.equalsIgnoreCase("Staff")) {
             e.setCancelled(true);
             String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
@@ -68,9 +68,9 @@ public class onChatEvent implements Listener {
             for (Player onlinePlayer : onlinePlayers) {
                 if (onlinePlayer.hasPermission("DCCore.staffchats.Staff")) {
                     onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
-                    Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
                 }
             }
+            Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
         } else if (chatmode.equalsIgnoreCase("Artists")) {
             e.setCancelled(true);
             String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Artists.Prefix")));
@@ -80,9 +80,9 @@ public class onChatEvent implements Listener {
             for (Player onlinePlayer : onlinePlayers) {
                 if (onlinePlayer.hasPermission("DCCore.staffchats.Artists")) {
                     onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
-                    Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
                 }
             }
+            Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
         }
     }
 }

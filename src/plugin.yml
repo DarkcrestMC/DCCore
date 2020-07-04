@@ -91,7 +91,7 @@ commands:
     aliases: [ss, specialspawn]
     usage: /<command>
   banish:
-    aliases: [bannish]
+    aliases: [bannish, woosh, piss]
     usage: /<command>
 permissions:
   DCCore.player:
@@ -100,32 +100,23 @@ permissions:
       DCCore.spawner.place: true
       DCCore.spawner.break: true
       DCCore.QuickDeposit.use: true
-      bending.tournament.player: true
+      DCCore.RandomTP.self: true
   DCCore.staff:
     default: op
     children:
       DCCore.GMSpectator: true
       DCCore.broadcast: true
       DCCore.chat: true
-      DCCore.AntiCurse.bypass: true
-      bending.tournament.admin: true
+      DCCore.staff.announcements: true
+      DCCore.staff.Vanish: true
+      DCCore.RandomTP.others: true
+      DCCore.NotesStaff: true
+      DCCore.ReportStaff: true
+      DCCore.WarningStaff: true
   DCCore.chat:
     default: op
     children:
       DCCore.chat.toggle: true
       DCCore.chat.staff: true
       DCCore.AntiCurse.bypass: true
-  DCCore.EventHost:
-    default: op
-    children:
-      DCCore.broadcast: true
-      DCCore.diamondluck: true
-      DCCore.bendingtournament: true
-      DCCore.EventHost.add: true
-      DCCore.EventHost.terminate: true
-      DCCore.EventHost.broadcast: true
-      DCCore.EventHost.eventList: true
-      DCCore.EventHost.playerList: true
-      DCCore.EventHost.remove: true
-      DCCore.EventHost.create: true
-      DCCore.EventHost.teleport: true
+      DCCore.bannedwords: true

@@ -10,9 +10,6 @@ import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DiamondLuck.DiamondLuck;
 import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
-import com.Jacksonnn.DCCore.Events.EventCommand;
-import com.Jacksonnn.DCCore.Events.PlayerEvents.PlayerKillEvent;
-import com.Jacksonnn.DCCore.Events.PlayerEvents.PlayerLeaveEvent;
 import com.Jacksonnn.DCCore.OverrideCommands.*;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.RandomTP.RandomTP;
@@ -101,8 +98,6 @@ public class DCCore extends JavaPlugin {
 		pm.registerEvents(new QuickDepositListener(), this);
 		pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new ResponseListener(), this);
-        pm.registerEvents(new PlayerLeaveEvent(), this);
-        pm.registerEvents(new PlayerKillEvent(), this);
         pm.registerEvents(new GuestQuizListener(), this);
         pm.registerEvents(new onChatEvent(), this);
         pm.registerEvents(new onLeaveEvent(), this);
@@ -143,10 +138,6 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("announcer").setExecutor(new AnnouncementCommands());
 		this.getCommand("staffspawn").setExecutor(new StaffSpawnCommand(plugin));
 		this.getCommand("banish").setExecutor(new BanishHackFix(plugin));
-
-		//EVENTS COMMAND
-		EventCommand eventCommand = new EventCommand(this);
-		this.getCommand("dcevents").setExecutor(eventCommand);
 
 		//NOTES COMMAND
 		NotesCommand notesCommand = new NotesCommand(this);

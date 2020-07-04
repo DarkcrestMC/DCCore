@@ -93,25 +93,6 @@ public class ConfigManager {
             config.addDefault("Language.StaffNotification.AncientColor", "&b&l");
             config.addDefault("Language.StaffNotification.ArtistColor", "&a&l");
 
-            //  /dcevents add <event> <player(s)>
-            //  /dcevents remove <event> <player(s)>
-            //  /dcevents startEvent <event>
-            //  /dcevents endEvent <event>
-            //  /dcevents eventList
-            //  /dcevents playerList <event>
-            //  /dcevents broadcast <message>
-            //  /dcevents teleport
-
-            config.addDefault("Events.CommandDescriptions.AddCommand", "Adds player(s) to a certain eventlist.");
-            config.addDefault("Events.CommandDescriptions.RemoveCommand", "Removes player(s) from a certain eventlist.");
-            config.addDefault("Events.CommandDescriptions.StartEventCommand", "Creates an event.");
-            config.addDefault("Events.CommandDescriptions.EndEventCommand", "Ends an event.");
-            config.addDefault("Events.CommandDescriptions.EventList", "Lists all current events.");
-            config.addDefault("Events.CommandDescriptions.PlayerList", "Lists all players participating in a certain event.");
-            config.addDefault("Events.CommandDescriptions.Broadcast", "Uses the [EventBroadcast] chat function.");
-            config.addDefault("Events.CommandDescriptions.Help", "Shows all possible commands and their arguments.");
-            config.addDefault("Events.CommandDescriptions.Teleport", "Teleports all active players in an event to the executor.");
-
             config.addDefault("Reports.CommandDescriptions.Help", "Shows all possible commands and their arguments.");
             config.addDefault("Reports.CommandDescriptions.Add", "Creates a new report for the specified type.");
             config.addDefault("Reports.CommandDescriptions.Remove", "Removes/Deletes a Report");
