@@ -8,6 +8,19 @@
 * Muting Chat
    - Can mute a chat for players. Staff members with appropriate permissions can talk during this.
 * Custom Broadcast Message
+* Auto Announcer
+* Banned Words (WIP)
+* General Override Commands for DarkcrestMC
+* RandomTP
+* Ranking up (with guest questionnaire)
+* Staff Utilities
+    - Notes
+    - Reports
+    - Staff Communication Channels
+    - Staff Count Announcer
+    - Warnings
+    - BanishHackFix
+    - Staff Spawn Information
 
 ## Commands and Permissions:
 >
@@ -29,10 +42,20 @@
   - DCCore.staff.*
     - DCCore.broadcast
     - DCCore.chat
+    - DCCore.GMSpectator
+    - DCCore.staff.announcements
+    - DCCore.staff.Vanish
+    - DCCore.RandomTP.others
+    - DCCore.NotesStaff
+    - DCCore.ReportStaff
+    - DCCore.WarningStaff
   - DCCore.chat.*
     - DCCore.chat.toggle
     - DCCore.chat.staff
+    - DCCore.AntiCurse.bypass
+    - DCCore.bannedwords
   - DCCore.player.*
     - DCCore.quickdeposit.use
     - DCCore.spawner.place
     - DCCore.spawner.break
+    - DCCore.RandomTP.self

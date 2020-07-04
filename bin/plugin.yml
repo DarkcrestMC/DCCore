@@ -2,14 +2,14 @@ name: DCCore
 author: Jacksonnn
 version: BETA 1.0
 main: com.Jacksonnn.DCCore.DCCore
-loadbefore: [Essentials, Playtimes]
+loadbefore: [Essentials, Playtimes, DiscordSRVMy ]
 api-version: 1.13
 commands:
   dccore:
     aliases: [dc,dcc,dcore]
     usage: /<command>
   broadcast:
-    aliases: [bc, bcast, announce]
+    aliases: [bc, bcast]
     usage: /<command>
   bannedwords:
     aliases: [bw, bwords, bannedw]
@@ -49,6 +49,50 @@ commands:
   bendinghelp:
     aliases: [bhelp, bendingh, bh]
     usage: /<command>
+  avatar:
+    usage: /<command>
+  lightspirit:
+    usage: /<command>
+  darkspirit:
+    usage: /<command>
+  bendingfix:
+    aliases: [fixbending, bfix, bendingf]
+    usage: /<command>
+  headofstaff:
+    aliases: [hos, headostaff, bigstaff, daddystaff]
+    usage: /<command>
+  managers:
+    aliases: [ms, admins, managerchat, mchat]
+    usage: /<command>
+  moderators:
+    aliases: [mods, jmods, serverstaff, jrmoderators, jrmods, babystaff]
+    usage: /<command>
+  staffchat:
+    aliases: [staff, combinedstaff, cstaff]
+    usage: /<command>
+  artists:
+    aliases: [builders, artistsonly, artistic, artistchat]
+    usage: /<command>
+  staffcount:
+    usage: /<command>
+  notes:
+    aliases: [note, playernotes]
+    usage: /<command>
+  warnings:
+    aliases: [warning, warn, warns]
+    usage: /<command>
+  reports:
+    aliases: [report]
+    usage: /<command>
+  announcer:
+    aliases: [announcements, dca, dcannouncements, acannounce, announce, dcannouncer]
+    usage: /<command>
+  staffspawn:
+    aliases: [ss, specialspawn]
+    usage: /<command>
+  banish:
+    aliases: [bannish, woosh, piss]
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op
@@ -56,32 +100,23 @@ permissions:
       DCCore.spawner.place: true
       DCCore.spawner.break: true
       DCCore.QuickDeposit.use: true
-      bending.tournament.player: true
+      DCCore.RandomTP.self: true
   DCCore.staff:
     default: op
     children:
       DCCore.GMSpectator: true
       DCCore.broadcast: true
       DCCore.chat: true
-      DCCore.AntiCurse.bypass: true
-      bending.tournament.admin: true
+      DCCore.staff.announcements: true
+      DCCore.staff.Vanish: true
+      DCCore.RandomTP.others: true
+      DCCore.NotesStaff: true
+      DCCore.ReportStaff: true
+      DCCore.WarningStaff: true
   DCCore.chat:
     default: op
     children:
       DCCore.chat.toggle: true
       DCCore.chat.staff: true
       DCCore.AntiCurse.bypass: true
-  DCCore.EventHost:
-    default: op
-    children:
-      DCCore.broadcast: true
-      DCCore.diamondluck: true
-      DCCore.bendingtournament: true
-      DCCore.EventHost.add: true
-      DCCore.EventHost.terminate: true
-      DCCore.EventHost.broadcast: true
-      DCCore.EventHost.eventList: true
-      DCCore.EventHost.playerList: true
-      DCCore.EventHost.remove: true
-      DCCore.EventHost.create: true
-      DCCore.EventHost.teleport: true
+      DCCore.bannedwords: true

@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="ProjectKorra-1.8.9">
+  <library name="Vault1">
     <CLASSES>
-      <root url="jar://D:/Darkcrest 1.15.2/ProjectKorra-1.8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Vault.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

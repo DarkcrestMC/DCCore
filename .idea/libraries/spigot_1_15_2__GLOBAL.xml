@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="PlayTimes-1.2.13">
+  <library name="spigot-1.15.2--GLOBAL">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../PlayTimes-1.2.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../spigot-1.15.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

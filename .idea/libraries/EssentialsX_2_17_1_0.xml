@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="SpigotMC 1.15.2">
+  <library name="EssentialsX-2.17.1.0">
     <CLASSES>
-      <root url="jar://D:/Darkcrest 1.15.2/SpigotMC 1.15.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../EssentialsX-2.17.1.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
