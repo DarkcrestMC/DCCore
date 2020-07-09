@@ -66,33 +66,6 @@ public class ConfigManager {
             config.addDefault("RandomTP.SetRadius", true);
             config.addDefault("RandomTP.Radius", 5000000);
             config.addDefault("RandomTP.WorldSizeDividedBy", 8);
-
-            config.addDefault("Rankup.Prices.Citizen", 5000);
-            config.addDefault("Rankup.Hours.Citizen", 10);
-
-            config.addDefault("Rankup.Prices.Merchant", 50000);
-            config.addDefault("Rankup.Hours.Merchant", 20);
-
-            config.addDefault("Rankup.Prices.Baron", 500000);
-            config.addDefault("Rankup.Hours.Baron", 30);
-
-            config.addDefault("Rankup.Prices.Official", 5000000);
-            config.addDefault("Rankup.Hours.Official", 40);
-
-            config.addDefault("Rankup.Prices.Noble", 50000000);
-            config.addDefault("Rankup.Hours.Noble", 60);
-
-            config.addDefault("Rankup.Prices.Royal", 500000000);
-            config.addDefault("Rankup.Hours.Royal", 75);
-
-            config.addDefault("Rankup.Prices.Avatar", 225000000);
-            config.addDefault("Rankup.Hours.Avatar", 60);
-
-            config.addDefault("Rankup.Prices.LightSpirit", 500000);
-            config.addDefault("Rankup.Hours.LightSpirit", 30);
-
-            config.addDefault("Rankup.Prices.DarkSpirit", 500000);
-            config.addDefault("Rankup.Hours.DarkSpirit", 30);
             defaultConfig.save();
         } else if (type == ConfigType.LANGUAGE) {
             config = langConfig.get();

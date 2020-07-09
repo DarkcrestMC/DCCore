@@ -8,7 +8,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class BannedWordsListener implements Listener {
-
     @EventHandler
     public void onRegularChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();

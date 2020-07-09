@@ -119,7 +119,7 @@ public class GeneralMethods {
 		if (onlineStaff == 0) {
 			TextChannel staffchat = DiscordUtil.getTextChannelById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.StaffChat.ChannelID")));
 			String staffTag = DiscordSRV.getPlugin().getMainGuild().getRoleById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.StaffChat.StaffRoleID"))).getAsMention();
-			/*staffNotification++;
+			staffNotification++;
 			if (staffNotification % 4 == 0) {
 				EmbedBuilder embed = new EmbedBuilder();
 
@@ -132,7 +132,7 @@ public class GeneralMethods {
 				staffchat.sendMessage(embed.build()).queue();
 
 				staffNotification = 0;
-			} else {*/
+			} else {
 				EmbedBuilder embed = new EmbedBuilder();
 
 				embed.setTitle("Staffless");
@@ -141,7 +141,7 @@ public class GeneralMethods {
 				embed.setAuthor("DC Staff Chat Notification", "http://darkcrestmc.net", "http://darkcrestmc.net/wp-content/uploads/2019/10/Orange.png");
 
 				staffchat.sendMessage(embed.build()).queue();
-			//}
+			}
 		} else {
 			for (Player player : onlinePlayers) {
 				if (player.hasPermission("DCCore.staffchats.Staff")) {
@@ -151,9 +151,5 @@ public class GeneralMethods {
 				}
 			}
 		}
-	}
-
-	public static String locToString(Location loc) {
-		return loc.getBlockX() + " " + loc.getBlockY() + " " + loc.getBlockZ() + " (" + loc.getWorld() + ")";
 	}
 }

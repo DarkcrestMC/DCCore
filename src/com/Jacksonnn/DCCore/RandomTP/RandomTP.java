@@ -34,8 +34,8 @@ public class RandomTP implements CommandExecutor {
 
                 player.teleport(GeneralMethods.toHighestBlock(endLoc));
                 player.performCommand("unstuck");
-                sender.sendMessage(GeneralMethods.successColor + "Successfully teleported player to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
-                player.sendMessage(GeneralMethods.successColor + "Successfully teleported to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
+                sender.sendMessage(GeneralMethods.successColor + "Successfully teleported player to " + GeneralMethods.toHighestBlock(endLoc).toString());
+                player.sendMessage(GeneralMethods.successColor + "Successfully teleported to " + GeneralMethods.toHighestBlock(endLoc).toString());
             }
         } else if (args.length == 0) {
             if (sender.hasPermission("DCCore.RandomTP.self")) {
@@ -60,7 +60,7 @@ public class RandomTP implements CommandExecutor {
 
                     ((Player) sender).teleport(GeneralMethods.toHighestBlock(endLoc));
                     ((Player) sender).performCommand("unstuck");
-                    sender.sendMessage(GeneralMethods.successColor + "Successfully teleported to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
+                    sender.sendMessage(GeneralMethods.successColor + "Successfully teleported to " + GeneralMethods.toHighestBlock(endLoc).toString());
                 }
             }
         } else {
