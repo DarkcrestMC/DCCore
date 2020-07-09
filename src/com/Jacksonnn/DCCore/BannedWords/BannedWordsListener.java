@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class BannedWordsListener implements Listener {
+
     @EventHandler
     public void onRegularChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
@@ -19,7 +20,7 @@ public class BannedWordsListener implements Listener {
                         return;
                     } else {
                         event.setCancelled(true);
-                        event.getPlayer().sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (don\'t cuss!)");
+                        event.getPlayer().sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (don't cuss!)");
                     }
                 }
             }
