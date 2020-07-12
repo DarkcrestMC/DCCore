@@ -21,22 +21,24 @@ public class BannedWordsListener implements Listener {
 
         bannedWords = ConfigManager.bannedWords.get().getStringList("AntiCurse.bannedWords");
 
-        String detected = " ";
+        String detected = ChatColor.YELLOW + " " + ChatColor.ITALIC + "Banned words used: " + ChatColor.RESET;
 
         for (String bannedWord : bannedWords) {
             if (event.getMessage().toUpperCase().contains(bannedWord.toUpperCase()) || player.getName().toUpperCase().contains(bannedWord.toUpperCase()) || player.getDisplayName().toUpperCase().contains(bannedWord.toUpperCase())) {
-                if (bannedWords.size() == bannedWords.indexOf(bannedWord) + 1) {
+                if (detected == ChatColor.YELLOW + " " + ChatColor.ITALIC + "Banned words used: " + ChatColor.RESET) {
                     detected += bannedWord;
                 } else {
-                    detected += bannedWord + ", ";
+                    detected += ", " + bannedWord;
                 }
             }
         }
 
         if (!player.hasPermission("DCCore.AntiCurse.bypass")) {
-            event.setCancelled(true);
-            event.getPlayer().sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (check your username, nickname, or chat message!!!)");
-            event.getPlayer().sendMessage(ChatColor.YELLOW + " " + ChatColor.ITALIC + "Banned word used:" + ChatColor.RESET + detected);
+            if (detected != " ") {
+                event.setCancelled(true);
+                event.getPlayer().sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (check your username, nickname, or chat message!!!)");
+                event.getPlayer().sendMessage(detected);
+            }
         }
     }
 }
