@@ -2,6 +2,7 @@ package com.Jacksonnn.DCCore.BannedWords;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,12 +19,13 @@ public class BannedWordsListener implements Listener {
         bannedWords = ConfigManager.bannedWords.get().getStringList("AntiCurse.bannedWords");
 
         for (String bannedWord : bannedWords) {
-            if (event.getMessage().toUpperCase().contains(bannedWord.toUpperCase())) {
+            if (event.getMessage().toUpperCase().contains(bannedWord.toUpperCase()) || player.getName().toUpperCase().contains(bannedWord.toUpperCase()) || player.getDisplayName().toUpperCase().contains(bannedWord.toUpperCase())) {
                 if (player.hasPermission("DCCore.AntiCurse.bypass")) {
                     return;
                 } else {
                     event.setCancelled(true);
-                    event.getPlayer().sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (don't cuss!)");
+                    event.getPlayer().sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (check your username, nickname, or chat message!!!)");
+                    event.getPlayer().sendMessage(ChatColor.YELLOW + "Banned word used: " + bannedWord);
                 }
             }
         }
