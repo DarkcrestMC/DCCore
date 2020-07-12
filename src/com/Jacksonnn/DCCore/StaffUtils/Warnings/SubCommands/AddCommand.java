@@ -10,7 +10,6 @@ import github.scarsz.discordsrv.dependencies.jda.api.entities.TextChannel;
 import github.scarsz.discordsrv.util.DiscordUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -57,13 +56,6 @@ public class AddCommand implements WarningSubCommand {
         if (args.size() >= 2) {
             Player player = Bukkit.getPlayer(args.get(0));
             Player staffMember = ((Player) sender).getPlayer();
-            OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-
-            for (OfflinePlayer oPlayer : offlinePlayers) {
-                if (oPlayer.getName().equalsIgnoreCase(args.get(0))) {
-                    player = oPlayer.getPlayer();
-                }
-            }
 
             if (player == null) {
                 sender.sendMessage(pdm.getWarningManager().warningPrefix + "That player does not exist, please try again.");
@@ -76,16 +68,16 @@ public class AddCommand implements WarningSubCommand {
 
             args.remove(0);
 
-            Warning warning = new Warning(player, staffMember, String.join(" ", args), pdm);
+            Warning warning = new Warning(player.getUniqueId(), staffMember.getUniqueId(), String.join(" ", args), pdm);
 
             sender.sendMessage(pdm.getWarningManager().warningPrefix + "Success! Warning created!");
 
             TextChannel notesChannel = DiscordUtil.getTextChannelById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.Warnings.ChannelID")));
 
             EmbedBuilder embedBuilder = new EmbedBuilder();
-            embedBuilder.setAuthor(warning.getStaffMember().getName());
-            embedBuilder.setTitle("Warning against " + warning.getPlayer().getName());
-            embedBuilder.setDescription(warning.getReason() + " -" + warning.getStaffMember().getName());
+            embedBuilder.setAuthor(Bukkit.getPlayer(warning.getStaffMember()).getName());
+            embedBuilder.setTitle("Warning against " + Bukkit.getPlayer(warning.getPlayer()).getName());
+            embedBuilder.setDescription(warning.getReason() + " -" + Bukkit.getPlayer(warning.getStaffMember()).getName());
             //GOLD CHAT COLOR
             embedBuilder.setColor(new Color(255, 170, 0));
 
@@ -95,11 +87,7 @@ public class AddCommand implements WarningSubCommand {
             String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
             Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
-            for (Player oPlayer : onlinePlayers) {
-                if (oPlayer.hasPermission("DCCore.staffchats.Staff")) {
-                    oPlayer.sendMessage(chatprefix + ChatColor.GOLD + "NEW WARNING: " + msgColor + warning.getStaffMember().getName() + " just warned " + warning.getPlayer().getName() + " for " + warning.getReason() + ".");
-                }
-            }
+            Bukkit.broadcast(chatprefix + ChatColor.GOLD + "NEW WARNING: " + msgColor + Bukkit.getPlayer(warning.getStaffMember()).getName() + " just warned " + Bukkit.getPlayer(warning.getPlayer()).getName() + " for " + warning.getReason() + ".", "DCCore.staffchats.Staff");
         } else {
             sender.sendMessage(pdm.getWarningManager().warningPrefix + getProperUse());
         }

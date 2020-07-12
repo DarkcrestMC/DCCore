@@ -2,16 +2,17 @@ package com.Jacksonnn.DCCore.StaffUtils.Notes;
 
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+
+import java.util.UUID;
 
 public class Note {
     private int id;
-    private Player player;
-    private Player staffMember;
+    private UUID player;
+    private UUID staffMember;
     private String message;
     private PlayerDisciplineManager pdm;
 
-    public Note(Player player, Player staffMember, String message, PlayerDisciplineManager pdm) {
+    public Note(UUID player, UUID staffMember, String message, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating note...");
         int i = 1;
         for (Note note : pdm.getNoteManager().getAllNotes()) {
@@ -31,7 +32,7 @@ public class Note {
         saveNote();
     }
 
-    public Note(int id, Player player, Player staffMember, String message, PlayerDisciplineManager pdm) {
+    public Note(int id, UUID player, UUID staffMember, String message, PlayerDisciplineManager pdm) {
         this.id = id;
         this.player = player;
         this.staffMember = staffMember;
@@ -43,11 +44,11 @@ public class Note {
         return id;
     }
 
-    public Player getPlayer() {
+    public UUID getPlayer() {
         return player;
     }
 
-    public Player getStaffMember() {
+    public UUID getStaffMember() {
         return staffMember;
     }
 

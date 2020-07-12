@@ -13,15 +13,16 @@ import org.bukkit.entity.Player;
 import java.awt.*;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.UUID;
 
 public class ToDoReport {
     private int id;
     private String message;
-    private Player staffMember;
+    private UUID staffMember;
     private PlayerDisciplineManager pdm;
     private ReportGeneral.REPORT_TYPE type = ReportGeneral.REPORT_TYPE.TODO;
 
-    public ToDoReport(String message, Player staffMember, PlayerDisciplineManager pdm) {
+    public ToDoReport(String message, UUID staffMember, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating todo report...");
         int i = 0;
         for (ToDoReport report : pdm.getReportManager().getTodoReports()) {
@@ -47,7 +48,7 @@ public class ToDoReport {
         }
     }
 
-    public ToDoReport(int id, String message, Player staffMember, PlayerDisciplineManager pdm) {
+    public ToDoReport(int id, String message, UUID staffMember, PlayerDisciplineManager pdm) {
         this.id = id;
         this.message = message;
         this.staffMember = staffMember;
@@ -62,9 +63,9 @@ public class ToDoReport {
         TextChannel todoReportChannel = DiscordUtil.getTextChannelById(sendReportTo);
 
         EmbedBuilder embedBuilder = new EmbedBuilder();
-        embedBuilder.setAuthor(this.getStaffMember().getName());
+        embedBuilder.setAuthor(Bukkit.getPlayer(getStaffMember()).getName());
         embedBuilder.setTitle("TODO REPORT");
-        embedBuilder.setDescription(this.getMessage() + " -" + this.getStaffMember().getName());
+        embedBuilder.setDescription(this.getMessage() + " -" + Bukkit.getPlayer(getStaffMember()).getName());
         //RED CHAT COLOR
         embedBuilder.setColor(new Color(170, 0, 0));
 
@@ -76,7 +77,7 @@ public class ToDoReport {
 
         for (Player player : onlinePlayers) {
             if (player.hasPermission("DCCore.staffchats.HoS")) {
-                player.sendMessage(chatprefix + ChatColor.DARK_RED + "NEW TODO REPORT: " + msgColor + staffMember.getName() + " just submitted a new todo report.");
+                player.sendMessage(chatprefix + ChatColor.DARK_RED + "NEW TODO REPORT: " + msgColor + Bukkit.getPlayer(getStaffMember()) + " just submitted a new todo report.");
             }
         }
     }
@@ -89,7 +90,7 @@ public class ToDoReport {
         return this.message;
     }
 
-    public Player getStaffMember() {
+    public UUID getStaffMember() {
         return this.staffMember;
     }
 

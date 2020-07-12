@@ -6,7 +6,6 @@ import com.Jacksonnn.DCCore.StaffUtils.Notes.Note;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesSubCommand;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -51,18 +50,6 @@ public class ClearCommand implements NotesSubCommand {
             Player player = Bukkit.getPlayer(args.get(0));
 
             if (player == null) {
-                OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                for (OfflinePlayer offlinePlayer : offlinePlayers) {
-                    if (offlinePlayer.getName() == args.get(0)) {
-                        player = offlinePlayer.getPlayer();
-                        break;
-                    } else {
-                        continue;
-                    }
-                }
-            }
-
-            if (player == null) {
                 sender.sendMessage(pdm.getNoteManager().notesPrefix + "Does that player exist?");
                 return;
             }
@@ -71,7 +58,7 @@ public class ClearCommand implements NotesSubCommand {
             allNotes.addAll(pdm.getNoteManager().getAllNotes());
 
             for (Note note : allNotes) {
-                if (note.getPlayer() == player) {
+                if (note.getPlayer() == player.getUniqueId()) {
                     pdm.deleteNote(note);
                 }
             }

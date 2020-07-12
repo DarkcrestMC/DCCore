@@ -12,8 +12,6 @@ import com.Jacksonnn.DCCore.StaffUtils.Warnings.Warning;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningGeneral;
 import com.Jacksonnn.DCCore.Storage.*;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,16 +62,8 @@ public class PlayerDisciplineManager {
             int i = 0;
             while (getNotes.next()) {
                 int id = getNotes.getInt("id");
-                Player player = Bukkit.getPlayer(UUID.fromString(getNotes.getString("player")));
-                Player staffMember = Bukkit.getPlayer(UUID.fromString(getNotes.getString("staffMember")));
-                OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                for (OfflinePlayer oPlayer : offlinePlayers) {
-                    if (oPlayer.getUniqueId().toString().equals(getNotes.getString("player"))) {
-                        player = oPlayer.getPlayer();
-                    } else if (oPlayer.getUniqueId().toString().equals(getNotes.getString("staffMember"))) {
-                        staffMember = oPlayer.getPlayer();
-                    }
-                }
+                UUID player = UUID.fromString(getNotes.getString("player"));
+                UUID staffMember = UUID.fromString(getNotes.getString("staffMember"));
 
                 String message = getNotes.getString("message");
 
@@ -101,16 +91,8 @@ public class PlayerDisciplineManager {
             int i = 0;
             while (getWarnings.next()) {
                 int id = getWarnings.getInt("id");
-                Player player = Bukkit.getPlayer(UUID.fromString(getWarnings.getString("player")));
-                Player staffMember = Bukkit.getPlayer(UUID.fromString(getWarnings.getString("staffMember")));
-                OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                for (OfflinePlayer oPlayer : offlinePlayers) {
-                    if (oPlayer.getUniqueId().toString().equals(getWarnings.getString("player"))) {
-                        player = oPlayer.getPlayer();
-                    } else if (oPlayer.getUniqueId().toString().equals(getWarnings.getString("staffMember"))) {
-                        staffMember = oPlayer.getPlayer();
-                    }
-                }
+                UUID player = UUID.fromString(getWarnings.getString("player"));
+                UUID staffMember = UUID.fromString(getWarnings.getString("staffMember"));
 
                 String reason = getWarnings.getString("reason");
 
@@ -143,57 +125,31 @@ public class PlayerDisciplineManager {
                 if (type.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.TODO.getShorthand())) {
                     String message = getReports.getString("message");
 
-                    Player staffMember = Bukkit.getPlayer(UUID.fromString(getReports.getString("staffMember")));
-                    OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                    for (OfflinePlayer oPlayer : offlinePlayers) {
-                        if (oPlayer.getUniqueId().toString().equals(getReports.getString("staffMember"))) {
-                            staffMember = oPlayer.getPlayer();
-                        }
-                    }
+                    UUID staffMember = UUID.fromString(getReports.getString("staffMember"));
 
                     getReportManager().addReport(new ToDoReport(id, message, staffMember, this));
                 } else if (type.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
                     String message = getReports.getString("message");
-                    Player player = Bukkit.getPlayer(UUID.fromString(getReports.getString("player")));
-                    Player staffMember = Bukkit.getPlayer(UUID.fromString(getReports.getString("staffMember")));
-                    OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                    for (OfflinePlayer oPlayer : offlinePlayers) {
-                        if (oPlayer.getUniqueId().toString().equals(getReports.getString("player"))) {
-                            player = oPlayer.getPlayer();
-                        } else if (oPlayer.getUniqueId().toString().equals(getReports.getString("staffMember"))) {
-                            staffMember = oPlayer.getPlayer();
-                        }
-                    }
+                    UUID player = UUID.fromString(getReports.getString("player"));
+                    UUID staffMember = UUID.fromString(getReports.getString("staffMember"));
 
                     boolean resolved = Boolean.parseBoolean(getReports.getString("resolved"));
 
                     getReportManager().addReport(new PlayerReport(id, message, player, staffMember, resolved, this));
+
                 } else if (type.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
                     String message = getReports.getString("message");
-                    Player player = Bukkit.getPlayer(UUID.fromString(getReports.getString("player")));
-                    Player staffMember = Bukkit.getPlayer(UUID.fromString(getReports.getString("staffMember")));
-                    OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                    for (OfflinePlayer oPlayer : offlinePlayers) {
-                        if (oPlayer.getUniqueId().toString().equals(getReports.getString("player"))) {
-                            player = oPlayer.getPlayer();
-                        } else if (oPlayer.getUniqueId().toString().equals(getReports.getString("staffMember"))) {
-                            staffMember = oPlayer.getPlayer();
-                        }
-                    }
+                    UUID player = UUID.fromString(getReports.getString("player"));
+                    UUID staffMember = UUID.fromString(getReports.getString("staffMember"));
 
                     boolean resolved = Boolean.parseBoolean(getReports.getString("resolved"));
 
                     getReportManager().addReport(new StaffReport(id, message, player, staffMember, resolved, this));
+
                 } else if (type.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.BUG.getShorthand())) {
                     String message = getReports.getString("message");
                     String bugType = getReports.getString("bugType");
-                    Player staffMember = Bukkit.getPlayer(UUID.fromString(getReports.getString("staffMember")));
-                    OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                    for (OfflinePlayer oPlayer : offlinePlayers) {
-                        if (oPlayer.getUniqueId().toString().equals(getReports.getString("staffMember"))) {
-                            staffMember = oPlayer.getPlayer();
-                        }
-                    }
+                    UUID staffMember = UUID.fromString(getReports.getString("staffMember"));
 
                     boolean tested = Boolean.parseBoolean(getReports.getString("tested"));
 
@@ -233,8 +189,8 @@ public class PlayerDisciplineManager {
         try {
             PreparedStatement preparedStatement = plugin.getDatabaseManager().getDatabase()
                     .getConnection().prepareStatement(query);
-            preparedStatement.setString(1, note.getPlayer().getUniqueId().toString());
-            preparedStatement.setString(2, note.getStaffMember().getUniqueId().toString());
+            preparedStatement.setString(1, note.getPlayer().toString());
+            preparedStatement.setString(2, note.getStaffMember().toString());
             preparedStatement.setString(3, note.getNote());
             preparedStatement.execute();
             preparedStatement.close();
@@ -255,8 +211,8 @@ public class PlayerDisciplineManager {
         try {
             PreparedStatement preparedStatement = plugin.getDatabaseManager().getDatabase()
                     .getConnection().prepareStatement(query);
-            preparedStatement.setString(1, warning.getPlayer().getUniqueId().toString());
-            preparedStatement.setString(2, warning.getStaffMember().getUniqueId().toString());
+            preparedStatement.setString(1, warning.getPlayer().toString());
+            preparedStatement.setString(2, warning.getStaffMember().toString());
             preparedStatement.setString(3, warning.getReason());
             preparedStatement.execute();
             preparedStatement.close();
@@ -278,7 +234,7 @@ public class PlayerDisciplineManager {
             try {
                 PreparedStatement preparedStatement = plugin.getDatabaseManager().getDatabase()
                         .getConnection().prepareStatement(query);
-                preparedStatement.setString(1, ((ToDoReport) report).getStaffMember().getUniqueId().toString());
+                preparedStatement.setString(1, ((ToDoReport) report).getStaffMember().toString());
                 preparedStatement.setString(2, ((ToDoReport) report).getMessage());
                 preparedStatement.setString(3, ((ToDoReport) report).getType().getShorthand());
                 preparedStatement.execute();
@@ -296,8 +252,8 @@ public class PlayerDisciplineManager {
             try {
                 PreparedStatement preparedStatement = plugin.getDatabaseManager().getDatabase()
                         .getConnection().prepareStatement(query);
-                preparedStatement.setString(1, ((PlayerReport) report).getPlayer().getUniqueId().toString());
-                preparedStatement.setString(2, ((PlayerReport) report).getStaffMember().getUniqueId().toString());
+                preparedStatement.setString(1, ((PlayerReport) report).getPlayer().toString());
+                preparedStatement.setString(2, ((PlayerReport) report).getStaffMember().toString());
                 preparedStatement.setString(3, String.valueOf(((PlayerReport) report).isResolved()));
                 preparedStatement.setString(4, ((PlayerReport) report).getMessage());
                 preparedStatement.setString(5, ((PlayerReport) report).getType().getShorthand());
@@ -316,8 +272,8 @@ public class PlayerDisciplineManager {
             try {
                 PreparedStatement preparedStatement = plugin.getDatabaseManager().getDatabase()
                         .getConnection().prepareStatement(query);
-                preparedStatement.setString(1, ((StaffReport) report).getPlayer().getUniqueId().toString());
-                preparedStatement.setString(2, ((StaffReport) report).getStaffMember().getUniqueId().toString());
+                preparedStatement.setString(1, ((StaffReport) report).getPlayer().toString());
+                preparedStatement.setString(2, ((StaffReport) report).getStaffMember().toString());
                 preparedStatement.setString(3, String.valueOf(((StaffReport) report).isResolved()));
                 preparedStatement.setString(4, ((StaffReport) report).getMessage());
                 preparedStatement.setString(5, ((StaffReport) report).getType().getShorthand());
@@ -336,7 +292,7 @@ public class PlayerDisciplineManager {
             try {
                 PreparedStatement preparedStatement = plugin.getDatabaseManager().getDatabase()
                         .getConnection().prepareStatement(query);
-                preparedStatement.setString(1, ((BugReport) report).getStaffMember().getUniqueId().toString());
+                preparedStatement.setString(1, ((BugReport) report).getStaffMember().toString());
                 preparedStatement.setString(2, ((BugReport) report).getBugType());
                 preparedStatement.setString(3, String.valueOf(((BugReport) report).isTested()));
                 preparedStatement.setString(4, ((BugReport) report).getMessage());

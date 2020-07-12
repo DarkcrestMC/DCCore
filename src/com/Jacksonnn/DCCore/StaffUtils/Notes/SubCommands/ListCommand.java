@@ -7,7 +7,6 @@ import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesSubCommand;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -51,25 +50,13 @@ public class ListCommand implements NotesSubCommand {
                 Player player = Bukkit.getPlayer(args.get(0));
 
                 if (player == null) {
-                    OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                    for (OfflinePlayer offlinePlayer : offlinePlayers) {
-                        if (offlinePlayer.getName() == args.get(0)) {
-                            player = offlinePlayer.getPlayer();
-                            break;
-                        } else {
-                            continue;
-                        }
-                    }
-                }
-
-                if (player == null) {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "Does that player exist?");
                     return;
                 }
 
                 List<Note> playerNotes = new ArrayList<>();
                 for (Note note : pdm.getNoteManager().getAllNotes()) {
-                    if (note.getPlayer() == player) {
+                    if (note.getPlayer() == player.getUniqueId()) {
                         playerNotes.add(note);
                     }
                 }
@@ -79,7 +66,7 @@ public class ListCommand implements NotesSubCommand {
                 } else {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "Notes for player " + player.getName() + ":");
                     for (Note note : playerNotes) {
-                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + note.getStaffMember().getName());
+                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + Bukkit.getPlayer(note.getStaffMember()).getName());
                     }
                 }
             } else {
@@ -93,7 +80,7 @@ public class ListCommand implements NotesSubCommand {
                 } else {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "All Player Notes:");
                     for (Note note : playerNotes) {
-                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + note.getStaffMember().getName());
+                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + Bukkit.getPlayer(note.getStaffMember()).getName());
                     }
                 }
             }
