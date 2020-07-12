@@ -23,7 +23,7 @@ public class BroadcastCommand implements CommandExecutor {
 				if (args.length == 0) {
 					sender.sendMessage(GeneralMethods.errorColor + "Please type message: /broadcast <message>");
 				} else {
-					Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + " -" + player);
+					Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + ChatColor.YELLOW + " -" + player);
 				}
 			} else {
 				sender.sendMessage(GeneralMethods.errorColor + "Insufficient permission!");
@@ -32,7 +32,7 @@ public class BroadcastCommand implements CommandExecutor {
 			if (args.length == 0) {
 				sender.sendMessage(GeneralMethods.errorColor + "Please type message: /broadcast <message>");
 			} else {
-				Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + " -Console");
+				Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + ChatColor.YELLOW + " -Console");
 			}
 		}
 		return true;
