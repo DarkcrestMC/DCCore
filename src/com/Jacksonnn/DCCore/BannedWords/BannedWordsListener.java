@@ -7,20 +7,23 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BannedWordsListener implements Listener {
     @EventHandler
     public void onRegularChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
 
-        for (String word : event.getMessage().split(" ")) {
-            for (String bannedWord : ConfigManager.defaultConfig.get().getStringList("AntiCurse.bannedWords")) {
-                if (word.equalsIgnoreCase(bannedWord)) {
-                    if (player.hasPermission("DCCore.AntiCurse.bypass")) {
-                        return;
-                    } else {
-                        event.setCancelled(true);
-                        event.getPlayer().sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (don't cuss!)");
-                    }
+        bannedWords = ConfigManager.bannedWords.get().getStringList("AntiCurse.bannedWords");
+
+        for (String bannedWord : bannedWords) {
+            if (event.getMessage().toUpperCase().contains(bannedWord.toUpperCase())) {
+                if (player.hasPermission("DCCore.AntiCurse.bypass")) {
+                    return;
+                } else {
+                    event.setCancelled(true);
+                    event.getPlayer().sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (don't cuss!)");
                 }
             }
         }
