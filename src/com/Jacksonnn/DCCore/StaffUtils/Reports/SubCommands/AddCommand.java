@@ -11,7 +11,6 @@ import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.StaffReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.ToDoReport;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -69,12 +68,12 @@ public class AddCommand implements ReportSubCommand {
                     if (args.size() >= 1) {
                         String message = String.join(" ", args);
 
-                        ToDoReport report = new ToDoReport(message, ((Player) sender).getPlayer(), pdm);
+                        ToDoReport report = new ToDoReport(message, ((Player) sender).getPlayer().getUniqueId(), pdm);
                         report.sendToDiscord();
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
                                 report.getID() + ") " + ChatColor.YELLOW +
                                 report.getMessage() + ChatColor.DARK_RED + " -" +
-                                report.getStaffMember().getName());
+                                Bukkit.getPlayer(report.getStaffMember()).getName());
                     } else {
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add todo <message>.");
                     }
@@ -82,13 +81,6 @@ public class AddCommand implements ReportSubCommand {
                     if (args.size() >= 3) {
                         Player player = Bukkit.getPlayer(args.get(0));
                         Player staffMember = ((Player) sender).getPlayer();
-                        OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-
-                        for (OfflinePlayer oPlayer : offlinePlayers) {
-                            if (oPlayer.getName().equalsIgnoreCase(args.get(0))) {
-                                player = oPlayer.getPlayer();
-                            }
-                        }
 
                         args.remove(0);
 
@@ -97,14 +89,14 @@ public class AddCommand implements ReportSubCommand {
 
                         String message = String.join(" ", args);
 
-                        PlayerReport report = new PlayerReport(message, player, staffMember, isResolved, pdm);
+                        PlayerReport report = new PlayerReport(message, player.getUniqueId(), staffMember.getUniqueId(), isResolved, pdm);
                         report.sendToDiscord();
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
-                                report.getPlayer().getName() + "-" +
+                                Bukkit.getPlayer(report.getPlayer()).getName() + "-" +
                                 (report.isResolved() ? "R" : "NR") +
                                 report.getID() + ") " + ChatColor.YELLOW +
                                 report.getMessage() + ChatColor.DARK_RED + " -" +
-                                report.getStaffMember().getName());
+                                Bukkit.getPlayer(report.getStaffMember()).getName());
                     } else {
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add player <player> <isResolved(true/false)> <message>");
                     }
@@ -112,13 +104,6 @@ public class AddCommand implements ReportSubCommand {
                     if (args.size() >= 3) {
                         Player player = Bukkit.getPlayer(args.get(0));
                         Player staffMember = ((Player) sender).getPlayer();
-                        OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-
-                        for (OfflinePlayer oPlayer : offlinePlayers) {
-                            if (oPlayer.getName().equalsIgnoreCase(args.get(0))) {
-                                player = oPlayer.getPlayer();
-                            }
-                        }
 
                         args.remove(0);
 
@@ -127,14 +112,14 @@ public class AddCommand implements ReportSubCommand {
 
                         String message = String.join(" ", args);
 
-                        StaffReport report = new StaffReport(message, player, staffMember, isResolved, pdm);
+                        StaffReport report = new StaffReport(message, player.getUniqueId(), staffMember.getUniqueId(), isResolved, pdm);
                         report.sendToDiscord();
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
-                                report.getPlayer().getName() + "-" +
+                                Bukkit.getPlayer(report.getPlayer()).getName() + "-" +
                                 (report.isResolved() ? "R" : "NR") +
                                 report.getID() + ") " + ChatColor.YELLOW +
                                 report.getMessage() + ChatColor.DARK_RED + " -" +
-                                report.getStaffMember().getName());
+                                Bukkit.getPlayer(report.getStaffMember()).getName());
                     } else {
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add staff <staffMember> <isResolved(true/false)> <message>");
                     }
@@ -148,14 +133,14 @@ public class AddCommand implements ReportSubCommand {
 
                         String message = String.join(" ", args);
 
-                        BugReport report = new BugReport(message, bugType, ((Player) sender).getPlayer(), isTested, pdm);
+                        BugReport report = new BugReport(message, bugType, ((Player) sender).getPlayer().getUniqueId(), isTested, pdm);
                         report.sendToDiscord();
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
                                 report.getBugType() + "-" +
                                 (report.isTested() ? "T" : "NT") +
                                 report.getID() + ") " + ChatColor.YELLOW +
                                 report.getMessage() + ChatColor.DARK_RED + " -" +
-                                report.getStaffMember().getName());
+                                Bukkit.getPlayer(report.getStaffMember()).getName());
                     } else {
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add bug <bugType> <tested(true/false)> <message>");
                     }

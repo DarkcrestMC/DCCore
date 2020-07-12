@@ -10,15 +10,12 @@ import github.scarsz.discordsrv.dependencies.jda.api.entities.TextChannel;
 import github.scarsz.discordsrv.util.DiscordUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class AddCommand implements NotesSubCommand {
     private DCCore plugin;
@@ -55,15 +52,8 @@ public class AddCommand implements NotesSubCommand {
     @Override
     public void execute(CommandSender sender, List<String> args) {
         if (args.size() >= 2) {
-            Player player = Bukkit.getPlayer(args.get(0));
-            Player staffMember = ((Player) sender).getPlayer();
-            OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-
-            for (OfflinePlayer oPlayer : offlinePlayers) {
-                if (oPlayer.getName().equalsIgnoreCase(args.get(0))) {
-                    player = oPlayer.getPlayer();
-                }
-            }
+            UUID player = Bukkit.getPlayer(args.get(0)).getUniqueId();
+            UUID staffMember = ((Player) sender).getPlayer().getUniqueId();
 
             if (player == null) {
                 sender.sendMessage(pdm.getNoteManager().notesPrefix + "That player does not exist, please try again.");
@@ -83,9 +73,10 @@ public class AddCommand implements NotesSubCommand {
             TextChannel notesChannel = DiscordUtil.getTextChannelById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.Notes.ChannelID")));
 
             EmbedBuilder embedBuilder = new EmbedBuilder();
-            embedBuilder.setAuthor(note.getStaffMember().getName());
-            embedBuilder.setTitle("Note for " + note.getPlayer().getName());
-            embedBuilder.setDescription(note.getNote() + " -" + note.getStaffMember().getName());
+            embedBuilder.setAuthor(Bukkit.getPlayer(note.getStaffMember()).getName());
+            embedBuilder.setTitle("Note for " + Bukkit.getPlayer(note.getPlayer()).getName());
+            embedBuilder.setDescription(note.getNote() + " -" + Bukkit.getPlayer(note.getStaffMember()).getName());
+
             //AQUA CHAT COLOR
             embedBuilder.setColor(new Color(85, 255, 255));
 
@@ -97,7 +88,7 @@ public class AddCommand implements NotesSubCommand {
 
             for (Player oPlayer : onlinePlayers) {
                 if (oPlayer.hasPermission("DCCore.staffchats.Staff")) {
-                    oPlayer.sendMessage(chatprefix + ChatColor.AQUA + "NEW PLAYER NOTE: " + msgColor + note.getStaffMember().getName() + " just noted about " + note.getPlayer().getName() + ": " + note.getNote() + ".");
+                    oPlayer.sendMessage(chatprefix + ChatColor.AQUA + "NEW PLAYER NOTE: " + msgColor + Bukkit.getPlayer(note.getStaffMember()).getName() + " just noted about " + Bukkit.getPlayer(note.getPlayer()).getName() + ": " + note.getNote() + ".");
                 }
             }
         } else {

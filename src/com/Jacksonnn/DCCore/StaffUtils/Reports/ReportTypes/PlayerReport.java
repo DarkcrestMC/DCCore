@@ -8,22 +8,21 @@ import github.scarsz.discordsrv.dependencies.jda.api.entities.TextChannel;
 import github.scarsz.discordsrv.util.DiscordUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
 
 import java.awt.*;
-import java.util.Collection;
 import java.util.Objects;
+import java.util.UUID;
 
 public class PlayerReport {
     private int id;
     private String message;
-    private Player player;
-    private Player staffMember;
+    private UUID player;
+    private UUID staffMember;
     private boolean resolved;
     private PlayerDisciplineManager pdm;
     private ReportGeneral.REPORT_TYPE type = ReportGeneral.REPORT_TYPE.PLAYER;
 
-    public PlayerReport(String message, Player player, Player staffMember, boolean resolved, PlayerDisciplineManager pdm) {
+    public PlayerReport(String message, UUID player, UUID staffMember, boolean resolved, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating player report...");
         int i = 0;
         for (PlayerReport report : pdm.getReportManager().getPlayerReports()) {
@@ -52,7 +51,7 @@ public class PlayerReport {
         }
     }
 
-    public PlayerReport(int id, String message, Player player, Player staffMember, boolean resolved, PlayerDisciplineManager pdm) {
+    public PlayerReport(int id, String message, UUID player, UUID staffMember, boolean resolved, PlayerDisciplineManager pdm) {
         this.id = id;
         this.player = player;
         this.resolved = resolved;
@@ -68,9 +67,9 @@ public class PlayerReport {
         TextChannel todoReportChannel = DiscordUtil.getTextChannelById(sendReportTo);
 
         EmbedBuilder embedBuilder = new EmbedBuilder();
-        embedBuilder.setAuthor(this.getStaffMember().getName());
-        embedBuilder.setTitle("Player Report: " + player.getName());
-        embedBuilder.setDescription(this.getMessage() + " (resolved: " + resolved + ") -" + this.getStaffMember().getName());
+        embedBuilder.setAuthor(Bukkit.getPlayer(getStaffMember()).getName());
+        embedBuilder.setTitle("Player Report: " + Bukkit.getPlayer(getPlayer()).getName());
+        embedBuilder.setDescription(this.getMessage() + " (resolved: " + resolved + ") -" + Bukkit.getPlayer(getStaffMember()).getName());
         //RED CHAT COLOR
         embedBuilder.setColor(new Color(170, 0, 0));
 
@@ -78,13 +77,8 @@ public class PlayerReport {
 
         String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
         String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
-        Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
-        for (Player player : onlinePlayers) {
-            if (player.hasPermission("DCCore.staffchats.Staff")) {
-                player.sendMessage(chatprefix + ChatColor.DARK_RED + "NEW PLAYER REPORT: " + msgColor + this.staffMember.getName() + " just submitted a new player report against " + this.player.getName() + ".");
-            }
-        }
+        Bukkit.broadcast(chatprefix + ChatColor.DARK_RED + "NEW PLAYER REPORT: " + msgColor + Bukkit.getPlayer(getStaffMember()).getName() + " just submitted a new player report against " + Bukkit.getPlayer(getStaffMember()).getName() + ".", "DCCore.staffchats.Staff");
     }
 
     public int getID() {
@@ -95,7 +89,7 @@ public class PlayerReport {
         return this.message;
     }
 
-    public Player getStaffMember() {
+    public UUID getStaffMember() {
         return this.staffMember;
     }
 
@@ -103,7 +97,7 @@ public class PlayerReport {
         return this.sendReportTo;
     }
 
-    public Player getPlayer() {
+    public UUID getPlayer() {
         return player;
     }
 

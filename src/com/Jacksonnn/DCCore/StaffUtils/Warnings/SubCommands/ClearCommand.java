@@ -6,7 +6,6 @@ import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.Warning;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningSubCommand;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -51,18 +50,6 @@ public class ClearCommand implements WarningSubCommand {
             Player player = Bukkit.getPlayer(args.get(0));
 
             if (player == null) {
-                OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-                for (OfflinePlayer offlinePlayer : offlinePlayers) {
-                    if (offlinePlayer.getName() == args.get(0)) {
-                        player = offlinePlayer.getPlayer();
-                        break;
-                    } else {
-                        continue;
-                    }
-                }
-            }
-
-            if (player == null) {
                 sender.sendMessage(pdm.getWarningManager().warningPrefix + "Does that player exist?");
                 return;
             }
@@ -71,7 +58,7 @@ public class ClearCommand implements WarningSubCommand {
             allWarnings.addAll(pdm.getWarningManager().getAllWarnings());
 
             for (Warning warning : allWarnings) {
-                if (warning.getPlayer() == player) {
+                if (warning.getPlayer() == player.getUniqueId()) {
                     pdm.deleteWarning(warning);
                 }
             }

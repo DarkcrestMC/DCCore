@@ -2,16 +2,17 @@ package com.Jacksonnn.DCCore.StaffUtils.Warnings;
 
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+
+import java.util.UUID;
 
 public class Warning {
     private int id;
-    private Player player;
-    private Player staffMember;
+    private UUID player;
+    private UUID staffMember;
     private String message;
     private PlayerDisciplineManager pdm;
 
-    public Warning(Player player, Player staffMember, String message, PlayerDisciplineManager pdm) {
+    public Warning(UUID player, UUID staffMember, String message, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating warning...");
         this.pdm = pdm;
         int i = 1;
@@ -31,7 +32,7 @@ public class Warning {
         saveWarning();
     }
 
-    public Warning(int id, Player player, Player staffMember, String message, PlayerDisciplineManager pdm) {
+    public Warning(int id, UUID player, UUID staffMember, String message, PlayerDisciplineManager pdm) {
         this.id = id;
         this.player = player;
         this.staffMember = staffMember;
@@ -43,11 +44,11 @@ public class Warning {
         return id;
     }
 
-    public Player getPlayer() {
+    public UUID getPlayer() {
         return player;
     }
 
-    public Player getStaffMember() {
+    public UUID getStaffMember() {
         return staffMember;
     }
 
@@ -57,7 +58,7 @@ public class Warning {
 
     public void saveWarning() {
         Bukkit.getLogger().info("Saving warning...");
-        player.sendMessage(pdm.getWarningManager().warningPrefix + "You have been warned by " + getStaffMember().getName() + " for " + getReason() + ".");
+        Bukkit.getPlayer(this.getPlayer()).sendMessage(pdm.getWarningManager().warningPrefix + "You have been warned by " + Bukkit.getPlayer(getStaffMember()).getName() + " for " + getReason() + ".");
         pdm.saveWarning(this);
         Bukkit.getLogger().info("Warning saved successfully!");
     }

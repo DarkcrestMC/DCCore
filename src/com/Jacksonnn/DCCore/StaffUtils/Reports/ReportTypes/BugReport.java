@@ -8,22 +8,21 @@ import github.scarsz.discordsrv.dependencies.jda.api.entities.TextChannel;
 import github.scarsz.discordsrv.util.DiscordUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
 
 import java.awt.*;
-import java.util.Collection;
 import java.util.Objects;
+import java.util.UUID;
 
 public class BugReport {
     private int id;
     private String message;
     private String bugType;
-    private Player staffMember;
+    private UUID staffMember;
     private boolean tested;
     private PlayerDisciplineManager pdm;
     private ReportGeneral.REPORT_TYPE type = ReportGeneral.REPORT_TYPE.BUG;
 
-    public BugReport(String message, String bugType, Player staffMember, boolean tested, PlayerDisciplineManager pdm) {
+    public BugReport(String message, String bugType, UUID staffMember, boolean tested, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating bug report...");
         int i = 0;
         for (BugReport report : pdm.getReportManager().getBugReports()) {
@@ -52,7 +51,7 @@ public class BugReport {
         }
     }
 
-    public BugReport(int id, String message, String bugType, Player staffMember, boolean tested, PlayerDisciplineManager pdm) {
+    public BugReport(int id, String message, String bugType, UUID staffMember, boolean tested, PlayerDisciplineManager pdm) {
         this.id = id;
         this.bugType = bugType;
         this.tested = tested;
@@ -68,9 +67,9 @@ public class BugReport {
         TextChannel todoReportChannel = DiscordUtil.getTextChannelById(sendReportTo);
 
         EmbedBuilder embedBuilder = new EmbedBuilder();
-        embedBuilder.setAuthor(this.getStaffMember().getName());
+        embedBuilder.setAuthor(Bukkit.getPlayer(getStaffMember()).getName());
         embedBuilder.setTitle("Bug Report: " + bugType);
-        embedBuilder.setDescription(this.getMessage() + " (tested: " + tested + ") -" + this.getStaffMember().getName());
+        embedBuilder.setDescription(this.getMessage() + " (tested: " + tested + ") -" + Bukkit.getPlayer(getStaffMember()).getName());
         //RED CHAT COLOR
         embedBuilder.setColor(new Color(170, 0, 0));
 
@@ -78,13 +77,8 @@ public class BugReport {
 
         String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
         String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
-        Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
-        for (Player player : onlinePlayers) {
-            if (player.hasPermission("DCCore.staffchats.Staff")) {
-                player.sendMessage(chatprefix + ChatColor.DARK_RED + "NEW BUG REPORT: " + msgColor + staffMember.getName() + " just submitted a new bug report about " + bugType);
-            }
-        }
+        Bukkit.broadcast(chatprefix + ChatColor.DARK_RED + "NEW BUG REPORT: " + msgColor + Bukkit.getPlayer(getStaffMember()).getName() + " just submitted a new bug report about " + bugType, "DCCore.staffchats.Staff");
     }
 
     public int getID() {
@@ -95,7 +89,7 @@ public class BugReport {
         return this.message;
     }
 
-    public Player getStaffMember() {
+    public UUID getStaffMember() {
         return this.staffMember;
     }
 
