@@ -16,7 +16,7 @@ public class BannedWordsListener implements Listener {
     public void onRegularChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
 
-        bannedWords = ConfigManager.bannedWords.get().getStringList("AntiCurse.bannedWords")
+        bannedWords = ConfigManager.bannedWords.get().getStringList("AntiCurse.bannedWords");
 
         for (String bannedWord : bannedWords) {
             if (event.getMessage().toUpperCase().contains(bannedWord.toUpperCase()) || player.getName().toUpperCase().contains(bannedWord.toUpperCase()) || player.getDisplayName().toUpperCase().contains(bannedWord.toUpperCase())) {
