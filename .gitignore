@@ -1,5 +1,4 @@
 /bin/
 /.idea/
-/DCCore2.iml
-/.idea/
-/bin/
+/target/
+/DCCore.iml

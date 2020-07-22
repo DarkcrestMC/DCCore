@@ -1,5 +1,6 @@
 package com.Jacksonnn.DCCore.Rankup;
 
+import com.Jacksonnn.DCCore.DCCore;
 import com.Jacksonnn.DCCore.GeneralMethods;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
@@ -13,10 +14,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import ru.tehkode.permissions.PermissionUser;
-import ru.tehkode.permissions.bukkit.PermissionsEx;
-
-import java.math.BigDecimal;
 
 import static org.bukkit.Bukkit.getServer;
 
@@ -35,8 +32,6 @@ public class Rankup implements CommandExecutor, Listener {
     }
 
     public void rankupCheck(Player player, CommandSender sender, long playTime) {
-        PermissionUser pexUser = PermissionsEx.getUser(player);
-
         long tenHours = 36000000;
         long twentyHours = 72000000;
         long thirtyHours = 108000000;
@@ -44,21 +39,21 @@ public class Rankup implements CommandExecutor, Listener {
         long sixtyHours = 216000000;
         long seventyFiveHours = 270000000;
 
-        if (pexUser.inGroup("JMod") || pexUser.inGroup("Artist") || pexUser.inGroup("Architect") || pexUser.inGroup("Moderator") || pexUser.inGroup("Manager") || pexUser.inGroup("Co-Owner") || pexUser.inGroup("Owner")) { //STAFF GROUP RANKUP
+        if (DCCore.permissions.playerInGroup(player, "JMod") || DCCore.permissions.playerInGroup(player, "Artist") || DCCore.permissions.playerInGroup(player, "Architect") || DCCore.permissions.playerInGroup(player, "Moderator") || DCCore.permissions.playerInGroup(player, "Manager") || DCCore.permissions.playerInGroup(player, "Co-Owner") || DCCore.permissions.playerInGroup(player, "Owner")) { //STAFF GROUP RANKUP
             sender.sendMessage(GeneralMethods.serverPrefix + "Silly Goose! You're staff. Don't stress about ranking up, just user your sooper cule powerz on those peon players.");
-        }  else if (pexUser.inGroup("Ancient")) { //RETIRED STAFF RANKUP
+        }  else if (DCCore.permissions.playerInGroup(player, "Ancient")) { //RETIRED STAFF RANKUP
             sender.sendMessage(GeneralMethods.serverPrefix + "Thank you for your time as a staff member! Don't stress about ranking up, just user your sooper cule powerz on those peon players.");
-        } else if (pexUser.inGroup("Noble") || pexUser.inGroup("Royal")) { //DONOR GROUPS RANKUP
+        } else if (DCCore.permissions.playerInGroup(player, "Noble") || DCCore.permissions.playerInGroup(player, "Royal")) { //DONOR GROUPS RANKUP
             sender.sendMessage(GeneralMethods.serverPrefix + "Thank you for donating for the server, if you would like to gain a higher rank, please donate or apply for staff. Everyone has a fair chance when applying for staff, so good luck~");
-        } else if (pexUser.inGroup("Official")) { //OFFICIAL
+        } else if (DCCore.permissions.playerInGroup(player, "Official")) { //OFFICIAL
             sender.sendMessage(GeneralMethods.serverPrefix + "Congratulations! You have surpassed all those peons with the lower ranks and achieved the highest player ranks possible. Have you considered donating or applying for staff?");
-        } else if (pexUser.inGroup("Baron")) { //BARON GROUP RANKUP
+        } else if (DCCore.permissions.playerInGroup(player, "Baron")) { //BARON GROUP RANKUP
             if (fourtyHours - playTime <= 0) {
                 if (econ.has(player, 5000000)) {
-                    pexUser.removeGroup("Baron");
-                    pexUser.addGroup("Official");
+                    DCCore.permissions.playerRemoveGroup(player, "Baron");
+                    DCCore.permissions.playerAddGroup(player, "Official");
                     try {
-                        net.ess3.api.Economy.substract(player.getName(), BigDecimal.valueOf(5000000));
+                        DCCore.economy.withdrawPlayer(player, 5000000);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -66,20 +61,20 @@ public class Rankup implements CommandExecutor, Listener {
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Official rank!");
                 } else {
                     try {
-                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (5000000 - net.ess3.api.Economy.getMoneyExact(player.getName()).intValue()) + " more coins to rankup.");
+                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (5000000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }                }
             } else {
                 sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(fourtyHours - playTime) + " before you can rankup.");
             }
-        } else if (pexUser.inGroup("Merchant")) { //MERCHANT GROUP RANKUP
+        } else if (DCCore.permissions.playerInGroup(player, "Merchant")) { //MERCHANT GROUP RANKUP
             if (thirtyHours - playTime <= 0) {
                 if (econ.has(player, 500000)) {
-                    pexUser.removeGroup("Merchant");
-                    pexUser.addGroup("Baron");
+                    DCCore.permissions.playerRemoveGroup(player, "Merchant");
+                    DCCore.permissions.playerAddGroup(player, "Baron");
                     try {
-                        net.ess3.api.Economy.substract(player.getName(), BigDecimal.valueOf(500000));
+                        DCCore.economy.withdrawPlayer(player, 500000);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -87,20 +82,20 @@ public class Rankup implements CommandExecutor, Listener {
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Baron rank!");
                 } else {
                     try {
-                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (500000 - net.ess3.api.Economy.getMoneyExact(player.getName()).intValue()) + " more coins to rankup.");
+                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (500000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }                }
             } else {
                 sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(thirtyHours - playTime) + " before you can rankup.");
             }
-        } else if (pexUser.inGroup("Citizen")) { //CITIZEN GROUP RANKUP
+        } else if (DCCore.permissions.playerInGroup(player, "Citizen")) { //CITIZEN GROUP RANKUP
             if (twentyHours - playTime <= 0) {
                 if (econ.has(player, 50000)) {
-                    pexUser.removeGroup("Citizen");
-                    pexUser.addGroup("Merchant");
+                    DCCore.permissions.playerRemoveGroup(player, "Citizen");
+                    DCCore.permissions.playerAddGroup(player, "Merchant");
                     try {
-                        net.ess3.api.Economy.substract(player.getName(), BigDecimal.valueOf(50000));
+                        DCCore.economy.withdrawPlayer(player, 50000);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -108,20 +103,20 @@ public class Rankup implements CommandExecutor, Listener {
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Merchant rank!");
                 } else {
                     try {
-                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (50000 - net.ess3.api.Economy.getMoneyExact(player.getName()).intValue()) + " more coins to rankup.");
+                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (50000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }                }
             } else {
                 sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(twentyHours - playTime) + " before you can rankup.");
             }
-        } else if (pexUser.inGroup("Member")) { //MEMBER GROUP RANKUP
+        } else if (DCCore.permissions.playerInGroup(player, "Member")) { //MEMBER GROUP RANKUP
             if (tenHours - playTime <= 0) {
                 if (econ.has(player, 5000)) {
-                    pexUser.removeGroup("Member");
-                    pexUser.addGroup("Citizen");
+                    DCCore.permissions.playerRemoveGroup(player, "Member");
+                    DCCore.permissions.playerAddGroup(player, "Citizen");
                     try {
-                        net.ess3.api.Economy.substract(player.getName(), BigDecimal.valueOf(5000));
+                        DCCore.economy.withdrawPlayer(player, 5000);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -129,7 +124,7 @@ public class Rankup implements CommandExecutor, Listener {
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Citizen rank!");
                 } else {
                     try {
-                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (5000 - net.ess3.api.Economy.getMoneyExact(player.getName()).intValue()) + " more coins to rankup.");
+                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (5000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -137,7 +132,7 @@ public class Rankup implements CommandExecutor, Listener {
             } else {
                 sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(tenHours - playTime) + " before you can rankup.");
             }
-        } else if (pexUser.inGroup("Guest")) { //GUEST GROUP RANKUP
+        } else if (DCCore.permissions.playerInGroup(player, "Guest")) { //GUEST GROUP RANKUP
             guestCheck(Bukkit.getPlayer(sender.getName()), 1);
         } else { //NO GROUP RANKUP
             sender.sendMessage(GeneralMethods.serverPrefix + "Wtf, are you even a player?!?! Contact staff immediately!");

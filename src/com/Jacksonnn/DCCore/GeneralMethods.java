@@ -9,7 +9,6 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 import java.awt.*;
 import java.util.Collection;
@@ -57,25 +56,26 @@ public class GeneralMethods {
 		int onlineStaff = 0;
 
 		if (eventPlayer != null) {
-			if (PermissionsEx.getUser(eventPlayer).inGroup("Owner")) {
+			if (DCCore.permissions.playerInGroup(eventPlayer, "Owner")) {
 				onlineOwners--;
 				onlineStaff--;
-			} else if (PermissionsEx.getUser(eventPlayer).inGroup("Ancient")) {
+			} else if (DCCore.permissions.playerInGroup(eventPlayer, "Ancient")) {
 				onlineAncients--;
 				onlineStaff--;
-			} else if (PermissionsEx.getUser(eventPlayer).inGroup("Co-Owner")) {
+			} else if (DCCore.permissions.playerInGroup(eventPlayer, "Co-Owner")) {
 				onlineCoOwners--;
 				onlineStaff--;
-			} else if (PermissionsEx.getUser(eventPlayer).inGroup("Manager")) {
+			} else if (DCCore.permissions.playerInGroup(eventPlayer, "Manager")) {
 				onlineManagers--;
 				onlineStaff--;
-			} else if (PermissionsEx.getUser(eventPlayer).inGroup("Moderator")) {
+			} else if (DCCore.permissions.playerInGroup(eventPlayer, "Moderator")) {
 				onlineModerators--;
 				onlineStaff--;
-			} else if (PermissionsEx.getUser(eventPlayer).inGroup("JMod")) {
+			} else if (DCCore.permissions.playerInGroup(eventPlayer, "JMod")) {
 				onlineJMods--;
 				onlineStaff--;
-			} else if (PermissionsEx.getUser(eventPlayer).inGroup("Artist") || PermissionsEx.getUser(eventPlayer).inGroup("Architect")) {
+			} else if (DCCore.permissions.playerInGroup(eventPlayer, "Artist") ||
+					DCCore.permissions.playerInGroup(eventPlayer, "Architect")) {
 				onlineArtists--;
 				onlineStaff--;
 			}
@@ -92,25 +92,26 @@ public class GeneralMethods {
 
 		Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 		for (Player player : onlinePlayers) {
-			if (PermissionsEx.getUser(player).inGroup("Owner")) {
+			if (DCCore.permissions.playerInGroup(player, "Owner")) {
 				onlineOwners++;
 				onlineStaff++;
-			} else if (PermissionsEx.getUser(player).inGroup("Ancient")) {
+			} else if (DCCore.permissions.playerInGroup(player, "Ancient")) {
 				onlineAncients++;
 				onlineStaff++;
-			} else if (PermissionsEx.getUser(player).inGroup("Co-Owner")) {
+			} else if (DCCore.permissions.playerInGroup(player, "Co-Owner")) {
 				onlineCoOwners++;
 				onlineStaff++;
-			} else if (PermissionsEx.getUser(player).inGroup("Manager")) {
+			} else if (DCCore.permissions.playerInGroup(player, "Manager")) {
 				onlineManagers++;
 				onlineStaff++;
-			} else if (PermissionsEx.getUser(player).inGroup("Moderator")) {
+			} else if (DCCore.permissions.playerInGroup(player, "Moderator")) {
 				onlineModerators++;
 				onlineStaff++;
-			} else if (PermissionsEx.getUser(player).inGroup("JMod")) {
+			} else if (DCCore.permissions.playerInGroup(player, "JMod")) {
 				onlineJMods++;
 				onlineStaff++;
-			} else if (PermissionsEx.getUser(player).inGroup("Artist") || PermissionsEx.getUser(player).inGroup("Architect")) {
+			} else if (DCCore.permissions.playerInGroup(player, "Artist") ||
+					DCCore.permissions.playerInGroup(player, "Architect")) {
 				onlineArtists++;
 				onlineStaff++;
 			}

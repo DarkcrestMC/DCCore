@@ -1,5 +1,6 @@
 package com.Jacksonnn.DCCore.Rankup;
 
+import com.Jacksonnn.DCCore.DCCore;
 import com.Jacksonnn.DCCore.GeneralMethods;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,8 +12,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
-import ru.tehkode.permissions.PermissionUser;
-import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 import static com.Jacksonnn.DCCore.Rankup.Rankup.guestCheck;
 
@@ -20,7 +19,6 @@ public class GuestQuizListener implements Listener {
     @EventHandler
     public void onInventoryPress(InventoryClickEvent e) {
         Player player = Bukkit.getPlayer(e.getWhoClicked().getName());
-        PermissionUser pexUser = PermissionsEx.getUser(player);
         Inventory currentInventory = e.getClickedInventory();
         ItemStack clickedItem = e.getCurrentItem();
         InventoryView inventoryView = e.getView();
@@ -42,9 +40,9 @@ public class GuestQuizListener implements Listener {
                 if (questionNumber != 1) {
                     guestCheck(player, 1);
                 } else {
-                    pexUser.removeGroup("Guest");
-                    pexUser.addGroup("Bender");
-                    pexUser.addGroup("Member");
+                    DCCore.permissions.playerRemoveGroup(player, "Guest");
+                    DCCore.permissions.playerAddGroup(player, "Bender");
+                    DCCore.permissions.playerAddGroup(player, "Member");
                     Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Member! -Console");
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Member rank!");
                 }

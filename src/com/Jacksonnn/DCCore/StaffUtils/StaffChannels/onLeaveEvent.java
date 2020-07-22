@@ -1,12 +1,11 @@
 package com.Jacksonnn.DCCore.StaffUtils.StaffChannels;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
+import com.Jacksonnn.DCCore.DCCore;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
-import ru.tehkode.permissions.PermissionUser;
-import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 public class onLeaveEvent implements Listener {
 
@@ -19,8 +18,7 @@ public class onLeaveEvent implements Listener {
             ConfigManager.defaultConfig.get().set("DCStaffChat." + player.getName(), null);
             ConfigManager.defaultConfig.save();
 
-            PermissionUser pexUser = PermissionsEx.getUser(e.getPlayer());
-            pexUser.removePermission("-discordsrv.chat");
+            DCCore.permissions.playerRemove(player, "-discordsrv.chat");
         }
     }
 }
