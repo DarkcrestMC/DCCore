@@ -13,32 +13,37 @@ import java.util.List;
 
 public class BannedWordsListener implements Listener {
 
-    private List<String> bannedWords = new ArrayList<>();
-
     @EventHandler
     public void onRegularChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
 
-        bannedWords = ConfigManager.bannedWords.get().getStringList("AntiCurse.bannedWords");
+        if (player.hasPermission("DCCore.AntiCurse.bypass"))
+            return;
 
-        String detected = ChatColor.YELLOW + " " + ChatColor.ITALIC + "Banned words used: " + ChatColor.RESET;
+        List<String> bannedWords = ConfigManager.bannedWords.get().getStringList("AntiCurse.bannedWords");
 
+        String message = player.getDisplayName().toLowerCase() + event.getMessage().toLowerCase().replace(" ", "");
+        ArrayList<String> wordsUsed = null;
         for (String bannedWord : bannedWords) {
-            if (event.getMessage().toUpperCase().contains(bannedWord.toUpperCase()) || player.getName().toUpperCase().contains(bannedWord.toUpperCase()) || player.getDisplayName().toUpperCase().contains(bannedWord.toUpperCase())) {
-                if (detected == ChatColor.YELLOW + " " + ChatColor.ITALIC + "Banned words used: " + ChatColor.RESET) {
-                    detected += bannedWord;
-                } else {
-                    detected += ", " + bannedWord;
-                }
+            if (message.contains(bannedWord.toLowerCase())) {
+                if (wordsUsed == null)
+                    wordsUsed = new ArrayList<>();
+                wordsUsed.add(bannedWord);
             }
         }
 
-        if (!player.hasPermission("DCCore.AntiCurse.bypass")) {
-            if (detected != " ") {
-                event.setCancelled(true);
-                event.getPlayer().sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (check your username, nickname, or chat message!!!)");
-                event.getPlayer().sendMessage(detected);
+        if (wordsUsed != null) {
+            event.setCancelled(true);
+            player.sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (check your username, nickname, or chat message!!!)");
+            StringBuilder builder = new StringBuilder(ChatColor.YELLOW + " " + ChatColor.ITALIC + "Banned words used: " + ChatColor.RESET + bannedWords.get(0));
+            for (int i = 1; i < bannedWords.size(); i++) {
+                if (i == bannedWords.size()-1)
+                    builder.append(" and ");
+                else
+                    builder.append(", ");
+                builder.append(bannedWords.get(i));
             }
+            player.sendMessage(builder.toString());
         }
     }
 }
