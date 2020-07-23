@@ -1,8 +1,8 @@
 package com.Jacksonnn.DCCore.Rankup;
 
 import com.Jacksonnn.DCCore.GeneralMethods;
-import me.Cmaaxx.PlayTime.PlayTimeAPI;
 import org.bukkit.Bukkit;
+import org.bukkit.Statistic;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,7 +18,9 @@ public class PlayTime implements CommandExecutor {
     }
 
     public static long getPlayTime(Player player) {
-        return PlayTimeAPI.getSecs(player) * 1000;
+        // NOTE: PLAY_ONE_MINUTE's name is misleading. It gives the number of ticks the user has played, not their minutes.
+        return player.getStatistic(Statistic.PLAY_ONE_MINUTE) / 60 * 1000;
+//        return PlayTimeAPI.getSecs(player) * 1000;
         /*
         UUID playerUUID = player.getUniqueId();
         long planPlayTime = QueryService.getInstance().getCommonQueries().fetchPlaytime(playerUUID, QueryService.getInstance().getServerUUID().get(), 0, System.currentTimeMillis());

@@ -1,13 +1,12 @@
 package com.Jacksonnn.DCCore.OverrideCommands;
 
+import com.Jacksonnn.DCCore.DCCore;
 import com.Jacksonnn.DCCore.GeneralMethods;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import ru.tehkode.permissions.PermissionUser;
-import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 public class DarkSpirit implements CommandExecutor {
 
@@ -15,58 +14,54 @@ public class DarkSpirit implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        PermissionUser pexUser;
-
         if (sender.hasPermission("bending.admin") || sender.hasPermission("bending.DarkSpirit")) {
             if (args.length == 1) {
                 if (sender.hasPermission("bending.admin")) {
                     Player player = Bukkit.getPlayer(args[0]);
-                    pexUser = PermissionsEx.getUser(player);
-
-                    if (pexUser.inGroup("JMod")) {
-                        pexUser.removeGroup("JMod");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("JMod");
-                    } else if (pexUser.inGroup("Architect")) {
-                        pexUser.removeGroup("Architect");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("Architect");
-                    } else if (pexUser.inGroup("Artist")) {
-                        pexUser.removeGroup("Artist");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("Artist");
-                    } else if (pexUser.inGroup("Royal")) {
-                        pexUser.removeGroup("Royal");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("Royal");
-                    } else if (pexUser.inGroup("Noble")) {
-                        pexUser.removeGroup("Noble");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("Noble");
-                    } else if (pexUser.inGroup("Official")) {
-                        pexUser.removeGroup("Official");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("Official");
-                    } else if (pexUser.inGroup("Baron")) {
-                        pexUser.removeGroup("Baron");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("Baron");
-                    } else if (pexUser.inGroup("Merchant")) {
-                        pexUser.removeGroup("Merchant");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("Merchant");
-                    } else if (pexUser.inGroup("Citizen")) {
-                        pexUser.removeGroup("Citizen");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("Citizen");
-                    } else if (pexUser.inGroup("Member")) {
-                        pexUser.removeGroup("Member");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("Member");
-                    } else if (pexUser.inGroup("Guest")) {
-                        pexUser.removeGroup("Guest");
-                        pexUser.addGroup("DarkSpirit");
-                        pexUser.addGroup("Guest");
+                    if (DCCore.permissions.playerInGroup(player, "JMod")) {
+                        DCCore.permissions.playerRemoveGroup(player, "JMod");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "JMod");
+                    } else if (DCCore.permissions.playerInGroup(player, "Architect")) {
+                        DCCore.permissions.playerRemoveGroup(player, "Architect");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "Architect");
+                    } else if (DCCore.permissions.playerInGroup(player, "Artist")) {
+                        DCCore.permissions.playerRemoveGroup(player, "Artist");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "Artist");
+                    } else if (DCCore.permissions.playerInGroup(player, "Royal")) {
+                        DCCore.permissions.playerRemoveGroup(player, "Royal");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "Royal");
+                    } else if (DCCore.permissions.playerInGroup(player, "Noble")) {
+                        DCCore.permissions.playerRemoveGroup(player, "Noble");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "Noble");
+                    } else if (DCCore.permissions.playerInGroup(player, "Official")) {
+                        DCCore.permissions.playerRemoveGroup(player, "Official");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "Official");
+                    } else if (DCCore.permissions.playerInGroup(player, "Baron")) {
+                        DCCore.permissions.playerRemoveGroup(player, "Baron");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "Baron");
+                    } else if (DCCore.permissions.playerInGroup(player, "Merchant")) {
+                        DCCore.permissions.playerRemoveGroup(player, "Merchant");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "Merchant");
+                    } else if (DCCore.permissions.playerInGroup(player, "Citizen")) {
+                        DCCore.permissions.playerRemoveGroup(player, "Citizen");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "Citizen");
+                    } else if (DCCore.permissions.playerInGroup(player, "Member")) {
+                        DCCore.permissions.playerRemoveGroup(player, "Member");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "Member");
+                    } else if (DCCore.permissions.playerInGroup(player, "Guest")) {
+                        DCCore.permissions.playerRemoveGroup(player, "Guest");
+                        DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+                        DCCore.permissions.playerAddGroup(player, "Guest");
                     }
 
                     player.sendMessage(GeneralMethods.serverPrefix + "You can now choose DarkSpirit.");
@@ -75,7 +70,6 @@ public class DarkSpirit implements CommandExecutor {
             } else if (args.length == 0) {
                 if (sender.hasPermission("bending.DarkSpirit")) {
                     Player player = (Player) sender;
-                    pexUser = PermissionsEx.getUser(player);
                     sender.sendMessage(GeneralMethods.serverPrefix + "You can now choose DarkSpirit.");
                 }
             } else {

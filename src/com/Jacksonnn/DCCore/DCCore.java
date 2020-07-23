@@ -31,8 +31,11 @@ import com.Jacksonnn.DCCore.StaffUtils.StaffSpawnCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningGeneral;
 import com.Jacksonnn.DCCore.Storage.DatabaseManager;
+import net.milkbowl.vault.economy.Economy;
+import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
@@ -41,6 +44,9 @@ import java.sql.SQLException;
 public class DCCore extends JavaPlugin {
 	
 	public static DCCore plugin;
+	public static Economy economy;
+	public static Permission permissions;
+
 	private PluginManager pm = Bukkit.getServer().getPluginManager();
 	private DatabaseManager databaseManager;
 	private PlayerDisciplineManager pdm;
@@ -59,6 +65,8 @@ public class DCCore extends JavaPlugin {
 		new ConfigManager();
 		registerListeners();
 		registerCommands();
+		setupEconomy();
+		setupPermissions();
 
 		databaseManager = new DatabaseManager(this);
 		try {
@@ -150,6 +158,22 @@ public class DCCore extends JavaPlugin {
 		//REPORT COMMAND
 		ReportCommand reportCommand = new ReportCommand(this);
 		this.getCommand("reports").setExecutor(reportCommand);
+	}
+
+	private boolean setupEconomy() {
+		RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+		if (rsp == null)
+			return false;
+		economy = rsp.getProvider();
+		return true;
+	}
+
+	private boolean setupPermissions() {
+		RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
+		if (rsp == null)
+			return false;
+		permissions = rsp.getProvider();
+		return true;
 	}
 
 	public DatabaseManager getDatabaseManager() {
