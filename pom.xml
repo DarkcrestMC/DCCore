@@ -78,6 +78,10 @@
             <id>paper-repo</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -97,7 +101,8 @@
             <groupId>com.projectkorra</groupId>
             <artifactId>projectKorra</artifactId>
             <version>1.8.9</version>
-            <scope>provided</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ProjectKorra-1.8.9.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.discordsrv</groupId>
