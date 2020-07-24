@@ -7,15 +7,16 @@ import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.ToDoReport;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
 public class ReportGeneral {
     public String reportsPrefix = ChatColor.DARK_GRAY + "[" + ChatColor.DARK_RED + "DC Reports" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
-    private ArrayList<ToDoReport> todoReports = new ArrayList<>();
+    private static ArrayList<ToDoReport> todoReports = new ArrayList<>();
     private ArrayList<BugReport> bugReports = new ArrayList<>();
-    private ArrayList<PlayerReport> playerReports = new ArrayList<>();
-    private ArrayList<StaffReport> staffReports = new ArrayList<>();
+    private static ArrayList<PlayerReport> playerReports = new ArrayList<>();
+    private static ArrayList<StaffReport> staffReports = new ArrayList<>();
 
     public ArrayList<REPORT_TYPE> getReportTypes() {
         ArrayList<REPORT_TYPE> reportTypes = new ArrayList<>();
@@ -118,6 +119,24 @@ public class ReportGeneral {
             staffReports.remove(report);
             Bukkit.getLogger().info("Successfully removed staff report!");
         }
+    }
+
+    public static ArrayList<Object> getPlayerReports(Player player) {
+        ArrayList<Object> playersReports = new ArrayList<>();
+
+        for (PlayerReport playerReport : playerReports) {
+            if (playerReport.getPlayer() == player.getUniqueId()) {
+                playersReports.add(playerReport);
+            }
+        }
+
+        for (StaffReport staffReport : staffReports)  {
+            if (staffReport.getPlayer() == player.getUniqueId()) {
+                playersReports.add(staffReport);
+            }
+        }
+
+        return playersReports;
     }
 
     public void getHelp(CommandSender sender) {

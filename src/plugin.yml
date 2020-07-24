@@ -93,6 +93,9 @@ commands:
   banish:
     aliases: [bannish, woosh, piss]
     usage: /<command>
+  playerinfo:
+    aliases: [pi, pinfo, playeri]
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op
@@ -113,6 +116,7 @@ permissions:
       DCCore.NotesStaff: true
       DCCore.ReportStaff: true
       DCCore.WarningStaff: true
+      DCCore.PlayerInfo: true
   DCCore.chat:
     default: op
     children:
