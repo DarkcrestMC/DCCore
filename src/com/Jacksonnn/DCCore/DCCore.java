@@ -22,6 +22,7 @@ import com.Jacksonnn.DCCore.StaffUtils.BanishHackFix;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
+import com.Jacksonnn.DCCore.StaffUtils.PlayerInfoCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.StaffChannels.*;
@@ -146,6 +147,7 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("announcer").setExecutor(new AnnouncementCommands());
 		this.getCommand("staffspawn").setExecutor(new StaffSpawnCommand(plugin));
 		this.getCommand("banish").setExecutor(new BanishHackFix(plugin));
+		this.getCommand("playerinfo").setExecutor(new PlayerInfoCommand());
 
 		//NOTES COMMAND
 		NotesCommand notesCommand = new NotesCommand(this);

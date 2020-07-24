@@ -38,7 +38,7 @@ public class GeneralMethods {
 		milli %= 60000;
 		long sec = milli / 1000;
 
-		return String.format("%02d hours, %02d minutes, and %02d seconds", hrs, min, sec);
+		return String.format("%02d hrs, %02d min, and %02d sec", hrs, min, sec);
 	}
 
 	public static Location toHighestBlock(Location l) {
@@ -155,6 +155,6 @@ public class GeneralMethods {
 	}
 
 	public static String locToString(Location loc) {
-		return loc.getBlockX() + " " + loc.getBlockY() + " " + loc.getBlockZ() + " (" + loc.getWorld() + ")";
+		return loc.getBlockX() + " " + loc.getBlockY() + " " + loc.getBlockZ() + " (" + loc.getWorld().getName() + ")";
 	}
 }

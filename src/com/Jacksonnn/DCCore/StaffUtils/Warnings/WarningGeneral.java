@@ -3,12 +3,13 @@ package com.Jacksonnn.DCCore.StaffUtils.Warnings;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
 public class WarningGeneral {
     public String warningPrefix = ChatColor.DARK_GRAY + "[" + ChatColor.GOLD + "DC Warnings" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
-    private ArrayList<Warning> warnings = new ArrayList<>();
+    private static ArrayList<Warning> warnings = new ArrayList<>();
 
     public Warning getWarning(int id) {
         for (Warning warning : warnings) {
@@ -34,6 +35,17 @@ public class WarningGeneral {
         Bukkit.getLogger().info("Removing warning from overall warnings...");
         warnings.remove(warning);
         Bukkit.getLogger().info("Successfully removed warning!");
+    }
+
+    public static ArrayList<Warning> getPlayerWarnings(Player player) {
+        ArrayList<Warning> playersWarnings = new ArrayList<>();
+        for (Warning warning : warnings) {
+            if (warning.getPlayer() == player.getUniqueId()) {
+                playersWarnings.add(warning);
+            }
+        }
+
+        return playersWarnings;
     }
 
     public void getHelp(CommandSender sender) {
