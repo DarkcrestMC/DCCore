@@ -50,10 +50,14 @@ public class DCCore extends JavaPlugin {
 
 	private PluginManager pm = Bukkit.getServer().getPluginManager();
 	private DatabaseManager databaseManager;
+
 	private PlayerDisciplineManager pdm;
 	private NotesGeneral nG;
 	private WarningGeneral wG;
 	private ReportGeneral rG;
+
+	private DCPlayerManager dcpm;
+	private GeneralMethods generalMethods;
 
 	public void onEnable() {
 		plugin = this;
@@ -61,6 +65,9 @@ public class DCCore extends JavaPlugin {
 		this.nG = new NotesGeneral();
 		this.wG = new WarningGeneral();
 		this.rG = new ReportGeneral();
+
+		this.generalMethods = new GeneralMethods(plugin);
+		dcpm = new DCPlayerManager(plugin);
 
 		pdm = new PlayerDisciplineManager(plugin);
 		new ConfigManager();
@@ -89,6 +96,14 @@ public class DCCore extends JavaPlugin {
 		pdm.loadNotes();
 		pdm.loadWarnings();
 		pdm.loadReports();
+
+		try {
+			dcpm.createDCPlayersTable();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		dcpm.loadDCPlayers();
 
 		BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 		scheduler.scheduleSyncRepeatingTask(this, new AnnouncerThread(this), AnnouncementManager.getInterval() * 20L, AnnouncementManager.getInterval() * 20L);
@@ -196,6 +211,14 @@ public class DCCore extends JavaPlugin {
 
 	public PlayerDisciplineManager getPDM() {
 		return pdm;
+	}
+
+	public GeneralMethods getGeneralMethods() {
+		return generalMethods;
+	}
+
+	public DCPlayerManager getDCPM() {
+		return dcpm;
 	}
 }
 
