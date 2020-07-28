@@ -87,7 +87,7 @@ public class DCPlayerManager {
                         chatMode = GeneralMethods.ChatModes.GENERAL;
                 }
 
-                DCPlayer dcPlayer = new DCPlayer(name, uuid, this);
+                DCPlayer dcPlayer = new DCPlayer(name, uuid);
                 GeneralMethods.addDCPlayer(dcPlayer);
 
                 dcPlayer.setPlayTime(playTime);
