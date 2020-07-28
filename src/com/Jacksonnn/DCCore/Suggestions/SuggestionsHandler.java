@@ -73,9 +73,8 @@ public class SuggestionsHandler {
         }
 
         public void createMinecraftMessage() {
-            Bukkit.broadcastMessage(ChatColor.UNDERLINE.toString() + ChatColor.DARK_GREEN + "[" + ChatColor.GREEN + "!" +
-                    ChatColor.DARK_GREEN + "] " + ChatColor.GREEN + suggesterName + " is making a new suggestion!");
-            Bukkit.broadcastMessage(ChatColor.GREEN + description);
+            Bukkit.broadcastMessage(GeneralMethods.prefix + suggesterName + " is making a new suggestion!");
+            Bukkit.broadcastMessage(ChatColor.YELLOW.toString() + ChatColor.ITALIC + description);
 
             TextComponent clickToApprove = new TextComponent(ChatColor.AQUA.toString() + ChatColor.BOLD + "[Click to Approve]");
             clickToApprove.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/suggest APPROVE " + id));
