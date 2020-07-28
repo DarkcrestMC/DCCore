@@ -12,23 +12,49 @@ import org.bukkit.entity.Player;
 
 import java.awt.*;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Objects;
+import java.util.UUID;
 
 public class GeneralMethods {
+
 	public static String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + ChatColor.BOLD + "DarkcrestMC" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
 	public static String errorColor = prefix + ChatColor.DARK_RED + "Error! " + ChatColor.RED;
 	public static String successColor = prefix + ChatColor.GREEN + "";
 	public static String disableColor = prefix + ChatColor.RED + "";
 	public static String serverPrefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + ChatColor.BOLD + "DarkcrestMC" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
 	private static int staffNotification = 0;
+	private static HashMap<UUID, DCPlayer> dcPlayers = new HashMap<>();
 
-	public enum Elements {
-		AIR,
-		WATER,
-		EARTH,
-		FIRE,
-		CHI
-    }
+	public static HashMap<UUID, DCPlayer> getAllDCPlayers() {
+		return dcPlayers;
+	}
+
+	public static DCPlayer getDCPlayer(UUID uuid) {
+		if (dcPlayers.containsKey(uuid)) {
+			return dcPlayers.get(uuid);
+		} else {
+			return null;
+		}
+	}
+
+	//FROM DATABASE
+	public static void addDCPlayer(DCPlayer dcPlayer) {
+		dcPlayers.put(dcPlayer.getUuid(), dcPlayer);
+	}
+
+	//NEW DCPLAYER
+	public static void createDCPlayer(Player player) {
+		dcPlayers.put(player.getUniqueId(), new DCPlayer(player));
+	}
+
+	public static void removeDCPlayer(DCPlayer dcPlayer) {
+		dcPlayers.remove(dcPlayer.getUuid());
+	}
+
+	public static void removeDCPlayer(Player player) {
+		dcPlayers.remove(player.getUniqueId());
+	}
 
 	public static String milliToHours(long milli) {
 
@@ -156,5 +182,43 @@ public class GeneralMethods {
 
 	public static String locToString(Location loc) {
 		return loc.getBlockX() + " " + loc.getBlockY() + " " + loc.getBlockZ() + " (" + loc.getWorld().getName() + ")";
+	}
+
+	public enum ChatModes {
+		GENERAL("general", null),
+		ARTIST("artists", "DCCore.staffchats.Artists"),
+		EVENTHOSTS("eventhosts", "DCCore.staffchats.EventHosts"),
+		STAFF("staff", "DCCore.staffchats.Staff"),
+		MODERATORS("moderators", "DCCore.staffchats.Moderators"),
+		MANAGERS("managers", "DCCore.staffchats.Managers"),
+		DEVELOPER("developer", "DCCore.staffchats.Developer"),
+		HOS("HOS", "DCCore.staffchats.HOS");
+
+		private String name;
+		private String perm;
+
+		ChatModes(String name, String perm) {
+			this.name = name;
+			this.perm = perm;
+		}
+
+		public String getChatName() {
+			return name;
+		}
+
+		public String getChatPerm() {
+			return perm;
+		}
+	}
+
+	public static String booleanToString(boolean bool) {
+		if (bool) {
+			return "true";
+		}
+		return "false";
+	}
+
+	public static boolean stringToBool(String string) {
+		return string.equalsIgnoreCase("true");
 	}
 }

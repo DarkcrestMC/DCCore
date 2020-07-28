@@ -30,7 +30,7 @@ public class onChatEvent implements Listener {
             Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
             for (Player onlinePlayer : onlinePlayers) {
-                if (onlinePlayer.hasPermission("DCCore.staffchats.HoS")) {
+                if (onlinePlayer.hasPermission("DCCore.staffchats.HOS")) {
                     onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
                 }
             }
