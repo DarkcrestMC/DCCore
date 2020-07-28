@@ -1,6 +1,7 @@
 package com.Jacksonnn.DCCore.Rankup;
 
 import com.Jacksonnn.DCCore.GeneralMethods;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Statistic;
 import org.bukkit.command.Command;
@@ -13,7 +14,7 @@ public class PlayTime implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         Player player = Bukkit.getPlayer(sender.getName());
-        sender.sendMessage(GeneralMethods.prefix + sender.getName() + ", you current have " + GeneralMethods.milliToHours(getPlayTime(player)) + " of playtime.");
+        sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + sender.getName() + ", you current have " + GeneralMethods.milliToHours(getPlayTime(player)) + " of playtime.");
         return true;
     }
 

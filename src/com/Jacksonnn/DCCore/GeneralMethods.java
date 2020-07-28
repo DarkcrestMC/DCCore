@@ -11,19 +11,19 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.awt.*;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.List;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GeneralMethods {
 
-	public static String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + ChatColor.BOLD + "DarkcrestMC" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
-	public static String errorColor = prefix + ChatColor.DARK_RED + "Error! " + ChatColor.RED;
-	public static String successColor = prefix + ChatColor.GREEN + "";
-	public static String disableColor = prefix + ChatColor.RED + "";
-	public static String serverPrefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + ChatColor.BOLD + "DarkcrestMC" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
-	private static int staffNotification = 0;
+	public static String accentColor = ChatColor.of("#C9C9C9").toString();
+	public static String prefix = translateHEXColorCode(ChatColor.translateAlternateColorCodes('&', "&8[&#E500C3&lD&#DB00C2&la&#D200C2&lr&#C900C1&lk&#BF00C1&lc&#AD00C0&lr&#A400C0&le&#9A00C0&ls&#9100BF&lt&#8800BF&lM&#7F00BF&lC&8]" + accentColor + " "));
+	public static String errorColor = ChatColor.of("#660000") + "[" + ChatColor.of("#D6221E") + ChatColor.BOLD + "DCCore" + ChatColor.RESET + ChatColor.of("#660000") + "]" + accentColor + " ";
+	public static String successColor = ChatColor.of("#1E5C26") + "[" + ChatColor.of("#24D530") + ChatColor.BOLD + "DCCore" + ChatColor.RESET + ChatColor.of("#1E5C26") + "]" + accentColor + " ";
+
+//	private static int staffNotification = 0;
 	private static HashMap<UUID, DCPlayer> dcPlayers = new HashMap<>();
 
 	public static HashMap<UUID, DCPlayer> getAllDCPlayers() {
@@ -164,7 +164,7 @@ public class GeneralMethods {
 
 				embed.setTitle("Staffless");
 				embed.setColor(new Color(204, 102, 255));
-				embed.setDescription("Server is **staffless** with ***" + (Bukkit.getServer().getOnlinePlayers().size() - 1) + "*** online players!!! *(" + staffNotification + "/4*)");
+				embed.setDescription("Server is **staffless** with ***" + (Bukkit.getServer().getOnlinePlayers().size() - 1) + "*** online players!!! " /* + "*(" + staffNotification + "/4*)" */);
 				embed.setAuthor("DC Staff Chat Notification", "http://darkcrestmc.net", "http://darkcrestmc.net/wp-content/uploads/2019/10/Orange.png");
 
 				staffchat.sendMessage(embed.build()).queue();
@@ -174,7 +174,7 @@ public class GeneralMethods {
 				if (player.hasPermission("DCCore.staffchats.Staff")) {
 					//player.sendMessage(GeneralMethods.serverPrefix + "Server has " + staffColor + onlineStaff + ChatColor.YELLOW + " online staff (" + ownerColor + onlineOwners + " Owners, " + coOwnerColor + onlineCoOwners + " Co-Owners, " + managerColor + onlineManagers + " Managers, " + moderatorColor + onlineModerators + " Moderators, " + jModColor + onlineJMods + " JMods, " + ancientColor + onlineAncients + " Ancients, " + artistColor + onlineArtists + " Artists" + ChatColor.YELLOW + ").");
 					player.sendMessage("");
-					player.sendMessage(GeneralMethods.serverPrefix + "Server has " + staffColor + onlineStaff + ChatColor.YELLOW + " online staff (" + ownerColor + onlineOwners + " " + coOwnerColor + onlineCoOwners + " " + managerColor + onlineManagers + " " + moderatorColor + onlineModerators + " " + jModColor + onlineJMods + " " + ancientColor + onlineAncients + " " + artistColor + onlineArtists + ChatColor.YELLOW + ").");
+					player.sendMessage(GeneralMethods.prefix + "Server has " + staffColor + onlineStaff + GeneralMethods.accentColor + " online staff (" + ownerColor + onlineOwners + " " + coOwnerColor + onlineCoOwners + " " + managerColor + onlineManagers + " " + moderatorColor + onlineModerators + " " + jModColor + onlineJMods + " " + ancientColor + onlineAncients + " " + artistColor + onlineArtists + ChatColor.YELLOW + ").");
 				}
 			}
 		}
@@ -216,6 +216,21 @@ public class GeneralMethods {
 			return "true";
 		}
 		return "false";
+	}
+
+	public static String translateHEXColorCode(String message) {
+		List<String> allMatches = new ArrayList<>();
+		Matcher m = Pattern.compile("#[0-9A-Fa-f]{6}")
+				.matcher(message);
+		while (m.find()) {
+			allMatches.add(m.group());
+		}
+
+		for (String hex : allMatches) {
+			message.replaceAll(hex, ChatColor.of(hex).toString());
+		}
+
+		return message;
 	}
 
 	public static boolean stringToBool(String string) {

@@ -2,7 +2,7 @@ package com.Jacksonnn.DCCore.BannedWords;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -34,8 +34,8 @@ public class BannedWordsListener implements Listener {
 
         if (wordsUsed != null) {
             event.setCancelled(true);
-            player.sendMessage(GeneralMethods.prefix + " Please rethink your choice of words... (check your username, nickname, or chat message!!!)");
-            StringBuilder builder = new StringBuilder(ChatColor.YELLOW + " " + ChatColor.ITALIC + "Banned words used: " + ChatColor.RESET + bannedWords.get(0));
+            player.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5D900") + " Please rethink your choice of words... (check your username, nickname, or chat message!!!)");
+            StringBuilder builder = new StringBuilder(GeneralMethods.accentColor + " " + ChatColor.ITALIC + "Banned words used: " + ChatColor.RESET + bannedWords.get(0));
             for (int i = 1; i < bannedWords.size(); i++) {
                 if (i == bannedWords.size()-1)
                     builder.append(" and ");

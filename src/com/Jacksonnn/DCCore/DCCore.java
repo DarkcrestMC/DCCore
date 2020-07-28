@@ -66,7 +66,7 @@ public class DCCore extends JavaPlugin {
 		this.wG = new WarningGeneral();
 		this.rG = new ReportGeneral();
 
-		this.generalMethods = new GeneralMethods(plugin);
+		this.generalMethods = new GeneralMethods();
 		dcpm = new DCPlayerManager(plugin);
 
 		pdm = new PlayerDisciplineManager(plugin);

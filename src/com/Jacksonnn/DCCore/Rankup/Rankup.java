@@ -2,9 +2,9 @@ package com.Jacksonnn.DCCore.Rankup;
 
 import com.Jacksonnn.DCCore.DCCore;
 import com.Jacksonnn.DCCore.GeneralMethods;
+import net.md_5.bungee.api.ChatColor;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -40,13 +40,13 @@ public class Rankup implements CommandExecutor, Listener {
         long seventyFiveHours = 270000000;
 
         if (DCCore.permissions.playerInGroup(player, "JMod") || DCCore.permissions.playerInGroup(player, "Artist") || DCCore.permissions.playerInGroup(player, "Architect") || DCCore.permissions.playerInGroup(player, "Moderator") || DCCore.permissions.playerInGroup(player, "Manager") || DCCore.permissions.playerInGroup(player, "Co-Owner") || DCCore.permissions.playerInGroup(player, "Owner")) { //STAFF GROUP RANKUP
-            sender.sendMessage(GeneralMethods.serverPrefix + "Silly Goose! You're staff. Don't stress about ranking up, just user your sooper cule powerz on those peon players.");
+            sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Silly Goose! You're staff. Don't stress about ranking up, just user your sooper cule powerz on those peon players.");
         }  else if (DCCore.permissions.playerInGroup(player, "Ancient")) { //RETIRED STAFF RANKUP
-            sender.sendMessage(GeneralMethods.serverPrefix + "Thank you for your time as a staff member! Don't stress about ranking up, just user your sooper cule powerz on those peon players.");
+            sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Thank you for your time as a staff member! Don't stress about ranking up, just user your sooper cule powerz on those peon players.");
         } else if (DCCore.permissions.playerInGroup(player, "Noble") || DCCore.permissions.playerInGroup(player, "Royal")) { //DONOR GROUPS RANKUP
-            sender.sendMessage(GeneralMethods.serverPrefix + "Thank you for donating for the server, if you would like to gain a higher rank, please donate or apply for staff. Everyone has a fair chance when applying for staff, so good luck~");
+            sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Thank you for donating for the server, if you would like to gain a higher rank, please donate or apply for staff. Everyone has a fair chance when applying for staff, so good luck~");
         } else if (DCCore.permissions.playerInGroup(player, "Official")) { //OFFICIAL
-            sender.sendMessage(GeneralMethods.serverPrefix + "Congratulations! You have surpassed all those peons with the lower ranks and achieved the highest player ranks possible. Have you considered donating or applying for staff?");
+            sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Congratulations! You have surpassed all those peons with the lower ranks and achieved the highest player ranks possible. Have you considered donating or applying for staff?");
         } else if (DCCore.permissions.playerInGroup(player, "Baron")) { //BARON GROUP RANKUP
             if (fourtyHours - playTime <= 0) {
                 if (econ.has(player, 5000000)) {
@@ -57,16 +57,16 @@ public class Rankup implements CommandExecutor, Listener {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming an Official! -Console");
-                    player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Official rank!");
+                    Bukkit.broadcastMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Congratulations, " + player.getName() + ", on becoming an Official! -Console");
+                    player.sendMessage(GeneralMethods.successColor + ChatColor.of("#E5B100") + "Congratulations on achieving the Official rank!");
                 } else {
                     try {
-                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (5000000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
+                        sender.sendMessage(GeneralMethods.errorColor + ChatColor.of("#E5B100") + "You do not have sufficient funds! You need " + (5000000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }                }
             } else {
-                sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(fourtyHours - playTime) + " before you can rankup.");
+                sender.sendMessage(GeneralMethods.errorColor + ChatColor.of("#E5B100") + "You need to wait " + GeneralMethods.milliToHours(fourtyHours - playTime) + " before you can rankup.");
             }
         } else if (DCCore.permissions.playerInGroup(player, "Merchant")) { //MERCHANT GROUP RANKUP
             if (thirtyHours - playTime <= 0) {
@@ -78,16 +78,16 @@ public class Rankup implements CommandExecutor, Listener {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Baron! -Console");
-                    player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Baron rank!");
+                    Bukkit.broadcastMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Congratulations, " + player.getName() + ", on becoming a Baron! -Console");
+                    player.sendMessage(GeneralMethods.successColor + ChatColor.of("#E5B100") + "Congratulations on achieving the Baron rank!");
                 } else {
                     try {
-                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (500000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
+                        sender.sendMessage(GeneralMethods.errorColor + ChatColor.of("#E5B100") + "You do not have sufficient funds! You need " + (500000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }                }
             } else {
-                sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(thirtyHours - playTime) + " before you can rankup.");
+                sender.sendMessage(GeneralMethods.errorColor + ChatColor.of("#E5B100") + "You need to wait " + GeneralMethods.milliToHours(thirtyHours - playTime) + " before you can rankup.");
             }
         } else if (DCCore.permissions.playerInGroup(player, "Citizen")) { //CITIZEN GROUP RANKUP
             if (twentyHours - playTime <= 0) {
@@ -99,16 +99,16 @@ public class Rankup implements CommandExecutor, Listener {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Merchant! -Console");
-                    player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Merchant rank!");
+                    Bukkit.broadcastMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Congratulations, " + player.getName() + ", on becoming a Merchant! -Console");
+                    player.sendMessage(GeneralMethods.successColor + ChatColor.of("#E5B100") + "Congratulations on achieving the Merchant rank!");
                 } else {
                     try {
-                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (50000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
+                        sender.sendMessage(GeneralMethods.errorColor + ChatColor.of("#E5B100") + "You do not have sufficient funds! You need " + (50000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }                }
             } else {
-                sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(twentyHours - playTime) + " before you can rankup.");
+                sender.sendMessage(GeneralMethods.errorColor + ChatColor.of("#E5B100") + "You need to wait " + GeneralMethods.milliToHours(twentyHours - playTime) + " before you can rankup.");
             }
         } else if (DCCore.permissions.playerInGroup(player, "Member")) { //MEMBER GROUP RANKUP
             if (tenHours - playTime <= 0) {
@@ -120,22 +120,22 @@ public class Rankup implements CommandExecutor, Listener {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Citizen! -Console");
-                    player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Citizen rank!");
+                    Bukkit.broadcastMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Congratulations, " + player.getName() + ", on becoming a Citizen! -Console");
+                    player.sendMessage(GeneralMethods.successColor + ChatColor.of("#E5B100") + "Congratulations on achieving the Citizen rank!");
                 } else {
                     try {
-                        sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient funds! You need " + (5000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
+                        sender.sendMessage(GeneralMethods.errorColor + ChatColor.of("#E5B100") + "You do not have sufficient funds! You need " + (5000 - DCCore.economy.getBalance(player)) + " more coins to rankup.");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             } else {
-                sender.sendMessage(GeneralMethods.errorColor + "You need to wait " + GeneralMethods.milliToHours(tenHours - playTime) + " before you can rankup.");
+                sender.sendMessage(GeneralMethods.errorColor + ChatColor.of("#E5B100") + "You need to wait " + GeneralMethods.milliToHours(tenHours - playTime) + " before you can rankup.");
             }
         } else if (DCCore.permissions.playerInGroup(player, "Guest")) { //GUEST GROUP RANKUP
             guestCheck(Bukkit.getPlayer(sender.getName()), 1);
         } else { //NO GROUP RANKUP
-            sender.sendMessage(GeneralMethods.serverPrefix + "Wtf, are you even a player?!?! Contact staff immediately!");
+            sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Wtf, are you even a player?!?! Contact staff immediately!");
         }
     }
 

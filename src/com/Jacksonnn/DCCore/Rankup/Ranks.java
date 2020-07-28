@@ -2,7 +2,7 @@ package com.Jacksonnn.DCCore.Rankup;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,7 +19,7 @@ public class Ranks implements CommandExecutor {
                 Merchant -> Baron - 60 hours & some amount of money
                 Baron -> Official - 100 hours & some amount of money
          */
-        sender.sendMessage(GeneralMethods.serverPrefix + "Here are is all of the ranking information!");
+        sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Here are is all of the ranking information!");
         sender.sendMessage(ChatColor.DARK_BLUE + "Guest " + ChatColor.WHITE + "-> " + ChatColor.GOLD + "Member " + ChatColor.WHITE + "- Complete Rules Check (Forced GUI)");
         sender.sendMessage(ChatColor.GOLD + "Member " + ChatColor.WHITE + "-> " + ChatColor.AQUA + "Citizen " + ChatColor.WHITE + String.format("- %s hours & %s coins", config.getInt("Rankup.Hours.Citizen"), config.getInt("Rankup.Prices.Citizen")));
         sender.sendMessage(ChatColor.AQUA + "Citizen " + ChatColor.WHITE + "-> " + ChatColor.GREEN + "Merchant " + ChatColor.WHITE + String.format("- %s hours & %s coins", config.getInt("Rankup.Hours.Merchant"), config.getInt("Rankup.Prices.Merchant")));

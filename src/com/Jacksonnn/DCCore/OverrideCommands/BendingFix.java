@@ -96,7 +96,7 @@ public class BendingFix implements CommandExecutor {
             DCCore.permissions.playerAddGroup(player, group);
         }
 
-        player.sendMessage(GeneralMethods.serverPrefix + "Your bending has been fixed.");
+        player.sendMessage(GeneralMethods.prefix + "Your bending has been fixed.");
         sender.sendMessage(GeneralMethods.successColor + "You have fixed " + player.getName() + "'s bending permissions permissions!");
     }
 }

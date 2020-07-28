@@ -1,9 +1,9 @@
 package com.Jacksonnn.DCCore.Broadcast;
 
 import com.Jacksonnn.DCCore.GeneralMethods;
+import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,7 +13,7 @@ public class BroadcastCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 		
-		String message = ChatColor.translateAlternateColorCodes('&', StringUtils.join(args, ' '));
+		String message = GeneralMethods.translateHEXColorCode(ChatColor.translateAlternateColorCodes('&', StringUtils.join(args, ' ')));
 		
 		if (sender instanceof Player) {
 			
@@ -23,7 +23,7 @@ public class BroadcastCommand implements CommandExecutor {
 				if (args.length == 0) {
 					sender.sendMessage(GeneralMethods.errorColor + "Please type message: /broadcast <message>");
 				} else {
-					Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + ChatColor.YELLOW + " -" + player);
+					Bukkit.broadcastMessage(GeneralMethods.prefix + ChatColor.of("&#81E500") + message + ChatColor.of("&#81E500") + " -" + player);
 				}
 			} else {
 				sender.sendMessage(GeneralMethods.errorColor + "Insufficient permission!");
@@ -32,7 +32,7 @@ public class BroadcastCommand implements CommandExecutor {
 			if (args.length == 0) {
 				sender.sendMessage(GeneralMethods.errorColor + "Please type message: /broadcast <message>");
 			} else {
-				Bukkit.broadcastMessage(GeneralMethods.serverPrefix + message + ChatColor.YELLOW + " -Console");
+				Bukkit.broadcastMessage(GeneralMethods.prefix + ChatColor.of("&#81E500") + message + ChatColor.of("&#81E500") + " -Console");
 			}
 		}
 		return true;

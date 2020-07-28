@@ -43,7 +43,7 @@ public class GuestQuizListener implements Listener {
                     DCCore.permissions.playerRemoveGroup(player, "Guest");
                     DCCore.permissions.playerAddGroup(player, "Bender");
                     DCCore.permissions.playerAddGroup(player, "Member");
-                    Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Member! -Console");
+                    Bukkit.broadcastMessage(GeneralMethods.prefix + "Congratulations, " + player.getName() + ", on becoming a Member! -Console");
                     player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Member rank!");
                 }
             } else {

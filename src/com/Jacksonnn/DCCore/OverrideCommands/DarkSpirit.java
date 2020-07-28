@@ -64,13 +64,13 @@ public class DarkSpirit implements CommandExecutor {
                         DCCore.permissions.playerAddGroup(player, "Guest");
                     }
 
-                    player.sendMessage(GeneralMethods.serverPrefix + "You can now choose DarkSpirit.");
+                    player.sendMessage(GeneralMethods.prefix + "You can now choose DarkSpirit.");
                     sender.sendMessage(GeneralMethods.successColor + "You have given " + args[0] + " DarkSpirit permissions!");
                 }
             } else if (args.length == 0) {
                 if (sender.hasPermission("bending.DarkSpirit")) {
                     Player player = (Player) sender;
-                    sender.sendMessage(GeneralMethods.serverPrefix + "You can now choose DarkSpirit.");
+                    sender.sendMessage(GeneralMethods.prefix + "You can now choose DarkSpirit.");
                 }
             } else {
                 sender.sendMessage(GeneralMethods.errorColor + "/darkspirit [<player]>]");

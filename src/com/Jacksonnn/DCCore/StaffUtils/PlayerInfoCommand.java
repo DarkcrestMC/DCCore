@@ -50,7 +50,7 @@ public class PlayerInfoCommand implements CommandExecutor {
 
                     sender.sendMessage(" ");
                     sender.sendMessage(" ");
-                    sender.sendMessage(GeneralMethods.serverPrefix + "PlayerInfo: --[" + ChatColor.GRAY + args[0] + ChatColor.YELLOW + "]--");
+                    sender.sendMessage(GeneralMethods.prefix + "PlayerInfo: --[" + ChatColor.GRAY + args[0] + ChatColor.YELLOW + "]--");
 
                     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
                     Calendar calendar = Calendar.getInstance();
@@ -87,7 +87,7 @@ public class PlayerInfoCommand implements CommandExecutor {
                 } else {
                     sender.sendMessage(" ");
                     sender.sendMessage(" ");
-                    sender.sendMessage(GeneralMethods.serverPrefix + "Player Info: --[" + ChatColor.GRAY + args[0] + ChatColor.YELLOW + "]--");
+                    sender.sendMessage(GeneralMethods.prefix + "Player Info: --[" + ChatColor.GRAY + args[0] + ChatColor.YELLOW + "]--");
 
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
                     Calendar calendar = Calendar.getInstance();
