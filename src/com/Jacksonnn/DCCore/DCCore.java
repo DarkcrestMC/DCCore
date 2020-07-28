@@ -56,7 +56,7 @@ public class DCCore extends JavaPlugin {
 	private WarningGeneral wG;
 	private ReportGeneral rG;
 
-	private DCPlayerManager dcpm;
+	private static DCPlayerManager dcpm;
 	private GeneralMethods generalMethods;
 
 	public void onEnable() {
@@ -217,7 +217,7 @@ public class DCCore extends JavaPlugin {
 		return generalMethods;
 	}
 
-	public DCPlayerManager getDCPM() {
+	public static DCPlayerManager getDCPM() {
 		return dcpm;
 	}
 }

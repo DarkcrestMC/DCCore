@@ -22,26 +22,23 @@ public class DCPlayer {
     private Player player;
     private boolean quickdeposit;
     private GeneralMethods.ChatModes chatMode;
-    private DCPlayerManager dcpm;
 
     //WHEN NEW PLAYER JOINS
-    public DCPlayer(Player player, DCPlayerManager dcpm) {
+    public DCPlayer(Player player) {
         this.player = player;
         this.name = player.getName();
         this.uuid = player.getUniqueId();
         playTime = 0;
-        this.dcpm = dcpm;
 
-        dcpm.createDCPlayer(this);
+        DCCore.getDCPM().createDCPlayer(this);
     }
 
     //LOADING FROM DATABASE
-    public DCPlayer(String name, UUID uuid, DCPlayerManager dcpm) {
+    public DCPlayer(String name, UUID uuid) {
         this.player = Bukkit.getPlayer(uuid);
         this.name = name;
         this.uuid = uuid;
         playTime = 0;
-        this.dcpm = dcpm;
     }
 
     public ArrayList<Note> getNotes() {

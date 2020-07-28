@@ -17,11 +17,6 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class GeneralMethods {
-	private static DCCore plugin;
-
-	public GeneralMethods(DCCore plugin) {
-		GeneralMethods.plugin = plugin;
-	}
 
 	public static String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.GRAY + ChatColor.BOLD + "DarkcrestMC" + ChatColor.DARK_GRAY + "]" + ChatColor.YELLOW + " ";
 	public static String errorColor = prefix + ChatColor.DARK_RED + "Error! " + ChatColor.RED;
@@ -50,20 +45,16 @@ public class GeneralMethods {
 
 	//NEW DCPLAYER
 	public static void createDCPlayer(Player player) {
-		dcPlayers.put(player.getUniqueId(), new DCPlayer(player, plugin.getDCPM()));
+		dcPlayers.put(player.getUniqueId(), new DCPlayer(player));
 	}
 
 	public static void removeDCPlayer(DCPlayer dcPlayer) {
 		dcPlayers.remove(dcPlayer.getUuid());
 	}
 
-	public enum Elements {
-		AIR,
-		WATER,
-		EARTH,
-		FIRE,
-		CHI
-    }
+	public static void removeDCPlayer(Player player) {
+		dcPlayers.remove(player.getUniqueId());
+	}
 
 	public static String milliToHours(long milli) {
 
