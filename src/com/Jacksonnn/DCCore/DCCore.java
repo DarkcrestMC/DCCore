@@ -22,6 +22,7 @@ import com.Jacksonnn.DCCore.StaffUtils.BanishHackFix;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
+import com.Jacksonnn.DCCore.StaffUtils.PlayerInfoCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.StaffChannels.*;
@@ -49,10 +50,14 @@ public class DCCore extends JavaPlugin {
 
 	private PluginManager pm = Bukkit.getServer().getPluginManager();
 	private DatabaseManager databaseManager;
+
 	private PlayerDisciplineManager pdm;
 	private NotesGeneral nG;
 	private WarningGeneral wG;
 	private ReportGeneral rG;
+
+	private static DCPlayerManager dcpm;
+	private GeneralMethods generalMethods;
 
 	public void onEnable() {
 		plugin = this;
@@ -60,6 +65,9 @@ public class DCCore extends JavaPlugin {
 		this.nG = new NotesGeneral();
 		this.wG = new WarningGeneral();
 		this.rG = new ReportGeneral();
+
+		this.generalMethods = new GeneralMethods(plugin);
+		dcpm = new DCPlayerManager(plugin);
 
 		pdm = new PlayerDisciplineManager(plugin);
 		new ConfigManager();
@@ -88,6 +96,14 @@ public class DCCore extends JavaPlugin {
 		pdm.loadNotes();
 		pdm.loadWarnings();
 		pdm.loadReports();
+
+		try {
+			dcpm.createDCPlayersTable();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		dcpm.loadDCPlayers();
 
 		BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 		scheduler.scheduleSyncRepeatingTask(this, new AnnouncerThread(this), AnnouncementManager.getInterval() * 20L, AnnouncementManager.getInterval() * 20L);
@@ -146,6 +162,7 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("announcer").setExecutor(new AnnouncementCommands());
 		this.getCommand("staffspawn").setExecutor(new StaffSpawnCommand(plugin));
 		this.getCommand("banish").setExecutor(new BanishHackFix(plugin));
+		this.getCommand("playerinfo").setExecutor(new PlayerInfoCommand());
 
 		//NOTES COMMAND
 		NotesCommand notesCommand = new NotesCommand(this);
@@ -194,6 +211,14 @@ public class DCCore extends JavaPlugin {
 
 	public PlayerDisciplineManager getPDM() {
 		return pdm;
+	}
+
+	public GeneralMethods getGeneralMethods() {
+		return generalMethods;
+	}
+
+	public static DCPlayerManager getDCPM() {
+		return dcpm;
 	}
 }
 
