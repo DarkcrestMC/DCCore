@@ -3,7 +3,9 @@ package com.Jacksonnn.DCCore;
 import com.Jacksonnn.DCCore.Storage.DCPlayerQueries;
 import com.Jacksonnn.DCCore.Storage.Mysql;
 import com.Jacksonnn.DCCore.Storage.SqlLite;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -87,11 +89,18 @@ public class DCPlayerManager {
                         chatMode = GeneralMethods.ChatModes.GENERAL;
                 }
 
-                DCPlayer dcPlayer = new DCPlayer(name, uuid);
+                long firstPlayed = getDCPlayers.getLong("firstPlayed");
+                long lastPlayed = getDCPlayers.getLong("lastPlayed");
+                Location lastLocation = GeneralMethods.stringToLoc(getDCPlayers.getString("lastLocation"));
+                String[] ranks = getDCPlayers.getString("ranks").split(";");
+                int timesJoined = getDCPlayers.getInt("timesJoined");
+                int kills = getDCPlayers.getInt("kills");
+                int deaths = getDCPlayers.getInt("deaths");
+                String lastIP = getDCPlayers.getString("lastIP");
+
+                DCPlayer dcPlayer = new DCPlayer(name, uuid, playTime, firstPlayed, lastPlayed, quickdeposit, lastLocation, ranks, timesJoined, kills, deaths, lastIP);
                 GeneralMethods.addDCPlayer(dcPlayer);
 
-                dcPlayer.setPlayTime(playTime);
-                dcPlayer.setQuickdeposit(quickdeposit);
                 dcPlayer.setChatMode(chatMode);
 
                 i++;
@@ -114,11 +123,20 @@ public class DCPlayerManager {
         }
         try {
             PreparedStatement preparedStatement = plugin.getDatabaseManager().getDatabase().getConnection().prepareStatement(query);
+
             preparedStatement.setString(1, dcPlayer.getName());
             preparedStatement.setLong(2, dcPlayer.getPlayTime());
             preparedStatement.setString(3, GeneralMethods.booleanToString(dcPlayer.isQuickdeposit()));
             preparedStatement.setString(4, dcPlayer.getChatMode().getChatName());
-            preparedStatement.setString(5, dcPlayer.getUuid().toString());
+            preparedStatement.setLong(5, dcPlayer.getFirstPlayed());
+            preparedStatement.setLong(6, dcPlayer.getLastPlayed());
+            preparedStatement.setString(7, GeneralMethods.locToString(dcPlayer.getLastLocation()));
+            preparedStatement.setString(8, StringUtils.join(dcPlayer.getRanks(), ";"));
+            preparedStatement.setInt(9, dcPlayer.getTimesJoined());
+            preparedStatement.setInt(10, dcPlayer.getKills());
+            preparedStatement.setInt(11, dcPlayer.getDeaths());
+            preparedStatement.setString(12, dcPlayer.getLastIP());
+            preparedStatement.setString(13, dcPlayer.getUuid().toString());
 
             preparedStatement.execute();
             preparedStatement.close();

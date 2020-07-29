@@ -56,7 +56,7 @@ public class CoreCommands implements CommandExecutor {
             qdEnabled = !qdEnabled;
 
             sender.sendMessage(qdEnabled ? GeneralMethods.successColor + "QuickDeposit Feature has been enabled." : GeneralMethods.errorColor + "QuickDeposit Feature has been disabled.");
-        } else if (args[0].equalsIgnoreCase("reload")) {
+        } else if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
             ConfigManager.defaultConfig.reload();
             sender.sendMessage(GeneralMethods.successColor + "Reloaded config.yml");
             ConfigManager.langConfig.reload();

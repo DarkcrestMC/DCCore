@@ -37,11 +37,15 @@ public class BannedWordsListener implements Listener {
             player.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5D900") + " Please rethink your choice of words... (check your username, nickname, or chat message!!!)");
             StringBuilder builder = new StringBuilder(GeneralMethods.accentColor + " " + ChatColor.ITALIC + "Banned words used: " + ChatColor.RESET + bannedWords.get(0));
             for (int i = 1; i < bannedWords.size(); i++) {
-                if (i == bannedWords.size()-1)
-                    builder.append(" and ");
-                else
-                    builder.append(", ");
-                builder.append(bannedWords.get(i));
+                if (message.contains(bannedWords.get(i))) {
+                    if (i == bannedWords.size() - 1) {
+                        builder.append(" and ");
+                    } else {
+                        builder.append(", ");
+                    }
+
+                    builder.append(bannedWords.get(i));
+                }
             }
             player.sendMessage(builder.toString());
         }

@@ -61,7 +61,7 @@ public class RandomTP implements CommandExecutor {
 
                     ((Player) sender).teleport(GeneralMethods.toHighestBlock(endLoc));
                     ((Player) sender).performCommand("unstuck");
-                    sender.sendMessage(GeneralMethods.successColor + ChatColor.of("&#00BF45") + "Successfully teleported to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
+                    sender.sendMessage(GeneralMethods.successColor + ChatColor.of("#00BF45") + "Successfully teleported to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
                 }
             }
         } else {

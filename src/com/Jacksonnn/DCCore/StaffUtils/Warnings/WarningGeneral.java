@@ -1,5 +1,7 @@
 package com.Jacksonnn.DCCore.StaffUtils.Warnings;
 
+import com.Jacksonnn.DCCore.DCPlayer;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -27,13 +29,23 @@ public class WarningGeneral {
 
     public void addWarning(Warning warning) {
         Bukkit.getLogger().info("Adding warning to overall warnings...");
+
         warnings.add(warning);
+
+        DCPlayer dcPlayer = GeneralMethods.getDCPlayer(warning.getPlayer());
+        dcPlayer.addWarning(warning);
+
         Bukkit.getLogger().info("Successfully added warning!");
     }
 
     public void removeWarning(Warning warning) {
         Bukkit.getLogger().info("Removing warning from overall warnings...");
+
         warnings.remove(warning);
+
+        DCPlayer dcPlayer = GeneralMethods.getDCPlayer(warning.getPlayer());
+        dcPlayer.removeWarning(warning);
+
         Bukkit.getLogger().info("Successfully removed warning!");
     }
 

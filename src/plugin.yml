@@ -64,6 +64,12 @@ commands:
   managers:
     aliases: [ms, admins, managerchat, mchat]
     usage: /<command>
+  developer:
+    aliases: [devs, developers, dev]
+    usage: /<command>
+  eventhosts:
+    aliases: [eh, eventhost, ehosts]
+    usage: /<command>
   moderators:
     aliases: [mods, jmods, serverstaff, jrmoderators, jrmods, babystaff]
     usage: /<command>

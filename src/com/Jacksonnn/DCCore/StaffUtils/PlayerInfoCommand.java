@@ -1,6 +1,7 @@
 package com.Jacksonnn.DCCore.StaffUtils;
 
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.DCPlayer;
 import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
@@ -42,46 +43,47 @@ public class PlayerInfoCommand implements CommandExecutor {
                     sender.sendMessage(GeneralMethods.errorColor + "Player not online! Checking offline players...");
 
                     OfflinePlayer oPlayer = Bukkit.getOfflinePlayer(args[0]);
+                    DCPlayer dcPlayer = GeneralMethods.getDCPlayer(oPlayer.getUniqueId());
 
-                    if (oPlayer == null) {
-                        sender.sendMessage(GeneralMethods.errorColor + "Player has never joined server...");
+                    if (dcPlayer == null) {
+                        sender.sendMessage(GeneralMethods.errorColor + "Player has never joined this server!");
                         return true;
                     }
 
                     sender.sendMessage(" ");
                     sender.sendMessage(" ");
-                    sender.sendMessage(GeneralMethods.prefix + "PlayerInfo: --[" + ChatColor.GRAY + args[0] + ChatColor.YELLOW + "]--");
+                    sender.sendMessage(GeneralMethods.prefix + "PlayerInfo: --[" + ChatColor.YELLOW + dcPlayer.getName() + GeneralMethods.accentColor + "]--");
 
                     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
                     Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(oPlayer.getFirstPlayed());
+                    calendar.setTimeInMillis(dcPlayer.getFirstPlayed());
                     String joinDate = sdf.format(calendar.getTime());
 
                     SimpleDateFormat sdfMinute = new SimpleDateFormat("HH:mm:ss (MM/dd/yyyy)");
-                    calendar.setTimeInMillis(oPlayer.getLastPlayed());
+                    calendar.setTimeInMillis(dcPlayer.getLastPlayed());
                     String lastLogin = sdfMinute.format(calendar.getTime());
 
                     sender.sendMessage(ChatColor.YELLOW + "Last Login: " + lastLogin +
-                            ChatColor.YELLOW + " | Times Joined: " + ChatColor.WHITE + (oPlayer.getPlayer().getStatistic(Statistic.LEAVE_GAME) + 1));
+                            ChatColor.YELLOW + " | Times Joined: " + ChatColor.WHITE + dcPlayer.getTimesJoined());
                     sender.sendMessage(ChatColor.YELLOW + "Playtime: " +
-                            ChatColor.WHITE + GeneralMethods.milliToHours(player.getStatistic(Statistic.PLAY_ONE_MINUTE) / 60 * 1000) +
+                            ChatColor.WHITE + GeneralMethods.milliToHours(dcPlayer.getPlayTime()) +
                             ChatColor.YELLOW + " | Joined: " + ChatColor.WHITE + joinDate);
                     sender.sendMessage(ChatColor.YELLOW + "Notes: " +
-                            ChatColor.AQUA + NotesGeneral.getPlayerNotes(oPlayer.getPlayer()).size() +
+                            ChatColor.AQUA + dcPlayer.getNotes().size() +
                             ChatColor.YELLOW + " | Warnings: " +
-                            ChatColor.GOLD + WarningGeneral.getPlayerWarnings(oPlayer.getPlayer()).size() +
+                            ChatColor.GOLD + dcPlayer.getWarnings().size() +
                             ChatColor.YELLOW + " | Reports: " +
-                            ChatColor.DARK_RED + ReportGeneral.getPlayerReports(oPlayer.getPlayer()).size());
+                            ChatColor.DARK_RED + dcPlayer.getReports().size());
                     sender.sendMessage(ChatColor.YELLOW + "Last Location: " +
-                            ChatColor.WHITE + GeneralMethods.locToString(oPlayer.getPlayer().getLocation()));
+                            ChatColor.WHITE + GeneralMethods.locToString(dcPlayer.getLastLocation()));
 
-                    String playerRanks = StringUtils.join(DCCore.permissions.getPlayerGroups(oPlayer.getPlayer()), ", ");
+                    String playerRanks = StringUtils.join(dcPlayer.getRanks(), ", ");
 
                     sender.sendMessage(ChatColor.YELLOW + "Ranks: " + ChatColor.WHITE + playerRanks);
                     sender.sendMessage(ChatColor.YELLOW + "Kills: " +
-                            ChatColor.WHITE + oPlayer.getPlayer().getStatistic(Statistic.PLAYER_KILLS) +
-                            ChatColor.YELLOW + " | Deaths: " + ChatColor.WHITE + oPlayer.getPlayer().getStatistic(Statistic.DEATHS));
-                    sender.sendMessage(ChatColor.YELLOW + "Last IP: " + oPlayer.getPlayer().getAddress().getAddress().toString());
+                            ChatColor.WHITE + dcPlayer.getKills() +
+                            ChatColor.YELLOW + " | Deaths: " + ChatColor.WHITE + dcPlayer.getDeaths());
+                    sender.sendMessage(ChatColor.YELLOW + "Last IP: " + dcPlayer.getLastIP());
                     sender.sendMessage(" ");
                     sender.sendMessage(" ");
                 } else {

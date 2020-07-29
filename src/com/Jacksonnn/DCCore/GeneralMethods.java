@@ -38,6 +38,16 @@ public class GeneralMethods {
 		}
 	}
 
+	public static DCPlayer getDCPlayer(String name) {
+		for (DCPlayer dcPlayer : dcPlayers.values()) {
+			if (dcPlayer.getName().equalsIgnoreCase(name)) {
+				return dcPlayer;
+			}
+		}
+
+		return null;
+	}
+
 	//FROM DATABASE
 	public static void addDCPlayer(DCPlayer dcPlayer) {
 		dcPlayers.put(dcPlayer.getUuid(), dcPlayer);
@@ -174,14 +184,27 @@ public class GeneralMethods {
 				if (player.hasPermission("DCCore.staffchats.Staff")) {
 					//player.sendMessage(GeneralMethods.serverPrefix + "Server has " + staffColor + onlineStaff + ChatColor.YELLOW + " online staff (" + ownerColor + onlineOwners + " Owners, " + coOwnerColor + onlineCoOwners + " Co-Owners, " + managerColor + onlineManagers + " Managers, " + moderatorColor + onlineModerators + " Moderators, " + jModColor + onlineJMods + " JMods, " + ancientColor + onlineAncients + " Ancients, " + artistColor + onlineArtists + " Artists" + ChatColor.YELLOW + ").");
 					player.sendMessage("");
-					player.sendMessage(GeneralMethods.prefix + "Server has " + staffColor + onlineStaff + GeneralMethods.accentColor + " online staff (" + ownerColor + onlineOwners + " " + coOwnerColor + onlineCoOwners + " " + managerColor + onlineManagers + " " + moderatorColor + onlineModerators + " " + jModColor + onlineJMods + " " + ancientColor + onlineAncients + " " + artistColor + onlineArtists + ChatColor.YELLOW + ").");
+					player.sendMessage(GeneralMethods.prefix + "Server has " + staffColor + onlineStaff + GeneralMethods.accentColor + " online staff (" + ownerColor + onlineOwners + " " + coOwnerColor + onlineCoOwners + " " + managerColor + onlineManagers + " " + moderatorColor + onlineModerators + " " + jModColor + onlineJMods + " " + ancientColor + onlineAncients + " " + artistColor + onlineArtists + GeneralMethods.accentColor + ").");
 				}
 			}
 		}
 	}
 
 	public static String locToString(Location loc) {
+		// 10 13 531 (Events)
 		return loc.getBlockX() + " " + loc.getBlockY() + " " + loc.getBlockZ() + " (" + loc.getWorld().getName() + ")";
+	}
+	public static Location stringToLoc(String loc) {
+		String[] locArgs = loc.split(" ");
+
+		int x = Integer.parseInt(locArgs[0]);
+		int y = Integer.parseInt(locArgs[1]);
+		int z = Integer.parseInt(locArgs[2]);
+
+		int parenthesesChar = locArgs[3].indexOf(')');
+		String worldName = locArgs[3].substring(1, parenthesesChar - 1);
+
+		return new Location(Bukkit.getWorld(worldName), x, y, z);
 	}
 
 	public enum ChatModes {
@@ -220,14 +243,14 @@ public class GeneralMethods {
 
 	public static String translateHEXColorCode(String message) {
 		List<String> allMatches = new ArrayList<>();
-		Matcher m = Pattern.compile("#[0-9A-Fa-f]{6}")
+		Matcher m = Pattern.compile("&#[0-9A-Fa-f]{6}")
 				.matcher(message);
 		while (m.find()) {
 			allMatches.add(m.group());
 		}
 
 		for (String hex : allMatches) {
-			message.replaceAll(hex, ChatColor.of(hex).toString());
+			message = message.replace(hex, ChatColor.of(hex.substring(1)).toString());
 		}
 
 		return message;
