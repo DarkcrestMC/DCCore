@@ -51,11 +51,10 @@ public class CoreCommands implements CommandExecutor {
                 }
             }
         } else if (args.length == 1 && (args[0].equalsIgnoreCase("quickdeposit") || args[0].equalsIgnoreCase("qd"))) {
-            boolean qdEnabled = GeneralMethods.getDCPlayer(Bukkit.getPlayer(sender.getName()).getUniqueId()).isQuickdeposit();
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(sender.getName());
+            dcPlayer.setQuickdeposit(!dcPlayer.isQuickdeposit());
 
-            qdEnabled = !qdEnabled;
-
-            sender.sendMessage(qdEnabled ? GeneralMethods.successColor + "QuickDeposit Feature has been enabled." : GeneralMethods.errorColor + "QuickDeposit Feature has been disabled.");
+            sender.sendMessage(dcPlayer.isQuickdeposit() ? GeneralMethods.successColor + "QuickDeposit Feature has been enabled." : GeneralMethods.errorColor + "QuickDeposit Feature has been disabled.");
         } else if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
             ConfigManager.defaultConfig.reload();
             sender.sendMessage(GeneralMethods.successColor + "Reloaded config.yml");
