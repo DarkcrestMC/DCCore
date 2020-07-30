@@ -33,6 +33,9 @@ commands:
   dcevents:
     aliases: [events, dce, darkcrestevents, darkcreste]
     usage: /<command>
+  suggest:
+    aliases: [suggestion]
+    usage: /<command>
   b:
     aliases: [pk, projectkorra, bend, bending, atla, alok, tla, lok]
     usage: /<command>

@@ -62,6 +62,9 @@ public class ConfigManager {
             config.addDefault("StaffNotification.Reports.ToDoReport.ChannelID", "684852294541377536");
             config.addDefault("StaffNotification.Reports.ToDoReport.StaffRoleID", "440567726839431178");
 
+            config.addDefault("Suggestions.ChannelID", "0");
+            config.addDefault("Suggestions.lifespanInTicks", 1200);
+
             config.addDefault("RandomTP.enabled", false);
             config.addDefault("RandomTP.SetRadius", true);
             config.addDefault("RandomTP.Radius", 5000000);

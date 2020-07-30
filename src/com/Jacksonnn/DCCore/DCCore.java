@@ -32,6 +32,8 @@ import com.Jacksonnn.DCCore.StaffUtils.StaffSpawnCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningGeneral;
 import com.Jacksonnn.DCCore.Storage.DatabaseManager;
+import com.Jacksonnn.DCCore.Suggestions.SuggestCommand;
+import com.Jacksonnn.DCCore.Suggestions.SuggestionsHandler;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
@@ -47,6 +49,7 @@ public class DCCore extends JavaPlugin {
 	public static DCCore plugin;
 	public static Economy economy;
 	public static Permission permissions;
+	private static SuggestionsHandler suggestionsHandler;
 
 	private PluginManager pm = Bukkit.getServer().getPluginManager();
 	private DatabaseManager databaseManager;
@@ -57,7 +60,6 @@ public class DCCore extends JavaPlugin {
 	private ReportGeneral rG;
 
 	private static DCPlayerManager dcpm;
-	private GeneralMethods generalMethods;
 
 	public void onEnable() {
 		plugin = this;
@@ -66,9 +68,9 @@ public class DCCore extends JavaPlugin {
 		this.wG = new WarningGeneral();
 		this.rG = new ReportGeneral();
 
-		this.generalMethods = new GeneralMethods(plugin);
 		dcpm = new DCPlayerManager(plugin);
 
+		suggestionsHandler = new SuggestionsHandler();
 		pdm = new PlayerDisciplineManager(plugin);
 		new ConfigManager();
 		registerListeners();
@@ -143,6 +145,7 @@ public class DCCore extends JavaPlugin {
 			this.getCommand("randomtp").setExecutor(new RandomTP());
 		}
 
+		this.getCommand("suggest").setExecutor(new SuggestCommand());
 		this.getCommand("b").setExecutor(new PKAlias());
 		this.getCommand("vote").setExecutor(new Vote());
 		this.getCommand("forums").setExecutor(new Forums());
@@ -213,12 +216,12 @@ public class DCCore extends JavaPlugin {
 		return pdm;
 	}
 
-	public GeneralMethods getGeneralMethods() {
-		return generalMethods;
-	}
-
 	public static DCPlayerManager getDCPM() {
 		return dcpm;
+	}
+
+	public static SuggestionsHandler getSuggestionsHandler() {
+		return suggestionsHandler;
 	}
 }
 
