@@ -12,14 +12,17 @@ public class PlayTime implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
-        Player player = Bukkit.getPlayer(sender.getName());
-        sender.sendMessage(GeneralMethods.prefix + sender.getName() + ", you current have " + GeneralMethods.milliToHours(getPlayTime(player)) + " of playtime.");
+        if (!(sender instanceof Player))
+            return true;
+        Player player = (Player)sender;
+        sender.sendMessage(String.format(GeneralMethods.prefix + sender.getName() + ", you current have %.2f hours of playtime.", getPlayTimeHours(player)));
         return true;
     }
 
-    public static long getPlayTime(Player player) {
+    public static double getPlayTimeHours(Player player) {
         // NOTE: PLAY_ONE_MINUTE's name is misleading. It gives the number of ticks the user has played, not their minutes.
-        return player.getStatistic(Statistic.PLAY_ONE_MINUTE) / 60 * 1000;
+        return player.getStatistic(Statistic.PLAY_ONE_MINUTE) / 72000.0;
+        // divided by 72000 = (20 (# ticks in a second) * 60 (# seconds in a minute) * 60 (# minutes in an hour))
 //        return PlayTimeAPI.getSecs(player) * 1000;
         /*
         UUID playerUUID = player.getUniqueId();
