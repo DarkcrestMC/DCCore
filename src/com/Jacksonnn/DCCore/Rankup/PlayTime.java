@@ -15,7 +15,7 @@ public class PlayTime implements CommandExecutor {
         if (!(sender instanceof Player))
             return true;
         Player player = (Player)sender;
-        sender.sendMessage(String.format(GeneralMethods.prefix + sender.getName() + ", you current have %.2f hours of playtime.", getPlayTimeHours(player)));
+        sender.sendMessage(String.format(GeneralMethods.prefix + sender.getName() + ", you currently have %.2f hours of playtime.", getPlayTimeHours(player)));
         return true;
     }
 
