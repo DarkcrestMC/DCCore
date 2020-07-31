@@ -4,6 +4,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ConfigManager {
     public static Config langConfig;
@@ -70,23 +71,25 @@ public class ConfigManager {
             config.addDefault("RandomTP.Radius", 5000000);
             config.addDefault("RandomTP.WorldSizeDividedBy", 8);
 
-            config.addDefault("Rankup.Prices.Citizen", 5000);
-            config.addDefault("Rankup.Hours.Citizen", 10);
-
-            config.addDefault("Rankup.Prices.Merchant", 50000);
-            config.addDefault("Rankup.Hours.Merchant", 20);
-
-            config.addDefault("Rankup.Prices.Baron", 500000);
-            config.addDefault("Rankup.Hours.Baron", 30);
-
-            config.addDefault("Rankup.Prices.Official", 5000000);
-            config.addDefault("Rankup.Hours.Official", 40);
-
-            config.addDefault("Rankup.Prices.Noble", 50000000);
-            config.addDefault("Rankup.Hours.Noble", 60);
-
-            config.addDefault("Rankup.Prices.Royal", 500000000);
-            config.addDefault("Rankup.Hours.Royal", 75);
+            ArrayList<Integer> defaultPrices = new ArrayList<>();
+            defaultPrices.add(0);
+            defaultPrices.add(5000);
+            defaultPrices.add(50000);
+            defaultPrices.add(500000);
+            defaultPrices.add(5000000);
+            defaultPrices.add(50000000);
+            defaultPrices.add(500000000);
+            config.addDefault("Rankup.Prices.Ranks", defaultPrices);
+            ArrayList<Integer> defaultHours = new ArrayList<>();
+            defaultHours.add(0);
+            defaultHours.add(10);
+            defaultHours.add(20);
+            defaultHours.add(30);
+            defaultHours.add(40);
+            defaultHours.add(60);
+            defaultHours.add(75);
+            config.addDefault("Rankup.Hours.Ranks", defaultHours);
+            config.addDefault("Rankup.Names.Ranks", new String[] {"Member", "Citizen", "Merchant", "Baron", "Official", "Noble", "Royal"});
 
             config.addDefault("Rankup.Prices.Avatar", 225000000);
             config.addDefault("Rankup.Hours.Avatar", 60);

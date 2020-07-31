@@ -1,5 +1,6 @@
 package com.Jacksonnn.DCCore.Rankup;
 
+import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
 import com.Jacksonnn.DCCore.GeneralMethods;
 import org.bukkit.Bukkit;
@@ -40,11 +41,14 @@ public class GuestQuizListener implements Listener {
                 if (questionNumber != 1) {
                     guestCheck(player, 1);
                 } else {
-                    DCCore.permissions.playerRemoveGroup(player, "Guest");
                     DCCore.permissions.playerAddGroup(player, "Bender");
-                    DCCore.permissions.playerAddGroup(player, "Member");
-                    Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Member! -Console");
-                    player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Member rank!");
+                    Rankup.attemptRankup(player, "Guest", "Member",
+                            ConfigManager.defaultConfig.get().getIntegerList("Rankup.Prices.Ranks").get(0),
+                            ConfigManager.defaultConfig.get().getIntegerList("Rankup.Hours.Ranks").get(0));
+//                    DCCore.permissions.playerRemoveGroup(player, "Guest");
+//                    DCCore.permissions.playerAddGroup(player, "Member");
+//                    Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Member! -Console");
+//                    player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Member rank!");
                 }
             } else {
                 player.closeInventory();
