@@ -1,7 +1,6 @@
 package com.Jacksonnn.DCCore.StaffUtils;
 
 import com.Jacksonnn.DCCore.DCCore;
-import com.Jacksonnn.DCCore.DCPlayer;
 import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
@@ -40,56 +39,55 @@ public class PlayerInfoCommand implements CommandExecutor {
                 Player player = Bukkit.getPlayer(args[0]);
 
                 if (player == null) {
-                    sender.sendMessage(GeneralMethods.errorPrefix + "Player not online! Checking offline players...");
+                    sender.sendMessage(GeneralMethods.errorColor + "Player not online! Checking offline players...");
 
                     OfflinePlayer oPlayer = Bukkit.getOfflinePlayer(args[0]);
-                    DCPlayer dcPlayer = GeneralMethods.getDCPlayer(oPlayer.getUniqueId());
 
-                    if (dcPlayer == null) {
-                        sender.sendMessage(GeneralMethods.errorPrefix + "Player has never joined this server!");
+                    if (oPlayer == null) {
+                        sender.sendMessage(GeneralMethods.errorColor + "Player has never joined server...");
                         return true;
                     }
 
                     sender.sendMessage(" ");
                     sender.sendMessage(" ");
-                    sender.sendMessage(GeneralMethods.prefix + "PlayerInfo: --[" + ChatColor.YELLOW + dcPlayer.getName() + GeneralMethods.accentColor + "]--");
+                    sender.sendMessage(GeneralMethods.serverPrefix + "PlayerInfo: --[" + ChatColor.GRAY + args[0] + ChatColor.YELLOW + "]--");
 
                     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
                     Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(dcPlayer.getFirstPlayed());
+                    calendar.setTimeInMillis(oPlayer.getFirstPlayed());
                     String joinDate = sdf.format(calendar.getTime());
 
                     SimpleDateFormat sdfMinute = new SimpleDateFormat("HH:mm:ss (MM/dd/yyyy)");
-                    calendar.setTimeInMillis(dcPlayer.getLastPlayed());
+                    calendar.setTimeInMillis(oPlayer.getLastPlayed());
                     String lastLogin = sdfMinute.format(calendar.getTime());
 
                     sender.sendMessage(ChatColor.YELLOW + "Last Login: " + lastLogin +
-                            ChatColor.YELLOW + " | Times Joined: " + ChatColor.WHITE + dcPlayer.getTimesJoined());
+                            ChatColor.YELLOW + " | Times Joined: " + ChatColor.WHITE + (oPlayer.getPlayer().getStatistic(Statistic.LEAVE_GAME) + 1));
                     sender.sendMessage(ChatColor.YELLOW + "Playtime: " +
-                            ChatColor.WHITE + dcPlayer.getPlayTime() + " hours" +
+                            ChatColor.WHITE + GeneralMethods.milliToHours(player.getStatistic(Statistic.PLAY_ONE_MINUTE) / 60 * 1000) +
                             ChatColor.YELLOW + " | Joined: " + ChatColor.WHITE + joinDate);
                     sender.sendMessage(ChatColor.YELLOW + "Notes: " +
-                            ChatColor.AQUA + dcPlayer.getNotes().size() +
+                            ChatColor.AQUA + NotesGeneral.getPlayerNotes(oPlayer.getPlayer()).size() +
                             ChatColor.YELLOW + " | Warnings: " +
-                            ChatColor.GOLD + dcPlayer.getWarnings().size() +
+                            ChatColor.GOLD + WarningGeneral.getPlayerWarnings(oPlayer.getPlayer()).size() +
                             ChatColor.YELLOW + " | Reports: " +
-                            ChatColor.DARK_RED + dcPlayer.getReports().size());
+                            ChatColor.DARK_RED + ReportGeneral.getPlayerReports(oPlayer.getPlayer()).size());
                     sender.sendMessage(ChatColor.YELLOW + "Last Location: " +
-                            ChatColor.WHITE + GeneralMethods.locToString(dcPlayer.getLastLocation()));
+                            ChatColor.WHITE + GeneralMethods.locToString(oPlayer.getPlayer().getLocation()));
 
-                    String playerRanks = StringUtils.join(dcPlayer.getRanks(), ", ");
+                    String playerRanks = StringUtils.join(DCCore.permissions.getPlayerGroups(oPlayer.getPlayer()), ", ");
 
                     sender.sendMessage(ChatColor.YELLOW + "Ranks: " + ChatColor.WHITE + playerRanks);
                     sender.sendMessage(ChatColor.YELLOW + "Kills: " +
-                            ChatColor.WHITE + dcPlayer.getKills() +
-                            ChatColor.YELLOW + " | Deaths: " + ChatColor.WHITE + dcPlayer.getDeaths());
-                    sender.sendMessage(ChatColor.YELLOW + "Last IP: " + dcPlayer.getLastIP());
+                            ChatColor.WHITE + oPlayer.getPlayer().getStatistic(Statistic.PLAYER_KILLS) +
+                            ChatColor.YELLOW + " | Deaths: " + ChatColor.WHITE + oPlayer.getPlayer().getStatistic(Statistic.DEATHS));
+                    sender.sendMessage(ChatColor.YELLOW + "Last IP: " + oPlayer.getPlayer().getAddress().getAddress().toString());
                     sender.sendMessage(" ");
                     sender.sendMessage(" ");
                 } else {
                     sender.sendMessage(" ");
                     sender.sendMessage(" ");
-                    sender.sendMessage(GeneralMethods.prefix + "Player Info: --[" + ChatColor.GRAY + args[0] + ChatColor.YELLOW + "]--");
+                    sender.sendMessage(GeneralMethods.serverPrefix + "Player Info: --[" + ChatColor.GRAY + args[0] + ChatColor.YELLOW + "]--");
 
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
                     Calendar calendar = Calendar.getInstance();
@@ -119,10 +117,10 @@ public class PlayerInfoCommand implements CommandExecutor {
                     sender.sendMessage(" ");
                 }
             } else {
-                sender.sendMessage(GeneralMethods.errorPrefix + "/playerinfo <player>");
+                sender.sendMessage(GeneralMethods.errorColor + "/playerinfo <player>");
             }
         } else {
-            sender.sendMessage(GeneralMethods.errorPrefix + "You do not have sufficient permissions to execute this command.");
+            sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient permissions to execute this command.");
         }
         return true;
     }

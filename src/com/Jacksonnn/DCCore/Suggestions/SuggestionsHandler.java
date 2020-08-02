@@ -129,10 +129,10 @@ public class SuggestionsHandler {
         public void voteOnSuggestion(Player voter, boolean approve) {
             UUID uuid = voter.getUniqueId();
             if (uuid.equals(suggesterUUID)) {
-                voter.sendMessage(GeneralMethods.errorPrefix + "You can't vote on your own suggestion!");
+                voter.sendMessage(GeneralMethods.errorColor + "You can't vote on your own suggestion!");
             } else if (approve) {
                 if (votersApprove.contains(voter.getUniqueId()))
-                    voter.sendMessage(GeneralMethods.errorPrefix + "You already approved this suggestion!");
+                    voter.sendMessage(GeneralMethods.errorColor + "You already approved this suggestion!");
                 else if (votersDisapprove.contains(uuid)) {
                     votersDisapprove.remove(uuid);
                     votersApprove.add(uuid);
@@ -145,7 +145,7 @@ public class SuggestionsHandler {
                 }
             } else {
                 if (votersDisapprove.contains(voter.getUniqueId()))
-                    voter.sendMessage(GeneralMethods.errorPrefix + "You already disapproved this suggestion!");
+                    voter.sendMessage(GeneralMethods.errorColor + "You already disapproved this suggestion!");
                 else if (votersApprove.contains(uuid)) {
                     votersApprove.remove(uuid);
                     votersDisapprove.add(uuid);

@@ -2,8 +2,6 @@ package com.Jacksonnn.DCCore.StaffUtils.Notes.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
-import com.Jacksonnn.DCCore.DCPlayer;
-import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.Note;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesSubCommand;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
@@ -50,15 +48,18 @@ public class ListCommand implements NotesSubCommand {
         if (args.size() == 1) {
             if (!args.get(0).equalsIgnoreCase("all")) {
                 Player player = Bukkit.getPlayer(args.get(0));
-                DCPlayer dcPlayer = GeneralMethods.getDCPlayer(player.getUniqueId());
 
-                if (dcPlayer == null) {
+                if (player == null) {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "Does that player exist?");
                     return;
                 }
 
                 List<Note> playerNotes = new ArrayList<>();
-                playerNotes.addAll(dcPlayer.getNotes());
+                for (Note note : pdm.getNoteManager().getAllNotes()) {
+                    if (note.getPlayer() == player.getUniqueId()) {
+                        playerNotes.add(note);
+                    }
+                }
 
                 if (playerNotes.size() == 0) {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "Player has no notes.");
@@ -70,14 +71,16 @@ public class ListCommand implements NotesSubCommand {
                 }
             } else {
                 List<Note> playerNotes = new ArrayList<>();
-                playerNotes.addAll(plugin.getPDM().getNoteManager().getAllNotes());
+                for (Note note : pdm.getNoteManager().getAllNotes()) {
+                    playerNotes.add(note);
+                }
 
                 if (playerNotes.size() == 0) {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "There are no Player Notes.");
                 } else {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "All Player Notes:");
                     for (Note note : playerNotes) {
-                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + GeneralMethods.getDCPlayer(note.getStaffMember()).getName());
+                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + Bukkit.getPlayer(note.getStaffMember()).getName());
                     }
                 }
             }

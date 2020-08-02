@@ -2,7 +2,6 @@ package com.Jacksonnn.DCCore.StaffUtils.StaffChannels;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
-import com.Jacksonnn.DCCore.DCPlayer;
 import com.Jacksonnn.DCCore.GeneralMethods;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
@@ -25,28 +24,37 @@ public class ArtistCommand implements CommandExecutor {
                 if (!(sender instanceof Player))
                     return false;
                 Player player = (Player)sender;
-                DCPlayer dcPlayer = GeneralMethods.getDCPlayer(player.getUniqueId());
-
-                GeneralMethods.ChatModes currentChat = dcPlayer.getChatMode();
-
-                if (currentChat != GeneralMethods.ChatModes.ARTIST) {
-                    dcPlayer.setChatMode(GeneralMethods.ChatModes.ARTIST);
-                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to ARTIST.");
+                String currentChat = ConfigManager.defaultConfig.get().getString("DCStaffChat." + sender.getName());
+                if (currentChat == null) {
+                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Artists");
+                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to ARTISTS.");
                     DCCore.permissions.playerAdd(player, "-discordsrv.chat");
-                } else if (currentChat == GeneralMethods.ChatModes.ARTIST) {
-                    dcPlayer.setChatMode(GeneralMethods.ChatModes.GENERAL);
-                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to GENERAL.");
+                } else if (currentChat.equalsIgnoreCase("Artists")) {
+                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), null);
+                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to NORMAL.");
                     DCCore.permissions.playerRemove(player, "-discordsrv.chat");
+                } else {
+                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Artists");
+                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to ARTISTS.");
+                    DCCore.permissions.playerAdd(player, "-discordsrv.chat");
                 }
                 ConfigManager.defaultConfig.save();
             } else {
                 //send message through command
-                String chatprefix = ChatColor.translateAlternateColorCodes('&', GeneralMethods.translateColorCodes(ConfigManager.langConfig.get().getString("Language.StaffChats.Artists.Prefix")));
-                String msgColor = ChatColor.translateAlternateColorCodes('&', GeneralMethods.translateColorCodes(ConfigManager.langConfig.get().getString("Language.StaffChats.Artists.msgColor")));
-                Bukkit.broadcast(chatprefix + sender.getName() + ": " + msgColor + GeneralMethods.translateColorCodes(StringUtils.join(args, ' ')), GeneralMethods.ChatModes.ARTIST.getChatPerm());
+                String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Artists.Prefix")));
+                String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Artists.msgColor")));
+                Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
+
+                for (Player player : onlinePlayers) {
+                    if (player.hasPermission("DCCore.staffchats.Artists")) {
+                        player.sendMessage(chatprefix + sender.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', StringUtils.join(args, ' ')));
+                    }
+                }
+
+                Bukkit.getLogger().info(chatprefix + sender.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', StringUtils.join(args, ' ')));
             }
         } else {
-            sender.sendMessage(GeneralMethods.errorPrefix + "You do not have permission to perform this command.");
+            sender.sendMessage(GeneralMethods.errorColor + "You do not have permission to perform this command.");
         }
         return true;
     }

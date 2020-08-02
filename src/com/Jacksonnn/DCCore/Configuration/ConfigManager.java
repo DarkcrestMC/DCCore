@@ -103,18 +103,14 @@ public class ConfigManager {
         } else if (type == ConfigType.LANGUAGE) {
             config = langConfig.get();
 
-            config.addDefault("Language.StaffChats.HOS.Prefix", "&8[&5&lHOS&8]&d ");
-            config.addDefault("Language.StaffChats.HOS.msgColor", "&e&o");
-            config.addDefault("Language.StaffChats.Developer.Prefix", "&8[&3&lDeveloper&8]&d ");
-            config.addDefault("Language.StaffChats.Developer.msgColor", "&7&o");
+            config.addDefault("Language.StaffChats.HoS.Prefix", "&8[&5&lHOS&8]&d ");
+            config.addDefault("Language.StaffChats.HoS.msgColor", "&e&o");
             config.addDefault("Language.StaffChats.Managers.Prefix", "&8[&4&lMANAGERS&8]&c ");
             config.addDefault("Language.StaffChats.Managers.msgColor", "&e&o");
             config.addDefault("Language.StaffChats.Moderators.Prefix", "&8[&2&lMODERATORS&8]&a ");
             config.addDefault("Language.StaffChats.Moderators.msgColor", "&e&o");
             config.addDefault("Language.StaffChats.StaffChat.Prefix", "&8[&3&lSTAFF CHAT&8]&b ");
             config.addDefault("Language.StaffChats.StaffChat.msgColor", "&e&o");
-            config.addDefault("Language.StaffChats.EventHosts.Prefix", "&8[&9&lEVENT HOSTS&8]&b ");
-            config.addDefault("Language.StaffChats.EventHosts.msgColor", "&a&o");
             config.addDefault("Language.StaffChats.Artists.Prefix", "&8[&c&lA&6&lR&e&lT&a&lI&9&lS&d&lT&f&lS&8]&b ");
             config.addDefault("Language.StaffChats.Artists.msgColor", "&e&o");
 

@@ -1,8 +1,6 @@
 package com.Jacksonnn.DCCore.StaffUtils.StaffChannels;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
-import com.Jacksonnn.DCCore.DCPlayer;
-import com.Jacksonnn.DCCore.GeneralMethods;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -19,63 +17,72 @@ public class onChatEvent implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerChat(AsyncPlayerChatEvent e) {
         Player player = e.getPlayer();
-        DCPlayer dcPlayer = GeneralMethods.getDCPlayer(player.getUniqueId());
-        GeneralMethods.ChatModes chatmode = dcPlayer.getChatMode();
+        String chatmode = ConfigManager.defaultConfig.get().getString("DCStaffChat." + player.getName());
 
-        if (chatmode == GeneralMethods.ChatModes.GENERAL) {
+        if (chatmode == null) {
             return;
         }
 
-        if (chatmode == GeneralMethods.ChatModes.HOS) {
+        if (chatmode.equalsIgnoreCase("HeadOfStaff")) {
             e.setCancelled(true);
-            String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.HOS.Prefix")));
-            String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.HOS.msgColor")));
+            String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.HoS.Prefix")));
+            String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.HoS.msgColor")));
+            Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
-            Bukkit.broadcast(chatprefix + dcPlayer.getName() + ": " + msgColor + GeneralMethods.translateColorCodes(e.getMessage()), GeneralMethods.ChatModes.HOS.getChatPerm());
-
-        } else if (chatmode == GeneralMethods.ChatModes.MANAGERS) {
+            for (Player onlinePlayer : onlinePlayers) {
+                if (onlinePlayer.hasPermission("DCCore.staffchats.HOS")) {
+                    onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
+                }
+            }
+            Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
+        } else if (chatmode.equalsIgnoreCase("Managers")) {
             e.setCancelled(true);
-            String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Managers.Prefix")));
-            String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Managers.msgColor")));
+            String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Managers.Prefix")));
+            String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Managers.msgColor")));
+            Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
-            Bukkit.broadcast(chatprefix + dcPlayer.getName() + ": " + msgColor + GeneralMethods.translateColorCodes(e.getMessage()), GeneralMethods.ChatModes.MANAGERS.getChatPerm());
-
-        } else if (chatmode == GeneralMethods.ChatModes.DEVELOPER) {
+            for (Player onlinePlayer : onlinePlayers) {
+                if (onlinePlayer.hasPermission("DCCore.staffchats.Managers")) {
+                    onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
+                }
+            }
+            Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
+        } else if (chatmode.equalsIgnoreCase("Moderators")) {
             e.setCancelled(true);
-            String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Developer.Prefix")));
-            String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Developer.msgColor")));
+            String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Moderators.Prefix")));
+            String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Moderators.msgColor")));
+            Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
-            Bukkit.broadcast(chatprefix + dcPlayer.getName() + ": " + msgColor + GeneralMethods.translateColorCodes(e.getMessage()), GeneralMethods.ChatModes.DEVELOPER.getChatPerm());
-
-        } else if (chatmode == GeneralMethods.ChatModes.EVENTHOSTS) {
+            for (Player onlinePlayer : onlinePlayers) {
+                if (onlinePlayer.hasPermission("DCCore.staffchats.Moderators")) {
+                    onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
+                }
+            }
+            Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
+        } else if (chatmode.equalsIgnoreCase("Staff")) {
             e.setCancelled(true);
-            String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.EventHosts.Prefix")));
-            String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.EventHosts.msgColor")));
+            String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
+            String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
+            Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
-            Bukkit.broadcast(chatprefix + dcPlayer.getName() + ": " + msgColor + GeneralMethods.translateColorCodes(e.getMessage()), GeneralMethods.ChatModes.EVENTHOSTS.getChatPerm());
-
-        } else if (chatmode == GeneralMethods.ChatModes.MODERATORS) {
-
+            for (Player onlinePlayer : onlinePlayers) {
+                if (onlinePlayer.hasPermission("DCCore.staffchats.Staff")) {
+                    onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
+                }
+            }
+            Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
+        } else if (chatmode.equalsIgnoreCase("Artists")) {
             e.setCancelled(true);
-            String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Moderators.Prefix")));
-            String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Moderators.msgColor")));
+            String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Artists.Prefix")));
+            String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Artists.msgColor")));
+            Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
-            Bukkit.broadcast(chatprefix + dcPlayer.getName() + ": " + msgColor + GeneralMethods.translateColorCodes(e.getMessage()), GeneralMethods.ChatModes.MODERATORS.getChatPerm());
-
-        } else if (chatmode == GeneralMethods.ChatModes.STAFF) {
-            e.setCancelled(true);
-            String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
-            String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
-
-            Bukkit.broadcast(chatprefix + dcPlayer.getName() + ": " + msgColor + GeneralMethods.translateColorCodes(e.getMessage()), GeneralMethods.ChatModes.STAFF.getChatPerm());
-
-        } else if (chatmode == GeneralMethods.ChatModes.ARTIST) {
-
-            e.setCancelled(true);
-            String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Artists.Prefix")));
-            String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Artists.msgColor")));
-
-            Bukkit.broadcast(chatprefix + dcPlayer.getName() + ": " + msgColor + GeneralMethods.translateColorCodes(e.getMessage()), GeneralMethods.ChatModes.ARTIST.getChatPerm());
+            for (Player onlinePlayer : onlinePlayers) {
+                if (onlinePlayer.hasPermission("DCCore.staffchats.Artists")) {
+                    onlinePlayer.sendMessage(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
+                }
+            }
+            Bukkit.getLogger().info(chatprefix + player.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', e.getMessage()));
         }
     }
 }

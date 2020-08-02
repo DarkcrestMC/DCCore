@@ -44,7 +44,7 @@ public class DiamondLuck implements CommandExecutor {
         }
 
         if (args.length != 7) {
-            sender.sendMessage(GeneralMethods.errorPrefix + "/diamondluck <Cx> <Cy> <Cz> <radius> <Ox> <Oy> <Oz>");
+            sender.sendMessage(GeneralMethods.errorColor + "/diamondluck <Cx> <Cy> <Cz> <radius> <Ox> <Oy> <Oz>");
         } else {
             Cx = Integer.valueOf(args[0]);
             Cy = Integer.valueOf(args[1]);

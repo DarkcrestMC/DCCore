@@ -1,6 +1,5 @@
 package com.Jacksonnn.DCCore.AutoAnnouncer;
 
-import com.Jacksonnn.DCCore.GeneralMethods;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -57,7 +56,7 @@ public class AnnouncementCommands implements CommandExecutor {
                         messageToAnnounce.append(args[i]);
                         messageToAnnounce.append(" ");
                     }
-                    GeneralMethods.broadcast(GeneralMethods.translateColorCodes(AnnouncementManager.getPrefix() + messageToAnnounce.toString()));
+                    Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', AnnouncementManager.getPrefix() + messageToAnnounce.toString()));
                 }
             } else if (args[0].equalsIgnoreCase("list")) {
                 ArrayList<String> messages = new ArrayList<>();

@@ -14,11 +14,11 @@ import org.bukkit.entity.Player;
 import java.util.Collection;
 import java.util.Objects;
 
-public class ModeratorsCommand implements CommandExecutor {
+public class HoSCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("DCCore.staffchats.Moderators")) {
+        if (sender.hasPermission("DCCore.staffchats.HoS")) {
             if (args.length == 0) {
                 //toggle chat
                 if (!(sender instanceof Player))
@@ -26,31 +26,31 @@ public class ModeratorsCommand implements CommandExecutor {
                 Player player = (Player)sender;
                 String currentChat = ConfigManager.defaultConfig.get().getString("DCStaffChat." + sender.getName());
                 if (currentChat == null) {
-                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Moderators");
-                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to MODERATORS.");
+                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "HeadOfStaff");
+                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to HOS.");
                     DCCore.permissions.playerAdd(player, "-discordsrv.chat");
-                } else if (currentChat.equalsIgnoreCase("Moderators")) {
+
+                } else if (currentChat.equalsIgnoreCase("HeadOfStaff")) {
                     ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), null);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to NORMAL.");
                     DCCore.permissions.playerRemove(player, "-discordsrv.chat");
                 } else {
-                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Moderators");
-                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to MODERATORS.");
+                    ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "HeadOfStaff");
+                    sender.sendMessage(GeneralMethods.prefix + "Chat channel set to HOS.");
                     DCCore.permissions.playerAdd(player, "-discordsrv.chat");
                 }
                 ConfigManager.defaultConfig.save();
             } else {
                 //send message through command
-                String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Moderators.Prefix")));
-                String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.Moderators.msgColor")));
+                String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.HoS.Prefix")));
+                String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.HoS.msgColor")));
                 Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 
                 for (Player player : onlinePlayers) {
-                    if (player.hasPermission("DCCore.staffchats.Moderators")) {
+                    if (player.hasPermission("DCCore.staffchats.HoS")) {
                         player.sendMessage(chatprefix + sender.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', StringUtils.join(args, ' ')));
                     }
                 }
-
                 Bukkit.getLogger().info(chatprefix + sender.getName() + ": " + msgColor + ChatColor.translateAlternateColorCodes('&', StringUtils.join(args, ' ')));
             }
         } else {

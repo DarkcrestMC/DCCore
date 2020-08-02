@@ -2,7 +2,7 @@ package com.Jacksonnn.DCCore.Rankup;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,8 +15,8 @@ public class Ranks implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {
         FileConfiguration config = ConfigManager.defaultConfig.get();
-        sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Here are is all of the ranking information!");
-        sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Use " + ChatColor.AQUA + ChatColor.UNDERLINE +
+        sender.sendMessage(GeneralMethods.serverPrefix + "Here are is all of the ranking information!");
+        sender.sendMessage(GeneralMethods.serverPrefix + "Use " + ChatColor.AQUA + ChatColor.UNDERLINE +
                 "/warp RankInfo" + ChatColor.RESET + ChatColor.WHITE + " to learn about each rank!");
 //        sender.sendMessage(ChatColor.DARK_BLUE + "Guest " + ChatColor.WHITE + "-> " + ChatColor.GOLD + "Member " + ChatColor.WHITE + "- Complete Rules Check (Forced GUI)");
 //        sender.sendMessage(ChatColor.GOLD + "Member " + ChatColor.WHITE + "-> " + ChatColor.AQUA + "Citizen " + ChatColor.WHITE + String.format("- %s hours & %s coins", config.getInt("Rankup.Hours.Citizen"), config.getInt("Rankup.Prices.Citizen")));
