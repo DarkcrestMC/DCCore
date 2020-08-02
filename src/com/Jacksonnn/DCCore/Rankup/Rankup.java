@@ -31,9 +31,9 @@ public class Rankup implements CommandExecutor, Listener {
 
     public void rankupCheck(Player player) {
         if (isPlayerInGroup(player, new String[] {"JMod", "Artist", "Architect", "Moderator", "Manager", "Co-Owner", "Owner"}))
-            player.sendMessage(GeneralMethods.serverPrefix + "Silly Goose! You're staff. Don't stress about ranking up, just user your sooper cule powerz on those peon players.");
+            player.sendMessage(GeneralMethods.prefix + "Silly Goose! You're staff. Don't stress about ranking up, just user your sooper cule powerz on those peon players.");
         else if (isPlayerInGroup(player, "Ancient"))
-            player.sendMessage(GeneralMethods.serverPrefix + "Thank you for your time as a staff member! Don't stress about ranking up, just user your sooper cule powerz on those peon players.");
+            player.sendMessage(GeneralMethods.prefix + "Thank you for your time as a staff member! Don't stress about ranking up, just user your sooper cule powerz on those peon players.");
         // highest rank .sendMessage(GeneralMethods.serverPrefix + "Congratulations! You have surpassed all those peons with the lower ranks and achieved the highest player ranks possible. Have you considered donating or applying for staff?");
         else if (isPlayerInGroup(player, "Guest"))
             guestCheck(player, 1);
@@ -43,7 +43,7 @@ public class Rankup implements CommandExecutor, Listener {
             List<Integer> groupPrices = config.getIntegerList("Rankup.Prices.Ranks");
             List<Integer> groupHours = config.getIntegerList("Rankup.Hours.Ranks");
             if (groupNames.size() != groupPrices.size() || groupNames.size() != groupHours.size()) {
-                player.sendMessage(GeneralMethods.errorColor + "The rankup config is not setup correctly." +
+                player.sendMessage(GeneralMethods.errorPrefix + "The rankup config is not setup correctly." +
                         "The Rankup.Names.Ranks config, Rankup.Prices.Ranks config, and Rankup.Hours.Ranks config have different sizes." +
                         groupNames.size() + ", " + groupPrices.size() + ", " + groupHours.size());
                 return;
@@ -51,14 +51,14 @@ public class Rankup implements CommandExecutor, Listener {
             for (int i = 0; i < groupNames.size(); i++) {
                 if (isPlayerInGroup(player, groupNames.get(i))) {
                     if (i == groupNames.size() - 1)
-                        player.sendMessage(GeneralMethods.serverPrefix + "Thank you for donating for the server, if you would like to gain a higher rank, please donate or apply for staff. Everyone has a fair chance when applying for staff, so good luck~");
+                        player.sendMessage(GeneralMethods.prefix + "Thank you for donating for the server, if you would like to gain a higher rank, please donate or apply for staff. Everyone has a fair chance when applying for staff, so good luck~");
                     else
                         attemptRankup(player, groupNames.get(i), groupNames.get(i+1),
                                 groupPrices.get(i+1), groupHours.get(i+1));
                     return;
                 }
             }
-            player.sendMessage(GeneralMethods.errorColor + "You are not in a group! You have been added to the Guest group so you can continue. "
+            player.sendMessage(GeneralMethods.errorPrefix + "You are not in a group! You have been added to the Guest group so you can continue. "
                     + ChatColor.BOLD + ChatColor.UNDERLINE + "Contact staff immediately!");
             DCCore.permissions.playerAddGroup(player, "Guest");
         }
@@ -68,20 +68,20 @@ public class Rankup implements CommandExecutor, Listener {
 
         double curBalance = DCCore.economy.getBalance(player);
         if (curBalance < price) {
-            player.sendMessage(String.format(GeneralMethods.errorColor + "You do not have sufficient funds! You need " +
+            player.sendMessage(String.format(GeneralMethods.errorPrefix + "You do not have sufficient funds! You need " +
                     "%.2f more coins to rankup.", price - curBalance));
             return;
         }
         double curHours = PlayTime.getPlayTimeHours(player);
         if (curHours < hoursNeeded) {
-            player.sendMessage(String.format(GeneralMethods.errorColor + "You need to wait %.2f before you can rankup!",
+            player.sendMessage(String.format(GeneralMethods.errorPrefix + "You need to wait %.2f before you can rankup!",
                     hoursNeeded - curHours));
             return;
         }
         DCCore.economy.withdrawPlayer(player, price);
         DCCore.permissions.playerRemoveGroup(player, oldGroup);
         DCCore.permissions.playerAddGroup(player, newGroup);
-        Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() +
+        Bukkit.broadcastMessage(GeneralMethods.prefix + "Congratulations, " + player.getName() +
                 ", on ranking up from " + oldGroup + " to " + newGroup + "!");
     }
 

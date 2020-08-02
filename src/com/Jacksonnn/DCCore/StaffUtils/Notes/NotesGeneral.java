@@ -1,5 +1,7 @@
 package com.Jacksonnn.DCCore.StaffUtils.Notes;
 
+import com.Jacksonnn.DCCore.DCPlayer;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -27,14 +29,25 @@ public class NotesGeneral {
 
     public void addNote(Note note) {
         Bukkit.getLogger().info("Adding note to overall notes...");
+
         notes.add(note);
+
+        DCPlayer dcPlayer = GeneralMethods.getDCPlayer(note.getPlayer());
+        if (dcPlayer != null)
+            dcPlayer.addNote(note);
+
         Bukkit.getLogger().info("Successfully added note!");
     }
 
     public void removeNote(Note note) {
-        Bukkit.getLogger().info("Removing warning from overall warnings...");
+        Bukkit.getLogger().info("Removing note from overall notes...");
+
+        DCPlayer dcPlayer = GeneralMethods.getDCPlayer(note.getPlayer());
+        if (dcPlayer != null)
+            dcPlayer.removeNote(note);
+
         notes.remove(note);
-        Bukkit.getLogger().info("Successfully removed notes!");
+        Bukkit.getLogger().info("Successfully removed note!");
     }
 
     public static ArrayList<Note> getPlayerNotes(Player player) {

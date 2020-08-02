@@ -2,6 +2,7 @@ package com.Jacksonnn.DCCore.RandomTP;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.GeneralMethods;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -16,9 +17,12 @@ public class RandomTP implements CommandExecutor {
         if (args.length == 1) {
             if (sender.hasPermission("DCCore.RandomTP.others")) {
                 Player player = Bukkit.getPlayer(args[0]);
+                if (player == null) {
+                    sender.sendMessage(GeneralMethods.errorPrefix);
+                    return true;
+                }
                 World world = player.getWorld();
-                double worldSize = world.getWorldBorder().getSize();
-                int radius = (int) worldSize / 8;
+                int radius;
 
                 if (ConfigManager.defaultConfig.get().getBoolean("RandomTP.SetRadius")) {
                     radius = ConfigManager.defaultConfig.get().getInt("RandomTP.Radius");
@@ -34,13 +38,13 @@ public class RandomTP implements CommandExecutor {
 
                 player.teleport(GeneralMethods.toHighestBlock(endLoc));
                 player.performCommand("unstuck");
-                sender.sendMessage(GeneralMethods.successColor + "Successfully teleported player to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
-                player.sendMessage(GeneralMethods.successColor + "Successfully teleported to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
+                sender.sendMessage(GeneralMethods.successPrefix + ChatColor.of("&#00BF45") + "Successfully teleported player to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
+                player.sendMessage(GeneralMethods.successPrefix + ChatColor.of("&#00BF45") + "Successfully teleported to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
             }
         } else if (args.length == 0) {
             if (sender.hasPermission("DCCore.RandomTP.self")) {
                 if (!(sender instanceof Player)) {
-                    sender.sendMessage(GeneralMethods.errorColor + "You must be a player to execute this command.");
+                    sender.sendMessage(GeneralMethods.errorPrefix + ChatColor.of("&#00BF45") + "You must be a player to execute this command.");
                 } else {
                     World world = ((Player) sender).getWorld();
                     double worldSize = world.getWorldBorder().getSize();
@@ -60,11 +64,11 @@ public class RandomTP implements CommandExecutor {
 
                     ((Player) sender).teleport(GeneralMethods.toHighestBlock(endLoc));
                     ((Player) sender).performCommand("unstuck");
-                    sender.sendMessage(GeneralMethods.successColor + "Successfully teleported to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
+                    sender.sendMessage(GeneralMethods.successPrefix + ChatColor.of("#00BF45") + "Successfully teleported to " + GeneralMethods.locToString(GeneralMethods.toHighestBlock(endLoc)));
                 }
             }
         } else {
-            sender.sendMessage(GeneralMethods.errorColor + "/randomtp [<player>]");
+            sender.sendMessage(GeneralMethods.errorPrefix + ChatColor.of("&#00BF45") + "/randomtp [<player>]");
         }
         return true;
     }
