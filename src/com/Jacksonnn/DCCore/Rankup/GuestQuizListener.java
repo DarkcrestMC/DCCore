@@ -19,7 +19,9 @@ import static com.Jacksonnn.DCCore.Rankup.Rankup.guestCheck;
 public class GuestQuizListener implements Listener {
     @EventHandler
     public void onInventoryPress(InventoryClickEvent e) {
-        Player player = Bukkit.getPlayer(e.getWhoClicked().getName());
+        if (!(e instanceof Player))
+            return;
+        Player player = (Player)e.getWhoClicked();
         Inventory currentInventory = e.getClickedInventory();
         ItemStack clickedItem = e.getCurrentItem();
         InventoryView inventoryView = e.getView();
@@ -52,7 +54,7 @@ public class GuestQuizListener implements Listener {
                 }
             } else {
                 player.closeInventory();
-                player.sendMessage(GeneralMethods.errorColor + "You have failed your rankup test! Do /rankup to try again.");
+                player.sendMessage(GeneralMethods.errorPrefix + "You have failed your rankup test! Do /rankup to try again.");
             }
         }
     }

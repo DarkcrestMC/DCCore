@@ -72,7 +72,7 @@ public class DCCore extends JavaPlugin {
 
 		suggestionsHandler = new SuggestionsHandler();
 		pdm = new PlayerDisciplineManager(plugin);
-		new ConfigManager();
+
 		registerListeners();
 		registerCommands();
 		setupEconomy();
@@ -81,10 +81,7 @@ public class DCCore extends JavaPlugin {
 		databaseManager = new DatabaseManager(this);
 		try {
 			databaseManager.init();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			getServer().getPluginManager().disablePlugin(this);
-		} catch (ClassNotFoundException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 			getServer().getPluginManager().disablePlugin(this);
 		}
@@ -95,6 +92,7 @@ public class DCCore extends JavaPlugin {
 			e.printStackTrace();
 		}
 
+		dcpm.loadDCPlayers();
 		pdm.loadNotes();
 		pdm.loadWarnings();
 		pdm.loadReports();
@@ -104,8 +102,6 @@ public class DCCore extends JavaPlugin {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		dcpm.loadDCPlayers();
 
 		BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 		scheduler.scheduleSyncRepeatingTask(this, new AnnouncerThread(this), AnnouncementManager.getInterval() * 20L, AnnouncementManager.getInterval() * 20L);
@@ -126,10 +122,10 @@ public class DCCore extends JavaPlugin {
         pm.registerEvents(new ResponseListener(), this);
         pm.registerEvents(new GuestQuizListener(), this);
         pm.registerEvents(new onChatEvent(), this);
-        pm.registerEvents(new onLeaveEvent(), this);
         pm.registerEvents(new StaffNotification(), this);
         pm.registerEvents(new Vanish(), this);
         pm.registerEvents(new BannedWordsListener(), this);
+		pm.registerEvents(new DCPlayerListener(), this);
 	}
 	
 	private void registerCommands() {
@@ -156,9 +152,11 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("lightspirit").setExecutor(new LightSpirit());
 		this.getCommand("darkspirit").setExecutor(new DarkSpirit());
 		this.getCommand("bendingfix").setExecutor(new BendingFix());
-		this.getCommand("headofstaff").setExecutor(new HoSCommand());
+		this.getCommand("headofstaff").setExecutor(new HOSCommand());
+		this.getCommand("developer").setExecutor(new DeveloperCommand());
 		this.getCommand("managers").setExecutor(new ManagersCommand());
 		this.getCommand("moderators").setExecutor(new ModeratorsCommand());
+		this.getCommand("eventhosts").setExecutor(new EventHostsCommand());
 		this.getCommand("staffchat").setExecutor(new StaffChatCommand());
 		this.getCommand("artists").setExecutor(new ArtistCommand());
 		this.getCommand("staffcount").setExecutor(new StaffCountCommand());

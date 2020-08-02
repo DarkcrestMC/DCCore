@@ -20,14 +20,14 @@ public class BendingFix implements CommandExecutor {
 
                 fixBender(player, sender);
             } else {
-                sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient permission to execute this command.");
+                sender.sendMessage(GeneralMethods.errorPrefix + "You do not have sufficient permission to execute this command.");
             }
         } else if (args.length == 0) {
             Player player = (Player) sender;
 
             fixBender(player, sender);
         } else {
-            sender.sendMessage(GeneralMethods.errorColor + "/bendingfix [<player]>]");
+            sender.sendMessage(GeneralMethods.errorPrefix + "/bendingfix [<player]>]");
         }
         return true;
     }
@@ -35,7 +35,7 @@ public class BendingFix implements CommandExecutor {
     public void fixBender(Player player, CommandSender sender) {
         ArrayList<String> userGroups = new ArrayList<>();
         if (DCCore.permissions.playerInGroup(player, "Bender")) {
-            sender.sendMessage(GeneralMethods.errorColor + "Player permissions are already fixed!");
+            sender.sendMessage(GeneralMethods.errorPrefix + "Player permissions are already fixed!");
         }
         if (DCCore.permissions.playerInGroup(player, "JMod")) {
             userGroups.add("JMod");
@@ -96,7 +96,7 @@ public class BendingFix implements CommandExecutor {
             DCCore.permissions.playerAddGroup(player, group);
         }
 
-        player.sendMessage(GeneralMethods.serverPrefix + "Your bending has been fixed.");
-        sender.sendMessage(GeneralMethods.successColor + "You have fixed " + player.getName() + "'s bending permissions permissions!");
+        player.sendMessage(GeneralMethods.prefix + "Your bending has been fixed.");
+        sender.sendMessage(GeneralMethods.successPrefix + "You have fixed " + player.getName() + "'s bending permissions permissions!");
     }
 }
