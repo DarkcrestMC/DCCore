@@ -64,19 +64,19 @@ public class LightSpirit implements CommandExecutor {
                         DCCore.permissions.playerAddGroup(player, "Guest");
                     }
                     
-                    player.sendMessage(GeneralMethods.serverPrefix + "You can now choose LightSpirit.");
-                    sender.sendMessage(GeneralMethods.successColor + "You have given " + args[0] + " LightSpirit permissions!");
+                    player.sendMessage(GeneralMethods.prefix + "You can now choose LightSpirit.");
+                    sender.sendMessage(GeneralMethods.successPrefix + "You have given " + args[0] + " LightSpirit permissions!");
                 }
             } else if (args.length == 0) {
                 if (sender.hasPermission("bending.LightSpirit")) {
                     Player player = (Player) sender;
-                    sender.sendMessage(GeneralMethods.serverPrefix + "You can now choose LightSpirit.");
+                    sender.sendMessage(GeneralMethods.prefix + "You can now choose LightSpirit.");
                 }
             } else {
-                sender.sendMessage(GeneralMethods.errorColor + "/lightspirit [<player]>]");
+                sender.sendMessage(GeneralMethods.errorPrefix + "/lightspirit [<player]>]");
             }
         } else {
-            sender.sendMessage(GeneralMethods.errorColor + "You do not have sufficient permission to execute this command.");
+            sender.sendMessage(GeneralMethods.errorPrefix + "You do not have sufficient permission to execute this command.");
         }
         return true;
     }

@@ -1,5 +1,7 @@
 package com.Jacksonnn.DCCore.StaffUtils.Reports;
 
+import com.Jacksonnn.DCCore.DCPlayer;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.BugReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.PlayerReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.StaffReport;
@@ -85,18 +87,34 @@ public class ReportGeneral {
         if (report instanceof ToDoReport) {
             Bukkit.getLogger().info("Adding report to overall todo reports...");
             todoReports.add((ToDoReport) report);
+
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((ToDoReport) report).getStaffMember());
+            dcPlayer.addTodoReport((ToDoReport) report);
+
             Bukkit.getLogger().info("Successfully added todo report!");
         } else if (report instanceof BugReport) {
             Bukkit.getLogger().info("Adding report to overall bug reports...");
             bugReports.add((BugReport) report);
+
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((BugReport) report).getStaffMember());
+            dcPlayer.addBugReport((BugReport) report);
+
             Bukkit.getLogger().info("Successfully added bug report!");
         } else if (report instanceof PlayerReport) {
             Bukkit.getLogger().info("Adding report to overall player reports...");
             playerReports.add((PlayerReport) report);
+
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((PlayerReport) report).getPlayer());
+            dcPlayer.addPlayerReport((PlayerReport) report);
+
             Bukkit.getLogger().info("Successfully added player report!");
         } else if (report instanceof StaffReport) {
             Bukkit.getLogger().info("Adding report to overall staff reports...");
             staffReports.add((StaffReport) report);
+
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((StaffReport) report).getPlayer());
+            dcPlayer.addStaffReport((StaffReport) report);
+
             Bukkit.getLogger().info("Successfully added staff report!");
         }
     }
@@ -105,18 +123,34 @@ public class ReportGeneral {
         if (report instanceof ToDoReport) {
             Bukkit.getLogger().info("Removing report from overall todo reports...");
             todoReports.remove(report);
+
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((ToDoReport) report).getStaffMember());
+            dcPlayer.removeTodoReport((ToDoReport) report);
+
             Bukkit.getLogger().info("Successfully removed todo report!");
         } else if (report instanceof BugReport) {
             Bukkit.getLogger().info("Removing report from overall bug reports...");
             bugReports.remove(report);
+
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((BugReport) report).getStaffMember());
+            dcPlayer.removeBugReport((BugReport) report);
+
             Bukkit.getLogger().info("Successfully removed bug report!");
         } else if (report instanceof PlayerReport) {
             Bukkit.getLogger().info("Removing report from overall player reports...");
             playerReports.remove(report);
+
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((PlayerReport) report).getPlayer());
+            dcPlayer.removePlayerReport((PlayerReport) report);
+
             Bukkit.getLogger().info("Successfully removed player report!");
         } else if (report instanceof StaffReport) {
             Bukkit.getLogger().info("Removing report from overall staff reports...");
             staffReports.remove(report);
+
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((StaffReport) report).getPlayer());
+            dcPlayer.removeStaffReport((StaffReport) report);
+
             Bukkit.getLogger().info("Successfully removed staff report!");
         }
     }
