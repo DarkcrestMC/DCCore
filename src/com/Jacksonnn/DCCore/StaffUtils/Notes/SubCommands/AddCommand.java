@@ -2,6 +2,8 @@ package com.Jacksonnn.DCCore.StaffUtils.Notes.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.DCPlayer;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.Note;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesSubCommand;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
@@ -52,17 +54,20 @@ public class AddCommand implements NotesSubCommand {
     @Override
     public void execute(CommandSender sender, List<String> args) {
         if (args.size() >= 2) {
-            UUID player = Bukkit.getPlayer(args.get(0)).getUniqueId();
-            UUID staffMember = ((Player) sender).getPlayer().getUniqueId();
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(args.get(0));
 
-            if (player == null) {
+            if (dcPlayer == null) {
                 sender.sendMessage(pdm.getNoteManager().notesPrefix + "That player does not exist, please try again.");
                 return;
             }
 
-            if (staffMember == null) {
+            UUID player = dcPlayer.getUuid();
+
+            if (!(sender instanceof Player)) {
                 sender.sendMessage(pdm.getNoteManager().notesPrefix + "You must be a player to execute this command.");
             }
+
+            UUID staffMember = ((Player) sender).getPlayer().getUniqueId();
 
             args.remove(0);
 

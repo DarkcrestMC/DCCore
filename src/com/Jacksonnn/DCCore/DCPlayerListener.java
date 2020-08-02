@@ -23,6 +23,7 @@ public class DCPlayerListener implements Listener {
             dcPlayer.setTimesJoined(dcPlayer.getTimesJoined() + 1);
             dcPlayer.setLastPlayed(e.getPlayer().getLastPlayed());
             dcPlayer.setRanks(DCCore.permissions.getPlayerGroups(e.getPlayer()));
+            dcPlayer.setLastLocation(e.getPlayer().getLocation());
         }
     }
 

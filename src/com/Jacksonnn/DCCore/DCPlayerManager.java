@@ -43,6 +43,14 @@ public class DCPlayerManager {
             preparedStatement.setLong(3, dcPlayer.getPlayTime());
             preparedStatement.setString(4, GeneralMethods.booleanToString(dcPlayer.isQuickdeposit()));
             preparedStatement.setString(5, dcPlayer.getChatMode().getChatName());
+            preparedStatement.setLong(6, dcPlayer.getFirstPlayed());
+            preparedStatement.setLong(7, dcPlayer.getLastPlayed());
+            preparedStatement.setString(8, GeneralMethods.locToString(dcPlayer.getLastLocation()));
+            preparedStatement.setString(9, StringUtils.join(dcPlayer.getRanks(), ";"));
+            preparedStatement.setInt(10, dcPlayer.getTimesJoined());
+            preparedStatement.setInt(11, dcPlayer.getKills());
+            preparedStatement.setInt(12, dcPlayer.getDeaths());
+            preparedStatement.setString(13, dcPlayer.getLastIP());
 
             preparedStatement.execute();
             preparedStatement.close();
