@@ -85,37 +85,41 @@ public class ReportGeneral {
 
     public void addReport(Object report) {
         if (report instanceof ToDoReport) {
-            Bukkit.getLogger().info("Adding report to overall todo reports...");
+//            Bukkit.getLogger().info("Adding report to overall todo reports...");
             todoReports.add((ToDoReport) report);
 
             DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((ToDoReport) report).getStaffMember());
-            dcPlayer.addTodoReport((ToDoReport) report);
+            if (dcPlayer != null)
+                dcPlayer.addTodoReport((ToDoReport) report);
 
-            Bukkit.getLogger().info("Successfully added todo report!");
+//            Bukkit.getLogger().info("Successfully added todo report!");
         } else if (report instanceof BugReport) {
-            Bukkit.getLogger().info("Adding report to overall bug reports...");
+//            Bukkit.getLogger().info("Adding report to overall bug reports...");
             bugReports.add((BugReport) report);
 
             DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((BugReport) report).getStaffMember());
-            dcPlayer.addBugReport((BugReport) report);
+            if (dcPlayer != null)
+                dcPlayer.addBugReport((BugReport) report);
 
-            Bukkit.getLogger().info("Successfully added bug report!");
+//            Bukkit.getLogger().info("Successfully added bug report!");
         } else if (report instanceof PlayerReport) {
-            Bukkit.getLogger().info("Adding report to overall player reports...");
+//            Bukkit.getLogger().info("Adding report to overall player reports...");
             playerReports.add((PlayerReport) report);
 
             DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((PlayerReport) report).getPlayer());
-            dcPlayer.addPlayerReport((PlayerReport) report);
+            if (dcPlayer != null)
+                dcPlayer.addPlayerReport((PlayerReport) report);
 
-            Bukkit.getLogger().info("Successfully added player report!");
+//            Bukkit.getLogger().info("Successfully added player report!");
         } else if (report instanceof StaffReport) {
-            Bukkit.getLogger().info("Adding report to overall staff reports...");
+//            Bukkit.getLogger().info("Adding report to overall staff reports...");
             staffReports.add((StaffReport) report);
 
             DCPlayer dcPlayer = GeneralMethods.getDCPlayer(((StaffReport) report).getPlayer());
-            dcPlayer.addStaffReport((StaffReport) report);
+            if (dcPlayer != null)
+                dcPlayer.addStaffReport((StaffReport) report);
 
-            Bukkit.getLogger().info("Successfully added staff report!");
+//            Bukkit.getLogger().info("Successfully added staff report!");
         }
     }
 

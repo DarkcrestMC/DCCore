@@ -35,15 +35,13 @@ public class BannedWordsListener implements Listener {
         if (wordsUsed != null) {
             event.setCancelled(true);
             player.sendMessage(GeneralMethods.prefix + BannedWordsCommand.color + " Please rethink your choice of words... (check your username, nickname, or chat message!!!)");
-            StringBuilder builder = new StringBuilder(GeneralMethods.accentColor + " " + ChatColor.ITALIC + "Banned words used: " + ChatColor.RESET + bannedWords.get(0));
-            for (int i = 1; i < bannedWords.size(); i++) {
-                if (message.contains(bannedWords.get(i))) {
-                    if (i == bannedWords.size() - 1)
-                        builder.append(" and ");
-                    else
-                        builder.append(", ");
-                    builder.append(bannedWords.get(i));
-                }
+            StringBuilder builder = new StringBuilder(GeneralMethods.accentColor + " " + ChatColor.ITALIC + "Banned words used: " + ChatColor.RESET + wordsUsed.get(0));
+            for (int i = 1; i < wordsUsed.size(); i++) {
+                if (i == wordsUsed.size() - 1)
+                    builder.append(" and ");
+                else
+                    builder.append(", ");
+                builder.append(wordsUsed.get(i));
             }
             player.sendMessage(builder.toString());
         }

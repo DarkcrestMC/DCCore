@@ -7,16 +7,14 @@ import com.Jacksonnn.DCCore.BannedWords.BannedWordsCommand;
 import com.Jacksonnn.DCCore.BannedWords.BannedWordsListener;
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
+import com.Jacksonnn.DCCore.Configuration.Config;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DiamondLuck.DiamondLuck;
 import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
 import com.Jacksonnn.DCCore.OverrideCommands.*;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.RandomTP.RandomTP;
-import com.Jacksonnn.DCCore.Rankup.GuestQuizListener;
-import com.Jacksonnn.DCCore.Rankup.PlayTime;
-import com.Jacksonnn.DCCore.Rankup.Ranks;
-import com.Jacksonnn.DCCore.Rankup.Rankup;
+import com.Jacksonnn.DCCore.Rankup.*;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
 import com.Jacksonnn.DCCore.StaffUtils.BanishHackFix;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesCommand;
@@ -63,6 +61,8 @@ public class DCCore extends JavaPlugin {
 
 	public void onEnable() {
 		plugin = this;
+
+		ConfigManager.setupConfigManager();
 
 		this.nG = new NotesGeneral();
 		this.wG = new WarningGeneral();
@@ -132,6 +132,7 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("broadcast").setExecutor(new BroadcastCommand());
 		this.getCommand("bannedwords").setExecutor(new BannedWordsCommand());
 		this.getCommand("dccore").setExecutor(new CoreCommands());
+		this.getCommand("doguestquiz").setExecutor(new DoGuestQuizCommand());
 		this.getCommand("rankup").setExecutor(new Rankup());
 		this.getCommand("playtime").setExecutor(new PlayTime());
 		this.getCommand("ranks").setExecutor(new Ranks());
