@@ -91,7 +91,7 @@ public class Ranks implements CommandExecutor {
         else if (hours == -2)
             second = "Apply on the forums! " + ChatColor.AQUA + ChatColor.UNDERLINE + ChatColor.ITALIC + "https://darkcrestmc.net";
         else
-            second = String.format(ChatColor.AQUA + "%1$d hours%3$s and " + ChatColor.GREEN + "$%2$,d", hours, price, baseColor);
+            second = String.format(ChatColor.AQUA + "%1$d " + (hours == 1 ? "hour" : "hours") + "%3$s and " + ChatColor.GREEN + "$%2$,d", hours, price, baseColor);
         sender.sendMessage(first + second);
     }
 }
