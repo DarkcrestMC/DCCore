@@ -5,6 +5,12 @@ main: com.Jacksonnn.DCCore.DCCore
 loadbefore: [Essentials, Playtimes, DiscordSRVMy ]
 api-version: 1.13
 commands:
+  bendingguide:
+    aliases: [bendingbook, bguide, bbook]
+    usage: /<commmand>
+  dcguide:
+    aliases: [dcquickstart, dcbook, guide]
+    usage: /<command>
   dccore:
     aliases: [dc,dcc,dcore]
     usage: /<command>
