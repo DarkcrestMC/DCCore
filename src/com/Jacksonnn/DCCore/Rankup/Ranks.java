@@ -17,7 +17,7 @@ public class Ranks implements CommandExecutor {
         FileConfiguration config = ConfigManager.defaultConfig.get();
         sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Here are is all of the ranking information!");
         sender.sendMessage(GeneralMethods.prefix + ChatColor.of("#E5B100") + "Use " + ChatColor.AQUA + ChatColor.UNDERLINE +
-                "/warp RankInfo" + ChatColor.RESET + ChatColor.WHITE + " to learn about each rank!");
+                "/warp RankInfo" + ChatColor.RESET + GeneralMethods.accentColor + " to learn about each rank!");
 //        sender.sendMessage(ChatColor.DARK_BLUE + "Guest " + ChatColor.WHITE + "-> " + ChatColor.GOLD + "Member " + ChatColor.WHITE + "- Complete Rules Check (Forced GUI)");
 //        sender.sendMessage(ChatColor.GOLD + "Member " + ChatColor.WHITE + "-> " + ChatColor.AQUA + "Citizen " + ChatColor.WHITE + String.format("- %s hours & %s coins", config.getInt("Rankup.Hours.Citizen"), config.getInt("Rankup.Prices.Citizen")));
 //        sender.sendMessage(ChatColor.AQUA + "Citizen " + ChatColor.WHITE + "-> " + ChatColor.GREEN + "Merchant " + ChatColor.WHITE + String.format("- %s hours & %s coins", config.getInt("Rankup.Hours.Merchant"), config.getInt("Rankup.Prices.Merchant")));
@@ -89,9 +89,9 @@ public class Ranks implements CommandExecutor {
         if (hours == -1)
             second = "Complete Rules Check (Forced GUI)";
         else if (hours == -2)
-            second = "Apply on the forums! " + ChatColor.AQUA + ChatColor.UNDERLINE + ChatColor.ITALIC + "http://darkcrestmc.net";
+            second = "Apply on the forums! " + ChatColor.AQUA + ChatColor.UNDERLINE + ChatColor.ITALIC + "https://darkcrestmc.net";
         else
-            second = String.format(ChatColor.AQUA + "%1$d hours%3$s and " + ChatColor.GREEN + "$%2$,d", hours, price, baseColor);
+            second = String.format(ChatColor.AQUA + "%1$d " + (hours == 1 ? "hour" : "hours") + "%3$s and " + ChatColor.GREEN + "$%2$,d", hours, price, baseColor);
         sender.sendMessage(first + second);
     }
 }

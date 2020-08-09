@@ -32,11 +32,11 @@ public class StaffChatCommand implements CommandExecutor {
                 if (currentChat != GeneralMethods.ChatModes.STAFF) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.STAFF);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to STAFFCHAT.");
-                    DCCore.permissions.playerAdd(player, "-discordsrv.chat");
+                    DCCore.permissions.playerAdd(null, player, "-discordsrv.chat");
                 } else if (currentChat == GeneralMethods.ChatModes.STAFF) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.GENERAL);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to GENERAL.");
-                    DCCore.permissions.playerRemove(player, "-discordsrv.chat");
+                    DCCore.permissions.playerRemove(null, player, "-discordsrv.chat");
                 }
                 ConfigManager.defaultConfig.save();
             } else {

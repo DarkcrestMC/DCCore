@@ -130,6 +130,11 @@ public class ConfigManager {
             config.addDefault("Language.StaffNotification.AncientColor", "&b&l");
             config.addDefault("Language.StaffNotification.ArtistColor", "&a&l");
 
+            config.addDefault("Language.BendingHelp.Description", "&#E5B100DarkcrestMC uses the &#C9C9C9&lProjectKorra&#E5B100 plugin to allow for A:TLA and A:LOK in-game play. As a &omember&#E5B100, you can choose between the elements (&7air&#E5B100, &bwater&#E5B100, &aearth&#E5B100, &cfire&#E5B100, and &6chi&#E5B100).§" +
+                    "&#E5B100When you become a &#62636e[&#c018d6Merchant&#62636e]&#E5B100 rank or higher, you can also start using the &3Spirit&#E5B100 element.§" +
+                    "&#E5B100On DarkcrestMC, you are also able to donate for &#AA00E5Avatar&#E5B100! In order to do so, type &#C9C9C9&l/donate&#E5B100. You can also obtain it as a regular player according to &#C9C9C9&l/ranks&#E5B100.§" +
+                    "&#E5B100In order to use the &oSpiritTypes&#E5B100, it works the same as avatar. You can donate for either &fLightSpirit&#E5B100 or &#E5B100&8DarkSpirit&#E5B100 through &#C9C9C9&l/donate&#E5B100. Otherwise, you could obtain it according to &#C9C9C9&l/ranks&#E5B100.§");
+
             config.addDefault("Reports.CommandDescriptions.Help", "Shows all possible commands and their arguments.");
             config.addDefault("Reports.CommandDescriptions.Add", "Creates a new report for the specified type.");
             config.addDefault("Reports.CommandDescriptions.Remove", "Removes/Deletes a Report");

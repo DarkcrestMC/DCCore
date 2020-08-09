@@ -32,12 +32,12 @@ public class EventHostsCommand implements CommandExecutor {
                 if (currentChat != GeneralMethods.ChatModes.EVENTHOSTS) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.EVENTHOSTS);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to EVENTHOSTS.");
-                    DCCore.permissions.playerAdd(player, "-discordsrv.chat");
+                    DCCore.permissions.playerAdd(null, player, "-discordsrv.chat");
 
                 } else if (currentChat == GeneralMethods.ChatModes.EVENTHOSTS) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.GENERAL);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to GENERAL.");
-                    DCCore.permissions.playerRemove(player, "-discordsrv.chat");
+                    DCCore.permissions.playerRemove(null, player, "-discordsrv.chat");
                 }
 
             } else {

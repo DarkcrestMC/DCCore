@@ -32,11 +32,11 @@ public class ArtistCommand implements CommandExecutor {
                 if (currentChat != GeneralMethods.ChatModes.ARTIST) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.ARTIST);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to ARTIST.");
-                    DCCore.permissions.playerAdd(player, "-discordsrv.chat");
+                    DCCore.permissions.playerAdd(null, player, "-discordsrv.chat");
                 } else if (currentChat == GeneralMethods.ChatModes.ARTIST) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.GENERAL);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to GENERAL.");
-                    DCCore.permissions.playerRemove(player, "-discordsrv.chat");
+                    DCCore.permissions.playerRemove(null, player, "-discordsrv.chat");
                 }
                 ConfigManager.defaultConfig.save();
             } else {

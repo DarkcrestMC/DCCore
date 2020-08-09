@@ -18,50 +18,50 @@ public class LightSpirit implements CommandExecutor {
             if (args.length == 1) {
                 if (sender.hasPermission("bending.admin")) {
                     Player player = Bukkit.getPlayer(args[0]);
-                    if (DCCore.permissions.playerInGroup(player, "JMod")) {
-                        DCCore.permissions.playerRemoveGroup(player, "JMod");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "JMod");
-                    } else if (DCCore.permissions.playerInGroup(player, "Architect")) {
-                        DCCore.permissions.playerRemoveGroup(player, "Architect");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "Architect");
-                    } else if (DCCore.permissions.playerInGroup(player, "Artist")) {
-                        DCCore.permissions.playerRemoveGroup(player, "Artist");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "Artist");
-                    } else if (DCCore.permissions.playerInGroup(player, "Royal")) {
-                        DCCore.permissions.playerRemoveGroup(player, "Royal");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "Royal");
-                    } else if (DCCore.permissions.playerInGroup(player, "Noble")) {
-                        DCCore.permissions.playerRemoveGroup(player, "Noble");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "Noble");
-                    } else if (DCCore.permissions.playerInGroup(player, "Official")) {
-                        DCCore.permissions.playerRemoveGroup(player, "Official");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "Official");
-                    } else if (DCCore.permissions.playerInGroup(player, "Baron")) {
-                        DCCore.permissions.playerRemoveGroup(player, "Baron");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "Baron");
-                    } else if (DCCore.permissions.playerInGroup(player, "Merchant")) {
-                        DCCore.permissions.playerRemoveGroup(player, "Merchant");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "Merchant");
-                    } else if (DCCore.permissions.playerInGroup(player, "Citizen")) {
-                        DCCore.permissions.playerRemoveGroup(player, "Citizen");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "Citizen");
-                    } else if (DCCore.permissions.playerInGroup(player, "Member")) {
-                        DCCore.permissions.playerRemoveGroup(player, "Member");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "Member");
-                    } else if (DCCore.permissions.playerInGroup(player, "Guest")) {
-                        DCCore.permissions.playerRemoveGroup(player, "Guest");
-                        DCCore.permissions.playerAddGroup(player, "LightSpirit");
-                        DCCore.permissions.playerAddGroup(player, "Guest");
+                    if (DCCore.permissions.playerInGroup(null, player, "JMod")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "JMod");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "JMod");
+                    } else if (DCCore.permissions.playerInGroup(null, player, "Architect")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "Architect");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "Architect");
+                    } else if (DCCore.permissions.playerInGroup(null, player, "Artist")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "Artist");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "Artist");
+                    } else if (DCCore.permissions.playerInGroup(null, player, "Royal")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "Royal");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "Royal");
+                    } else if (DCCore.permissions.playerInGroup(null, player, "Noble")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "Noble");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "Noble");
+                    } else if (DCCore.permissions.playerInGroup(null, player, "Official")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "Official");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "Official");
+                    } else if (DCCore.permissions.playerInGroup(null, player, "Baron")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "Baron");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "Baron");
+                    } else if (DCCore.permissions.playerInGroup(null, player, "Merchant")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "Merchant");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "Merchant");
+                    } else if (DCCore.permissions.playerInGroup(null, player, "Citizen")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "Citizen");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "Citizen");
+                    } else if (DCCore.permissions.playerInGroup(null, player, "Member")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "Member");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "Member");
+                    } else if (DCCore.permissions.playerInGroup(null, player, "Guest")) {
+                        DCCore.permissions.playerRemoveGroup(null, player, "Guest");
+                        DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
+                        DCCore.permissions.playerAddGroup(null, player, "Guest");
                     }
                     
                     player.sendMessage(GeneralMethods.prefix + "You can now choose LightSpirit.");

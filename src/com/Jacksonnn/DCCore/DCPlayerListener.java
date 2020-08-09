@@ -22,13 +22,15 @@ public class DCPlayerListener implements Listener {
             }
             dcPlayer.setTimesJoined(dcPlayer.getTimesJoined() + 1);
             dcPlayer.setLastPlayed(e.getPlayer().getLastPlayed());
-            dcPlayer.setRanks(DCCore.permissions.getPlayerGroups(e.getPlayer()));
+            dcPlayer.setRanks(DCCore.permissions.getPlayerGroups(null, e.getPlayer()));
             dcPlayer.setLastLocation(e.getPlayer().getLocation());
         }
     }
 
     @EventHandler
     public void onLeave(PlayerQuitEvent e) {
+        DCCore.permissions.playerRemove(null, e.getPlayer(), "-discordsrv.chat");
+
         DCPlayer dcPlayer = GeneralMethods.getDCPlayer(e.getPlayer().getUniqueId());
 
         if (dcPlayer != null) {
@@ -37,7 +39,7 @@ public class DCPlayerListener implements Listener {
             dcPlayer.setChatMode(GeneralMethods.ChatModes.GENERAL);
             dcPlayer.setLastLocation(e.getPlayer().getLocation());
             dcPlayer.setLastPlayed(e.getPlayer().getLastPlayed());
-            dcPlayer.setRanks(DCCore.permissions.getPlayerGroups(e.getPlayer()));
+            dcPlayer.setRanks(DCCore.permissions.getPlayerGroups(null, e.getPlayer()));
 
             DCCore.getDCPM().updateDCPlayer(dcPlayer);
         } else {

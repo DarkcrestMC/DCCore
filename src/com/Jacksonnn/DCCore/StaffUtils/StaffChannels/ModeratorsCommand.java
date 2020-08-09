@@ -32,15 +32,15 @@ public class ModeratorsCommand implements CommandExecutor {
                 if (currentChat != GeneralMethods.ChatModes.MODERATORS) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.MODERATORS);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to MODERATORS.");
-                    DCCore.permissions.playerAdd(player, "-discordsrv.chat");
+                    DCCore.permissions.playerAdd(null, player, "-discordsrv.chat");
                 } else if (currentChat == GeneralMethods.ChatModes.MODERATORS) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.GENERAL);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to GENERAL.");
-                    DCCore.permissions.playerRemove(player, "-discordsrv.chat");
+                    DCCore.permissions.playerRemove(null, player, "-discordsrv.chat");
                 } else {
                     ConfigManager.defaultConfig.get().set("DCStaffChat." + sender.getName(), "Moderators");
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to MODERATORS.");
-                    DCCore.permissions.playerAdd(player, "-discordsrv.chat");
+                    DCCore.permissions.playerAdd(null, player, "-discordsrv.chat");
                 }
                 ConfigManager.defaultConfig.save();
             } else {
