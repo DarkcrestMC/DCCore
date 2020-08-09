@@ -40,8 +40,8 @@ public enum DCPlayerQueries {
             "SELECT * FROM `dcplayers`",
                     "SELECT * FROM dcplayers"),
     UPDATE_DCPLAYER(
-            "UPDATE `dcplayers` SET name=?, playtime=?, quickdeposit=?, chatmode=?, firstPlayed=?, lastPlayed=?, lastLocation=?, ranks=?, timesJoined=?, kills=?, deaths=?, lastIP=?, WHERE uuid=?",
-                    "UPDATE dcplayers SET name=?, playtime=?, quickdeposit=?, chatmode=?, firstPlayed=?, lastPlayed=?, lastLocation=?, ranks=?, timesJoined=?, kills=?, deaths=?, lastIP=?, WHERE uuid=?"),
+            "UPDATE `dcplayers` SET name=?, playtime=?, quickdeposit=?, chatmode=?, firstPlayed=?, lastPlayed=?, lastLocation=?, ranks=?, timesJoined=?, kills=?, deaths=?, lastIP=? WHERE uuid=?",
+                    "UPDATE dcplayers SET name=?, playtime=?, quickdeposit=?, chatmode=?, firstPlayed=?, lastPlayed=?, lastLocation=?, ranks=?, timesJoined=?, kills=?, deaths=?, lastIP=? WHERE uuid=?"),
     DELETE_DCPLAYER(
             "DELETE FROM `dcplayers` WHERE uuid=?",
                     "DELETE FROM dcplayers WHERE uuid=?");
