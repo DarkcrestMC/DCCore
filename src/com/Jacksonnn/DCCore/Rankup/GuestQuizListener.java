@@ -4,6 +4,7 @@ import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
 import com.Jacksonnn.DCCore.GeneralMethods;
 import org.bukkit.Bukkit;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,7 +20,7 @@ import static com.Jacksonnn.DCCore.Rankup.Rankup.guestCheck;
 public class GuestQuizListener implements Listener {
     @EventHandler
     public void onInventoryPress(InventoryClickEvent e) {
-        if (!(e instanceof Player))
+        if (!(e.getWhoClicked() instanceof Player))
             return;
         Player player = (Player)e.getWhoClicked();
         Inventory currentInventory = e.getClickedInventory();

@@ -28,7 +28,7 @@ public class NotesGeneral {
     }
 
     public void addNote(Note note) {
-        Bukkit.getLogger().info("Adding note to overall notes...");
+//        Bukkit.getLogger().info("Adding note to overall notes...");
 
         notes.add(note);
 
@@ -36,7 +36,7 @@ public class NotesGeneral {
         if (dcPlayer != null)
             dcPlayer.addNote(note);
 
-        Bukkit.getLogger().info("Successfully added note!");
+//        Bukkit.getLogger().info("Successfully added note!");
     }
 
     public void removeNote(Note note) {

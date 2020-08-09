@@ -17,6 +17,8 @@ commands:
   bendingtournament:
     aliases: [bt, tournament, tourney, bendingt, btournament, btourny]
     usage: /<command>
+  doguestquiz:
+    usage: /<command>
   rankup:
     aliases: [ru, rank, rup]
     usage: /<command>
@@ -67,12 +69,12 @@ commands:
   managers:
     aliases: [ms, admins, managerchat, mchat]
     usage: /<command>
-    developer:
-      aliases: [devs, developers, dev]
-      usage: /<command>
-    eventhosts:
-      aliases: [eh, eventhost, ehosts]
-      usage: /<command>
+  developer:
+    aliases: [devs, developers, dev]
+    usage: /<command>
+  eventhosts:
+    aliases: [eh, eventhost, ehosts]
+    usage: /<command>
   moderators:
     aliases: [mods, jmods, serverstaff, jrmoderators, jrmods, babystaff]
     usage: /<command>

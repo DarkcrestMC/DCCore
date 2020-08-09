@@ -28,13 +28,14 @@ public class WarningGeneral {
     }
 
     public void addWarning(Warning warning) {
-        Bukkit.getLogger().info("Adding warning to overall warnings...");
+//        Bukkit.getLogger().info("Adding warning to overall warnings...");
         warnings.add(warning);
 
         DCPlayer dcPlayer = GeneralMethods.getDCPlayer(warning.getPlayer());
-        dcPlayer.addWarning(warning);
+        if (dcPlayer != null)
+            dcPlayer.addWarning(warning);
 
-        Bukkit.getLogger().info("Successfully added warning!");
+//        Bukkit.getLogger().info("Successfully added warning!");
     }
 
     public void removeWarning(Warning warning) {

@@ -29,9 +29,9 @@ public class SuggestCommand implements CommandExecutor {
                         boolean approve = args[0].equals("APPROVE");
                         try {
                             int suggestionId = Integer.parseInt(args[1]);
-                            if (DCCore.getSuggestionsHandler().voteOnSuggestion(suggestionId, player, approve))
-                                return true; // if successful, SuggestionHandler will deal with everything else.
-                                             // otherwise, assume player is manually making a new suggestion
+                            DCCore.getSuggestionsHandler().voteOnSuggestion(suggestionId, player, approve);
+                            return true; // if successful, SuggestionHandler will deal with everything else.
+                                         // otherwise, assume player is manually making a new suggestion
                         } catch (Exception ignored) {}
                 }
             }

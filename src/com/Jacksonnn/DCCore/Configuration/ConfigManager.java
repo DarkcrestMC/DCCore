@@ -12,7 +12,7 @@ public class ConfigManager {
     public static Config bannedWords;
     public static Config announcer;
 
-    public ConfigManager() {
+    public static void setupConfigManager() {
         defaultConfig = new Config(new File("config.yml"));
         langConfig = new Config(new File("language.yml"));
         bannedWords = new Config(new File("bannedWords.yml"));
