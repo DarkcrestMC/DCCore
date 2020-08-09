@@ -161,9 +161,8 @@ public class GeneralMethods {
 		} else {
 			for (Player player : onlinePlayers) {
 				if (player.hasPermission("DCCore.staffchats.Staff")) {
-					//player.sendMessage(GeneralMethods.serverPrefix + "Server has " + staffColor + onlineStaff + ChatColor.YELLOW + " online staff (" + ownerColor + onlineOwners + " Owners, " + coOwnerColor + onlineCoOwners + " Co-Owners, " + managerColor + onlineManagers + " Managers, " + moderatorColor + onlineModerators + " Moderators, " + jModColor + onlineJMods + " JMods, " + ancientColor + onlineAncients + " Ancients, " + artistColor + onlineArtists + " Artists" + ChatColor.YELLOW + ").");
 					player.sendMessage("");
-					player.sendMessage(GeneralMethods.prefix + "Server has " + staffColor + onlineStaff + ChatColor.YELLOW + " online staff (" + ownerColor + onlineOwners + " " + coOwnerColor + onlineCoOwners + " " + managerColor + onlineManagers + " " + moderatorColor + onlineModerators + " " + jModColor + onlineJMods + " " + ancientColor + onlineAncients + " " + artistColor + onlineArtists + ChatColor.YELLOW + ").");
+					player.sendMessage(GeneralMethods.prefix + "Server has " + staffColor + onlineStaff + GeneralMethods.accentColor + " online staff (" + ownerColor + onlineOwners + " " + coOwnerColor + onlineCoOwners + " " + managerColor + onlineManagers + " " + moderatorColor + onlineModerators + " " + jModColor + onlineJMods + " " + ancientColor + onlineAncients + " " + artistColor + onlineArtists + GeneralMethods.accentColor + ").");
 				}
 			}
 		}
