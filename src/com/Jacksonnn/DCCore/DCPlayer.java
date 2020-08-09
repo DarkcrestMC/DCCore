@@ -42,7 +42,7 @@ public class DCPlayer {
         uuid = player.getUniqueId();
         playTime = player.getStatistic(Statistic.PLAY_ONE_MINUTE) / 60 * 1000;
         firstPlayed = player.getFirstPlayed();
-        ranks = DCCore.permissions.getPlayerGroups(player);
+        ranks = DCCore.permissions.getPlayerGroups(null, player);
         timesJoined = player.getStatistic(Statistic.LEAVE_GAME) + 1;
         kills = player.getStatistic(Statistic.PLAYER_KILLS);
         deaths = player.getStatistic(Statistic.DEATHS);

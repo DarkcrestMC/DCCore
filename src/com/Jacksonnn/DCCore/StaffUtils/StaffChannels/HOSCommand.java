@@ -31,12 +31,12 @@ public class HOSCommand implements CommandExecutor {
                 if (currentChat != GeneralMethods.ChatModes.HOS) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.HOS);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to HOS.");
-                    DCCore.permissions.playerAdd(player, "-discordsrv.chat");
+                    DCCore.permissions.playerAdd(null, player, "-discordsrv.chat");
 
                 } else if (currentChat == GeneralMethods.ChatModes.HOS) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.GENERAL);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to GENERAL.");
-                    DCCore.permissions.playerRemove(player, "-discordsrv.chat");
+                    DCCore.permissions.playerRemove(null, player, "-discordsrv.chat");
                 }
 
             } else {

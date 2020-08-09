@@ -86,26 +86,26 @@ public class GeneralMethods {
 		int onlineStaff = 0;
 
 		if (eventPlayer != null) {
-			if (DCCore.permissions.playerInGroup(eventPlayer, "Owner")) {
+			if (DCCore.permissions.playerInGroup(null, eventPlayer, "Owner")) {
 				onlineOwners--;
 				onlineStaff--;
-			} else if (DCCore.permissions.playerInGroup(eventPlayer, "Ancient")) {
+			} else if (DCCore.permissions.playerInGroup(null, eventPlayer, "Ancient")) {
 				onlineAncients--;
 				onlineStaff--;
-			} else if (DCCore.permissions.playerInGroup(eventPlayer, "Co-Owner")) {
+			} else if (DCCore.permissions.playerInGroup(null, eventPlayer, "Co-Owner")) {
 				onlineCoOwners--;
 				onlineStaff--;
-			} else if (DCCore.permissions.playerInGroup(eventPlayer, "Manager")) {
+			} else if (DCCore.permissions.playerInGroup(null, eventPlayer, "Manager")) {
 				onlineManagers--;
 				onlineStaff--;
-			} else if (DCCore.permissions.playerInGroup(eventPlayer, "Moderator")) {
+			} else if (DCCore.permissions.playerInGroup(null, eventPlayer, "Moderator")) {
 				onlineModerators--;
 				onlineStaff--;
-			} else if (DCCore.permissions.playerInGroup(eventPlayer, "JMod")) {
+			} else if (DCCore.permissions.playerInGroup(null, eventPlayer, "JMod")) {
 				onlineJMods--;
 				onlineStaff--;
-			} else if (DCCore.permissions.playerInGroup(eventPlayer, "Artist") ||
-					DCCore.permissions.playerInGroup(eventPlayer, "Architect")) {
+			} else if (DCCore.permissions.playerInGroup(null, eventPlayer, "Artist") ||
+					DCCore.permissions.playerInGroup(null, eventPlayer, "Architect")) {
 				onlineArtists--;
 				onlineStaff--;
 			}
@@ -122,26 +122,26 @@ public class GeneralMethods {
 
 		Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
 		for (Player player : onlinePlayers) {
-			if (DCCore.permissions.playerInGroup(player, "Owner")) {
+			if (DCCore.permissions.playerInGroup(null, player, "Owner")) {
 				onlineOwners++;
 				onlineStaff++;
-			} else if (DCCore.permissions.playerInGroup(player, "Ancient")) {
+			} else if (DCCore.permissions.playerInGroup(null, player, "Ancient")) {
 				onlineAncients++;
 				onlineStaff++;
-			} else if (DCCore.permissions.playerInGroup(player, "Co-Owner")) {
+			} else if (DCCore.permissions.playerInGroup(null, player, "Co-Owner")) {
 				onlineCoOwners++;
 				onlineStaff++;
-			} else if (DCCore.permissions.playerInGroup(player, "Manager")) {
+			} else if (DCCore.permissions.playerInGroup(null, player, "Manager")) {
 				onlineManagers++;
 				onlineStaff++;
-			} else if (DCCore.permissions.playerInGroup(player, "Moderator")) {
+			} else if (DCCore.permissions.playerInGroup(null, player, "Moderator")) {
 				onlineModerators++;
 				onlineStaff++;
-			} else if (DCCore.permissions.playerInGroup(player, "JMod")) {
+			} else if (DCCore.permissions.playerInGroup(null, player, "JMod")) {
 				onlineJMods++;
 				onlineStaff++;
-			} else if (DCCore.permissions.playerInGroup(player, "Artist") ||
-					DCCore.permissions.playerInGroup(player, "Architect")) {
+			} else if (DCCore.permissions.playerInGroup(null, player, "Artist") ||
+					DCCore.permissions.playerInGroup(null, player, "Architect")) {
 				onlineArtists++;
 				onlineStaff++;
 			}

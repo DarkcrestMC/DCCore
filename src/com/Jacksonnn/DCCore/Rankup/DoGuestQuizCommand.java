@@ -14,7 +14,7 @@ public class DoGuestQuizCommand implements CommandExecutor {
         if (!(commandSender instanceof Player))
             return true;
         Player player = (Player)commandSender;
-        if (!DCCore.permissions.playerInGroup(player, "Guest")) {
+        if (!DCCore.permissions.playerInGroup(null, player, "Guest")) {
             player.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
             return true;
         }

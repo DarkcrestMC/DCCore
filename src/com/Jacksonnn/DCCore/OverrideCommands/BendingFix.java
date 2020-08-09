@@ -34,66 +34,66 @@ public class BendingFix implements CommandExecutor {
 
     public void fixBender(Player player, CommandSender sender) {
         ArrayList<String> userGroups = new ArrayList<>();
-        if (DCCore.permissions.playerInGroup(player, "Bender")) {
+        if (DCCore.permissions.playerInGroup(null, player, "Bender")) {
             sender.sendMessage(GeneralMethods.errorPrefix + "Player permissions are already fixed!");
         }
-        if (DCCore.permissions.playerInGroup(player, "JMod")) {
+        if (DCCore.permissions.playerInGroup(null, player, "JMod")) {
             userGroups.add("JMod");
-        } else if (DCCore.permissions.playerInGroup(player, "Architect")) {
+        } else if (DCCore.permissions.playerInGroup(null, player, "Architect")) {
             userGroups.add("Architect");
-        } else if (DCCore.permissions.playerInGroup(player, "Artist")) {
+        } else if (DCCore.permissions.playerInGroup(null, player, "Artist")) {
             userGroups.add("Artist");
-        } else if (DCCore.permissions.playerInGroup(player, "Royal")) {
+        } else if (DCCore.permissions.playerInGroup(null, player, "Royal")) {
             userGroups.add("Royal");
-        } else if (DCCore.permissions.playerInGroup(player, "Noble")) {
+        } else if (DCCore.permissions.playerInGroup(null, player, "Noble")) {
             userGroups.add("Noble");
-        } else if (DCCore.permissions.playerInGroup(player, "Official")) {
+        } else if (DCCore.permissions.playerInGroup(null, player, "Official")) {
             userGroups.add("Official");
-        } else if (DCCore.permissions.playerInGroup(player, "Baron")) {
+        } else if (DCCore.permissions.playerInGroup(null, player, "Baron")) {
             userGroups.add("Baron");
-        } else if (DCCore.permissions.playerInGroup(player, "Merchant")) {
+        } else if (DCCore.permissions.playerInGroup(null, player, "Merchant")) {
             userGroups.add("Merchant");
-        } else if (DCCore.permissions.playerInGroup(player, "Citizen")) {
+        } else if (DCCore.permissions.playerInGroup(null, player, "Citizen")) {
             userGroups.add("Citizen");
-        } else if (DCCore.permissions.playerInGroup(player, "Member")) {
+        } else if (DCCore.permissions.playerInGroup(null, player, "Member")) {
             userGroups.add("Member");
-        } else if (DCCore.permissions.playerInGroup(player, "Guest")) {
+        } else if (DCCore.permissions.playerInGroup(null, player, "Guest")) {
             userGroups.add("Guest");
         }
 
-        if (DCCore.permissions.playerInGroup(player, "LightSpirit")) {
+        if (DCCore.permissions.playerInGroup(null, player, "LightSpirit")) {
             userGroups.add("LightSpirit");
         }
-        if (DCCore.permissions.playerInGroup(player, "DarkSpirit")) {
+        if (DCCore.permissions.playerInGroup(null, player, "DarkSpirit")) {
             userGroups.add("DarkSpirit");
         }
-        if (DCCore.permissions.playerInGroup(player, "Avatar")) {
+        if (DCCore.permissions.playerInGroup(null, player, "Avatar")) {
             userGroups.add("Avatar");
         }
 
 
 
         for (String group : userGroups) {
-            DCCore.permissions.playerRemoveGroup(player, group);
+            DCCore.permissions.playerRemoveGroup(null, player, group);
         }
 
-        DCCore.permissions.playerAddGroup(player, "Bender");
+        DCCore.permissions.playerAddGroup(null, player, "Bender");
 
         if (userGroups.contains("LightSpirit")) {
-            DCCore.permissions.playerAddGroup(player, "LightSpirit");
+            DCCore.permissions.playerAddGroup(null, player, "LightSpirit");
             userGroups.remove("LightSpirit");
         }
         if (userGroups.contains("DarkSpirit")) {
-            DCCore.permissions.playerAddGroup(player, "DarkSpirit");
+            DCCore.permissions.playerAddGroup(null, player, "DarkSpirit");
             userGroups.remove("DarkSpirit");
         }
         if (userGroups.contains("Avatar")) {
-            DCCore.permissions.playerAddGroup(player, "Avatar");
+            DCCore.permissions.playerAddGroup(null, player, "Avatar");
             userGroups.remove("Avatar");
         }
 
         for (String group : userGroups) {
-            DCCore.permissions.playerAddGroup(player, group);
+            DCCore.permissions.playerAddGroup(null, player, group);
         }
 
         player.sendMessage(GeneralMethods.prefix + "Your bending has been fixed.");

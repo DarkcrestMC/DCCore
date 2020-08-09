@@ -31,12 +31,12 @@ public class DeveloperCommand implements CommandExecutor {
                 if (currentChat != GeneralMethods.ChatModes.DEVELOPER) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.DEVELOPER);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to DEVELOPER.");
-                    DCCore.permissions.playerAdd(player, "-discordsrv.chat");
+                    DCCore.permissions.playerAdd(null, player, "-discordsrv.chat");
 
                 } else if (currentChat == GeneralMethods.ChatModes.DEVELOPER) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.GENERAL);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to GENERAL.");
-                    DCCore.permissions.playerRemove(player, "-discordsrv.chat");
+                    DCCore.permissions.playerRemove(null, player, "-discordsrv.chat");
                 }
 
             } else {

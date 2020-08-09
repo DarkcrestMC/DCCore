@@ -15,8 +15,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 
-import static com.Jacksonnn.DCCore.Rankup.Rankup.guestCheck;
-
 public class GuestQuizListener implements Listener {
     @EventHandler
     public void onInventoryPress(InventoryClickEvent e) {
@@ -42,14 +40,14 @@ public class GuestQuizListener implements Listener {
                 player.closeInventory();
                 int questionNumber = Integer.parseInt(currentInventory.getItem(1).getItemMeta().getDisplayName().substring(2, 4));
                 if (questionNumber != 1) {
-                    guestCheck(player, 1);
+                    Rankup.guestCheck(player, 1);
                 } else {
-                    DCCore.permissions.playerAddGroup(player, "Bender");
+                    DCCore.permissions.playerAddGroup(null, player, "Bender");
                     Rankup.attemptRankup(player, "Guest", "Member",
                             ConfigManager.defaultConfig.get().getIntegerList("Rankup.Prices.Ranks").get(0),
                             ConfigManager.defaultConfig.get().getIntegerList("Rankup.Hours.Ranks").get(0));
-//                    DCCore.permissions.playerRemoveGroup(player, "Guest");
-//                    DCCore.permissions.playerAddGroup(player, "Member");
+//                    DCCore.permissions.playerRemoveGroup(null, player, "Guest");
+//                    DCCore.permissions.playerAddGroup(null, player, "Member");
 //                    Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Member! -Console");
 //                    player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Member rank!");
                 }

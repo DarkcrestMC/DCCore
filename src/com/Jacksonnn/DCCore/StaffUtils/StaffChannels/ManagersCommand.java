@@ -32,11 +32,11 @@ public class ManagersCommand implements CommandExecutor {
                 if (currentChat != GeneralMethods.ChatModes.MANAGERS) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.MANAGERS);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to MANAGERS.");
-                    DCCore.permissions.playerAdd(player, "-discordsrv.chat");
+                    DCCore.permissions.playerAdd(null, player, "-discordsrv.chat");
                 } else if (currentChat == GeneralMethods.ChatModes.MANAGERS) {
                     dcPlayer.setChatMode(GeneralMethods.ChatModes.GENERAL);
                     sender.sendMessage(GeneralMethods.prefix + "Chat channel set to GENERAL.");
-                    DCCore.permissions.playerRemove(player, "-discordsrv.chat");
+                    DCCore.permissions.playerRemove(null, player, "-discordsrv.chat");
                 }
                 ConfigManager.defaultConfig.save();
             } else {
