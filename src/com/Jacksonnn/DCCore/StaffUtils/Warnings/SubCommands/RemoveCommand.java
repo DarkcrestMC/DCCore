@@ -2,7 +2,9 @@ package com.Jacksonnn.DCCore.StaffUtils.Warnings.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
+import com.Jacksonnn.DCCore.StaffUtils.Warnings.Warning;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningSubCommand;
 import org.bukkit.command.CommandSender;
 
@@ -45,13 +47,17 @@ public class RemoveCommand implements WarningSubCommand {
         if (args.size() == 1) {
             try {
                 int id = Integer.valueOf(args.get(0));
-                pdm.deleteWarning(pdm.getWarningManager().getWarning(id));
+                Warning warning = pdm.getWarningManager().getWarning(id);
+
+                pdm.deleteWarning(warning);
+                GeneralMethods.getDCPlayer(warning.getPlayer()).removeWarning(warning);
+
             } catch (Exception e) {
                 sender.sendMessage(pdm.getWarningManager().warningPrefix + "Something went wrong... did you enter the correct ID?");
                 return;
             }
 
-            sender.sendMessage("Success! Deleted warning!");
+            sender.sendMessage(pdm.getWarningManager().warningPrefix + "Success! Deleted warning!");
         } else {
             sender.sendMessage(pdm.getWarningManager().warningPrefix + getProperUse());
         }

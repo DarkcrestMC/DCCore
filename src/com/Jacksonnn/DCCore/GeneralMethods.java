@@ -1,7 +1,6 @@
 package com.Jacksonnn.DCCore;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
-import github.scarsz.discordsrv.DiscordSRV;
 import github.scarsz.discordsrv.dependencies.jda.api.EmbedBuilder;
 import github.scarsz.discordsrv.dependencies.jda.api.entities.TextChannel;
 import github.scarsz.discordsrv.util.DiscordUtil;
@@ -29,11 +28,7 @@ public class GeneralMethods {
 	}
 
 	public static DCPlayer getDCPlayer(UUID uuid) {
-		if (dcPlayers.containsKey(uuid)) {
-			return dcPlayers.get(uuid);
-		} else {
-			return null;
-		}
+		return dcPlayers.getOrDefault(uuid, null);
 	}
 	public static DCPlayer getDCPlayer(String name) {
 		for (DCPlayer dcPlayer : dcPlayers.values())

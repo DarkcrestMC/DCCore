@@ -2,6 +2,8 @@ package com.Jacksonnn.DCCore.StaffUtils.Warnings.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.DCPlayer;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.Warning;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningSubCommand;
@@ -15,7 +17,6 @@ import org.bukkit.entity.Player;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -53,11 +54,13 @@ public class AddCommand implements WarningSubCommand {
 
     @Override
     public void execute(CommandSender sender, List<String> args) {
+        //warning add <player> <note>
+        //              arg(0)  arg(1)
         if (args.size() >= 2) {
-            Player player = Bukkit.getPlayer(args.get(0));
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(args.get(0));
             Player staffMember = ((Player) sender).getPlayer();
 
-            if (player == null) {
+            if (dcPlayer == null) {
                 sender.sendMessage(pdm.getWarningManager().warningPrefix + "That player does not exist, please try again.");
                 return;
             }
@@ -68,7 +71,7 @@ public class AddCommand implements WarningSubCommand {
 
             args.remove(0);
 
-            Warning warning = new Warning(player.getUniqueId(), staffMember.getUniqueId(), String.join(" ", args), pdm);
+            Warning warning = new Warning(dcPlayer, staffMember.getUniqueId(), String.join(" ", args), pdm);
 
             sender.sendMessage(pdm.getWarningManager().warningPrefix + "Success! Warning created!");
 
@@ -83,11 +86,10 @@ public class AddCommand implements WarningSubCommand {
 
             notesChannel.sendMessage(embedBuilder.build()).queue();
 
-            String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
-            String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
-            Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
+            String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
+            String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
 
-            Bukkit.broadcast(chatprefix + ChatColor.GOLD + "NEW WARNING: " + msgColor + Bukkit.getPlayer(warning.getStaffMember()).getName() + " just warned " + Bukkit.getPlayer(warning.getPlayer()).getName() + " for " + warning.getReason() + ".", "DCCore.staffchats.Staff");
+            Bukkit.broadcast(chatprefix + ChatColor.GOLD + "NEW WARNING: " + msgColor + Bukkit.getPlayer(warning.getStaffMember()).getName() + " just warned " + Bukkit.getPlayer(warning.getPlayer()).getName() + " for " + warning.getReason() + ".", GeneralMethods.ChatModes.STAFF.getChatPerm());
         } else {
             sender.sendMessage(pdm.getWarningManager().warningPrefix + getProperUse());
         }

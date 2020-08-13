@@ -2,6 +2,8 @@ package com.Jacksonnn.DCCore.StaffUtils.Notes.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.GeneralMethods;
+import com.Jacksonnn.DCCore.StaffUtils.Notes.Note;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesSubCommand;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import org.bukkit.command.CommandSender;
@@ -45,13 +47,16 @@ public class RemoveCommand implements NotesSubCommand {
         if (args.size() == 1) {
             try {
                 int id = Integer.valueOf(args.get(0));
-                pdm.deleteNote(pdm.getNoteManager().getNote(id));
+                Note note = pdm.getNoteManager().getNote(id);
+
+                GeneralMethods.getDCPlayer(note.getPlayer());
+                pdm.deleteNote(note);
             } catch (Exception e) {
                 sender.sendMessage(pdm.getNoteManager().notesPrefix + "Something went wrong... did you enter the correct ID?");
                 return;
             }
 
-            sender.sendMessage("Success! Deleted note!");
+            sender.sendMessage(pdm.getNoteManager().notesPrefix + "Success! Deleted note!");
         } else {
             sender.sendMessage(pdm.getNoteManager().notesPrefix + getProperUse());
         }
