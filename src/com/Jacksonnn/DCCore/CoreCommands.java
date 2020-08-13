@@ -2,12 +2,14 @@ package com.Jacksonnn.DCCore;
 
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
+import com.Jacksonnn.DCCore.Guides.DCGuideCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class CoreCommands implements CommandExecutor {
@@ -68,6 +70,9 @@ public class CoreCommands implements CommandExecutor {
             sender.sendMessage(GeneralMethods.successPrefix + "Reloaded bannedWords.yml");
             ConfigManager.announcer.reload();
             sender.sendMessage(GeneralMethods.successPrefix + "Reloaded announcements.yml");
+        } else if (args.length == 1 && args[0].equalsIgnoreCase("dcguide")) {
+            if (sender instanceof Player)
+                DCGuideCommand.giveGuide((Player)sender);
         } else {
             sender.sendMessage(GeneralMethods.prefix + "DCCore Help:");
             sender.sendMessage(ChatColor.GOLD + "/dccore chat");

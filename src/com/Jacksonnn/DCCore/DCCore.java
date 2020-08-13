@@ -7,8 +7,9 @@ import com.Jacksonnn.DCCore.BannedWords.BannedWordsCommand;
 import com.Jacksonnn.DCCore.BannedWords.BannedWordsListener;
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
-import com.Jacksonnn.DCCore.Configuration.Config;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
+import com.Jacksonnn.DCCore.Guides.BendingGuideCommand;
+import com.Jacksonnn.DCCore.Guides.DCGuideCommand;
 import com.Jacksonnn.DCCore.DiamondLuck.DiamondLuck;
 import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
 import com.Jacksonnn.DCCore.OverrideCommands.*;
@@ -129,6 +130,8 @@ public class DCCore extends JavaPlugin {
 	}
 	
 	private void registerCommands() {
+		this.getCommand("dcguide").setExecutor(new DCGuideCommand());
+		this.getCommand("bendingguide").setExecutor(new BendingGuideCommand());
 		this.getCommand("broadcast").setExecutor(new BroadcastCommand());
 		this.getCommand("bannedwords").setExecutor(new BannedWordsCommand());
 		this.getCommand("dccore").setExecutor(new CoreCommands());
