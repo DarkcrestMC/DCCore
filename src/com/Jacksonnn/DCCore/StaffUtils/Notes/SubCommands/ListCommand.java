@@ -7,10 +7,8 @@ import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.Note;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesSubCommand;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,35 +47,32 @@ public class ListCommand implements NotesSubCommand {
     public void execute(CommandSender sender, List<String> args) {
         if (args.size() == 1) {
             if (!args.get(0).equalsIgnoreCase("all")) {
-                Player player = Bukkit.getPlayer(args.get(0));
-                DCPlayer dcPlayer = GeneralMethods.getDCPlayer(player.getUniqueId());
+                DCPlayer dcPlayer = GeneralMethods.getDCPlayer(args.get(0));
 
                 if (dcPlayer == null) {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "Does that player exist?");
                     return;
                 }
 
-                List<Note> playerNotes = new ArrayList<>();
-                playerNotes.addAll(dcPlayer.getNotes());
+                List<Note> playerNotes = new ArrayList<>(dcPlayer.getNotes());
 
                 if (playerNotes.size() == 0) {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "Player has no notes.");
                 } else {
-                    sender.sendMessage(pdm.getNoteManager().notesPrefix + "Notes for player " + player.getName() + ":");
+                    sender.sendMessage(pdm.getNoteManager().notesPrefix + "Notes for player " + dcPlayer.getName() + ":");
                     for (Note note : playerNotes) {
-                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + Bukkit.getPlayer(note.getStaffMember()).getName());
+                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + GeneralMethods.getDCPlayer(note.getStaffMember()).getName());
                     }
                 }
             } else {
-                List<Note> playerNotes = new ArrayList<>();
-                playerNotes.addAll(plugin.getPDM().getNoteManager().getAllNotes());
+                List<Note> playerNotes = new ArrayList<>(plugin.getPDM().getNoteManager().getAllNotes());
 
                 if (playerNotes.size() == 0) {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "There are no Player Notes.");
                 } else {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "All Player Notes:");
                     for (Note note : playerNotes) {
-                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + GeneralMethods.getDCPlayer(note.getStaffMember()).getName());
+                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + GeneralMethods.getDCPlayer(note.getStaffMember()).getName() + " -> " + GeneralMethods.getDCPlayer(note.getPlayer()).getName());
                     }
                 }
             }
