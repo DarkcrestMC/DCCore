@@ -63,7 +63,7 @@ public class ClearCommand implements WarningSubCommand {
                 }
             }
 
-            sender.sendMessage("Success! Cleared player's warnings!");
+            sender.sendMessage(pdm.getWarningManager().warningPrefix + "Success! Cleared player's warnings!");
         } else {
             sender.sendMessage(pdm.getWarningManager().warningPrefix + getProperUse());
         }
