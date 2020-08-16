@@ -17,9 +17,9 @@ import java.util.UUID;
 
 public class DCPlayer {
     private String name;
-    private ArrayList<Note> notes;
-    private ArrayList<Warning> warnings;
-    private ArrayList<Object> reports;
+    private ArrayList<Note> notes = new ArrayList<>();
+    private ArrayList<Warning> warnings = new ArrayList<>();
+    private ArrayList<Object> reports = new ArrayList<>();
     private long playTime;
     private long firstPlayed;
     private long lastPlayed;
