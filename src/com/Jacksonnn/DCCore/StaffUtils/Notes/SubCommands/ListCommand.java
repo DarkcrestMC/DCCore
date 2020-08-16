@@ -61,7 +61,7 @@ public class ListCommand implements NotesSubCommand {
                 } else {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "Notes for player " + dcPlayer.getName() + ":");
                     for (Note note : playerNotes) {
-                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + GeneralMethods.getDCPlayer(note.getStaffMember()).getName());
+                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.WHITE + " | " + ChatColor.AQUA + GeneralMethods.getDCPlayer(note.getStaffMember()).getName());
                     }
                 }
             } else {
@@ -72,7 +72,7 @@ public class ListCommand implements NotesSubCommand {
                 } else {
                     sender.sendMessage(pdm.getNoteManager().notesPrefix + "All Player Notes:");
                     for (Note note : playerNotes) {
-                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.AQUA + " -" + GeneralMethods.getDCPlayer(note.getStaffMember()).getName() + " -> " + GeneralMethods.getDCPlayer(note.getPlayer()).getName());
+                        sender.sendMessage("(ID: " + note.getID() + ") " + ChatColor.YELLOW + note.getNote() + ChatColor.WHITE + " | " + ChatColor.AQUA + GeneralMethods.getDCPlayer(note.getStaffMember()).getName() + " -> " + GeneralMethods.getDCPlayer(note.getPlayer()).getName());
                     }
                 }
             }
