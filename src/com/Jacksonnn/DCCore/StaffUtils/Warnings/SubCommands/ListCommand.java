@@ -61,7 +61,7 @@ public class ListCommand implements WarningSubCommand {
                 } else {
                     sender.sendMessage(pdm.getWarningManager().warningPrefix + "Warnings for player " + player.getName() + ":");
                     for (Warning warning : playerWarnings) {
-                        sender.sendMessage("(ID: " + warning.getID() + ") " + ChatColor.YELLOW + warning.getReason() + ChatColor.GOLD + " -" + GeneralMethods.getDCPlayer(warning.getStaffMember()).getName() + " -> " + GeneralMethods.getDCPlayer(warning.getPlayer()).getName());
+                        sender.sendMessage("(ID: " + warning.getID() + ") " + ChatColor.YELLOW + warning.getReason() + ChatColor.GOLD + " -" + GeneralMethods.getDCPlayer(warning.getStaffMember()).getName());
                     }
                 }
 
@@ -73,7 +73,7 @@ public class ListCommand implements WarningSubCommand {
                 } else {
                     sender.sendMessage(pdm.getWarningManager().warningPrefix + "All player warnings:");
                     for (Warning warning : playerWarnings) {
-                        sender.sendMessage("(ID: " + warning.getID() + ") " + ChatColor.YELLOW + warning.getReason() + ChatColor.GOLD + " -" + GeneralMethods.getDCPlayer(warning.getStaffMember()).getName());
+                        sender.sendMessage("(ID: " + warning.getID() + ") " + ChatColor.YELLOW + warning.getReason() + ChatColor.WHITE + " | " + ChatColor.GOLD + GeneralMethods.getDCPlayer(warning.getStaffMember()).getName() + " -> " + GeneralMethods.getDCPlayer(warning.getPlayer()).getName());
                     }
                 }
             }
