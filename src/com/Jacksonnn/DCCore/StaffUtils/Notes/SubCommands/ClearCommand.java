@@ -2,12 +2,12 @@ package com.Jacksonnn.DCCore.StaffUtils.Notes.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.DCPlayer;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.Note;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesSubCommand;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
-import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,23 +47,20 @@ public class ClearCommand implements NotesSubCommand {
     @Override
     public void execute(CommandSender sender, List<String> args) {
         if (args.size() == 1) {
-            Player player = Bukkit.getPlayer(args.get(0));
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(args.get(0));
 
-            if (player == null) {
+            if (dcPlayer == null) {
                 sender.sendMessage(pdm.getNoteManager().notesPrefix + "Does that player exist?");
                 return;
             }
 
-            ArrayList<Note> allNotes = new ArrayList<>();
-            allNotes.addAll(pdm.getNoteManager().getAllNotes());
+            ArrayList<Note> allNotes = new ArrayList<>(dcPlayer.getNotes());
 
             for (Note note : allNotes) {
-                if (note.getPlayer() == player.getUniqueId()) {
-                    pdm.deleteNote(note);
-                }
+                dcPlayer.removeNote(note);
             }
 
-            sender.sendMessage("Success! Cleared player's notes!");
+            sender.sendMessage(pdm.getNoteManager().notesPrefix + "Success! Cleared player's notes!");
         } else {
             sender.sendMessage(pdm.getNoteManager().notesPrefix + getProperUse());
         }

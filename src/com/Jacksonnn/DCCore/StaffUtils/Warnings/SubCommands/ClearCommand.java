@@ -2,12 +2,12 @@ package com.Jacksonnn.DCCore.StaffUtils.Warnings.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.DCPlayer;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.Warning;
 import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningSubCommand;
-import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,18 +47,18 @@ public class ClearCommand implements WarningSubCommand {
     @Override
     public void execute(CommandSender sender, List<String> args) {
         if (args.size() == 1) {
-            Player player = Bukkit.getPlayer(args.get(0));
+            DCPlayer dcPlayer = GeneralMethods.getDCPlayer(args.get(0));
 
-            if (player == null) {
+            if (dcPlayer == null) {
                 sender.sendMessage(pdm.getWarningManager().warningPrefix + "Does that player exist?");
                 return;
             }
 
-            ArrayList<Warning> allWarnings = new ArrayList<>();
-            allWarnings.addAll(pdm.getWarningManager().getAllWarnings());
+            ArrayList<Warning> allWarnings = new ArrayList<>(pdm.getWarningManager().getAllWarnings());
 
             for (Warning warning : allWarnings) {
-                if (warning.getPlayer() == player.getUniqueId()) {
+                if (warning.getPlayer() == dcPlayer.getUuid()) {
+                    dcPlayer.removeWarning(warning);
                     pdm.deleteWarning(warning);
                 }
             }

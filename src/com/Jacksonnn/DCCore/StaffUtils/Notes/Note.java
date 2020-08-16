@@ -1,5 +1,6 @@
 package com.Jacksonnn.DCCore.StaffUtils.Notes;
 
+import com.Jacksonnn.DCCore.DCPlayer;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import org.bukkit.Bukkit;
 
@@ -12,7 +13,7 @@ public class Note {
     private String message;
     private PlayerDisciplineManager pdm;
 
-    public Note(UUID player, UUID staffMember, String message, PlayerDisciplineManager pdm) {
+    public Note(DCPlayer player, UUID staffMember, String message, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating note...");
         int i = 1;
         for (Note note : pdm.getNoteManager().getAllNotes()) {
@@ -24,10 +25,12 @@ public class Note {
 
         this.id = i;
         Bukkit.getLogger().info("Getting id... id=" + this.id);
-        this.player = player;
+        this.player = player.getUuid();
         this.staffMember = staffMember;
         this.message = message;
         this.pdm = pdm;
+
+        player.addNote(this);
 
         saveNote();
     }

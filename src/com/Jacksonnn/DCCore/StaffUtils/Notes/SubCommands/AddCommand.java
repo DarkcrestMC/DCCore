@@ -16,8 +16,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.*;
+import java.util.Objects;
+import java.util.UUID;
 
 public class AddCommand implements NotesSubCommand {
     private DCCore plugin;
@@ -53,6 +55,7 @@ public class AddCommand implements NotesSubCommand {
 
     @Override
     public void execute(CommandSender sender, List<String> args) {
+        //notes add <player> <note>
         if (args.size() >= 2) {
             DCPlayer dcPlayer = GeneralMethods.getDCPlayer(args.get(0));
 
@@ -60,8 +63,6 @@ public class AddCommand implements NotesSubCommand {
                 sender.sendMessage(pdm.getNoteManager().notesPrefix + "That player does not exist, please try again.");
                 return;
             }
-
-            UUID player = dcPlayer.getUuid();
 
             if (!(sender instanceof Player)) {
                 sender.sendMessage(pdm.getNoteManager().notesPrefix + "You must be a player to execute this command.");
@@ -72,7 +73,7 @@ public class AddCommand implements NotesSubCommand {
 
             UUID staffMember = ((Player) sender).getPlayer().getUniqueId();
 
-            Note note = new Note(player, staffMember, String.join(" ", args), pdm);
+            Note note = new Note(dcPlayer, staffMember, String.join(" ", args), pdm);
 
             sender.sendMessage(pdm.getNoteManager().notesPrefix + "Success! Note Created!");
 
@@ -88,15 +89,10 @@ public class AddCommand implements NotesSubCommand {
 
             notesChannel.sendMessage(embedBuilder.build()).queue();
 
-            String chatprefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
-            String msgColor = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
-            Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
+            String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
+            String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
 
-            for (Player oPlayer : onlinePlayers) {
-                if (oPlayer.hasPermission("DCCore.staffchats.Staff")) {
-                    oPlayer.sendMessage(chatprefix + ChatColor.AQUA + "NEW PLAYER NOTE: " + msgColor + Bukkit.getPlayer(note.getStaffMember()).getName() + " just noted about " + Bukkit.getPlayer(note.getPlayer()).getName() + ": " + note.getNote() + ".");
-                }
-            }
+            Bukkit.broadcast(chatprefix + ChatColor.AQUA + "NEW PLAYER NOTE: " + msgColor + Bukkit.getPlayer(note.getStaffMember()).getName() + " just noted about " + Bukkit.getPlayer(note.getPlayer()).getName() + ": " + note.getNote() + ".", GeneralMethods.ChatModes.STAFF.getChatPerm());
         } else {
             sender.sendMessage(pdm.getNoteManager().notesPrefix + getProperUse());
         }

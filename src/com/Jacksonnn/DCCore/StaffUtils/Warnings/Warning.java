@@ -1,5 +1,6 @@
 package com.Jacksonnn.DCCore.StaffUtils.Warnings;
 
+import com.Jacksonnn.DCCore.DCPlayer;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import org.bukkit.Bukkit;
 
@@ -12,7 +13,7 @@ public class Warning {
     private String message;
     private PlayerDisciplineManager pdm;
 
-    public Warning(UUID player, UUID staffMember, String message, PlayerDisciplineManager pdm) {
+    public Warning(DCPlayer player, UUID staffMember, String message, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating warning...");
         this.pdm = pdm;
         int i = 1;
@@ -25,9 +26,11 @@ public class Warning {
 
         this.id = i;
         Bukkit.getLogger().info("Getting id... id=" + this.id);
-        this.player = player;
+        this.player = player.getUuid();
         this.staffMember = staffMember;
         this.message = message;
+
+        player.addWarning(this);
 
         saveWarning();
     }
