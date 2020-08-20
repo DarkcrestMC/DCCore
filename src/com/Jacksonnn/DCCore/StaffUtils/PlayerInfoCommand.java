@@ -9,7 +9,6 @@ import com.Jacksonnn.DCCore.StaffUtils.Warnings.WarningGeneral;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.Statistic;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -42,8 +41,7 @@ public class PlayerInfoCommand implements CommandExecutor {
                 if (player == null) {
                     sender.sendMessage(GeneralMethods.errorPrefix + "Player not online! Checking offline players...");
 
-                    OfflinePlayer oPlayer = Bukkit.getOfflinePlayer(args[0]);
-                    DCPlayer dcPlayer = GeneralMethods.getDCPlayer(oPlayer.getUniqueId());
+                    DCPlayer dcPlayer = GeneralMethods.getDCPlayer(args[0]);
 
                     if (dcPlayer == null) {
                         sender.sendMessage(GeneralMethods.errorPrefix + "Player has never joined this server!");
@@ -89,7 +87,7 @@ public class PlayerInfoCommand implements CommandExecutor {
                 } else {
                     sender.sendMessage(" ");
                     sender.sendMessage(" ");
-                    sender.sendMessage(GeneralMethods.prefix + "Player Info: --[" + ChatColor.GRAY + args[0] + ChatColor.YELLOW + "]--");
+                    sender.sendMessage(GeneralMethods.prefix + "Player Info: --[" + ChatColor.YELLOW + args[0] + GeneralMethods.accentColor + "]--");
 
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
                     Calendar calendar = Calendar.getInstance();
