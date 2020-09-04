@@ -1,6 +1,7 @@
 package com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
+import com.Jacksonnn.DCCore.DCPlayer;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
 import github.scarsz.discordsrv.dependencies.jda.api.EmbedBuilder;
@@ -22,7 +23,7 @@ public class PlayerReport {
     private PlayerDisciplineManager pdm;
     private ReportGeneral.REPORT_TYPE type = ReportGeneral.REPORT_TYPE.PLAYER;
 
-    public PlayerReport(String message, UUID player, UUID staffMember, boolean resolved, PlayerDisciplineManager pdm) {
+    public PlayerReport(String message, DCPlayer player, UUID staffMember, boolean resolved, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating player report...");
         int i = 0;
         for (PlayerReport report : pdm.getReportManager().getPlayerReports()) {
@@ -38,11 +39,13 @@ public class PlayerReport {
 
         this.id = i;
         Bukkit.getLogger().info("Getting id... id=" + this.id);
-        this.player = player;
+        this.player = player.getUuid();
         this.resolved = resolved;
         this.message = message;
         this.staffMember = staffMember;
         this.pdm = pdm;
+
+        player.addPlayerReport(this);
 
         try {
             saveReport();

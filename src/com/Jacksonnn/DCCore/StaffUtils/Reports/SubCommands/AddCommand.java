@@ -2,6 +2,8 @@ package com.Jacksonnn.DCCore.StaffUtils.Reports.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.DCPlayer;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportSubCommand;
@@ -79,8 +81,12 @@ public class AddCommand implements ReportSubCommand {
                     }
                 } else if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
                     if (args.size() >= 3) {
-                        Player player = Bukkit.getPlayer(args.get(0));
+                        DCPlayer player = GeneralMethods.getDCPlayer(args.get(0));
                         Player staffMember = ((Player) sender).getPlayer();
+
+                        if (player == null) {
+                            sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! That user does not exist...");
+                        }
 
                         args.remove(0);
 
@@ -89,21 +95,25 @@ public class AddCommand implements ReportSubCommand {
 
                         String message = String.join(" ", args);
 
-                        PlayerReport report = new PlayerReport(message, player.getUniqueId(), staffMember.getUniqueId(), isResolved, pdm);
+                        PlayerReport report = new PlayerReport(message, player, staffMember.getUniqueId(), isResolved, pdm);
                         report.sendToDiscord();
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
-                                Bukkit.getPlayer(report.getPlayer()).getName() + "-" +
+                                GeneralMethods.getDCPlayer(report.getPlayer()).getName() + "-" +
                                 (report.isResolved() ? "R" : "NR") +
                                 report.getID() + ") " + ChatColor.YELLOW +
                                 report.getMessage() + ChatColor.DARK_RED + " -" +
-                                Bukkit.getPlayer(report.getStaffMember()).getName());
+                                GeneralMethods.getDCPlayer(report.getStaffMember()).getName());
                     } else {
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add player <player> <isResolved(true/false)> <message>");
                     }
                 } else if (reportRequestType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
                     if (args.size() >= 3) {
-                        Player player = Bukkit.getPlayer(args.get(0));
+                        DCPlayer player = GeneralMethods.getDCPlayer(args.get(0));
                         Player staffMember = ((Player) sender).getPlayer();
+
+                        if (player == null) {
+                            sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! That user does not exist...");
+                        }
 
                         args.remove(0);
 
@@ -112,14 +122,14 @@ public class AddCommand implements ReportSubCommand {
 
                         String message = String.join(" ", args);
 
-                        StaffReport report = new StaffReport(message, player.getUniqueId(), staffMember.getUniqueId(), isResolved, pdm);
+                        StaffReport report = new StaffReport(message, player, staffMember.getUniqueId(), isResolved, pdm);
                         report.sendToDiscord();
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
-                                Bukkit.getPlayer(report.getPlayer()).getName() + "-" +
+                                GeneralMethods.getDCPlayer(report.getPlayer()).getName() + "-" +
                                 (report.isResolved() ? "R" : "NR") +
                                 report.getID() + ") " + ChatColor.YELLOW +
                                 report.getMessage() + ChatColor.DARK_RED + " -" +
-                                Bukkit.getPlayer(report.getStaffMember()).getName());
+                                GeneralMethods.getDCPlayer(report.getStaffMember()).getName());
                     } else {
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add staff <staffMember> <isResolved(true/false)> <message>");
                     }
