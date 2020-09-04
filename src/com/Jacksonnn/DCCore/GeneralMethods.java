@@ -21,7 +21,7 @@ public class GeneralMethods {
 	public final static String errorPrefix = ChatColor.of("#660000") + "[" + ChatColor.of("#D6221E") + ChatColor.BOLD + "DCCore" + ChatColor.RESET + ChatColor.of("#660000") + "]" + accentColor + " ";
 	public final static String successPrefix = ChatColor.of("#1E5C26") + "[" + ChatColor.of("#24D530") + ChatColor.BOLD + "DCCore" + ChatColor.RESET + ChatColor.of("#1E5C26") + "]" + accentColor + " ";
 
-	private static HashMap<UUID, DCPlayer> dcPlayers = new HashMap<>();
+	private static final HashMap<UUID, DCPlayer> dcPlayers = new HashMap<>();
 
 	public static HashMap<UUID, DCPlayer> getAllDCPlayers() {
 		return dcPlayers;
@@ -143,7 +143,8 @@ public class GeneralMethods {
 		}
 
 		if (onlineStaff == 0) {
-			TextChannel staffchat = DiscordUtil.getTextChannelById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.StaffChat.ChannelID")));
+			if (!Bukkit.getOnlinePlayers().isEmpty()) {
+				TextChannel staffchat = DiscordUtil.getTextChannelById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.StaffChat.ChannelID")));
 				EmbedBuilder embed = new EmbedBuilder();
 
 				embed.setTitle("Staffless");
@@ -152,7 +153,7 @@ public class GeneralMethods {
 				embed.setAuthor("DC Staff Chat Notification", "http://darkcrestmc.net", "http://darkcrestmc.net/wp-content/uploads/2019/10/Orange.png");
 
 				staffchat.sendMessage(embed.build()).queue();
-			//}
+			}
 		} else {
 			for (Player player : onlinePlayers) {
 				if (player.hasPermission("DCCore.staffchats.Staff")) {
@@ -190,8 +191,8 @@ public class GeneralMethods {
 		DEVELOPER("developer", "DCCore.staffchats.Developer"),
 		HOS("HOS", "DCCore.staffchats.HOS");
 
-		private String name;
-		private String perm;
+		private final String name;
+		private final String perm;
 
 		ChatModes(String name, String perm) {
 			this.name = name;
