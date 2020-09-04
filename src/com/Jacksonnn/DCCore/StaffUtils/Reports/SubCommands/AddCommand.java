@@ -84,6 +84,10 @@ public class AddCommand implements ReportSubCommand {
                         DCPlayer player = GeneralMethods.getDCPlayer(args.get(0));
                         Player staffMember = ((Player) sender).getPlayer();
 
+                        if (player == null) {
+                            sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! That user does not exist...");
+                        }
+
                         args.remove(0);
 
                         boolean isResolved = Boolean.parseBoolean(args.get(0).toLowerCase());
