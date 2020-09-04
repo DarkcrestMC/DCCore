@@ -61,7 +61,9 @@ public class Warning {
 
     public void saveWarning() {
         Bukkit.getLogger().info("Saving warning...");
-        Bukkit.getPlayer(this.getPlayer()).sendMessage(pdm.getWarningManager().warningPrefix + "You have been warned by " + Bukkit.getPlayer(getStaffMember()).getName() + " for " + getReason() + ".");
+        if (Bukkit.getPlayer(this.getPlayer()) != null) {
+            Bukkit.getPlayer(this.getPlayer()).sendMessage(pdm.getWarningManager().warningPrefix + "You have been warned by " + Bukkit.getPlayer(getStaffMember()).getName() + " for " + getReason() + ".");
+        }
         pdm.saveWarning(this);
         Bukkit.getLogger().info("Warning saved successfully!");
     }

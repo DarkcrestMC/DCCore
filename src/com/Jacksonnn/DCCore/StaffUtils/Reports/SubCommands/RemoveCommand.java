@@ -2,6 +2,7 @@ package com.Jacksonnn.DCCore.StaffUtils.Reports.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportSubCommand;
@@ -63,6 +64,7 @@ public class RemoveCommand implements ReportSubCommand {
             } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
                 PlayerReport report = pdm.getReportManager().getPlayerReport(id);
                 try {
+                    GeneralMethods.getDCPlayer(report.getPlayer()).removePlayerReport(report);
                     pdm.deleteReport(report);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -71,6 +73,7 @@ public class RemoveCommand implements ReportSubCommand {
             } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
                 StaffReport report = pdm.getReportManager().getStaffReport(id);
                 try {
+                    GeneralMethods.getDCPlayer(report.getPlayer()).removeStaffReport(report);
                     pdm.deleteReport(report);
                 } catch (Exception e) {
                     e.printStackTrace();

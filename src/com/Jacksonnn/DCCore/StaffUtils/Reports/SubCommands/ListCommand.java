@@ -2,6 +2,7 @@ package com.Jacksonnn.DCCore.StaffUtils.Reports.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportSubCommand;
@@ -9,7 +10,6 @@ import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.BugReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.PlayerReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.StaffReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.ToDoReport;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
@@ -66,7 +66,7 @@ public class ListCommand implements ReportSubCommand {
                     sender.sendMessage("(ID: " +
                             todo.getID() + ") " + ChatColor.YELLOW +
                             todo.getMessage() + ChatColor.DARK_RED + " -" +
-                            Bukkit.getPlayer(todo.getStaffMember()).getName());
+                            GeneralMethods.getDCPlayer(todo.getStaffMember()).getName());
                 }
 
             } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
@@ -81,11 +81,11 @@ public class ListCommand implements ReportSubCommand {
 
                 for (PlayerReport pReport : playerReports) {
                     sender.sendMessage("(ID: " +
-                            Bukkit.getPlayer(pReport.getPlayer()).getName() + "-" +
+                            GeneralMethods.getDCPlayer(pReport.getPlayer()).getName() + "-" +
                             (pReport.isResolved() ? "R" : "NR") +
                             pReport.getID() + ") " + ChatColor.YELLOW +
                             pReport.getMessage() + ChatColor.DARK_RED + " -" +
-                            Bukkit.getPlayer(pReport.getStaffMember()).getName());
+                            GeneralMethods.getDCPlayer(pReport.getStaffMember()).getName());
                 }
 
                 sender.sendMessage(ChatColor.GRAY + "R=Resolved; NR=Not Resolved");
@@ -101,11 +101,11 @@ public class ListCommand implements ReportSubCommand {
 
                 for (StaffReport sReport : staffReports) {
                     sender.sendMessage("(ID: " +
-                            Bukkit.getPlayer(sReport.getPlayer()).getName() + "-" +
+                            GeneralMethods.getDCPlayer(sReport.getPlayer()).getName() + "-" +
                             (sReport.isResolved() ? "R" : "NR") +
                             sReport.getID() + ") " + ChatColor.YELLOW +
                             sReport.getMessage() + ChatColor.DARK_RED + " -" +
-                            Bukkit.getPlayer(sReport.getStaffMember()).getName());
+                            GeneralMethods.getDCPlayer(sReport.getStaffMember()).getName());
                 }
 
                 sender.sendMessage(ChatColor.GRAY + "R=Resolved; NR=Not Resolved");
@@ -125,7 +125,7 @@ public class ListCommand implements ReportSubCommand {
                             (bReport.isTested() ? "T" : "NT") +
                             bReport.getID() + ") " + ChatColor.YELLOW +
                             bReport.getMessage() + ChatColor.DARK_RED + " -" +
-                            Bukkit.getPlayer(bReport.getStaffMember()).getName());
+                            GeneralMethods.getDCPlayer(bReport.getStaffMember()).getName());
                 }
 
                 sender.sendMessage(ChatColor.GRAY + "T=Tested; NT=Not Tested");

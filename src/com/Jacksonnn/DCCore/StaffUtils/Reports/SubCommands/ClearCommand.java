@@ -2,6 +2,7 @@ package com.Jacksonnn.DCCore.StaffUtils.Reports.SubCommands;
 
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
+import com.Jacksonnn.DCCore.GeneralMethods;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportSubCommand;
@@ -52,8 +53,7 @@ public class ClearCommand implements ReportSubCommand {
             String requestedType = args.get(0);
 
             if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.TODO.getShorthand())) {
-                ArrayList<ToDoReport> toDoReports = new ArrayList<>();
-                toDoReports.addAll(pdm.getReportManager().getTodoReports());
+                ArrayList<ToDoReport> toDoReports = new ArrayList<>(pdm.getReportManager().getTodoReports());
 
                 for (ToDoReport todo : toDoReports) {
                     try {
@@ -64,11 +64,11 @@ public class ClearCommand implements ReportSubCommand {
                 }
                 sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted all todo reports.");
             } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.PLAYER.getShorthand())) {
-                ArrayList<PlayerReport> playerReports = new ArrayList<>();
-                playerReports.addAll(pdm.getReportManager().getPlayerReports());
+                ArrayList<PlayerReport> playerReports = new ArrayList<>(pdm.getReportManager().getPlayerReports());
 
                 for (PlayerReport pReport : playerReports) {
                     try {
+                        GeneralMethods.getDCPlayer(pReport.getPlayer()).removePlayerReport(pReport);
                         pdm.deleteReport(pReport);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -76,11 +76,11 @@ public class ClearCommand implements ReportSubCommand {
                 }
                 sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted all player reports.");
             } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.STAFF.getShorthand())) {
-                ArrayList<StaffReport> staffReports = new ArrayList<>();
-                staffReports.addAll(pdm.getReportManager().getStaffReports());
+                ArrayList<StaffReport> staffReports = new ArrayList<>(pdm.getReportManager().getStaffReports());
 
                 for (StaffReport sReport : staffReports) {
                     try {
+                        GeneralMethods.getDCPlayer(sReport.getPlayer()).removeStaffReport(sReport);
                         pdm.deleteReport(sReport);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -88,9 +88,8 @@ public class ClearCommand implements ReportSubCommand {
                 }
                 sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully deleted all staff reports.");
             } else if (requestedType.equalsIgnoreCase(ReportGeneral.REPORT_TYPE.BUG.getShorthand())) {
-                ArrayList<BugReport> bugReports = new ArrayList<>();
 
-                bugReports.addAll(pdm.getReportManager().getBugReports());
+                ArrayList<BugReport> bugReports = new ArrayList<>(pdm.getReportManager().getBugReports());
 
                 for (BugReport bReport : bugReports) {
                     try {
