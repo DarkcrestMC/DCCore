@@ -3,14 +3,12 @@ package com.Jacksonnn.DCCore.Rankup;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
 import com.Jacksonnn.DCCore.DCCore;
 import com.Jacksonnn.DCCore.GeneralMethods;
-import org.bukkit.Bukkit;
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
@@ -36,32 +34,39 @@ public class GuestQuizListener implements Listener {
                 return;
             }
 
-            if (clickedItem.getItemMeta().getLocalizedName().equals("correct")) {
-                player.closeInventory();
-                int questionNumber = Integer.parseInt(currentInventory.getItem(1).getItemMeta().getDisplayName().substring(2, 4));
-                if (questionNumber != 1) {
-                    Rankup.guestCheck(player, 1);
-                } else {
-                    DCCore.permissions.playerAddGroup(null, player, "Bender");
-                    Rankup.attemptRankup(player, "Guest", "Member",
-                            ConfigManager.defaultConfig.get().getIntegerList("Rankup.Prices.Ranks").get(0),
-                            ConfigManager.defaultConfig.get().getIntegerList("Rankup.Hours.Ranks").get(0));
-//                    DCCore.permissions.playerRemoveGroup(null, player, "Guest");
-//                    DCCore.permissions.playerAddGroup(null, player, "Member");
-//                    Bukkit.broadcastMessage(GeneralMethods.serverPrefix + "Congratulations, " + player.getName() + ", on becoming a Member! -Console");
-//                    player.sendMessage(GeneralMethods.successColor + "Congratulations on achieving the Member rank!");
-                }
+            if (clickedItem.getItemMeta() != null && clickedItem.getItemMeta().getLocalizedName().equals("correct")) {
+//                int questionNumber = Integer.parseInt(currentInventory.getItem(1).getItemMeta().getDisplayName().substring(2, 4));
+//                if (questionNumber != 1) {
+//                    Rankup.guestCheck(player, 1);
+//                } else {
+                    succeedCheck(player);
+//                }
             } else {
-                player.closeInventory();
-                player.sendMessage(GeneralMethods.errorPrefix + "You have failed your rankup test! Do /rankup to try again.");
+                failCheck(player);
             }
         }
     }
 
     @EventHandler
-    public void onChatEvent(AsyncPlayerChatEvent e) {
-        if (e.getMessage().equals("Crafting")) {
-            e.setCancelled(true);
-        }
+    public void onInventoryClose(InventoryCloseEvent e) {
+        if (!(e.getPlayer() instanceof Player))
+            return;
+
+        if (e.getView().getTitle().equals(ChatColor.DARK_PURPLE + "DarkcrestMC Vibe Check"))
+            failCheck((Player)e.getPlayer());
+    }
+
+    private void succeedCheck(Player player) {
+        player.closeInventory();
+        DCCore.permissions.playerAddGroup(null, player, "Bender");
+        Rankup.attemptRankup(player, "Guest", "Member",
+                ConfigManager.defaultConfig.get().getIntegerList("Rankup.Prices.Ranks").get(0),
+                ConfigManager.defaultConfig.get().getIntegerList("Rankup.Hours.Ranks").get(0));
+    }
+
+    private void failCheck(Player player) {
+        player.closeInventory();
+        player.sendMessage(GeneralMethods.errorPrefix + "You have failed your rankup test! Do /rankup to try again.");
+        player.performCommand("spawn");
     }
 }
