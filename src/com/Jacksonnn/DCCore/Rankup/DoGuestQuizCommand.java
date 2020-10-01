@@ -15,11 +15,7 @@ public class DoGuestQuizCommand implements CommandExecutor {
             return true;
         Player player = (Player)commandSender;
         String[] groups = DCCore.permissions.getPlayerGroups(player);
-        for (String group : groups)
-            if (group.equals("Guest")) {
-                Rankup.guestCheck(player, 1);
-                return true;
-            }
+        if (Rankup.isPlayerInGroup(player, "Guest")) Rankup.guestCheck(player, 1);
 //        if (!DCCore.permissions.playerInGroup(null, player, "Guest")) {
 //            return true;
 //        }
