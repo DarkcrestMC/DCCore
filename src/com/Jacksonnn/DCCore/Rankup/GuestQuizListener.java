@@ -41,9 +41,8 @@ public class GuestQuizListener implements Listener {
 //                } else {
                     succeedCheck(player);
 //                }
-            } else {
-                failCheck(player);
             }
+            player.closeInventory();
         }
     }
 
@@ -57,7 +56,6 @@ public class GuestQuizListener implements Listener {
     }
 
     private void succeedCheck(Player player) {
-        player.closeInventory();
         DCCore.permissions.playerAddGroup(null, player, "Bender");
         Rankup.attemptRankup(player, "Guest", "Member",
                 ConfigManager.defaultConfig.get().getIntegerList("Rankup.Prices.Ranks").get(0),
@@ -65,7 +63,6 @@ public class GuestQuizListener implements Listener {
     }
 
     private void failCheck(Player player) {
-        player.closeInventory();
         player.sendMessage(GeneralMethods.errorPrefix + "You have failed your rankup test! Do /rankup to try again.");
         player.performCommand("spawn");
     }

@@ -87,7 +87,7 @@ public class Rankup implements CommandExecutor, Listener {
                 ", on ranking up from " + oldGroup + " to " + newGroup + "!");
     }
 
-    private static boolean isPlayerInGroup(Player player, String group) {
+    public static boolean isPlayerInGroup(Player player, String group) {
         return DCCore.permissions.playerInGroup(null, player, group);
     }
     private static boolean isPlayerInGroup(Player player, String[] groups) {
@@ -172,6 +172,5 @@ public class Rankup implements CommandExecutor, Listener {
 
         player.openInventory(i);
     }
-
 }
 
