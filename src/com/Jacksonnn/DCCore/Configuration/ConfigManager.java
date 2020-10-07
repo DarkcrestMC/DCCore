@@ -4,7 +4,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ConfigManager {
     public static Config langConfig;
@@ -40,6 +39,8 @@ public class ConfigManager {
             config.addDefault("Storage.settings.ssl", false);
 
             config.addDefault("Storage.settings.path", "db.sql");
+
+            config.addDefault("StaffNotification.enabled", false);
 
             config.addDefault("StaffNotification.StaffChat.ChannelName", "staff-chat");
             config.addDefault("StaffNotification.StaffChat.ChannelID", "354051234338045952");
