@@ -143,6 +143,7 @@ public class GeneralMethods {
 		}
 
 		if (onlineStaff == 0) {
+			if (!ConfigManager.defaultConfig.get().getBoolean("StaffNotification.enabled")) return;
 			if (!Bukkit.getOnlinePlayers().isEmpty()) {
 				TextChannel staffchat = DiscordUtil.getTextChannelById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.StaffChat.ChannelID")));
 				EmbedBuilder embed = new EmbedBuilder();
