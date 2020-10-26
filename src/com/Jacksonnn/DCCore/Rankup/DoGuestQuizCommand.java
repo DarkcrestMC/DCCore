@@ -1,7 +1,6 @@
 package com.Jacksonnn.DCCore.Rankup;
 
 import com.Jacksonnn.DCCore.DCCore;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,11 +14,11 @@ public class DoGuestQuizCommand implements CommandExecutor {
             return true;
         Player player = (Player)commandSender;
         String[] groups = DCCore.permissions.getPlayerGroups(player);
-        if (Rankup.isPlayerInGroup(player, "Guest")) Rankup.guestCheck(player, 1);
-//        if (!DCCore.permissions.playerInGroup(null, player, "Guest")) {
-//            return true;
-//        }
-//        Rankup.guestCheck(player, 1);
+//        if (Rankup.isPlayerInGroup(player, "Guest")) Rankup.guestCheck(player, 1);
+        if (!DCCore.permissions.playerInGroup(null, player, "Guest")) {
+            return true;
+        }
+        Rankup.guestCheck(player, 1);
         return true;
     }
 }

@@ -51,7 +51,7 @@ public class GuestQuizListener implements Listener {
         if (!(e.getPlayer() instanceof Player))
             return;
 
-        if (e.getView().getTitle().equals(ChatColor.DARK_PURPLE + "DarkcrestMC Vibe Check"))
+        if (e.getView().getTitle().equals(ChatColor.DARK_PURPLE + "DarkcrestMC Vibe Check") && Rankup.isPlayerInGroup(((Player) e.getPlayer()).getPlayer(), "Guest"))
             failCheck((Player)e.getPlayer());
     }
 
@@ -64,6 +64,6 @@ public class GuestQuizListener implements Listener {
 
     private void failCheck(Player player) {
         player.sendMessage(GeneralMethods.errorPrefix + "You have failed your rankup test! Do /rankup to try again.");
-        player.performCommand("spawn");
+//        player.performCommand("spawn");
     }
 }
