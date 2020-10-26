@@ -22,8 +22,8 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class AddCommand implements NotesSubCommand {
-    private DCCore plugin;
-    private PlayerDisciplineManager pdm;
+    private final DCCore plugin;
+    private final PlayerDisciplineManager pdm;
 
     public AddCommand(DCCore plugin) {
         this.plugin = plugin;
@@ -80,9 +80,9 @@ public class AddCommand implements NotesSubCommand {
             TextChannel notesChannel = DiscordUtil.getTextChannelById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.Notes.ChannelID")));
 
             EmbedBuilder embedBuilder = new EmbedBuilder();
-            embedBuilder.setAuthor(Bukkit.getPlayer(note.getStaffMember()).getName());
-            embedBuilder.setTitle("Note for " + Bukkit.getPlayer(note.getPlayer()).getName());
-            embedBuilder.setDescription(note.getNote() + " -" + Bukkit.getPlayer(note.getStaffMember()).getName());
+            embedBuilder.setAuthor(sender.getName());
+            embedBuilder.setTitle("Note for " + dcPlayer.getName());
+            embedBuilder.setDescription(note.getNote() + " -" + sender.getName());
 
             //AQUA CHAT COLOR
             embedBuilder.setColor(new Color(85, 255, 255));
@@ -92,7 +92,7 @@ public class AddCommand implements NotesSubCommand {
             String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
             String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
 
-            Bukkit.broadcast(chatprefix + ChatColor.AQUA + "NEW PLAYER NOTE: " + msgColor + Bukkit.getPlayer(note.getStaffMember()).getName() + " just noted about " + Bukkit.getPlayer(note.getPlayer()).getName() + ": " + note.getNote() + ".", GeneralMethods.ChatModes.STAFF.getChatPerm());
+            Bukkit.broadcast(chatprefix + ChatColor.AQUA + "NEW PLAYER NOTE: " + msgColor + sender.getName() + " just noted about " + dcPlayer.getName() + ": " + note.getNote() + ".", GeneralMethods.ChatModes.STAFF.getChatPerm());
         } else {
             sender.sendMessage(pdm.getNoteManager().notesPrefix + getProperUse());
         }

@@ -21,8 +21,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class AddCommand implements WarningSubCommand {
-    private DCCore plugin;
-    private PlayerDisciplineManager pdm;
+    private final DCCore plugin;
+    private final PlayerDisciplineManager pdm;
 
     public AddCommand(DCCore plugin) {
         this.plugin = plugin;
@@ -78,9 +78,9 @@ public class AddCommand implements WarningSubCommand {
             TextChannel notesChannel = DiscordUtil.getTextChannelById(Objects.requireNonNull(ConfigManager.defaultConfig.get().getString("StaffNotification.Warnings.ChannelID")));
 
             EmbedBuilder embedBuilder = new EmbedBuilder();
-            embedBuilder.setAuthor(Bukkit.getPlayer(warning.getStaffMember()).getName());
-            embedBuilder.setTitle("Warning against " + Bukkit.getPlayer(warning.getPlayer()).getName());
-            embedBuilder.setDescription(warning.getReason() + " -" + Bukkit.getPlayer(warning.getStaffMember()).getName());
+            embedBuilder.setAuthor(staffMember.getName());
+            embedBuilder.setTitle("Warning against " + dcPlayer.getName());
+            embedBuilder.setDescription(warning.getReason() + " -" + sender.getName());
             //GOLD CHAT COLOR
             embedBuilder.setColor(new Color(255, 170, 0));
 
@@ -89,7 +89,7 @@ public class AddCommand implements WarningSubCommand {
             String chatprefix = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.Prefix")));
             String msgColor = GeneralMethods.translateColorCodes(Objects.requireNonNull(ConfigManager.langConfig.get().getString("Language.StaffChats.StaffChat.msgColor")));
 
-            Bukkit.broadcast(chatprefix + ChatColor.GOLD + "NEW WARNING: " + msgColor + Bukkit.getPlayer(warning.getStaffMember()).getName() + " just warned " + Bukkit.getPlayer(warning.getPlayer()).getName() + " for " + warning.getReason() + ".", GeneralMethods.ChatModes.STAFF.getChatPerm());
+            Bukkit.broadcast(chatprefix + ChatColor.GOLD + "NEW WARNING: " + msgColor + staffMember.getName() + " just warned " + dcPlayer.getName() + " for " + warning.getReason() + ".", GeneralMethods.ChatModes.STAFF.getChatPerm());
         } else {
             sender.sendMessage(pdm.getWarningManager().warningPrefix + getProperUse());
         }
