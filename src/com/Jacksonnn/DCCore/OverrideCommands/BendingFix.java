@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class BendingFix implements CommandExecutor {
 
     @Override
@@ -47,6 +48,8 @@ public class BendingFix implements CommandExecutor {
             userGroups.add("Royal");
         } else if (DCCore.permissions.playerInGroup(null, player, "Noble")) {
             userGroups.add("Noble");
+        } else if (DCCore.permissions.playerInGroup(null, player, "Chancellor")) {
+            userGroups.add("Chancellor");
         } else if (DCCore.permissions.playerInGroup(null, player, "Official")) {
             userGroups.add("Official");
         } else if (DCCore.permissions.playerInGroup(null, player, "Baron")) {

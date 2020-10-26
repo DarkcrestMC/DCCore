@@ -8,10 +8,10 @@ import com.Jacksonnn.DCCore.BannedWords.BannedWordsListener;
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
-import com.Jacksonnn.DCCore.Guides.BendingGuideCommand;
-import com.Jacksonnn.DCCore.Guides.DCGuideCommand;
 import com.Jacksonnn.DCCore.DiamondLuck.DiamondLuck;
 import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
+import com.Jacksonnn.DCCore.Guides.BendingGuideCommand;
+import com.Jacksonnn.DCCore.Guides.DCGuideCommand;
 import com.Jacksonnn.DCCore.OverrideCommands.*;
 import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.RandomTP.RandomTP;
@@ -50,7 +50,7 @@ public class DCCore extends JavaPlugin {
 	public static Permission permissions;
 	private static SuggestionsHandler suggestionsHandler;
 
-	private PluginManager pm = Bukkit.getServer().getPluginManager();
+	private final PluginManager pm = Bukkit.getServer().getPluginManager();
 	private DatabaseManager databaseManager;
 
 	private PlayerDisciplineManager pdm;
@@ -155,7 +155,7 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("avatar").setExecutor(new Avatar());
 		this.getCommand("lightspirit").setExecutor(new LightSpirit());
 		this.getCommand("darkspirit").setExecutor(new DarkSpirit());
-		this.getCommand("bendingfix").setExecutor(new BendingFix());
+//		this.getCommand("bendingfix").setExecutor(new BendingFix());
 		this.getCommand("headofstaff").setExecutor(new HOSCommand());
 		this.getCommand("developer").setExecutor(new DeveloperCommand());
 		this.getCommand("managers").setExecutor(new ManagersCommand());

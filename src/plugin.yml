@@ -66,9 +66,9 @@ commands:
     usage: /<command>
   darkspirit:
     usage: /<command>
-  bendingfix:
-    aliases: [fixbending, bfix, bendingf]
-    usage: /<command>
+#  bendingfix:
+#    aliases: [fixbending, bfix, bendingf]
+#    usage: /<command>
   headofstaff:
     aliases: [hos, headostaff, bigstaff, daddystaff]
     usage: /<command>

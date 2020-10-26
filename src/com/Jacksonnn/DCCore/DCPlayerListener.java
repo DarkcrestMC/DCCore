@@ -14,6 +14,9 @@ public class DCPlayerListener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         DCPlayer dcPlayer = GeneralMethods.getDCPlayer(e.getPlayer().getUniqueId());
 
+        if (DCCore.permissions.playerInGroup(null, e.getPlayer(), "avatar"))
+            DCCore.permissions.playerRemoveGroup(null, e.getPlayer(), "bender");
+
         if (dcPlayer == null) {
             new DCPlayer(e.getPlayer());
         } else {

@@ -9,20 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="uh general update, so">
-      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/DoGuestQuizCommand.java" afterDir="false" />
+    <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="Config option added for &quot;0 player&quot; staff notification. Disabled by default">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/BannedWords/BannedWordsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/BannedWords/BannedWordsListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCCore2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DCCore2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCPlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCPlayerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingFix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingFix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingHelp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/DoGuestQuizCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/DoGuestQuizCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/GuestQuizListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/GuestQuizListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Rankup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/Rankup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Notes/NotesGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Notes/NotesGeneral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Reports/ReportGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Reports/ReportGeneral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Warnings/WarningGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Warnings/WarningGeneral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/DCPlayerQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Storage/DCPlayerQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Suggestions/SuggestCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Suggestions/SuggestCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Suggestions/SuggestionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Suggestions/SuggestionsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Warnings/Warning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Warnings/Warning.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -423,7 +419,28 @@
       <option name="project" value="LOCAL" />
       <updated>1593882720889</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Discord is no longer spammed by staffless messages while no players are on">
+      <created>1599187041300</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1599187041300</updated>
+    </task>
+    <task id="LOCAL-00036" summary="When a player fails a guest quiz, they are teleported to spawn">
+      <created>1599938975108</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1599938975108</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Config option added for &quot;0 player&quot; staff notification. Disabled by default">
+      <created>1602029002644</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1602029002644</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -438,9 +455,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
-    <MESSAGE value="Added chat command, toggles chat only at the moment." />
-    <MESSAGE value="Bug Fixes and Improvements" />
-    <MESSAGE value="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all." />
     <MESSAGE value="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; &#10;ISSUE:&#10; - Chat Toggle command doesn't work at all (possibly fixed in this commit)." />
     <MESSAGE value="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; - You can now mute/unmute the chat easily.&#10; &#10;TODO:&#10; - Check if it's a command in the chat event." />
     <MESSAGE value="Bug Fixes and Improvements:&#10; - Updated plugin.yml.&#10; - Removed aliases from registerring commands, will be created when plugin.yml is run.&#10; - Changed broadcast message to: [Darkcrest] message -(player) instead of [Darkcrest] message- (player).&#10; - Changed prefix to [DCCore] + ColorChat + &quot; &quot;.&#10; - Added the start of the ChatSensor.&#10; - You can now mute/unmute the chat easily.&#10; - Checks if it's a command in the chat event and let's the command run." />
@@ -463,7 +477,10 @@
     <MESSAGE value="Updated Staff Counts, Added Staff Spawn Command." />
     <MESSAGE value="Changed &quot;Server Staffless&quot; to be an embed and only tag every 4 staffless messages." />
     <MESSAGE value="uh general update, so" />
-    <option name="LAST_COMMIT_MESSAGE" value="uh general update, so" />
+    <MESSAGE value="Discord is no longer spammed by staffless messages while no players are on" />
+    <MESSAGE value="When a player fails a guest quiz, they are teleported to spawn" />
+    <MESSAGE value="Config option added for &quot;0 player&quot; staff notification. Disabled by default" />
+    <option name="LAST_COMMIT_MESSAGE" value="Config option added for &quot;0 player&quot; staff notification. Disabled by default" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -471,35 +488,39 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596421252442" />
-    <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1596420796098">
+    <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1597005479385">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596420796098" />
-    <state x="9" y="52" key="CommitChangelistDialog2" timestamp="1593885286112">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="9" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1593885286112" />
-    <state x="9" y="49" key="CommitChangelistDialog2/0.23.1440.821@0.23.1440.821" timestamp="1590811436460" />
-    <state x="0" y="78" key="DiffContextDialog" timestamp="1591568723165">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="0" y="78" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1591568723165" />
-    <state width="1877" height="161" key="GridCell.Tab.0.bottom" timestamp="1596430450587">
+    <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1597005479385" />
+    <state x="640" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603576612600">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="161" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596430450587" />
-    <state width="1877" height="161" key="GridCell.Tab.0.center" timestamp="1596430450587">
+    <state x="640" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1603576612600" />
+    <state x="9" y="62" width="1911" height="929" key="CommitChangelistDialog2" timestamp="1602811703733">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="161" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596430450587" />
-    <state width="1877" height="161" key="GridCell.Tab.0.left" timestamp="1596430450587">
+    <state x="-1908" y="-8" width="1637" height="827" key="CommitChangelistDialog2/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597537902256" />
+    <state x="9" y="62" width="1911" height="929" key="CommitChangelistDialog2/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602811703733" />
+    <state width="1877" height="160" key="GridCell.Tab.0.bottom" timestamp="1602040601997">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="161" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596430450587" />
-    <state width="1877" height="161" key="GridCell.Tab.0.right" timestamp="1596430450587">
+    <state width="1877" height="160" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597538457764" />
+    <state width="1877" height="160" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602040601997" />
+    <state width="1877" height="160" key="GridCell.Tab.0.center" timestamp="1602040601997">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="161" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596430450587" />
+    <state width="1877" height="160" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597538457764" />
+    <state width="1877" height="160" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602040601997" />
+    <state width="1877" height="160" key="GridCell.Tab.0.left" timestamp="1602040601997">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="160" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597538457764" />
+    <state width="1877" height="160" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602040601997" />
+    <state width="1877" height="160" key="GridCell.Tab.0.right" timestamp="1602040601997">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="160" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597538457764" />
+    <state width="1877" height="160" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602040601997" />
     <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1596423506977">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -516,14 +537,24 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596423506976" />
-    <state x="208" y="31" key="SettingsEditor" timestamp="1591139206044">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="540" y="282" key="IDE.errors.dialog" timestamp="1599938984405">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="208" y="31" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1591139206044" />
-    <state x="509" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590812019212">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state x="540" y="282" key="IDE.errors.dialog/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1599938984405" />
+    <state x="764" y="242" key="RollbackChangesDialog" timestamp="1599186455662">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="509" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.821@0.23.1440.821" timestamp="1590812019212" />
+    <state x="764" y="242" key="RollbackChangesDialog/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1599186455662" />
+    <state x="61" y="358" key="Vcs.Push.Dialog.v2" timestamp="1602029008810">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1368" y="202" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597537891654" />
+    <state x="61" y="358" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602029008810" />
+    <state x="679" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600042989466">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1241" y="369" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597538456313" />
+    <state x="679" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1600042989466" />
     <state x="92" y="92" width="1736" height="896" key="dock-window-1" timestamp="1596426171671">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -532,14 +563,20 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="92" y="92" width="1736" height="896" key="dock-window-2/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596426171671" />
-    <state x="114" y="56" key="new project wizard" timestamp="1590812556918">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state x="114" y="56" key="new project wizard/0.23.1440.821@0.23.1440.821" timestamp="1590812556918" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1596431418227">
+    <state x="1222" y="250" width="585" height="534" key="find.popup" timestamp="1599186505126">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596431418227" />
+    <state x="-698" y="180" width="585" height="534" key="find.popup/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597352596029" />
+    <state x="1222" y="250" width="585" height="534" key="find.popup/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1599186505126" />
+    <state x="616" y="250" key="run.anything.popup" timestamp="1596863514503">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596863514503" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1602811496408">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1297" y="165" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597352579023" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602811496408" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
