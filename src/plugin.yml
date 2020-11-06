@@ -107,9 +107,6 @@ commands:
   staffspawn:
     aliases: [ss, specialspawn]
     usage: /<command>
-  banish:
-    aliases: [bannish, woosh, piss]
-    usage: /<command>
   playerinfo:
     aliases: [pi, pinfo, playeri]
     usage: /<command>
