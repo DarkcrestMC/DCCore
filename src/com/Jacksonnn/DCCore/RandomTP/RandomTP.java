@@ -21,7 +21,7 @@ public class RandomTP implements CommandExecutor {
                     sender.sendMessage(GeneralMethods.errorPrefix);
                     return true;
                 }
-                World world = world;
+                World world = player.getWorld();
                 int radius;
 
                 if (ConfigManager.defaultConfig.get().getBoolean("RandomTP.SetRadius")) {
