@@ -146,7 +146,7 @@ public class DCCore extends JavaPlugin {
 		}
 
 		this.getCommand("suggest").setExecutor(new SuggestCommand());
-		this.getCommand("b").setExecutor(new PKAlias());
+//		this.getCommand("b").setExecutor(new PKAlias());
 		this.getCommand("vote").setExecutor(new Vote());
 		this.getCommand("forums").setExecutor(new Forums());
 		this.getCommand("donate").setExecutor(new Donate());
