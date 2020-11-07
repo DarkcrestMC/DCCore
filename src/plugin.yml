@@ -44,9 +44,9 @@ commands:
   suggest:
     aliases: [suggestion]
     usage: /<command>
-  b:
-    aliases: [pk, projectkorra, bend, bending, atla, alok, tla, lok]
-    usage: /<command>
+#  b:
+#    aliases: [pk, projectkorra, bend, bending, atla, alok, tla, lok]
+#    usage: /<command>
   donate:
     usage: /<command>
   vote:
