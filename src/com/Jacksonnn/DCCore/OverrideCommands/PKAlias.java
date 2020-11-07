@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+@Deprecated // this annotation declares a class or method to be deprecated, and the IDE should warn you about its usages
 public class PKAlias implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
