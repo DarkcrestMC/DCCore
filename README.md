@@ -19,7 +19,6 @@
     - Staff Communication Channels
     - Staff Count Announcer
     - Warnings
-    - BanishHackFix
     - Staff Spawn Information
 
 ## Commands and Permissions:
