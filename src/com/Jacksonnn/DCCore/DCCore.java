@@ -146,7 +146,7 @@ public class DCCore extends JavaPlugin {
 		}
 
 		this.getCommand("suggest").setExecutor(new SuggestCommand());
-		this.getCommand("b").setExecutor(new PKAlias());
+//		this.getCommand("b").setExecutor(new PKAlias());
 		this.getCommand("vote").setExecutor(new Vote());
 		this.getCommand("forums").setExecutor(new Forums());
 		this.getCommand("donate").setExecutor(new Donate());
@@ -166,7 +166,6 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("staffcount").setExecutor(new StaffCountCommand());
 		this.getCommand("announcer").setExecutor(new AnnouncementCommands());
 		this.getCommand("staffspawn").setExecutor(new StaffSpawnCommand(plugin));
-		this.getCommand("banish").setExecutor(new BanishHackFix(plugin));
 		this.getCommand("playerinfo").setExecutor(new PlayerInfoCommand());
 
 		//NOTES COMMAND

@@ -44,9 +44,9 @@ commands:
   suggest:
     aliases: [suggestion]
     usage: /<command>
-  b:
-    aliases: [pk, projectkorra, bend, bending, atla, alok, tla, lok]
-    usage: /<command>
+#  b:
+#    aliases: [pk, projectkorra, bend, bending, atla, alok, tla, lok]
+#    usage: /<command>
   donate:
     usage: /<command>
   vote:
@@ -106,9 +106,6 @@ commands:
     usage: /<command>
   staffspawn:
     aliases: [ss, specialspawn]
-    usage: /<command>
-  banish:
-    aliases: [bannish, woosh, piss]
     usage: /<command>
   playerinfo:
     aliases: [pi, pinfo, playeri]
