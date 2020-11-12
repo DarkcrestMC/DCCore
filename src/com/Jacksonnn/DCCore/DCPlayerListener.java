@@ -57,7 +57,7 @@ public class DCPlayerListener implements Listener {
             dcPlayer.setDeaths(e.getEntity().getStatistic(Statistic.DEATHS));
         }
 
-        DCPlayer dcPlayerKiller = GeneralMethods.getDCPlayer(e.getEntity().getKiller().getUniqueId());
+        // DCPlayer dcPlayerKiller = GeneralMethods.getDCPlayer(e.getEntity().getKiller().getUniqueId());
         if (dcPlayerKiller != null) {
             dcPlayerKiller.setKills(e.getEntity().getKiller().getStatistic(Statistic.PLAYER_KILLS));
         }
