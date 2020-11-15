@@ -11,7 +11,6 @@ import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.BugReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.PlayerReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.StaffReport;
 import com.Jacksonnn.DCCore.StaffUtils.Reports.ReportTypes.ToDoReport;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -21,8 +20,8 @@ import java.util.List;
 
 public class AddCommand implements ReportSubCommand {
 
-    private DCCore plugin;
-    private PlayerDisciplineManager pdm;
+    private final DCCore plugin;
+    private final PlayerDisciplineManager pdm;
 
     public AddCommand(DCCore dccore) {
         plugin = dccore;
@@ -75,7 +74,7 @@ public class AddCommand implements ReportSubCommand {
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Successfully created new " + report.getType().getShorthand() + " report (ID: " +
                                 report.getID() + ") " + ChatColor.YELLOW +
                                 report.getMessage() + ChatColor.DARK_RED + " -" +
-                                Bukkit.getPlayer(report.getStaffMember()).getName());
+                                sender.getName());
                     } else {
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add todo <message>.");
                     }
@@ -150,7 +149,7 @@ public class AddCommand implements ReportSubCommand {
                                 (report.isTested() ? "T" : "NT") +
                                 report.getID() + ") " + ChatColor.YELLOW +
                                 report.getMessage() + ChatColor.DARK_RED + " -" +
-                                Bukkit.getPlayer(report.getStaffMember()).getName());
+                                sender.getName());
                     } else {
                         sender.sendMessage(pdm.getReportManager().reportsPrefix + "Error! Please do /reports add bug <bugType> <tested(true/false)> <message>");
                     }

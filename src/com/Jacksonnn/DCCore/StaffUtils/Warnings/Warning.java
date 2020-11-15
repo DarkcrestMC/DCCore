@@ -7,11 +7,11 @@ import org.bukkit.Bukkit;
 import java.util.UUID;
 
 public class Warning {
-    private int id;
-    private UUID player;
-    private UUID staffMember;
-    private String message;
-    private PlayerDisciplineManager pdm;
+    private final int id;
+    private final UUID player;
+    private final UUID staffMember;
+    private final String message;
+    private final PlayerDisciplineManager pdm;
 
     public Warning(DCPlayer player, UUID staffMember, String message, PlayerDisciplineManager pdm) {
         Bukkit.getLogger().info("Creating warning...");
@@ -30,7 +30,7 @@ public class Warning {
         this.staffMember = staffMember;
         this.message = message;
 
-        player.addWarning(this);
+//        player.addWarning(this);
 
         saveWarning();
     }
