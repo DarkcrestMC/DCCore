@@ -21,7 +21,7 @@ public class DCPlayerListener implements Listener {
         if (dcPlayer == null) {
             new DCPlayer(e.getPlayer());
         } else {
-            if (dcPlayer.getName() != e.getPlayer().getName()) {
+            if (!dcPlayer.getName().equals(e.getPlayer().getName())) {
                 dcPlayer.setName(e.getPlayer().getName());
             }
             dcPlayer.setTimesJoined(dcPlayer.getTimesJoined() + 1);
