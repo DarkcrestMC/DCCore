@@ -2,6 +2,7 @@ package com.Jacksonnn.DCCore;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Statistic;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -20,7 +21,7 @@ public class DCPlayerListener implements Listener {
         if (dcPlayer == null) {
             new DCPlayer(e.getPlayer());
         } else {
-            if (dcPlayer.getName() != e.getPlayer().getName()) {
+            if (!dcPlayer.getName().equals(e.getPlayer().getName())) {
                 dcPlayer.setName(e.getPlayer().getName());
             }
             dcPlayer.setTimesJoined(dcPlayer.getTimesJoined() + 1);
@@ -52,14 +53,18 @@ public class DCPlayerListener implements Listener {
  
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
+        // Not really sure why we have this in the first place.
+        // Why do we need to store kills and deaths in DCPlayer when Minecraft natively stores them in Player?
+
         DCPlayer dcPlayer = GeneralMethods.getDCPlayer(e.getEntity().getUniqueId());
         if (dcPlayer != null) {
             dcPlayer.setDeaths(e.getEntity().getStatistic(Statistic.DEATHS));
         }
 
-        DCPlayer dcPlayerKiller = GeneralMethods.getDCPlayer(e.getEntity().getKiller().getUniqueId());
-        if (dcPlayerKiller != null) {
-            dcPlayerKiller.setKills(e.getEntity().getKiller().getStatistic(Statistic.PLAYER_KILLS));
+        Player playerKiller = e.getEntity().getKiller();
+        if (playerKiller != null) {
+            DCPlayer dcPlayerKiller = GeneralMethods.getDCPlayer(playerKiller.getUniqueId());
+            if (dcPlayerKiller != null) dcPlayerKiller.setKills(playerKiller.getStatistic(Statistic.PLAYER_KILLS));
         }
     }
 }
