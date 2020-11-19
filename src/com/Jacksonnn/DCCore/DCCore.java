@@ -17,7 +17,6 @@ import com.Jacksonnn.DCCore.QuickDeposit.QuickDepositListener;
 import com.Jacksonnn.DCCore.RandomTP.RandomTP;
 import com.Jacksonnn.DCCore.Rankup.*;
 import com.Jacksonnn.DCCore.Spawners.SpawnerListener;
-import com.Jacksonnn.DCCore.StaffUtils.BanishHackFix;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesCommand;
 import com.Jacksonnn.DCCore.StaffUtils.Notes.NotesGeneral;
 import com.Jacksonnn.DCCore.StaffUtils.PlayerDisciplineManager;
