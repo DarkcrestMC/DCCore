@@ -140,6 +140,7 @@ public class DCCore extends JavaPlugin {
 		this.getCommand("ranks").setExecutor(new Ranks());
 		this.getCommand("diamondluck").setExecutor(new DiamondLuck());
 
+
 		if (ConfigManager.defaultConfig.get().getBoolean("RandomTP.enabled")) {
 			this.getCommand("randomtp").setExecutor(new RandomTP());
 		}

@@ -1,0 +1,428 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 499b7b0616b9c12fee91648e89eeaf2545a66aec)
++++ .idea/workspace.xml	(date 1608079663363)
+@@ -5,20 +5,30 @@
+       <artifact name="DCCore" />
+     </artifacts-to-build>
+   </component>
+-  <component name="AutoImportSettings">
+-    <option name="autoReloadType" value="SELECTIVE" />
++  <component name="BranchesTreeState">
++    <expand>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </expand>
++    <select />
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="Config option added for &quot;0 player&quot; staff notification. Disabled by default">
++      <change afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/configedit/ConfigEditor.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/DCCore2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DCCore2.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCPlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCPlayerListener.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingFix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingFix.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingHelp.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/DoGuestQuizCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/DoGuestQuizCommand.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/GuestQuizListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/GuestQuizListener.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Warnings/Warning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Warnings/Warning.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -42,12 +52,6 @@
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+     <option name="ROOT_SYNC" value="DONT_SYNC" />
+     <option name="UPDATE_TYPE" value="MERGE" />
+-  </component>
+-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+-  <component name="JsGulpfileManager">
+-    <detection-done>true</detection-done>
+-    <sorting>DEFINITION_ORDER</sorting>
+   </component>
+   <component name="MavenImportPreferences">
+     <option name="generalSettings">
+@@ -71,6 +75,8 @@
+     <property name="Downloaded.Files.Path.Enabled" value="false" />
+     <property name="Repository.Attach.JavaDocs" value="false" />
+     <property name="Repository.Attach.Sources" value="false" />
++    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
++    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="aspect.path.notification.shown" value="true" />
+@@ -139,7 +145,6 @@
+       </method>
+     </configuration>
+   </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
+   <component name="SvnConfiguration">
+     <configuration />
+   </component>
+@@ -180,6 +185,7 @@
+       <workItem from="1583291695107" duration="26046000" />
+       <workItem from="1583892341626" duration="3823000" />
+       <workItem from="1583898268959" duration="6870000" />
++      <workItem from="1608078527012" duration="1116000" />
+     </task>
+     <task id="LOCAL-00001" summary="Moved programming workspace to IntelliJ instead of Eclipse.">
+       <created>1527464732071</created>
+@@ -443,14 +449,22 @@
+     <option name="localTasksCounter" value="38" />
+     <servers />
+   </component>
+-  <component name="TimeTrackingManager">
+-    <option name="totallyTimeSpent" value="156968000" />
+-  </component>
+   <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="1" />
++    <option name="version" value="2" />
+   </component>
+   <component name="UpdateCopyrightCheckinHandler">
+     <option name="UPDATE_COPYRIGHT" value="true" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+Index: DCCore2.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- DCCore2.iml	(revision 499b7b0616b9c12fee91648e89eeaf2545a66aec)
++++ DCCore2.iml	(date 1608079387258)
+@@ -152,10 +152,64 @@
+     <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:bungeecord-chat:1.16-R0.3" level="project" />
+     <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.26" level="project" />
+     <orderEntry type="library" scope="PROVIDED" name="Maven: net.milkbowl.vault:VaultAPI:1.7" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.discordsrv:discordsrv:1.19.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.dv8tion:JDA:4.1.1_155" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jetbrains:annotations:16.0.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.squareup.okhttp3:okhttp:3.13.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.squareup.okio:okio:1.17.2" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.commons:commons-collections4:4.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.neovisionaries:nv-websocket-client:2.9" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:slf4j-jdk14:1.7.25" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.github.kevinsawicki:http-request:6.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-io:commons-io:2.6" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.commons:commons-lang3:3.5" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-codec:commons-codec:1.11" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: github.scarsz:configuralize:1.3.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.sf.trove4j:trove4j:3.0.3" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: junit:junit:4.10" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.vdurmont:emoji-java:3.1.3" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.json:json:20140107" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.github.zafarkhaja:java-semver:0.9.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.minidns:minidns-hla:0.3.4" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.minidns:minidns-dnssec:0.3.4" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.minidns:minidns-client:0.3.4" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.minidns:minidns-core:0.3.4" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.minidns:minidns-iterative-resolver:0.3.4" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: dev.vankka:MCDiscordReserializer:3.0.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: dev.vankka:SimpleAST:2.2.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:text-api:3.0.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.checkerframework:checker-qual:2.5.8" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:text-serializer-legacy:3.0.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:text-adapter-bukkit:3.0.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:text-serializer-gson:3.0.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.springframework:spring-expression:5.2.7.RELEASE" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.springframework:spring-core:5.2.7.RELEASE" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.springframework:spring-jcl:5.2.7.RELEASE" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.ess3:EssentialsX:2.17.2" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: io.papermc:paperlib:1.0.4" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.ess3:BaseProviders:2.17.2" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.ess3:NMSReflectionProvider:2.17.2" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.ess3:PaperProvider:2.17.2" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.ess3:1_8Provider:2.17.2" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-lang:commons-lang:2.6" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.guava:guava:21.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:bungeecord-chat:1.16-R0.3" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.26" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.milkbowl.vault:VaultAPI:1.7" level="project" />
+     <orderEntry type="module-library">
+       <library name="Maven: com.projectkorra:projectKorra:1.8.9">
+         <CLASSES>
+-          <root url="jar://$MODULE_DIR$/lib/ProjectKorra-1.8.9.jar!/" />
++          <root url="jar://$MODULE_DIR$/lib/ProjectKorra-1.9.0.jar!/" />
+         </CLASSES>
+         <JAVADOC />
+         <SOURCES />
+Index: src/com/Jacksonnn/DCCore/DCCore.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/Jacksonnn/DCCore/DCCore.java	(revision 499b7b0616b9c12fee91648e89eeaf2545a66aec)
++++ src/com/Jacksonnn/DCCore/DCCore.java	(date 1608079384183)
+@@ -140,6 +140,7 @@
+ 		this.getCommand("ranks").setExecutor(new Ranks());
+ 		this.getCommand("diamondluck").setExecutor(new DiamondLuck());
+ 
++
+ 		if (ConfigManager.defaultConfig.get().getBoolean("RandomTP.enabled")) {
+ 			this.getCommand("randomtp").setExecutor(new RandomTP());
+ 		}
+Index: src/plugin.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/plugin.yml	(revision 499b7b0616b9c12fee91648e89eeaf2545a66aec)
++++ src/plugin.yml	(date 1608079603549)
+@@ -110,6 +110,9 @@
+   playerinfo:
+     aliases: [pi, pinfo, playeri]
+     usage: /<command>
++  configeditor:
++    aliases: [Conedit, configedit, configeditor, ce]
++    usage: /<command>
+ permissions:
+   DCCore.player:
+     default: op
+@@ -131,6 +134,7 @@
+       DCCore.ReportStaff: true
+       DCCore.WarningStaff: true
+       DCCore.PlayerInfo: true
++      DCCore.ConfigEditor: true
+   DCCore.chat:
+     default: op
+     children:
+Index: src/com/Jacksonnn/DCCore/configedit/ConfigEditor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/Jacksonnn/DCCore/configedit/ConfigEditor.java	(date 1608079726762)
++++ src/com/Jacksonnn/DCCore/configedit/ConfigEditor.java	(date 1608079726762)
+@@ -0,0 +1,196 @@
++package com.Jacksonnn.DCCore.configedit;
++
++import com.projectkorra.projectkorra.ability.CoreAbility;
++import com.projectkorra.projectkorra.command.PKCommand;
++import com.projectkorra.projectkorra.configuration.ConfigManager;
++import org.bukkit.ChatColor;
++import org.bukkit.command.CommandSender;
++import org.bukkit.entity.Player;
++
++import java.util.List;
++
++public class ConfigEditor extends PKCommand {
++
++    public ConfigEditor() {
++        super("config", "/bending config <value>", "stuffs", new String[] { "config", "conf", "con" });
++
++    }
++
++    @Override
++    public void execute(CommandSender sender, List<String> args) {
++
++        if (!isPlayer(sender) || !correctLength(sender, args.size(), 0, 3)) {
++
++            return;
++        }
++
++        if (sender instanceof Player) {
++            Player player = (Player) sender;
++
++            if (!player.hasPermission("bendingessentials.configeditor")) {
++                player.sendMessage(ChatColor.RED + "You do not have permission to use: " + ChatColor.GOLD
++                        + "Bending Essentials Config Editor");
++                return;
++            }
++
++            if (args.size() == 0) {
++
++                player.sendMessage(ChatColor.GOLD
++                        + "This allows you to live edit PK's config and make changes immediately. Please be aware that this feature does not support addons.");
++                player.sendMessage("\n" + ChatColor.RED + "To find out how to properly use this command, type "
++                        + ChatColor.GOLD + "/b config help");
++                return;
++
++            }
++
++            if (args.size() == 1) {
++
++                if (args.get(0).equalsIgnoreCase("help")) {
++
++                    player.sendMessage(ChatColor.GOLD
++                            + "The correct way to use the PK Config Editor is to define a move, the variable you would like to change and then the value. For example:");
++                    player.sendMessage(ChatColor.WHITE + "- " + ChatColor.RED + "/b config FireBlast Damage 5000");
++                    player.sendMessage(ChatColor.RED + "For a list of variables, type: " + ChatColor.GOLD + "/b config help variables");
++                    return;
++                } else {
++                    player.sendMessage(ChatColor.RED + "Incorrect usage. Type " + ChatColor.GOLD + "/b config help "
++                            + ChatColor.RED + "for information on how to properly use this command.");
++                    return;
++                }
++            }
++
++            if (args.size() == 2) {
++                if (args.get(0).equalsIgnoreCase("help") && (args.get(1).equals("variables"))) {
++                    player.sendMessage(ChatColor.WHITE + "- " + ChatColor.RED + "Enabled");
++                    player.sendMessage(ChatColor.WHITE + "- " + ChatColor.RED + "Damage");
++                    player.sendMessage(ChatColor.WHITE + "- " + ChatColor.RED + "Knockback");
++                    player.sendMessage(ChatColor.WHITE + "- " + ChatColor.RED + "Cooldown");
++                    player.sendMessage(ChatColor.WHITE + "- " + ChatColor.RED + "Range");
++                    player.sendMessage(ChatColor.WHITE + "- " + ChatColor.RED + "ChargeTime");
++                    player.sendMessage(ChatColor.GOLD + "This is not a full list of variables, just the most common ones. Each ability has its own unique variables and all of those can be accessed.");
++
++
++                    return;
++                } else {
++                    player.sendMessage(ChatColor.RED + "Incorrect usage. Type " + ChatColor.GOLD + "/b config help "
++                            + ChatColor.RED + "for information on how to properly use this command.");
++                    return;
++                }
++            }
++
++            if (args.size() == 3) {
++
++                String move = args.get(0);
++                if (CoreAbility.getAbility(move) == null) {
++                    player.sendMessage(ChatColor.RED + move + ChatColor.GOLD + " is not a valid ability!");
++                    return;
++                }
++
++                // Gets variables from arguments
++                String movename = CoreAbility.getAbility(move).getName();
++                String variable = args.get(1).toUpperCase().charAt(0) + args.get(1).substring(1);
++                String value = args.get(2);
++                CoreAbility ability = CoreAbility.getAbility(movename);
++                String element = ability.getElement().getName();
++
++
++                //		event.setMessage(("" + msg.charAt(0)).toUpperCase() + msg.substring(1));
++
++                if (!(ConfigManager.defaultConfig.get()
++                        .contains("Abilities." + element + "." + movename + "." + variable))) {
++                    player.sendMessage(ChatColor.GOLD + "That config path could not be found:");
++                    player.sendMessage(ChatColor.RED + "Abilities." + element + "." + movename + "." + variable);
++                    return;
++
++                }
++
++                // Checks if the value is an int
++                if (isInt(args.get(2))) {
++
++                    int intvalue = Integer.parseInt(args.get(2));
++
++                    ConfigManager.defaultConfig.get().set("Abilities." + element + "." + movename + "." + variable,
++                            intvalue);
++
++                    saveConfig();
++
++                    player.sendMessage("- " + ability.getElement().getColor() + move);
++                    player.sendMessage(ChatColor.GOLD + variable + ChatColor.WHITE + ":");
++                    player.sendMessage(ChatColor.GREEN + value);
++
++                    return;
++                }
++                // Checks if the value is a double
++                else if (isDouble(args.get(2))) {
++                    double doublevalue = Double.parseDouble(args.get(2));
++                    ConfigManager.defaultConfig.get().set("Abilities." + element + "." + movename + "." + variable,
++                            doublevalue);
++
++                    saveConfig();
++                    player.sendMessage("- " + ability.getElement().getColor() + move);
++                    player.sendMessage(ChatColor.GOLD + variable + ChatColor.WHITE + ":");
++                    player.sendMessage(ChatColor.GREEN + value);
++                    return;
++                }
++
++                // Checks if the value is boolean=true
++                else if (value.equalsIgnoreCase("true")) {
++                    Boolean valuetrue = true;
++                    ConfigManager.defaultConfig.get().set("Abilities." + element + "." + movename + "." + variable,
++                            valuetrue);
++
++                    saveConfig();
++                    player.sendMessage("- " + ability.getElement().getColor() + move);
++                    player.sendMessage(ChatColor.GOLD + variable + ChatColor.WHITE + ":");
++                    player.sendMessage(ChatColor.GREEN + value);
++                    return;
++
++                }
++                // Checks if the value is boolean=false
++                else if (value.equalsIgnoreCase("false")) {
++                    Boolean valuefalse = false;
++                    ConfigManager.defaultConfig.get().set("Abilities." + element + "." + movename + "." + variable,
++                            valuefalse);
++
++                    saveConfig();
++                    player.sendMessage("- " + ability.getElement().getColor() + move);
++                    player.sendMessage(ChatColor.GOLD + variable + ChatColor.WHITE + ":");
++                    player.sendMessage(ChatColor.RED + value);
++                    return;
++
++                } else {
++                    player.sendMessage(ChatColor.RED + "Incorrect usage. Type " + ChatColor.GOLD + "/b config help "
++                            + ChatColor.RED + "for information on how to properly use this command.");
++
++                }
++
++            }
++        }
++    }
++
++    private void saveConfig() {
++
++        ConfigManager.defaultConfig.save();
++        ConfigManager.defaultConfig.reload();
++
++    }
++
++    public static boolean isInt(String s) {
++        try {
++            Integer.parseInt(s);
++        } catch (NumberFormatException nfe) {
++            return false;
++        }
++        return true;
++    }
++
++    public static boolean isDouble(String s) {
++        try {
++            Double.parseDouble(s);
++        } catch (NumberFormatException nfe) {
++            return false;
++        }
++        return true;
++    }
++
++}

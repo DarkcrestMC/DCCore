@@ -110,6 +110,9 @@ commands:
   playerinfo:
     aliases: [pi, pinfo, playeri]
     usage: /<command>
+  configeditor:
+    aliases: [Conedit, configedit, configeditor, ce]
+    usage: /<command>
 permissions:
   DCCore.player:
     default: op
@@ -131,6 +134,7 @@ permissions:
       DCCore.ReportStaff: true
       DCCore.WarningStaff: true
       DCCore.PlayerInfo: true
+      DCCore.ConfigEditor: true
   DCCore.chat:
     default: op
     children:
