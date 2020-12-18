@@ -8,7 +8,7 @@ import com.Jacksonnn.DCCore.BannedWords.BannedWordsListener;
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
-import com.Jacksonnn.DCCore.Configuration.DiscordWebHook;
+import com.Jacksonnn.DCCore.Configuration.DiscordWebhook;
 import com.Jacksonnn.DCCore.DiamondLuck.DiamondLuck;
 import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
 import com.Jacksonnn.DCCore.Guides.BendingGuideCommand;
