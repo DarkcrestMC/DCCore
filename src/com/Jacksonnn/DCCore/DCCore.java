@@ -42,7 +42,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 import java.awt.Color;
 import com.Jacksonnn.DCCore.DCCore;
-import com.Jacksonnn.DCCore.DCPlayerListener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.event.Listener;
 
