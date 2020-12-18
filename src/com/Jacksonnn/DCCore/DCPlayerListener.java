@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import com.vexsoftware.votifier.model.VotifierEvent;
 
 public class DCPlayerListener implements Listener {
 
@@ -65,6 +66,34 @@ public class DCPlayerListener implements Listener {
         if (playerKiller != null) {
             DCPlayer dcPlayerKiller = GeneralMethods.getDCPlayer(playerKiller.getUniqueId());
             if (dcPlayerKiller != null) dcPlayerKiller.setKills(playerKiller.getStatistic(Statistic.PLAYER_KILLS));
+        }
+    }
+    }
+    
+    @EventHandler
+    public void onVotifierEvent(final VotifierEvent event) {
+        final DiscordWebhook web = new DiscordWebhook(this.plugin.getConfig().getString("Webhook"));
+        if (this.plugin.getConfig().getBoolean("embed")) {
+            final String message = ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Format").replaceAll("%player%", event.getVote().getUsername()).replaceAll("%Service_name%", event.getVote().getServiceName()));
+            final DiscordWebhook.EmbedObject embed = new DiscordWebhook.EmbedObject();
+            embed.addField(message, "Discord Vote Logger", true);
+            embed.setColor(Color.red);
+            web.addEmbed(embed);
+            try {
+                web.execute();
+                return;
+            }
+            catch (Exception exception) {
+                this.plugin.getLogger().warning("[Discord Vote Logger]Got one vote but unable to send message to discord");
+                return;
+            }
+        }
+        web.setContent(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Format").replaceAll("%player%", event.getVote().getUsername()).replaceAll("%Service_name%", event.getVote().getServiceName())));
+        try {
+            web.execute();
+        }
+        catch (Exception e) {
+            System.out.println(e);
         }
     }
 }
