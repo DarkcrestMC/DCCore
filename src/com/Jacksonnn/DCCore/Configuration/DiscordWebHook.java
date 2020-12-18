@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.Jacksonnn.DCCore.DCCore;
 
-public class DiscordWebhook
+public class DiscordWebHook
 {
     private final String url;
     private String content;
