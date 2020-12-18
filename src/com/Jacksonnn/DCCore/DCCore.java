@@ -8,6 +8,7 @@ import com.Jacksonnn.DCCore.BannedWords.BannedWordsListener;
 import com.Jacksonnn.DCCore.Broadcast.BroadcastCommand;
 import com.Jacksonnn.DCCore.ChatSensor.ChatListener;
 import com.Jacksonnn.DCCore.Configuration.ConfigManager;
+import com.Jacksonnn.DCCore.Configuration.DiscordWebHook;
 import com.Jacksonnn.DCCore.DiamondLuck.DiamondLuck;
 import com.Jacksonnn.DCCore.DiamondLuck.ResponseListener;
 import com.Jacksonnn.DCCore.Guides.BendingGuideCommand;
@@ -91,6 +92,7 @@ public class DCCore extends JavaPlugin {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 
 		dcpm.loadDCPlayers();
 		pdm.loadNotes();
@@ -106,6 +108,24 @@ public class DCCore extends JavaPlugin {
 		BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 		scheduler.scheduleSyncRepeatingTask(this, new AnnouncerThread(this), AnnouncementManager.getInterval() * 20L, AnnouncementManager.getInterval() * 20L);
 		Bukkit.getServer().getLogger().info("DCCore has successfully been enabled!");
+		
+		//initialize Discord Webhook
+	        final DiscordWebhook web = new DiscordWebhook(this.getConfig().getString("Webhook"));
+       		final String message = "Enabled";
+        	final DiscordWebhook.EmbedObject embed = new DiscordWebhook.EmbedObject();
+        	embed.addField(message, ":)", true);
+        	embed.setColor(Color.red);
+        	web.addEmbed(embed);
+        	try {
+        	    web.execute();
+        	}
+       		 catch (Exception exception) {
+         	   this.getLogger().warning("[Discord Vote Logger]Unable to send plugin load message to discord");
+       		}
+        	System.out.println("Web Vote logger by SaltyGraham loaded");
+        	Bukkit.getPluginManager().registerEvents((Listener)new DCPlayerListener(this), (Plugin)this);	
+		
+		
 	}
 	
 	public void onDisable() {
