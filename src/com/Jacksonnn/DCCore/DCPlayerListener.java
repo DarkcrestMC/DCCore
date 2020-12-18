@@ -13,8 +13,12 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import com.Jacksonnn.DCCore.Configuration.DiscordWebHook;
 import com.vexsoftware.votifier.model.VotifierEvent;
 
-public class DCPlayerListener implements Listener {
-
+public class DCPlayerListener implements Listener{
+    private final Main plugin;
+    
+    public DCPlayerListener(final Main plugin) {
+        this.plugin = plugin;
+    }
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         DCPlayer dcPlayer = GeneralMethods.getDCPlayer(e.getPlayer().getUniqueId());
