@@ -14,9 +14,9 @@ import com.Jacksonnn.DCCore.Configuration.DiscordWebhook;
 import com.vexsoftware.votifier.model.VotifierEvent;
 
 public class DCPlayerListener implements Listener{
-    private final Main plugin;
+    private final DCCore plugin;
     
-    public DCPlayerListener(final Main plugin) {
+    public DCPlayerListener(final DCCore plugin) {
         this.plugin = plugin;
     }
     @EventHandler
