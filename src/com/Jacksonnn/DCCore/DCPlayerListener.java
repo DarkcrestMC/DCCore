@@ -68,7 +68,6 @@ public class DCPlayerListener implements Listener {
             if (dcPlayerKiller != null) dcPlayerKiller.setKills(playerKiller.getStatistic(Statistic.PLAYER_KILLS));
         }
     }
-    }
     
     @EventHandler
     public void onVotifierEvent(final VotifierEvent event) {
