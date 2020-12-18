@@ -24,7 +24,7 @@ public class DiscordWebHook
     private boolean tts;
     private List<EmbedObject> embeds;
     
-    public DiscordWebhook(final String url) {
+    public DiscordWebHook(final String url) {
         this.embeds = new ArrayList<EmbedObject>();
         this.url = url;
     }
