@@ -143,12 +143,12 @@ public class DCCore extends JavaPlugin {
 		pm.registerEvents(new SpawnerListener(), this);
 		pm.registerEvents(new QuickDepositListener(), this);
 		pm.registerEvents(new ChatListener(), this);
-        pm.registerEvents(new ResponseListener(), this);
-        pm.registerEvents(new GuestQuizListener(), this);
-        pm.registerEvents(new onChatEvent(), this);
-        pm.registerEvents(new StaffNotification(), this);
-        pm.registerEvents(new Vanish(), this);
-        pm.registerEvents(new BannedWordsListener(), this);
+        	pm.registerEvents(new ResponseListener(), this);
+       		pm.registerEvents(new GuestQuizListener(), this);
+        	pm.registerEvents(new onChatEvent(), this);
+        	pm.registerEvents(new StaffNotification(), this);
+        	pm.registerEvents(new Vanish(), this);
+        	pm.registerEvents(new BannedWordsListener(), this);
 		pm.registerEvents(new DCPlayerListener(), this);
 	}
 	
