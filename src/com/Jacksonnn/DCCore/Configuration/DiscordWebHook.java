@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.Jacksonnn.DCCore.DCCore;
 
-public class DiscordWebHook
+public class DiscordWebhook
 {
     private final String url;
     private String content;
@@ -24,7 +24,7 @@ public class DiscordWebHook
     private boolean tts;
     private List<EmbedObject> embeds;
     
-    public DiscordWebHook(final String url) {
+    public DiscordWebhook(final String url) {
         this.embeds = new ArrayList<EmbedObject>();
         this.url = url;
     }
