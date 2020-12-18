@@ -13,6 +13,7 @@ import javax.net.ssl.HttpsURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import com.Jacksonnn.DCCore.DCCore;
 
 public class DiscordWebhook
 {
