@@ -82,8 +82,8 @@ public class DCPlayerListener implements Listener{
         if (this.plugin.getConfig().getBoolean("embed")) {
             final String message = ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Format").replaceAll("%player%", event.getVote().getUsername()).replaceAll("%Service_name%", event.getVote().getServiceName()));
             final DiscordWebhook.EmbedObject embed = new DiscordWebhook.EmbedObject();
-            embed.addField(message, "Discord Vote Logger", true);
-            embed.setColor(Color.red);
+            embed.addField(message, "Everyone Thank Them!", true);
+            embed.setColor(Color.green);
             web.addEmbed(embed);
             try {
                 web.execute();
