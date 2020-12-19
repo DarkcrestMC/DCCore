@@ -149,7 +149,6 @@ public class DCCore extends JavaPlugin {
         	pm.registerEvents(new StaffNotification(), this);
         	pm.registerEvents(new Vanish(), this);
         	pm.registerEvents(new BannedWordsListener(), this);
-		pm.registerEvents(new DCPlayerListener(), this);
 	}
 	
 	private void registerCommands() {
