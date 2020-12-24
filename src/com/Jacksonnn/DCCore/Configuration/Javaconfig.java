@@ -1,4 +1,4 @@
-package com.Jacksonnn.DCCore.Configuration
+package com.Jacksonnn.DCCore.Configuration;
 
 import java.io.IOException;
 import java.util.logging.Level;
