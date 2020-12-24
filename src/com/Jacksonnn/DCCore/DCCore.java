@@ -112,10 +112,10 @@ public class DCCore extends JavaPlugin {
 		
 		//initialize Discord Webhook
 	        final DiscordWebhook web = new DiscordWebhook(this.getConfig().getString("Webhook"));
-       		final String message = "Enabled";
+       		final String message = "Listening";
         	final DiscordWebhook.EmbedObject embed = new DiscordWebhook.EmbedObject();
-        	embed.addField(message, ":)", true);
-        	embed.setColor(Color.red);
+        	embed.addField(message, ":)", false);
+        	embed.setColor(Color.green);
         	web.addEmbed(embed);
         	try {
         	    web.execute();

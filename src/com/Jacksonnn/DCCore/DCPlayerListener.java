@@ -79,8 +79,8 @@ public class DCPlayerListener implements Listener{
     
     @EventHandler
     public void onVotifierEvent(final VotifierEvent event) {
-        final DiscordWebhook web = new DiscordWebhook(this.plugin.getConfig().getString("Vote.link"));
-        if (this.plugin.getConfig().getBoolean("Vote.embed")) {
+        final DiscordWebhook web = new DiscordWebhook(this.plugin.getConfig().getString("Webhook"));
+        if (this.plugin.getConfig().getBoolean("Enabled")) {
             final String message = ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Format").replaceAll("%player%", event.getVote().getUsername()).replaceAll("%Service_name%", event.getVote().getServiceName()));
             final DiscordWebhook.EmbedObject embed = new DiscordWebhook.EmbedObject();
             embed.addField(message, "Everyone Thank Them!", true);

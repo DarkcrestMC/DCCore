@@ -10,16 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a67906e8-cd96-423d-8d5c-714c33e03f18" name="Default" comment="Config option added for &quot;0 player&quot; staff notification. Disabled by default">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DCCore2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DCCore2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Configuration/ConfigManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCCore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCPlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/DCPlayerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingFix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingFix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/OverrideCommands/BendingHelp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/DoGuestQuizCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/DoGuestQuizCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/GuestQuizListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/Rankup/GuestQuizListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Warnings/Warning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Warnings/Warning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,13 +45,6 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.3.2\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -71,13 +60,21 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584246475133" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/Jacksonnn/DCCore/StaffUtils/Warnings" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -99,6 +96,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -108,7 +116,23 @@
     </configuration>
     <configuration name="Build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
-        <option name="myGeneralSettings" />
+        <option name="myGeneralSettings">
+          <MavenGeneralSettings>
+            <option name="alwaysUpdateSnapshots" value="true" />
+            <option name="checksumPolicy" value="NOT_SET" />
+            <option name="failureBehavior" value="NOT_SET" />
+            <option name="localRepository" value="" />
+            <option name="mavenHome" value="Bundled (Maven 3)" />
+            <option name="nonRecursive" value="false" />
+            <option name="outputLevel" value="DEBUG" />
+            <option name="pluginUpdatePolicy" value="DEFAULT" />
+            <option name="printErrorStackTraces" value="true" />
+            <option name="threads" />
+            <option name="usePluginRegistry" value="true" />
+            <option name="userSettingsFile" value="" />
+            <option name="workOffline" value="true" />
+          </MavenGeneralSettings>
+        </option>
         <option name="myRunnerSettings" />
         <option name="myRunnerParameters">
           <MavenRunnerParameters>
@@ -180,6 +204,7 @@
       <workItem from="1583291695107" duration="26046000" />
       <workItem from="1583892341626" duration="3823000" />
       <workItem from="1583898268959" duration="6870000" />
+      <workItem from="1608826180404" duration="2453000" />
     </task>
     <task id="LOCAL-00001" summary="Moved programming workspace to IntelliJ instead of Eclipse.">
       <created>1527464732071</created>
@@ -447,7 +472,7 @@
     <option name="totallyTimeSpent" value="156968000" />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
     <option name="UPDATE_COPYRIGHT" value="true" />
@@ -482,101 +507,6 @@
     <MESSAGE value="Config option added for &quot;0 player&quot; staff notification. Disabled by default" />
     <option name="LAST_COMMIT_MESSAGE" value="Config option added for &quot;0 player&quot; staff notification. Disabled by default" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596421252442">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596421252442" />
-    <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1597005479385">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1597005479385" />
-    <state x="640" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603576612600">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="640" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1603576612600" />
-    <state x="9" y="62" width="1911" height="929" key="CommitChangelistDialog2" timestamp="1602811703733">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="-1908" y="-8" width="1637" height="827" key="CommitChangelistDialog2/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597537902256" />
-    <state x="9" y="62" width="1911" height="929" key="CommitChangelistDialog2/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602811703733" />
-    <state width="1877" height="160" key="GridCell.Tab.0.bottom" timestamp="1602040601997">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="160" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597538457764" />
-    <state width="1877" height="160" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602040601997" />
-    <state width="1877" height="160" key="GridCell.Tab.0.center" timestamp="1602040601997">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="160" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597538457764" />
-    <state width="1877" height="160" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602040601997" />
-    <state width="1877" height="160" key="GridCell.Tab.0.left" timestamp="1602040601997">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="160" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597538457764" />
-    <state width="1877" height="160" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602040601997" />
-    <state width="1877" height="160" key="GridCell.Tab.0.right" timestamp="1602040601997">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="160" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597538457764" />
-    <state width="1877" height="160" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602040601997" />
-    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1596423506977">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596423506977" />
-    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1596423506976">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596423506976" />
-    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1596423506976">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596423506976" />
-    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1596423506976">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596423506976" />
-    <state x="540" y="282" key="IDE.errors.dialog" timestamp="1599938984405">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="540" y="282" key="IDE.errors.dialog/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1599938984405" />
-    <state x="764" y="242" key="RollbackChangesDialog" timestamp="1599186455662">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="764" y="242" key="RollbackChangesDialog/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1599186455662" />
-    <state x="61" y="358" key="Vcs.Push.Dialog.v2" timestamp="1602029008810">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="-1368" y="202" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597537891654" />
-    <state x="61" y="358" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602029008810" />
-    <state x="679" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600042989466">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="-1241" y="369" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597538456313" />
-    <state x="679" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1600042989466" />
-    <state x="92" y="92" width="1736" height="896" key="dock-window-1" timestamp="1596426171671">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="92" y="92" width="1736" height="896" key="dock-window-1/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596426171671" />
-    <state x="92" y="92" width="1736" height="896" key="dock-window-2" timestamp="1596426171671">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="92" y="92" width="1736" height="896" key="dock-window-2/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596426171671" />
-    <state x="1222" y="250" width="585" height="534" key="find.popup" timestamp="1599186505126">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="-698" y="180" width="585" height="534" key="find.popup/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597352596029" />
-    <state x="1222" y="250" width="585" height="534" key="find.popup/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1599186505126" />
-    <state x="616" y="250" key="run.anything.popup" timestamp="1596863514503">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1596863514503" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1602811496408">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="-1297" y="165" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/-1920.-70.1920.1080@-1920.-70.1920.1080" timestamp="1597352579023" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/-1920.-70.1920.1080@0.0.1920.1080" timestamp="1602811496408" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

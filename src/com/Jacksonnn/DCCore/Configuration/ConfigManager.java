@@ -103,8 +103,9 @@ public class ConfigManager {
 
             config.addDefault("Rankup.Prices.DarkSpirit", 500000);
             config.addDefault("Rankup.Hours.DarkSpirit", 30);
-            config.addDefault("Voting.Link", "insert link here");
-            config.addDefault("Voting.Embed", true);
+            config.addDefault("Webhook", "insert link here");
+            config.addDefault("Enabled", true);
+            config.addDefault("Format","%player% has vote for us on %Service_name%");
             defaultConfig.save();
         } else if (type == ConfigType.LANGUAGE) {
             config = langConfig.get();
