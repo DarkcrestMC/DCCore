@@ -40,11 +40,8 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
-import java.awt.Color;
-import com.Jacksonnn.DCCore.DCCore;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.event.Listener;
 
+import java.awt.*;
 import java.sql.SQLException;
 
 public class DCCore extends JavaPlugin {
@@ -126,8 +123,8 @@ public class DCCore extends JavaPlugin {
        		 catch (Exception exception) {
          	   this.getLogger().warning("[Discord Vote Logger]Unable to send plugin load message to discord");
        		}
-        	System.out.println("Web Vote logger by SaltyGraham loaded");
-        	Bukkit.getPluginManager().registerEvents((Listener)new DCPlayerListener(this), (Plugin)this);	
+        	System.out.println("DC Votes!");
+        	Bukkit.getPluginManager().registerEvents(new DCPlayerListener(this), this);
 		
 		
 	}

@@ -1,17 +1,18 @@
 package com.Jacksonnn.DCCore;
 
+import com.Jacksonnn.DCCore.Configuration.DiscordWebhook;
+import com.vexsoftware.votifier.model.VotifierEvent;
 import org.bukkit.Bukkit;
-import org.bukkit.Statistic;
-import java.awt.Color;
 import org.bukkit.ChatColor;
+import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import com.Jacksonnn.DCCore.Configuration.DiscordWebhook;
-import com.vexsoftware.votifier.model.VotifierEvent;
+
+import java.awt.*;
 
 public class DCPlayerListener implements Listener{
     private final DCCore plugin;
@@ -78,8 +79,8 @@ public class DCPlayerListener implements Listener{
     
     @EventHandler
     public void onVotifierEvent(final VotifierEvent event) {
-        final DiscordWebhook web = new DiscordWebhook(this.plugin.getConfig().getString("Webhook"));
-        if (this.plugin.getConfig().getBoolean("embed")) {
+        final DiscordWebhook web = new DiscordWebhook(this.plugin.getConfig().getString("Vote.link"));
+        if (this.plugin.getConfig().getBoolean("Vote.embed")) {
             final String message = ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Format").replaceAll("%player%", event.getVote().getUsername()).replaceAll("%Service_name%", event.getVote().getServiceName()));
             final DiscordWebhook.EmbedObject embed = new DiscordWebhook.EmbedObject();
             embed.addField(message, "Everyone Thank Them!", true);

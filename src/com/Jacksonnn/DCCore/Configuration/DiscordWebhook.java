@@ -1,19 +1,14 @@
 
 package com.Jacksonnn.DCCore.Configuration;
 
-import java.util.Set;
-import java.lang.reflect.Array;
-import java.util.Map;
-import java.util.HashMap;
+import javax.net.ssl.HttpsURLConnection;
+import java.awt.*;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.awt.Color;
-import java.util.Iterator;
-import javax.net.ssl.HttpsURLConnection;
+import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-import com.Jacksonnn.DCCore.DCCore;
+import java.util.*;
 
 public class DiscordWebhook
 {
@@ -22,7 +17,7 @@ public class DiscordWebhook
     private String username;
     private String avatarUrl;
     private boolean tts;
-    private List<EmbedObject> embeds;
+    private final List<EmbedObject> embeds;
     
     public DiscordWebhook(final String url) {
         this.embeds = new ArrayList<EmbedObject>();
@@ -137,7 +132,7 @@ public class DiscordWebhook
         private Thumbnail thumbnail;
         private Image image;
         private Author author;
-        private List<Field> fields;
+        private final List<Field> fields;
         
         public EmbedObject() {
             this.fields = new ArrayList<Field>();
@@ -226,8 +221,8 @@ public class DiscordWebhook
         
         private class Footer
         {
-            private String text;
-            private String iconUrl;
+            private final String text;
+            private final String iconUrl;
             
             private Footer(final String text, final String iconUrl) {
                 this.text = text;
@@ -245,7 +240,7 @@ public class DiscordWebhook
         
         private class Thumbnail
         {
-            private String url;
+            private final String url;
             
             private Thumbnail(final String url) {
                 this.url = url;
@@ -258,7 +253,7 @@ public class DiscordWebhook
         
         private class Image
         {
-            private String url;
+            private final String url;
             
             private Image(final String url) {
                 this.url = url;
@@ -271,9 +266,9 @@ public class DiscordWebhook
         
         private class Author
         {
-            private String name;
-            private String url;
-            private String iconUrl;
+            private final String name;
+            private final String url;
+            private final String iconUrl;
             
             private Author(final String name, final String url, final String iconUrl) {
                 this.name = name;
@@ -296,9 +291,9 @@ public class DiscordWebhook
         
         private class Field
         {
-            private String name;
-            private String value;
-            private boolean inline;
+            private final String name;
+            private final String value;
+            private final boolean inline;
             
             private Field(final String name, final String value, final boolean inline) {
                 this.name = name;

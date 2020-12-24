@@ -10,6 +10,7 @@ public class ConfigManager {
     public static Config defaultConfig;
     public static Config bannedWords;
     public static Config announcer;
+    public static Config webhook;
 
     public static void setupConfigManager() {
         defaultConfig = new Config(new File("config.yml"));
@@ -72,6 +73,8 @@ public class ConfigManager {
             config.addDefault("RandomTP.Radius", 5000000);
             config.addDefault("RandomTP.WorldSizeDividedBy", 8);
 
+
+
             ArrayList<Integer> defaultPrices = new ArrayList<>();
             defaultPrices.add(0);
             defaultPrices.add(5000);
@@ -100,6 +103,8 @@ public class ConfigManager {
 
             config.addDefault("Rankup.Prices.DarkSpirit", 500000);
             config.addDefault("Rankup.Hours.DarkSpirit", 30);
+            config.addDefault("Voting.Link", "insert link here");
+            config.addDefault("Voting.Embed", true);
             defaultConfig.save();
         } else if (type == ConfigType.LANGUAGE) {
             config = langConfig.get();
@@ -178,5 +183,7 @@ public class ConfigManager {
             config.addDefault("announcements.messages", messages);
             announcer.save();
         }
+
+
     }
 }
