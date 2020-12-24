@@ -13,11 +13,11 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class Javaconfig
 {
-    private Main plugin;
+    private DCCore plugin;
     private FileConfiguration dataConfig;
     private File configFile;
     
-    public Javaconfig(final Main plugin) {
+    public Javaconfig(final DCCore plugin) {
         this.dataConfig = null;
         this.configFile = null;
         this.plugin = plugin;
